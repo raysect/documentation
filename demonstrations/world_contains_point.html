@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Point Inside A Material &#8212; Raysect 0.1.0a0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0a0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/RaysectLogo_web.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Raysect 0.1.0a0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="point-inside-a-material">
+<span id="demo-point-inside-material"></span><h1>Point Inside A Material<a class="headerlink" href="#point-inside-a-material" title="Permalink to this headline">¶</a></h1>
+<p>This demo shows how the world.contains() method can be used to query the world for
+all primitives that intersect the test point. This simple scene contains a Sphere
+at the origin of radius 0.5m. A grid of test points is generated in the x-y plane.
+Each point is tested to see if it lies inside the sphere. The test points are
+plotted in the figure, coloured by their true (inside)/false (outside) categorisation.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="c1"># External imports</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Internal imports</span>
+<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">Point3D</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="n">schott</span>
+<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">World contains point</span>
+<span class="sd">--------------------</span>
+
+<span class="sd">This demo shows how the world.contains() method can be used to query the world for</span>
+<span class="sd">all primitives that intersect the test point. This simple scene contains a Sphere</span>
+<span class="sd">at the origin of radius 0.5m. A grid of test points is generated in the x-y plane.</span>
+<span class="sd">Each point is tested to see if it lies inside the sphere.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+
+<span class="c1"># Place test sphere at origin</span>
+<span class="n">sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;N-BK7&quot;</span><span class="p">))</span>
+<span class="n">sphere</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">world</span>
+
+<span class="c1"># Construct test points in x-y plane</span>
+
+<span class="n">xpts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">ypts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="n">x_inside</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">y_inside</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">x_outside</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">y_outside</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xpts</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">ypts</span><span class="p">:</span>
+
+        <span class="n">test_point</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># For each test point, call world.contains() which returns a list of primitives that contain the test point.</span>
+        <span class="n">primitives</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">test_point</span><span class="p">)</span>
+
+        <span class="c1"># Next we see if the sphere is in the list of primitives returned. If yes, the test point lies inside the</span>
+        <span class="c1"># sphere, otherwise it must be outside.</span>
+        <span class="k">if</span> <span class="n">sphere</span> <span class="ow">in</span> <span class="n">primitives</span><span class="p">:</span>
+            <span class="n">x_inside</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">y_inside</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x_outside</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">y_outside</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_inside</span><span class="p">,</span> <span class="n">y_inside</span><span class="p">,</span> <span class="s1">&#39;.r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;inside&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_outside</span><span class="p">,</span> <span class="n">y_outside</span><span class="p">,</span> <span class="s1">&#39;.b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;outside&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/test_point_inside_material.png" class="align-center" src="../_images/test_point_inside_material.png" />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/RaysectLogo_web.png" alt="Logo"/>
+            </a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/demonstrations/world_contains_point.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Raysect 0.1.0a0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Dr Alex Meakins.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

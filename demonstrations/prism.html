@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Dispersion through a Prism &#8212; Raysect 0.1.0a0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.1.0a0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/RaysectLogo_web.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Raysect 0.1.0a0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dispersion-through-a-prism">
+<span id="demo-prism-dispersion"></span><h1>Dispersion through a Prism<a class="headerlink" href="#dispersion-through-a-prism" title="Permalink to this headline">¶</a></h1>
+<p>This demo demonstrates the dispersion of a white light source through a prism. Note, it may take a very long time to
+generate adequate samples for this demonstration.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="c1"># External module imports</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">tan</span><span class="p">,</span> <span class="n">pi</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Raysect imports</span>
+<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">d65_white</span><span class="p">,</span> <span class="n">ConstantSF</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="k">import</span> <span class="n">Lambert</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material.emitter</span> <span class="k">import</span> <span class="n">UniformSurfaceEmitter</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="n">schott</span>
+<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Intersect</span><span class="p">,</span> <span class="n">Subtract</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Cylinder</span><span class="p">,</span> <span class="n">Sphere</span>
+
+
+<span class="c1"># Utility method to construct a glass prism from CSG operations</span>
+<span class="k">def</span> <span class="nf">equilateral_prism</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="n">half_width</span> <span class="o">=</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">mid_point</span> <span class="o">=</span> <span class="n">half_width</span> <span class="o">*</span> <span class="n">tan</span><span class="p">(</span><span class="mi">60</span><span class="o">/</span><span class="mi">180</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+    <span class="n">centre</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="n">half_width</span> <span class="o">*</span> <span class="mf">1.001</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="n">half_width</span> <span class="o">*</span> <span class="mf">1.001</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">))</span>
+
+    <span class="n">left</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">height</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">,</span> <span class="o">-</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">),</span>
+               <span class="n">Point3D</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">*</span> <span class="mf">1.001</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">width</span><span class="p">),</span>
+               <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="n">half_width</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">right</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="p">,</span> <span class="o">-</span><span class="n">height</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">,</span> <span class="o">-</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">),</span>
+                <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">height</span> <span class="o">*</span> <span class="mf">1.001</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">width</span><span class="p">),</span>
+                <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="n">half_width</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="n">csg_prism</span> <span class="o">=</span> <span class="n">Subtract</span><span class="p">(</span><span class="n">Subtract</span><span class="p">(</span><span class="n">centre</span><span class="p">,</span> <span class="n">left</span><span class="p">),</span> <span class="n">right</span><span class="p">,</span>
+                     <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span> <span class="o">*</span> <span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">mid_point</span><span class="p">),</span>
+                     <span class="n">material</span><span class="o">=</span><span class="n">material</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">csg_prism</span>
+
+
+<span class="c1"># Utility method to construct a box with a slit emitting white light</span>
+<span class="k">def</span> <span class="nf">light_box</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="c1"># Notice that this function is creating and returning a parent node which holds references</span>
+    <span class="c1"># to the underlying primitives.</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+
+    <span class="n">outer</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+    <span class="n">slit</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.0015</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.045</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.0015</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.0001</span><span class="p">))</span>
+
+    <span class="n">Subtract</span><span class="p">(</span><span class="n">outer</span><span class="p">,</span> <span class="n">slit</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">node</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">(</span><span class="n">reflectivity</span><span class="o">=</span><span class="n">ConstantSF</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)))</span>
+
+    <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.0015</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.045</span><span class="p">),</span>
+        <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.0015</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.04</span><span class="p">),</span>
+        <span class="n">parent</span><span class="o">=</span><span class="n">node</span><span class="p">,</span>
+        <span class="n">material</span><span class="o">=</span><span class="n">UniformSurfaceEmitter</span><span class="p">(</span><span class="n">d65_white</span><span class="p">,</span> <span class="mi">250</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">node</span>
+
+
+<span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+
+
+<span class="c1"># construct diffuse floor surface</span>
+<span class="n">floor</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span>
+            <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">())</span>
+
+
+<span class="c1"># construct prism from utility method</span>
+<span class="n">prism</span> <span class="o">=</span> <span class="n">equilateral_prism</span><span class="p">(</span><span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+                          <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;SF11&quot;</span><span class="p">),</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="o">+</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+
+<span class="c1"># Curved target screen for collecting rainbow light</span>
+<span class="n">screen</span> <span class="o">=</span> <span class="n">Intersect</span><span class="p">(</span>
+    <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+    <span class="n">Subtract</span><span class="p">(</span><span class="n">Cylinder</span><span class="p">(</span><span class="mf">0.22</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">),</span>
+             <span class="n">Cylinder</span><span class="p">(</span><span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.005</span><span class="p">)),</span>
+             <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+    <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">()</span>
+<span class="p">)</span>
+
+
+<span class="c1"># construct main collimated light source</span>
+<span class="n">prism_light</span> <span class="o">=</span> <span class="n">light_box</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+                        <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mf">35.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">translate</span><span class="p">(</span><span class="mf">0.10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+
+<span class="c1"># background light source</span>
+<span class="n">top_light</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+                   <span class="n">material</span><span class="o">=</span><span class="n">UniformSurfaceEmitter</span><span class="p">(</span><span class="n">d65_white</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+
+<span class="c1"># Give the prism a high importance to ensure adequate sampling</span>
+<span class="n">prism</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">importance</span> <span class="o">=</span> <span class="mi">9</span>
+
+
+<span class="c1"># create and setup the camera</span>
+<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">(</span><span class="n">fov</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">)</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">65</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">ray_importance_sampling</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">ray_important_path_weight</span> <span class="o">=</span> <span class="mf">0.75</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">ray_min_depth</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">ray_max_depth</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">ray_extinction_prob</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">spectral_rays</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">spectral_samples</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">pixels</span> <span class="o">=</span> <span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">display_progress</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">display_update_time</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">accumulate</span> <span class="o">=</span> <span class="kc">True</span>
+
+
+<span class="c1"># start ray tracing</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendering pass </span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2"> samples/pixel)...&quot;</span>
+          <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">camera</span><span class="o">.</span><span class="n">accumulated_samples</span> <span class="o">+</span> <span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">*</span> <span class="n">camera</span><span class="o">.</span><span class="n">spectral_rays</span><span class="p">))</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">observe</span><span class="p">()</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;prisms_</span><span class="si">{}</span><span class="s2">_samples.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">camera</span><span class="o">.</span><span class="n">accumulated_samples</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+
+<span class="c1"># display final result</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ioff</span><span class="p">()</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+
+</pre></div>
+</div>
+<img alt="../_images/prism_720x360.jpg" class="align-center" src="../_images/prism_720x360.jpg" />
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/RaysectLogo_web.png" alt="Logo"/>
+            </a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/demonstrations/prism.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Raysect 0.1.0a0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2015, Dr Alex Meakins.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>
