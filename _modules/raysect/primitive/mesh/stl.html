@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>raysect.primitive.mesh.stl &#8212; Raysect 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/theme_overrides.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../../../_static/RaysectLogo_web.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for raysect.primitive.mesh.stl</h1><div class="highlight"><pre>
+<span></span><span class="c1"># cython: language_level=3</span>
+
+<span class="c1"># Copyright (c) 2015, Dr Alex Meakins, Raysect Project</span>
+<span class="c1"># All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Redistribution and use in source and binary forms, with or without</span>
+<span class="c1"># modification, are permitted provided that the following conditions are met:</span>
+<span class="c1">#</span>
+<span class="c1">#     1. Redistributions of source code must retain the above copyright notice,</span>
+<span class="c1">#        this list of conditions and the following disclaimer.</span>
+<span class="c1">#</span>
+<span class="c1">#     2. Redistributions in binary form must reproduce the above copyright</span>
+<span class="c1">#        notice, this list of conditions and the following disclaimer in the</span>
+<span class="c1">#        documentation and/or other materials provided with the distribution.</span>
+<span class="c1">#</span>
+<span class="c1">#     3. Neither the name of the Raysect Project nor the names of its</span>
+<span class="c1">#        contributors may be used to endorse or promote products derived from</span>
+<span class="c1">#        this software without specific prior written permission.</span>
+<span class="c1">#</span>
+<span class="c1"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;</span>
+<span class="c1"># AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</span>
+<span class="c1"># IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</span>
+<span class="c1"># ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE</span>
+<span class="c1"># LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR</span>
+<span class="c1"># CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF</span>
+<span class="c1"># SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS</span>
+<span class="c1"># INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN</span>
+<span class="c1"># CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)</span>
+<span class="c1"># ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</span>
+<span class="c1"># POSSIBILITY OF SUCH DAMAGE.</span>
+
+<span class="kn">from</span> <span class="nn">raysect.primitive.mesh</span> <span class="k">import</span> <span class="n">Mesh</span>
+<span class="kn">import</span> <span class="nn">struct</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">STL_AUTOMATIC</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">STL_ASCII</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">STL_BINARY</span> <span class="o">=</span> <span class="mi">2</span>
+
+
+<span class="k">class</span> <span class="nc">STLHandler</span><span class="p">:</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">import_stl</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">STL_AUTOMATIC</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">STL_ASCII</span><span class="p">:</span>
+            <span class="n">vertices</span><span class="p">,</span> <span class="n">triangles</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_load_ascii</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">scaling</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">STL_BINARY</span><span class="p">:</span>
+            <span class="n">vertices</span><span class="p">,</span> <span class="n">triangles</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_load_binary</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">scaling</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">vertices</span><span class="p">,</span> <span class="n">triangles</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_load_ascii</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">scaling</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">vertices</span><span class="p">,</span> <span class="n">triangles</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_load_binary</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">scaling</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Mesh</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">triangles</span><span class="p">,</span> <span class="n">smoothing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_load_ascii</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">scaling</span><span class="p">):</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+            <span class="n">line</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_get_ascii_line</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;solid&#39;</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;ASCII STL files should start with a solid definition. The application that produced this STL &#39;</span>
+                                 <span class="s1">&#39;file may be faulty, please report this error. The erroneous line: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">_ascii_read_triangle</span><span class="p">(</span><span class="n">fh</span><span class="p">,</span> <span class="n">scaling</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_ascii_read_triangle</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">fh</span><span class="p">,</span> <span class="n">scaling</span><span class="p">):</span>
+
+        <span class="n">vertices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">triangles</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># read</span>
+                <span class="n">_</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_get_ascii_line</span><span class="p">(</span><span class="n">fh</span><span class="p">,</span> <span class="s1">&#39;facet normal&#39;</span><span class="p">)</span>
+                <span class="k">assert</span> <span class="n">cls</span><span class="o">.</span><span class="n">_get_ascii_line</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;outer loop&#39;</span>
+                <span class="n">v1</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_get_ascii_line</span><span class="p">(</span><span class="n">fh</span><span class="p">,</span> <span class="s1">&#39;vertex&#39;</span><span class="p">)</span>
+                <span class="n">v2</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_get_ascii_line</span><span class="p">(</span><span class="n">fh</span><span class="p">,</span> <span class="s1">&#39;vertex&#39;</span><span class="p">)</span>
+                <span class="n">v3</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_get_ascii_line</span><span class="p">(</span><span class="n">fh</span><span class="p">,</span> <span class="s1">&#39;vertex&#39;</span><span class="p">)</span>
+                <span class="k">assert</span> <span class="n">cls</span><span class="o">.</span><span class="n">_get_ascii_line</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;endloop&#39;</span>
+                <span class="k">assert</span> <span class="n">cls</span><span class="o">.</span><span class="n">_get_ascii_line</span><span class="p">(</span><span class="n">fh</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;endfacet&#39;</span>
+
+                <span class="c1"># store</span>
+                <span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">scaling</span> <span class="o">*</span> <span class="n">v1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">scaling</span> <span class="o">*</span> <span class="n">v1</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">scaling</span> <span class="o">*</span> <span class="n">v1</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+                <span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">scaling</span> <span class="o">*</span> <span class="n">v2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">scaling</span> <span class="o">*</span> <span class="n">v2</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">scaling</span> <span class="o">*</span> <span class="n">v2</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+                <span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">scaling</span> <span class="o">*</span> <span class="n">v3</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">scaling</span> <span class="o">*</span> <span class="n">v3</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">scaling</span> <span class="o">*</span> <span class="n">v3</span><span class="p">[</span><span class="mi">2</span><span class="p">]])</span>
+                <span class="n">triangles</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+
+            <span class="k">except</span> <span class="ne">AssertionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+                <span class="k">break</span>
+
+        <span class="k">return</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">triangles</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_get_ascii_line</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">fh</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+
+        <span class="c1"># get next line, remove whitespace i.e. indentation, newline character, etc</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">prefix</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
+                <span class="n">values</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;endsolid&#39;</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">StopIteration</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> should start with </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">prefix</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Incorrect number of values in line: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">line</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_load_binary</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">scaling</span><span class="p">):</span>
+
+        <span class="c1">#: Amount of bytes to read while using buffered reading</span>
+        <span class="n">BUFFER_SIZE</span> <span class="o">=</span> <span class="mi">4096</span>
+
+        <span class="c1">#: The amount of bytes in the header field</span>
+        <span class="n">HEADER_SIZE</span> <span class="o">=</span> <span class="mi">80</span>
+
+        <span class="c1">#: The amount of bytes in the count field</span>
+        <span class="n">COUNT_SIZE</span> <span class="o">=</span> <span class="mi">4</span>
+
+        <span class="n">triangles</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+
+            <span class="n">header</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">HEADER_SIZE</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">count</span><span class="p">,</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;@i&#39;</span><span class="p">,</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">COUNT_SIZE</span><span class="p">))</span>
+
+            <span class="c1"># if check_size:</span>
+            <span class="c1">#     # Check the size of the file</span>
+            <span class="c1">#     fh.seek(0, os.SEEK_END)</span>
+            <span class="c1">#     raw_size = fh.tell() - HEADER_SIZE - COUNT_SIZE</span>
+            <span class="c1">#     expected_count = raw_size / cls.dtype.itemsize</span>
+            <span class="c1">#     if expected_count != count:</span>
+            <span class="c1">#         raise ValueError(&#39;Expected {} vectors but header indicates {}. &#39;</span>
+            <span class="c1">#                          &#39;Is file invalid?&#39;.format(expected_count, count))</span>
+            <span class="c1">#     #</span>
+            <span class="c1">#     fh.seek(HEADER_SIZE + COUNT_SIZE)</span>
+
+            <span class="n">vertices</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">triangles</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="c1"># Read the rest of the binary data</span>
+            <span class="k">while</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+
+                <span class="c1"># stored normal is not used, recalculated in Triangle</span>
+                <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nz</span><span class="p">,</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;&lt;3f&#39;</span><span class="p">,</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+
+                <span class="c1"># triangle vertices</span>
+                <span class="n">v1x</span><span class="p">,</span> <span class="n">v1y</span><span class="p">,</span> <span class="n">v1z</span><span class="p">,</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;&lt;3f&#39;</span><span class="p">,</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+                <span class="n">v2x</span><span class="p">,</span> <span class="n">v2y</span><span class="p">,</span> <span class="n">v2z</span><span class="p">,</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;&lt;3f&#39;</span><span class="p">,</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+                <span class="n">v3x</span><span class="p">,</span> <span class="n">v3y</span><span class="p">,</span> <span class="n">v3z</span><span class="p">,</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;&lt;3f&#39;</span><span class="p">,</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+
+                <span class="c1"># unused attribute</span>
+                <span class="n">attrib</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;&lt;H&#39;</span><span class="p">,</span> <span class="n">fh</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+
+                <span class="c1"># store</span>
+                <span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">scaling</span> <span class="o">*</span> <span class="n">v1x</span><span class="p">,</span> <span class="n">scaling</span> <span class="o">*</span> <span class="n">v1y</span><span class="p">,</span> <span class="n">scaling</span> <span class="o">*</span> <span class="n">v1z</span><span class="p">])</span>
+                <span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">scaling</span> <span class="o">*</span> <span class="n">v2x</span><span class="p">,</span> <span class="n">scaling</span> <span class="o">*</span> <span class="n">v2y</span><span class="p">,</span> <span class="n">scaling</span> <span class="o">*</span> <span class="n">v2z</span><span class="p">])</span>
+                <span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">scaling</span> <span class="o">*</span> <span class="n">v3x</span><span class="p">,</span> <span class="n">scaling</span> <span class="o">*</span> <span class="n">v3y</span><span class="p">,</span> <span class="n">scaling</span> <span class="o">*</span> <span class="n">v3z</span><span class="p">])</span>
+                <span class="n">triangles</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="n">count</span> <span class="o">-=</span> <span class="mi">1</span>
+
+            <span class="k">return</span> <span class="n">vertices</span><span class="p">,</span> <span class="n">triangles</span>
+
+
+<span class="n">import_stl</span> <span class="o">=</span> <span class="n">STLHandler</span><span class="o">.</span><span class="n">import_stl</span>
+
+
+
+
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../index.html">
+              <img class="logo" src="../../../../_static/RaysectLogo_web.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2017, Dr Alex Meakins.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

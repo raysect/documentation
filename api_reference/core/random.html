@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1.2.4. Random &#8212; Raysect 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.2.5. Unit Conversions" href="units.html" />
+    <link rel="prev" title="1.2.3. Affine Matricies" href="affinematrix.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="units.html" title="1.2.5. Unit Conversions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="affinematrix.html" title="1.2.3. Affine Matricies"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" >1. Raysect Core</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="math.html" accesskey="U">1.2. Math Module</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-raysect.core.math.random">
+<span id="random"></span><h1>1.2.4. Random<a class="headerlink" href="#module-raysect.core.math.random" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="raysect.core.math.random.normal">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">normal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a normally distributed random number.</p>
+<p>The mean and standard deviation of the distribution must be specified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mean</strong> (<em>float</em>) &#8211; The distribution mean.</li>
+<li><strong>stddev</strong> (<em>float</em>) &#8211; The distribution standard deviation.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Random double.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.random.point_disk">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">point_disk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.point_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a random point on a disk of unit radius.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Point2D</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.random.point_square">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">point_square</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.point_square" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a random point on a square of unit radius.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Point2D</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.random.probability">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">probability</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.probability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Samples from the Bernoulli distribution where P(True) = prob.</p>
+<p>For example, if probability is 0.8, this function will return True 80% of
+the time and False 20% of the time.</p>
+<p>Values of prob outside the [0, 1] range of probabilities will be clamped to
+the nearest end of the range [0, 1].</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>prob</strong> (<em>double</em>) &#8211; A probability from [0, 1].</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True or False.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.random.seed">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">seed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seeds the random number generator with the specified integer.</p>
+<p>If a seed is not specified the generator is automatically re-seed using the
+system cryptographic random number generator (urandom).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d</strong> &#8211; Integer seed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.random.uniform">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">uniform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.uniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate random doubles in range [0, 1).</p>
+<p>Values are uniformly distributed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Random double.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.random.vector_cone">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_cone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_cone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a random vector in a cone along the z-axis.</p>
+<p>The angle of the cone is specified with the theta parameter. For speed, no
+checks are performs on the theta parameter, it is up to user to ensure the
+angle is sensible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>theta</strong> (<em>float</em>) &#8211; An angle between 0 and 90 degrees.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A random Vector3D in the cone defined by theta.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.random.vector_hemisphere_cosine">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_hemisphere_cosine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_hemisphere_cosine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a cosine-weighted random vector on a unit hemisphere.</p>
+<p>The hemisphere is aligned along the z-axis - the plane that forms the
+hemisphere base lies in the x-y plane.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.random.vector_hemisphere_uniform">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_hemisphere_uniform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_hemisphere_uniform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a random vector on a unit hemisphere.</p>
+<p>The hemisphere is aligned along the z-axis - the plane that forms the
+hemisphere base lies in the x-y plane.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.random.vector_sphere">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_sphere</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_sphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a random vector on a unit sphere.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/RaysectLogo_web.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="affinematrix.html"
+                        title="previous chapter">1.2.3. Affine Matricies</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="units.html"
+                        title="next chapter">1.2.5. Unit Conversions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/api_reference/core/random.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="units.html" title="1.2.5. Unit Conversions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="affinematrix.html" title="1.2.3. Affine Matricies"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" >1. Raysect Core</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="math.html" >1.2. Math Module</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2017, Dr Alex Meakins.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

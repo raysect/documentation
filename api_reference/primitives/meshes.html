@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2.2. Meshes &#8212; Raysect 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.3. CSG Operations" href="csg_operations.html" />
+    <link rel="prev" title="2.1. Geometric Primitives" href="geometric_primitives.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csg_operations.html" title="2.3. CSG Operations"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="geometric_primitives.html" title="2.1. Geometric Primitives"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="primitives.html" accesskey="U">2. Primitives Module</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="meshes">
+<h1>2.2. Meshes<a class="headerlink" href="#meshes" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="raysect.primitive.mesh.obj.import_obj">
+<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">import_obj</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="raysect.primitive.mesh.stl.import_stl">
+<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">import_stl</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>mode=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-raysect.primitive.mesh.mesh"></span><dl class="class">
+<dt id="raysect.primitive.mesh.mesh.Mesh">
+<em class="property">class </em><code class="descclassname">raysect.primitive.mesh.mesh.</code><code class="descname">Mesh</code><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>This primitive defines a polyhedral surface with triangular faces.</p>
+<p>To define a new mesh, a list of vertices and triangles must be supplied.
+A set of vertex normals, used for smoothing calculations may also be
+provided.</p>
+<p>The mesh vertices are supplied as an Nx3 list/array of floating point
+values. For each Vertex, x, y and z coordinates must be supplied. e.g.</p>
+<blockquote>
+<div>vertices = [[0.0, 0.0, 1.0], [1.0, 0.0, 0.0], ...]</div></blockquote>
+<p>Vertex normals are similarly defined. Note that vertex normals must be
+correctly normalised.</p>
+<p>The triangle array is either Mx3 or Mx6 - Mx3 if only vertices are defined
+or Mx6 if both vertices and vertex normals are defined. Triangles are
+defined by indexing into the vertex and vertex normal arrays. i.e:</p>
+<blockquote>
+<div>triangles = [[v1, v2, v3, n1, n2, n3], ...]</div></blockquote>
+<p>where v1, v2, v3 are the vertex array indices specifying the triangle&#8217;s
+vertices and n1, n2, n3 are the normal array indices specifying the
+triangle&#8217;s surface normals at each vertex location. Where normals are
+not defined, n1, n2 and n3 are omitted.</p>
+<p>The mesh may be an open surface (which does not enclose a volume) or a
+closed surface (which defines a volume). The nature of the mesh must be
+specified using the closed argument. If closed is True (default) then the
+mesh must be watertight and the face normals must be facing so they point
+out of the volume. If the mesh is open then closed must be set to False.
+Incorrectly setting the closed argument may result in undefined behaviour,
+depending on the application of the ray-tracer.</p>
+<p>If vertex normals are defined for some or all of the triangles of the mesh
+then normal interpolation may be enabled for the mesh. For optical models
+this will result in a (suitably defined) mesh appearing smooth rather than
+faceted. If the triangles do not have vertex normals defined, the smoothing
+argument is ignored.</p>
+<p>An alternate option for creating a new mesh is to create an instance of an
+existing mesh. An instance is a &#8220;clone&#8221; of the original mesh. Instances
+hold references to the internal data of the target mesh, they are therefore
+very memory efficient (particularly for detailed meshes) compared to
+creating a new mesh from scratch. If instance is set, it takes precedence
+over any other mesh creation settings.</p>
+<p>If a mesh contains degenerate triangles (common for meshes generated from
+CAD models), enable tolerant mode to automatically remove them during mesh
+initialisation. A degenerate triangle is one where two or more vertices are
+coincident or all the vertices lie on the same line. Degenerate triangles
+will produce rendering error if encountered even though they are
+&#8220;infinitesimally&#8221; thin. A ray can still intersect them if they perfectly
+align as the triangle edges are treated as part of the triangle surface).</p>
+<p>The kdtree_* arguments are tuning parameters for the kd-tree construction.
+For more information see the documentation of KDTree3D. The default values
+should result in efficient construction of the mesh&#8217;s internal kd-tree.
+Generally there is no need to modify these parameters unless the memory
+used by the kd-tree must be controlled. This may occur if very large meshes
+are used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>vertices</strong> &#8211; An N x 3 list of vertices.</li>
+<li><strong>triangles</strong> &#8211; An M x 3 or N x 6 list of vertex/normal indicies defining the mesh triangles.</li>
+<li><strong>normals</strong> &#8211; An K x 3 list of vertex normals or None.</li>
+<li><strong>smoothing</strong> &#8211; True to enable normal interpolation, False to disable.</li>
+<li><strong>closed</strong> &#8211; True is the mesh defines a closed volume, False otherwise.</li>
+<li><strong>tolerant</strong> &#8211; Mesh will automatically correct meshes with degenerate triangles if set to True (default).</li>
+<li><strong>instance</strong> &#8211; The Mesh to become an instance of.</li>
+<li><strong>kdtree_max_depth</strong> &#8211; The maximum tree depth (automatic if set to 0, default is 0).</li>
+<li><strong>kdtree_min_items</strong> &#8211; The item count threshold for forcing creation of a new leaf node (default 1).</li>
+<li><strong>kdtree_hit_cost</strong> &#8211; The relative computational cost of item hit evaluations vs kd-tree traversal (default 20.0).</li>
+<li><strong>kdtree_empty_bonus</strong> &#8211; The bonus applied to node splits that generate empty leaves (default 0.2).</li>
+<li><strong>parent</strong> &#8211; Attaches the mesh to the specified scene-graph node.</li>
+<li><strong>transform</strong> &#8211; The co-ordinate transform between the mesh and its parent.</li>
+<li><strong>material</strong> &#8211; The surface/volume material.</li>
+<li><strong>name</strong> &#8211; A human friendly name to identity the mesh in the scene-graph.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="raysect.primitive.mesh.mesh.Mesh.bounding_box">
+<code class="descname">bounding_box</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.bounding_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a world space bounding box that encloses the mesh.</p>
+<p>The box is padded by a small margin to reduce the risk of numerical
+accuracy problems between the mesh and box representations following
+coordinate transforms.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A BoundingBox3D object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.primitive.mesh.mesh.Mesh.contains">
+<code class="descname">contains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.contains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies if the point lies in the volume defined by the mesh.</p>
+<p>If a mesh is open, this method will always return False.</p>
+<p>This method will fail if the face normals of the mesh triangles are not
+oriented to be pointing out of the volume surface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> &#8211; The point to test.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the point lies in the volume, False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.primitive.mesh.mesh.Mesh.from_file">
+<code class="descname">from_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instances a new Mesh using data from a file object or filename.</p>
+<p>The mesh must be stored in a RaySect Mesh (RSM) format file. RSM files
+are created with the Mesh save() method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>file</strong> &#8211; File object or string path.</li>
+<li><strong>parent</strong> &#8211; Attaches the mesh to the specified scene-graph node.</li>
+<li><strong>transform</strong> &#8211; The co-ordinate transform between the mesh and its parent.</li>
+<li><strong>material</strong> &#8211; The surface/volume material.</li>
+<li><strong>name</strong> &#8211; A human friendly name to identity the mesh in the scene-graph.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.primitive.mesh.mesh.Mesh.hit">
+<code class="descname">hit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.hit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the first intersection with the mesh surface.</p>
+<p>If an intersection occurs this method will return an Intersection
+object. The Intersection object will contain the details of the
+ray-surface intersection, such as the surface normal and intersection
+point.</p>
+<p>If no intersection occurs None is returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ray</strong> &#8211; A world-space ray.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An Intersection or None.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.primitive.mesh.mesh.Mesh.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the mesh specified by a file object or filename.</p>
+<p>The mesh must be stored in a RaySect Mesh (RSM) format file. RSM files
+are created with the Mesh save() method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> &#8211; File object or string path.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.primitive.mesh.mesh.Mesh.next_intersection">
+<code class="descname">next_intersection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.next_intersection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the next intersection of the ray with the mesh along the ray
+path.</p>
+<p>This method may only be called following a call to hit(). If the ray
+has further intersections with the mesh, these may be obtained by
+repeatedly calling the next_intersection() method. Each call to
+next_intersection() will return the next ray-mesh intersection
+along the ray&#8217;s path. If no further intersections are found or
+intersections lie outside the ray parameters then next_intersection()
+will return None.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">An Intersection or None.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.primitive.mesh.mesh.Mesh.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the mesh to the specified file object or filename.</p>
+<p>The mesh in written in RaySect Mesh (RSM) format. The RSM format
+contains the mesh geometry and the mesh acceleration structures.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> &#8211; File object or string path.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.primitive.mesh.mesh.MeshData">
+<em class="property">class </em><code class="descclassname">raysect.primitive.mesh.mesh.</code><code class="descname">MeshData</code><a class="headerlink" href="#raysect.primitive.mesh.mesh.MeshData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Holds the mesh data and acceleration structures.</p>
+<p>The Mesh primitive is a thin wrapper around a MeshData object. This
+arrangement simplifies mesh instancing and the load/dump methods.</p>
+<dl class="method">
+<dt id="raysect.primitive.mesh.mesh.MeshData.bounding_box">
+<code class="descname">bounding_box</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.MeshData.bounding_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a bounding box that encloses the mesh.</p>
+<p>The box is padded by a small margin to reduce the risk of numerical
+accuracy problems between the mesh and box representations following
+coordinate transforms.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>to_world</strong> &#8211; Local to world space transform matrix.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A BoundingBox3D object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.primitive.mesh.mesh.MeshData.contains">
+<code class="descname">contains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.MeshData.contains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tests if a point is contained by the mesh.</p>
+<p>Note, this method assumes the mesh is closed. Any open/closed mesh test
+must be performed externally (this is generally quicker as coordinate
+transforms etc... can be skipped if the mesh is open).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> &#8211; Local space Point3D.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if mesh contains point, False otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/RaysectLogo_web.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="geometric_primitives.html"
+                        title="previous chapter">2.1. Geometric Primitives</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="csg_operations.html"
+                        title="next chapter">2.3. CSG Operations</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/api_reference/primitives/meshes.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="csg_operations.html" title="2.3. CSG Operations"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="geometric_primitives.html" title="2.1. Geometric Primitives"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="primitives.html" >2. Primitives Module</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2017, Dr Alex Meakins.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1.2.1. Points and Vectors &#8212; Raysect 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.2.2. Functions and Interpolators" href="functions.html" />
+    <link rel="prev" title="1.2. Math Module" href="math.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="functions.html" title="1.2.2. Functions and Interpolators"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="math.html" title="1.2. Math Module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" >1. Raysect Core</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="math.html" accesskey="U">1.2. Math Module</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="points-and-vectors">
+<h1>1.2.1. Points and Vectors<a class="headerlink" href="#points-and-vectors" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="raysect.core.math.point.Point3D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.point.</code><code class="descname">Point3D</code><a class="headerlink" href="#raysect.core.math.point.Point3D" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="raysect.core.math.point.Point3D.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a copy of the point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D">Point3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.point.Point3D.distance_to">
+<code class="descname">distance_to</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.distance_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the distance between this point and the passed point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; the point to which the distance will be calculated</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.point.Point3D.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms the point with the supplied Affine Matrix.</p>
+<p>The point is transformed by premultiplying the point by the affine
+matrix.</p>
+<p>For cython code this method is substantially faster than using the
+multiplication operator of the affine matrix.</p>
+<p>This method expects a valid affine transform. For speed reasons, minimal
+checks are performed on the matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The affine matrix describing the required coordinate transformation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new instance of this point that has been transformed with the supplied Affine Matrix.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D">Point3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.point.Point3D.vector_to">
+<code class="descname">vector_to</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.vector_to" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a vector from this point to the passed point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; the point to which a vector will be calculated.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.vector.Vector3D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.vector.</code><code class="descname">Vector3D</code><a class="headerlink" href="#raysect.core.math.vector.Vector3D" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="raysect.core.math.vector.Vector3D.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a copy of the vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.vector.Vector3D.cross">
+<code class="descname">cross</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.cross" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the cross product between this vector and the supplied vector</p>
+<p>C = A.cross(B) &lt;=&gt; C = A x B</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; An input vector with which to calculate the cross product.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.vector.Vector3D.normalise">
+<code class="descname">normalise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.normalise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a normalised copy of the vector.</p>
+<p>The returned vector is normalised to length 1.0 - a unit vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.vector.Vector3D.orthogonal">
+<code class="descname">orthogonal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.orthogonal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a unit vector that is guaranteed to be orthogonal to the vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">vector3D</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.vector.Vector3D.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms the vector with the supplied AffineMatrix3D.</p>
+<p>The vector is transformed by pre-multiplying the vector by the affine
+matrix.</p>
+<p>This method is substantially faster than using the multiplication
+operator of AffineMatrix3D when called from cython code.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The affine matrix describing the required coordinate transformation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new instance of this vector that has been transformed with the supplied Affine Matrix.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/RaysectLogo_web.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="math.html"
+                        title="previous chapter">1.2. Math Module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="functions.html"
+                        title="next chapter">1.2.2. Functions and Interpolators</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/api_reference/core/points_and_vectors.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="functions.html" title="1.2.2. Functions and Interpolators"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="math.html" title="1.2. Math Module"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" >1. Raysect Core</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="math.html" >1.2. Math Module</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2017, Dr Alex Meakins.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

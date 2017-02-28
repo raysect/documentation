@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Ray Intersection Points &#8212; Raysect 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/RaysectLogo_web.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Raysect 0.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ray-intersection-points">
+<span id="demo-ray-intersection-points"></span><h1>Ray Intersection Points<a class="headerlink" href="#ray-intersection-points" title="Permalink to this headline">¶</a></h1>
+<p>Rays are launched in the same way as the pinhole camera. The simple scene consists
+of the Stanford bunny model sitting on a platform. For every ray that is launched,
+the cartesian hit point of the ray with the materials in the scene (rabit and floor)
+is recorded. In Figure 1 the 3D hit point for each ray in the camera is plotted in
+3D space. In Figure 2 the z coordinate of each hit point is scaled and plotted to
+indicate distance from the camera. Both methods allow simple visualisation of a
+scene and extraction of intersection geometry data.</p>
+<dl class="docutils">
+<dt>Bunny model source:</dt>
+<dd>Stanford University Computer Graphics Laboratory
+<a class="reference external" href="http://graphics.stanford.edu/data/3Dscanrep/">http://graphics.stanford.edu/data/3Dscanrep/</a>
+Converted to obj format using MeshLab</dd>
+</dl>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="n">path</span>
+
+<span class="c1"># External imports</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">tan</span><span class="p">,</span> <span class="n">pi</span> <span class="k">as</span> <span class="n">PI</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># do not remove the following import or the 3D plotting will break</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
+
+<span class="c1"># Internal imports</span>
+<span class="kn">from</span> <span class="nn">raysect.core.ray</span> <span class="k">import</span> <span class="n">Ray</span> <span class="k">as</span> <span class="n">CoreRay</span>
+<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">d65_white</span><span class="p">,</span> <span class="n">ConstantSF</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Vector3D</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material.emitter</span> <span class="k">import</span> <span class="n">UniformVolumeEmitter</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="k">import</span> <span class="n">Lambert</span>
+<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Subtract</span>
+<span class="kn">from</span> <span class="nn">raysect.primitive.mesh</span> <span class="k">import</span> <span class="n">Mesh</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="n">schott</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A demo of Ray intersection hit points</span>
+<span class="sd">----------------------------------</span>
+
+<span class="sd">Rays are launched in the same way as the pinhole camera. The simple scene consists</span>
+<span class="sd">of the Stanford bunny model sitting on a platform. For every ray that is launched,</span>
+<span class="sd">the cartesian hit point of the ray with the materials in the scene (rabit and floor)</span>
+<span class="sd">is recorded. In Figure 1 the 3D hit point for each ray in the camera is plotted in</span>
+<span class="sd">3D space. In Figure 2 the z coordinate of each hit point is scaled and plotted to</span>
+<span class="sd">indicate distance from the camera. Both methods allow simple visualisation of a</span>
+<span class="sd">scene and extraction of intersection geometry data.</span>
+
+<span class="sd">Bunny model source:</span>
+<span class="sd">  Stanford University Computer Graphics Laboratory</span>
+<span class="sd">  http://graphics.stanford.edu/data/3Dscanrep/</span>
+<span class="sd">  Converted to obj format using MeshLab</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+
+<span class="n">mesh_path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="s2">&quot;../resources/stanford_bunny.rsm&quot;</span><span class="p">)</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">Mesh</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">mesh_path</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="c1"># LIGHT BOX</span>
+<span class="n">padding</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">5</span>
+<span class="n">enclosure_thickness</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="o">+</span> <span class="n">padding</span>
+<span class="n">glass_thickness</span> <span class="o">=</span> <span class="mf">0.003</span>
+
+<span class="n">light_box</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">)</span>
+
+<span class="n">enclosure_outer</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.10</span> <span class="o">-</span> <span class="n">enclosure_thickness</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span> <span class="o">-</span> <span class="n">enclosure_thickness</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.10</span> <span class="o">-</span> <span class="n">enclosure_thickness</span><span class="p">),</span>
+                      <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.10</span> <span class="o">+</span> <span class="n">enclosure_thickness</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.10</span> <span class="o">+</span> <span class="n">enclosure_thickness</span><span class="p">))</span>
+<span class="n">enclosure_inner</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.10</span> <span class="o">-</span> <span class="n">padding</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span> <span class="o">-</span> <span class="n">padding</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.10</span> <span class="o">-</span> <span class="n">padding</span><span class="p">),</span>
+                      <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.10</span> <span class="o">+</span> <span class="n">padding</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.10</span> <span class="o">+</span> <span class="n">padding</span><span class="p">))</span>
+<span class="n">enclosure</span> <span class="o">=</span> <span class="n">Subtract</span><span class="p">(</span><span class="n">enclosure_outer</span><span class="p">,</span> <span class="n">enclosure_inner</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">(</span><span class="n">ConstantSF</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)),</span> <span class="n">parent</span><span class="o">=</span><span class="n">light_box</span><span class="p">)</span>
+
+<span class="n">glass_outer</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.10</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.10</span><span class="p">),</span>
+                  <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">))</span>
+<span class="n">glass_inner</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.10</span> <span class="o">+</span> <span class="n">glass_thickness</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span> <span class="o">+</span> <span class="n">glass_thickness</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.10</span> <span class="o">+</span> <span class="n">glass_thickness</span><span class="p">),</span>
+                  <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.10</span> <span class="o">-</span> <span class="n">glass_thickness</span><span class="p">,</span> <span class="mf">0.0</span> <span class="o">-</span> <span class="n">glass_thickness</span><span class="p">,</span> <span class="mf">0.10</span> <span class="o">-</span> <span class="n">glass_thickness</span><span class="p">))</span>
+<span class="n">glass</span> <span class="o">=</span> <span class="n">Subtract</span><span class="p">(</span><span class="n">glass_outer</span><span class="p">,</span> <span class="n">glass_inner</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;N-BK7&quot;</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">light_box</span><span class="p">)</span>
+
+<span class="n">emitter</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.10</span> <span class="o">+</span> <span class="n">glass_thickness</span> <span class="o">+</span> <span class="n">padding</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span> <span class="o">+</span> <span class="n">glass_thickness</span> <span class="o">+</span> <span class="n">padding</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.10</span> <span class="o">+</span> <span class="n">glass_thickness</span> <span class="o">+</span> <span class="n">padding</span><span class="p">),</span>
+              <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.10</span> <span class="o">-</span> <span class="n">glass_thickness</span> <span class="o">-</span> <span class="n">padding</span><span class="p">,</span> <span class="mf">0.0</span> <span class="o">-</span> <span class="n">glass_thickness</span> <span class="o">-</span> <span class="n">padding</span><span class="p">,</span> <span class="mf">0.10</span> <span class="o">-</span> <span class="n">glass_thickness</span> <span class="o">-</span> <span class="n">padding</span><span class="p">),</span>
+              <span class="n">material</span><span class="o">=</span><span class="n">UniformVolumeEmitter</span><span class="p">(</span><span class="n">d65_white</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">light_box</span><span class="p">)</span>
+
+
+<span class="n">fov</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="n">num_pixels</span> <span class="o">=</span> <span class="mi">256</span>
+
+
+<span class="c1"># Launch rays using the same geometry calculations as a pinhole camera</span>
+<span class="n">image_width</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">tan</span><span class="p">(</span><span class="n">PI</span> <span class="o">/</span> <span class="mi">180</span> <span class="o">*</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">fov</span><span class="p">)</span>
+<span class="n">image_delta</span> <span class="o">=</span> <span class="n">image_width</span> <span class="o">/</span> <span class="n">num_pixels</span>
+
+<span class="n">image_start_x</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">num_pixels</span> <span class="o">*</span> <span class="n">image_delta</span>
+<span class="n">image_start_y</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">num_pixels</span> <span class="o">*</span> <span class="n">image_delta</span>
+
+<span class="n">x_points</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">y_points</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">z_points</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">z_show</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">num_pixels</span><span class="p">,</span> <span class="n">num_pixels</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_pixels</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">iy</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_pixels</span><span class="p">):</span>
+
+        <span class="c1"># generate pixel transform</span>
+        <span class="n">pixel_x</span> <span class="o">=</span> <span class="n">image_start_x</span> <span class="o">-</span> <span class="n">image_delta</span> <span class="o">*</span> <span class="n">ix</span>
+        <span class="n">pixel_y</span> <span class="o">=</span> <span class="n">image_start_y</span> <span class="o">-</span> <span class="n">image_delta</span> <span class="o">*</span> <span class="n">iy</span>
+
+        <span class="c1"># calculate point in virtual image plane to be used for ray direction</span>
+        <span class="n">origin</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">()</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="n">pixel_x</span><span class="p">,</span> <span class="n">pixel_y</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">normalise</span><span class="p">()</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+        <span class="n">intersection</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">hit</span><span class="p">(</span><span class="n">CoreRay</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">direction</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">intersection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">hit_point</span> <span class="o">=</span> <span class="n">intersection</span><span class="o">.</span><span class="n">hit_point</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">intersection</span><span class="o">.</span><span class="n">primitive_to_world</span><span class="p">)</span>
+            <span class="n">x_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hit_point</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+            <span class="n">y_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hit_point</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">z_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hit_point</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+            <span class="n">z_show</span><span class="p">[</span><span class="n">iy</span><span class="p">,</span> <span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">hit_point</span><span class="o">.</span><span class="n">z</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># add small offset so background is black</span>
+            <span class="n">z_show</span><span class="p">[</span><span class="n">iy</span><span class="p">,</span> <span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_points</span><span class="p">,</span> <span class="n">y_points</span><span class="p">,</span> <span class="n">z_points</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X Label&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y Label&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;Z Label&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">z_show</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Greys</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure" id="id1">
+<img alt="../_images/ray_intersection_points_fig1.png" src="../_images/ray_intersection_points_fig1.png" />
+<p class="caption"><span class="caption-text">The 3D intersection point of each camera ray with the materials in the scene is
+recorded and plotted as 3D points.</span></p>
+</div>
+<div class="figure" id="id2">
+<img alt="../_images/ray_intersection_points_fig2.png" src="../_images/ray_intersection_points_fig2.png" />
+<p class="caption"><span class="caption-text">The Z coordinate of each intersection point is scaled and plotted to
+indicate distance from the camera. This allows a crude form of scene
+visualisation.</span></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/RaysectLogo_web.png" alt="Logo"/>
+            </a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/demonstrations/ray_intersection_points.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Raysect 0.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2017, Dr Alex Meakins.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

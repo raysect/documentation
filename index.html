@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Indices and tables &#8212; Raysect 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="_static/RaysectLogo_web.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Introduction" href="introduction.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="1. Introduction"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Raysect 0.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <img alt="_images/RaysectLogo_small.png" class="align-center" src="_images/RaysectLogo_small.png" />
+<p>Welcome to Raysect, an OOP ray-tracing framework in python. Raysect has been
+built with scientific ray-tracing in mind. Some of its features include:</p>
+<ul class="simple">
+<li>Fully spectral, high precision. Supports scientific ray-tracing of spectra from physical light sources such as plasmas.</li>
+<li>All core loops are written in cython for speed.</li>
+<li>Easily extensible, written with user customisation of materials and emissive sources in mind.</li>
+<li>Different observer types supported such as Pinhole cameras and optical fibres.</li>
+</ul>
+<div class="toctree-wrapper compound" id="mastertoc">
+<p class="caption"><span class="caption-text">Table of Contents</span><a class="headerlink" href="#mastertoc" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Downloading and Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequisites">2.1. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#downloads">2.2. Downloads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation">2.3. Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#testing">2.4. Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how_it_works.html">3. How it works</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how_it_works.html#what-is-a-ray-tracer">3.1. What is a ray tracer?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_it_works.html#key-concepts">3.2. Key Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_it_works.html#process-of-raytracing">3.3. Process of raytracing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart_guide.html">4. Quickstart Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart_guide.html#create-primitives">4.1. Create Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart_guide.html#add-observer">4.2. Add Observer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart_guide.html#build-scenegraph">4.3. Build Scenegraph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart_guide.html#observe">4.4. Observe()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart_guide.html#simulated-spectrum">4.5. Simulated Spectrum</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="primitives.html">5. Primitives</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="primitives.html#geometric-primitives">5.1. Geometric Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primitives.html#csg-operations">5.2. CSG Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primitives.html#meshes">5.3. Meshes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">6. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conventions.html">7. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">8. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">9. Need Help?</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound" id="demonstrations">
+<p class="caption"><span class="caption-text">Demonstrations</span><a class="headerlink" href="#demonstrations" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html">1. Core Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound" id="apireferenceto">
+<p class="caption"><span class="caption-text">API Reference</span><a class="headerlink" href="#apireferenceto" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/core/core.html">1. Raysect Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/core/core_classes.html">1.1. Core Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/core/math.html">1.2. Math Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/core/points_and_vectors.html">1.2.1. Points and Vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/core/functions.html">1.2.2. Functions and Interpolators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/core/affinematrix.html">1.2.3. Affine Matricies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/core/random.html">1.2.4. Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/core/units.html">1.2.5. Unit Conversions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html">1.3. Scenegraph Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/primitives/primitives.html">2. Primitives Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/primitives/geometric_primitives.html">2.1. Geometric Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/primitives/meshes.html">2.2. Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/primitives/csg_operations.html">2.3. CSG Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference/optical/optical.html">3. Optical Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/optical/main_optical_classes.html">3.1. Optical Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/optical/observers.html">3.2. Observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/optical/materials.html">3.3. Optical Materials</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/RaysectLogo_web.png" alt="Logo"/>
+            </a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="next chapter">1. Introduction</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="1. Introduction"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Raysect 0.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2017, Dr Alex Meakins.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Making Animations &#8212; Raysect 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/RaysectLogo_web.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Raysect 0.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="making-animations">
+<span id="demo-making-animations"></span><h1>Making Animations<a class="headerlink" href="#making-animations" title="Permalink to this headline">¶</a></h1>
+<p>This example demonstrates how to render a series of raysect images and turn them into an animation for web.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">d65_white</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material.emitter</span> <span class="k">import</span> <span class="n">Checkerboard</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="n">schott</span>
+<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Cylinder</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Intersect</span><span class="p">,</span> <span class="n">Subtract</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+
+<span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+
+
+<span class="c1"># Background checkerboard lightsource</span>
+<span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">),</span> <span class="n">world</span><span class="p">,</span>
+    <span class="n">material</span><span class="o">=</span><span class="n">Checkerboard</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">d65_white</span><span class="p">,</span> <span class="n">d65_white</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>
+
+
+<span class="c1"># Build a CSG primitive from a number of basic underlying primitives</span>
+<span class="n">cyl_x</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.1</span><span class="p">))</span>
+<span class="n">cyl_y</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.1</span><span class="p">))</span>
+<span class="n">cyl_z</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.1</span><span class="p">))</span>
+<span class="n">cube</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">))</span>
+<span class="n">sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">Intersect</span><span class="p">(</span><span class="n">sphere</span><span class="p">,</span> <span class="n">cube</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                   <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;N-BK7&quot;</span><span class="p">))</span>
+
+
+<span class="c1"># create and setup the camera</span>
+<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">(</span><span class="n">fov</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">ray_max_depth</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">rays</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">spectral_samples</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">pixels</span> <span class="o">=</span> <span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">display_progress</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="c1"># for each frame rotate the CSG primitive and re-render</span>
+<span class="n">num_frames</span> <span class="o">=</span> <span class="mi">25</span><span class="o">*</span><span class="mi">20</span>
+<span class="n">full_rotation</span> <span class="o">=</span> <span class="mi">360</span>
+<span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_frames</span><span class="p">):</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendering frame </span><span class="si">{}</span><span class="s2">:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">frame</span><span class="p">))</span>
+
+    <span class="n">rotation</span> <span class="o">=</span> <span class="n">full_rotation</span> <span class="o">/</span> <span class="n">num_frames</span> <span class="o">*</span> <span class="n">frame</span>
+    <span class="n">target</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+    <span class="n">camera</span><span class="o">.</span><span class="n">observe</span><span class="p">()</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;frame</span><span class="si">{:04}</span><span class="s2">.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">frame</span><span class="p">))</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/animation.gif" class="align-center" src="../_images/animation.gif" />
+<p>You can use <a class="reference external" href="https://www.imagemagick.org/">ImageMagic&#8217;s</a> convert command to make a gif.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$&gt; convert -delay 20 -loop 0 *.png myimage.gif
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/RaysectLogo_web.png" alt="Logo"/>
+            </a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/demonstrations/animations.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Raysect 0.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2017, Dr Alex Meakins.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

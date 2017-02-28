@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1.2.2. Functions and Interpolators &#8212; Raysect 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.2.3. Affine Matricies" href="affinematrix.html" />
+    <link rel="prev" title="1.2.1. Points and Vectors" href="points_and_vectors.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="affinematrix.html" title="1.2.3. Affine Matricies"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="points_and_vectors.html" title="1.2.1. Points and Vectors"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" >1. Raysect Core</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="math.html" accesskey="U">1.2. Math Module</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="functions-and-interpolators">
+<h1>1.2.2. Functions and Interpolators<a class="headerlink" href="#functions-and-interpolators" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="raysect.core.math.function.function1d.Function1D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.function.function1d.</code><code class="descname">Function1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.Function1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cython optimised class for representing an arbitrary 1D function.</p>
+<p>Using __call__() in cython is slow. This class provides an overloadable
+cython cdef evaluate() method which has much less overhead than a python
+function call.</p>
+<p>For use in cython code only, this class cannot be extended via python.</p>
+<p>To create a new function object, inherit this class and implement the
+evaluate() method. The new function object can then be used with any code
+that accepts a function object.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function2d.Function2D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.function.function2d.</code><code class="descname">Function2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.Function2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cython optimised class for representing an arbitrary 2D function.</p>
+<p>Using __call__() in cython is slow. This class provides an overloadable
+cython cdef evaluate() method which has much less overhead than a python
+function call.</p>
+<p>For use in cython code only, this class cannot be extended via python.</p>
+<p>To create a new function object, inherit this class and implement the
+evaluate() method. The new function object can then be used with any code
+that accepts a function object.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function3d.Function3D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.function.function3d.</code><code class="descname">Function3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.Function3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cython optimised class for representing an arbitrary 3D function.</p>
+<p>Using __call__() in cython is slow. This class provides an overloadable
+cython cdef evaluate() method which has much less overhead than a python
+function call.</p>
+<p>For use in cython code only, this class cannot be extended via python.</p>
+<p>To create a new function object, inherit this class and implement the
+evaluate() method. The new function object can then be used with any code
+that accepts a function object.</p>
+</dd></dl>
+
+<span class="target" id="module-raysect.core.math.interpolators.discrete2dmesh"></span><dl class="class">
+<dt id="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh">
+<em class="property">class </em><code class="descclassname">raysect.core.math.interpolators.discrete2dmesh.</code><code class="descname">Discrete2DMesh</code><a class="headerlink" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Discrete interpolator for data on a 2d ungridded tri-poly mesh.</p>
+<p>The mesh is specified as a set of 2D vertices supplied as an Nx2 numpy
+array or a suitably sized sequence that can be converted to a numpy array.</p>
+<p>The mesh triangles are defined with a Mx3 array where the three values are
+indices into the vertex array that specify the triangle vertices. The
+mesh must not contain overlapping triangles. Supplying a mesh with
+overlapping triangles will result in undefined behaviour.</p>
+<p>A data array of length M, containing a value for each triangle, holds the
+data to be interpolated across the mesh.</p>
+<p>By default, requesting a point outside the bounds of the mesh will cause
+a ValueError exception to be raised. If this is not desired the limit
+attribute (default True) can be set to False. When set to False, a default
+value will be returned for any point lying outside the mesh. The value
+return can be specified by setting the default_value attribute (default is
+0.0).</p>
+<p>To optimise the lookup of triangles, the interpolator builds an
+acceleration structure (a KD-Tree) from the specified mesh data. Depending
+on the size of the mesh, this can be quite slow to construct. If the user
+wishes to interpolate a number of different data sets across the same mesh
+- for example: temperature and density data that are both defined on the
+same mesh - then the user can use the instance() method on an existing
+interpolator to create a new interpolator. The new interpolator will shares
+a copy of the internal acceleration data. The triangle_data, limit and
+default_value can be customised for the new instance. See instance(). This
+will avoid the cost in memory and time of rebuilding an identical
+acceleration structure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vertex_coords</strong> (<em>ndarray</em>) &#8211; An array of vertex coordinates (x, y) with shape Nx2.</li>
+<li><strong>triangles</strong> (<em>ndarray</em>) &#8211; An array of vertex indices defining the mesh triangles, with shape Mx3.</li>
+<li><strong>triangle_data</strong> (<em>ndarray</em>) &#8211; An array containing data for each triangle of shape Mx1.</li>
+<li><strong>limit</strong> (<em>bool</em>) &#8211; Raise an exception outside mesh limits - True (default) or False.</li>
+<li><strong>default_value</strong> (<em>float</em>) &#8211; The value to return outside the mesh limits if limit is set to False.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh.instance">
+<code class="descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new interpolator instance from an existing interpolator instance.</p>
+<p>The new interpolator instance will share the same internal acceleration
+data as the original interpolator. The triangle_data, limit and default_value
+settings of the new instance can be redefined by setting the appropriate
+attributes. If any of the attributes are set to None (default) then the
+value from the original interpolator will be copied.</p>
+<p>This method should be used if the user has multiple sets of triangle_data
+that lie on the same mesh geometry. Using this methods avoids the
+repeated rebuilding of the mesh acceleration structures by sharing the
+geometry data between multiple interpolator objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh"><em>Discrete2DMesh</em></a>) &#8211; Discrete2DMesh object.</li>
+<li><strong>triangle_data</strong> (<em>ndarray</em>) &#8211; An array containing data for each triangle of shape Mx1 (default None).</li>
+<li><strong>limit</strong> (<em>bool</em>) &#8211; Raise an exception outside mesh limits - True (default) or False (default None).</li>
+<li><strong>default_value</strong> (<em>float</em>) &#8211; The value to return outside the mesh limits if limit is set to False (default None).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An Discrete2DMesh object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh">Discrete2DMesh</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-raysect.core.math.interpolators.interpolator2dmesh"></span><dl class="class">
+<dt id="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh">
+<em class="property">class </em><code class="descclassname">raysect.core.math.interpolators.interpolator2dmesh.</code><code class="descname">Interpolator2DMesh</code><a class="headerlink" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linear interpolator for data on a 2d ungridded tri-poly mesh.</p>
+<p>The mesh is specified as a set of 2D vertices supplied as an Nx2 numpy
+array or a suitably sized sequence that can be converted to a numpy array.</p>
+<p>The mesh triangles are defined with a Mx3 array where the three values are
+indices into the vertex array that specify the triangle vertices. The
+mesh must not contain overlapping triangles. Supplying a mesh with
+overlapping triangles will result in undefined behaviour.</p>
+<p>A data array of length N, containing a value for each vertex, holds the
+data to be interpolated across the mesh.</p>
+<p>By default, requesting a point outside the bounds of the mesh will cause
+a ValueError exception to be raised. If this is not desired the limit
+attribute (default True) can be set to False. When set to False, a default
+value will be returned for any point lying outside the mesh. The value
+return can be specified by setting the default_value attribute (default is
+0.0).</p>
+<p>To optimise the lookup of triangles, the interpolator builds an
+acceleration structure (a KD-Tree) from the specified mesh data. Depending
+on the size of the mesh, this can be quite slow to construct. If the user
+wishes to interpolate a number of different data sets across the same mesh
+- for example: temperature and density data that are both defined on the
+same mesh - then the user can use the instance() method on an existing
+interpolator to create a new interpolator. The new interpolator will shares
+a copy of the internal acceleration data. The vertex_data, limit and
+default_value can be customised for the new instance. See instance(). This
+will avoid the cost in memory and time of rebuilding an identical
+acceleration structure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vertex_coords</strong> (<em>ndarray</em>) &#8211; An array of vertex coordinates (x, y) with shape Nx2.</li>
+<li><strong>vertex_data</strong> (<em>ndarray</em>) &#8211; An array containing data for each vertex of shape Nx1.</li>
+<li><strong>triangles</strong> (<em>ndarray</em>) &#8211; An array of vertex indices defining the mesh triangles, with shape Mx3.</li>
+<li><strong>limit</strong> (<em>bool</em>) &#8211; Raise an exception outside mesh limits - True (default) or False.</li>
+<li><strong>default_value</strong> (<em>float</em>) &#8211; The value to return outside the mesh limits if limit is set to False.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh.instance">
+<code class="descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new interpolator instance from an existing interpolator instance.</p>
+<p>The new interpolator instance will share the same internal acceleration
+data as the original interpolator. The vertex_data, limit and default_value
+settings of the new instance can be redefined by setting the appropriate
+attributes. If any of the attributes are set to None (default) then the
+value from the original interpolator will be copied.</p>
+<p>This method should be used if the user has multiple sets of vertex_data
+that lie on the same mesh geometry. Using this methods avoids the
+repeated rebuilding of the mesh acceleration structures by sharing the
+geometry data between multiple interpolator objects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh"><em>Interpolator2DMesh</em></a>) &#8211; Interpolator2DMesh object.</li>
+<li><strong>vertex_data</strong> (<em>ndarray</em>) &#8211; An array containing data for each vertex of shape Nx1 (default None).</li>
+<li><strong>limit</strong> (<em>bool</em>) &#8211; Raise an exception outside mesh limits - True (default) or False (default None).</li>
+<li><strong>default_value</strong> (<em>float</em>) &#8211; The value to return outside the mesh limits if limit is set to False (default None).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An Interpolator2DMesh object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh">Interpolator2DMesh</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/RaysectLogo_web.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="points_and_vectors.html"
+                        title="previous chapter">1.2.1. Points and Vectors</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="affinematrix.html"
+                        title="next chapter">1.2.3. Affine Matricies</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/api_reference/core/functions.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="affinematrix.html" title="1.2.3. Affine Matricies"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="points_and_vectors.html" title="1.2.1. Points and Vectors"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" >1. Raysect Core</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="math.html" >1.2. Math Module</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2017, Dr Alex Meakins.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

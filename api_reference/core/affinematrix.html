@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1.2.3. Affine Matricies &#8212; Raysect 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.2.4. Random" href="random.html" />
+    <link rel="prev" title="1.2.2. Functions and Interpolators" href="functions.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="random.html" title="1.2.4. Random"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="functions.html" title="1.2.2. Functions and Interpolators"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" >1. Raysect Core</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="math.html" accesskey="U">1.2. Math Module</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-raysect.core.math.affinematrix">
+<span id="affine-matricies"></span><h1>1.2.3. Affine Matricies<a class="headerlink" href="#module-raysect.core.math.affinematrix" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="raysect.core.math.affinematrix.AffineMatrix3D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.affinematrix.</code><code class="descname">AffineMatrix3D</code><a class="headerlink" href="#raysect.core.math.affinematrix.AffineMatrix3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a 4x4 affine matrix.</p>
+<dl class="method">
+<dt id="raysect.core.math.affinematrix.AffineMatrix3D.inverse">
+<code class="descname">inverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.affinematrix.AffineMatrix3D.inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the inverse of the affine matrix.</p>
+<p>Returns an AffineMatrix3D containing the inverse.</p>
+<p>Raises a ValueError if the matrix is singular and the inverse can not be
+calculated. All valid affine transforms should be invertable.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.transform.translate">
+<code class="descclassname">raysect.core.math.transform.</code><code class="descname">translate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.translate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an affine matrix representing a translation of the coordinate space.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>float</em>) &#8211; x-coordinate</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; y-coordinate</li>
+<li><strong>z</strong> (<em>float</em>) &#8211; z-coordinate</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D">AffineMatrix3D</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.transform.rotate_x">
+<code class="descclassname">raysect.core.math.transform.</code><code class="descname">rotate_x</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.rotate_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an affine matrix representing the rotation of the coordinate space
+about the X axis by the supplied angle.</p>
+<p>The rotation direction is clockwise when looking along the x-axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<em>float</em>) &#8211; The angle specified in degrees.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D">AffineMatrix3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.transform.rotate_y">
+<code class="descclassname">raysect.core.math.transform.</code><code class="descname">rotate_y</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.rotate_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an affine matrix representing the rotation of the coordinate space
+about the Y axis by the supplied angle.</p>
+<p>The rotation direction is clockwise when looking along the y-axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<em>float</em>) &#8211; The angle specified in degrees.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D">AffineMatrix3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.transform.rotate_z">
+<code class="descclassname">raysect.core.math.transform.</code><code class="descname">rotate_z</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.rotate_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an affine matrix representing the rotation of the coordinate space
+about the Z axis by the supplied angle.</p>
+<p>The rotation direction is clockwise when looking along the z-axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<em>float</em>) &#8211; The angle specified in degrees.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D">AffineMatrix3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.transform.rotate">
+<code class="descclassname">raysect.core.math.transform.</code><code class="descname">rotate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an affine transform matrix representing an intrinsic rotation with
+an axis order (-Y)(-X)&#8217;Z&#8217;&#8216;.</p>
+<p>For an object aligned such that forward is the +ve Z-axis, left is the +ve
+X-axis and up is the +ve Y-axis then this rotation operation corresponds to
+the yaw, pitch and roll of the object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>yaw</strong> (<em>float</em>) &#8211; Yaw angle in degrees.</li>
+<li><strong>pitch</strong> (<em>float</em>) &#8211; Pitch angle in degrees.</li>
+<li><strong>roll</strong> (<em>float</em>) &#8211; Roll angle in degrees.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D">AffineMatrix3D</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.transform.rotate_vector">
+<code class="descclassname">raysect.core.math.transform.</code><code class="descname">rotate_vector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.rotate_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an affine matrix representing the rotation of the coordinate space
+about the supplied vector by the specified angle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>angle</strong> (<em>float</em>) &#8211; The angle specified in degrees.</li>
+<li><strong>v</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The vector about which to rotate.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D">AffineMatrix3D</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.transform.rotate_basis">
+<code class="descclassname">raysect.core.math.transform.</code><code class="descname">rotate_basis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.rotate_basis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a rotation matrix defined by forward and up vectors.</p>
+<p>The +ve Z-axis of the resulting coordinate space will be aligned with the
+forward vector. The +ve Y-axis will be aligned to lie in the plane defined
+the forward and up vectors, along the projection of the up vector that
+lies orthogonal to the forward vector. The X-axis will lie perpendicular to
+the plane.</p>
+<p>The forward and upwards vectors need not be orthogonal. The up vector will
+be rotated in the plane defined by the two vectors until it is orthogonal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>forward</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; A Vector3D object defining the forward direction.</li>
+<li><strong>up</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; A Vector3D object defining the up direction.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D">AffineMatrix3D</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/RaysectLogo_web.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="functions.html"
+                        title="previous chapter">1.2.2. Functions and Interpolators</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="random.html"
+                        title="next chapter">1.2.4. Random</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/api_reference/core/affinematrix.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="random.html" title="1.2.4. Random"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="functions.html" title="1.2.2. Functions and Interpolators"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="core.html" >1. Raysect Core</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="math.html" >1.2. Math Module</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2017, Dr Alex Meakins.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>

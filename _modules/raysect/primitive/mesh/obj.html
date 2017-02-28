@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>raysect.primitive.mesh.obj &#8212; Raysect 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/theme_overrides.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../../../_static/RaysectLogo_web.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for raysect.primitive.mesh.obj</h1><div class="highlight"><pre>
+<span></span><span class="c1"># cython: language_level=3</span>
+
+<span class="c1"># Copyright (c) 2015, Dr Alex Meakins, Raysect Project</span>
+<span class="c1"># All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Redistribution and use in source and binary forms, with or without</span>
+<span class="c1"># modification, are permitted provided that the following conditions are met:</span>
+<span class="c1">#</span>
+<span class="c1">#     1. Redistributions of source code must retain the above copyright notice,</span>
+<span class="c1">#        this list of conditions and the following disclaimer.</span>
+<span class="c1">#</span>
+<span class="c1">#     2. Redistributions in binary form must reproduce the above copyright</span>
+<span class="c1">#        notice, this list of conditions and the following disclaimer in the</span>
+<span class="c1">#        documentation and/or other materials provided with the distribution.</span>
+<span class="c1">#</span>
+<span class="c1">#     3. Neither the name of the Raysect Project nor the names of its</span>
+<span class="c1">#        contributors may be used to endorse or promote products derived from</span>
+<span class="c1">#        this software without specific prior written permission.</span>
+<span class="c1">#</span>
+<span class="c1"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;</span>
+<span class="c1"># AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</span>
+<span class="c1"># IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</span>
+<span class="c1"># ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE</span>
+<span class="c1"># LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR</span>
+<span class="c1"># CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF</span>
+<span class="c1"># SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS</span>
+<span class="c1"># INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN</span>
+<span class="c1"># CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)</span>
+<span class="c1"># ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</span>
+<span class="c1"># POSSIBILITY OF SUCH DAMAGE.</span>
+
+<span class="kn">from</span> <span class="nn">raysect.core</span> <span class="k">import</span> <span class="n">Normal3D</span>
+<span class="kn">from</span> <span class="nn">raysect.primitive.mesh</span> <span class="k">import</span> <span class="n">Mesh</span>
+
+
+<span class="k">class</span> <span class="nc">OBJHandler</span><span class="p">:</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">import_obj</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="n">vertices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">normals</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">triangles</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+
+                <span class="c1"># skip comments</span>
+                <span class="k">if</span> <span class="n">line</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;#&quot;</span><span class="p">:</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># clean up and tokenise</span>
+                <span class="n">tokens</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+
+                <span class="c1"># parse tokens</span>
+                <span class="n">cmd</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">tokens</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+                <span class="k">if</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span>
+                    <span class="n">vertex</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_to_point</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">scaling</span><span class="p">)</span>
+                    <span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span>
+
+                <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;vt&quot;</span><span class="p">:</span>
+                    <span class="c1"># texture coordinates not currently supported</span>
+                    <span class="k">continue</span>
+
+                <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;vn&quot;</span><span class="p">:</span>
+                    <span class="n">normal</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_to_normal</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+                    <span class="n">normals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">normal</span><span class="p">)</span>
+
+                <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;f&quot;</span><span class="p">:</span>
+                    <span class="n">triangle</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_to_triangle</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+                    <span class="n">triangles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">normals</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Mesh</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">triangles</span><span class="p">,</span> <span class="n">normals</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Mesh</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">triangles</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_to_point</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">scaling</span><span class="p">):</span>
+
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">tokens</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">scaling</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">scaling</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">scaling</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">)]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_to_normal</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">tokens</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">Normal3D</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="o">.</span><span class="n">normalise</span><span class="p">()</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">n</span><span class="o">.</span><span class="n">z</span><span class="p">]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_to_triangle</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The .obj importer only support meshes containing 3 sided faces (triangles).&quot;</span><span class="p">)</span>
+
+        <span class="n">v1</span><span class="p">,</span> <span class="n">n1</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_parse_face_token</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">v2</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_parse_face_token</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">v3</span><span class="p">,</span> <span class="n">n3</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_parse_face_token</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+        <span class="c1"># do we have a full set of normals?</span>
+        <span class="k">if</span> <span class="n">n1</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">n2</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">n3</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">]</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">_parse_face_token</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+
+        <span class="c1"># texture coordinates not currently supported</span>
+        <span class="c1"># note indexing in obj format is 1 based, Python is 0 based</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+        <span class="n">v</span><span class="p">,</span> <span class="n">vn</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">vn</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">indices</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The .obj contains an invalid face definition.&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">v</span><span class="p">,</span> <span class="n">vn</span>
+
+
+<span class="n">import_obj</span> <span class="o">=</span> <span class="n">OBJHandler</span><span class="o">.</span><span class="n">import_obj</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../index.html">
+              <img class="logo" src="../../../../_static/RaysectLogo_web.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../../../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">Raysect 0.2.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2014-2017, Dr Alex Meakins.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
+    </div>
+  </body>
+</html>
