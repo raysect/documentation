@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Surface Roughness Scan &mdash; Raysect 0.2.0 documentation</title>
+  <title>Surface Roughness Scan &mdash; Raysect Documentation</title>
   
 
   
@@ -30,14 +30,12 @@
   
 
   
-    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  
 
   
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Raysect 0.2.0 documentation" href="../index.html"/> 
+    <link rel="top" title="Raysect Documentation" href="../index.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -68,7 +66,7 @@
             
             
               <div class="version">
-                0.2
+                0.3
               </div>
             
           
@@ -163,7 +161,7 @@ from 0 to 50%.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>
 <span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">d65_white</span>
 <span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Cylinder</span>
-<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span><span class="p">,</span> <span class="n">AutoExposure</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span><span class="p">,</span> <span class="n">RGBPipeline2D</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="k">import</span> <span class="n">Lambert</span><span class="p">,</span> <span class="n">UniformSurfaceEmitter</span><span class="p">,</span> <span class="n">Roughen</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="k">import</span> <span class="o">*</span>
@@ -236,35 +234,25 @@ from 0 to 50%.</p>
 <span class="n">Cylinder</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
          <span class="n">material</span><span class="o">=</span><span class="n">UniformSurfaceEmitter</span><span class="p">(</span><span class="n">d65_white</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
 
+<span class="n">rgb</span> <span class="o">=</span> <span class="n">RGBPipeline2D</span><span class="p">(</span><span class="n">display_unsaturated_fraction</span><span class="o">=</span><span class="mf">0.96</span><span class="p">)</span>
+
 <span class="c1"># observer</span>
-<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">47</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">fov</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">ray_min_depth</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">((</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span> <span class="n">pipelines</span><span class="o">=</span><span class="p">[</span><span class="n">rgb</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">47</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">fov</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">)</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">ray_max_depth</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">ray_extinction_prob</span> <span class="o">=</span> <span class="mf">0.01</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">spectral_rays</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">spectral_samples</span> <span class="o">=</span> <span class="mi">15</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">pixels</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">spectral_bins</span> <span class="o">=</span> <span class="mi">15</span>
+
 <span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">250</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">display_progress</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">display_update_time</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">accumulate</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">exposure_handler</span> <span class="o">=</span> <span class="n">AutoExposure</span><span class="p">()</span>
-<span class="c1"># camera.ray_importance_sampling = False</span>
 
 
 <span class="c1"># start ray tracing</span>
 <span class="n">ion</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendering pass </span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2"> samples/pixel)...&quot;</span>
-          <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">camera</span><span class="o">.</span><span class="n">accumulated_samples</span> <span class="o">+</span> <span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">*</span> <span class="n">camera</span><span class="o">.</span><span class="n">spectral_rays</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendering pass </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
     <span class="n">camera</span><span class="o">.</span><span class="n">observe</span><span class="p">()</span>
-    <span class="n">camera</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;demo_roughen_</span><span class="si">{}</span><span class="s2">_samples.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">camera</span><span class="o">.</span><span class="n">accumulated_samples</span><span class="p">))</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">pipelines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;demo_roughen_</span><span class="si">{}</span><span class="s2">.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">()</span>
-
-<span class="c1"># display final result</span>
-<span class="n">ioff</span><span class="p">()</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
-<span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="../_images/surface_roughness.jpg"><img alt="../_images/surface_roughness.jpg" class="align-center" src="../_images/surface_roughness.jpg" style="width: 696px;" /></a>
@@ -302,7 +290,7 @@ from 0 to 50%.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.2.0',
+            VERSION:'0.3.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

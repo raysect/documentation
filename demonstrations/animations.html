@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Making Animations &mdash; Raysect 0.2.0 documentation</title>
+  <title>Making Animations &mdash; Raysect Documentation</title>
   
 
   
@@ -30,14 +30,12 @@
   
 
   
-    <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-  
 
   
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Raysect 0.2.0 documentation" href="../index.html"/> 
+    <link rel="top" title="Raysect Documentation" href="../index.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -68,7 +66,7 @@
             
             
               <div class="version">
-                0.2
+                0.3
               </div>
             
           
@@ -188,13 +186,10 @@
 
 
 <span class="c1"># create and setup the camera</span>
-<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">(</span><span class="n">fov</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">ray_max_depth</span> <span class="o">=</span> <span class="mi">15</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">rays</span> <span class="o">=</span> <span class="mi">9</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">spectral_samples</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">pixels</span> <span class="o">=</span> <span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">display_progress</span> <span class="o">=</span> <span class="kc">False</span>
-
+<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">((</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="n">fov</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">spectral_rays</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">spectral_bins</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">rgb</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">pipelines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># for each frame rotate the CSG primitive and re-render</span>
 <span class="n">num_frames</span> <span class="o">=</span> <span class="mi">25</span><span class="o">*</span><span class="mi">20</span>
@@ -207,9 +202,8 @@
     <span class="n">target</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 
     <span class="n">camera</span><span class="o">.</span><span class="n">observe</span><span class="p">()</span>
-    <span class="n">camera</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;frame</span><span class="si">{:04}</span><span class="s2">.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">frame</span><span class="p">))</span>
-    <span class="n">camera</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">rgb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;frame</span><span class="si">{:04}</span><span class="s2">.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">frame</span><span class="p">))</span>
+
 </pre></div>
 </div>
 <img alt="../_images/animation.gif" class="align-center" src="../_images/animation.gif" />
@@ -251,7 +245,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.2.0',
+            VERSION:'0.3.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
