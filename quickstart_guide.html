@@ -187,27 +187,18 @@ raysect.</p>
 <h2>4.2. Add Observer<a class="headerlink" href="#add-observer" title="Permalink to this headline">¶</a></h2>
 <p>Add an observer and configure its sampling settings. All of these camera settings have sensible defaults, The camera
 settings will be explained in detail in another section:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># camera</span>
-<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">(</span><span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># processing pipeline (human vision like camera response)</span>
+<span class="n">rgb</span> <span class="o">=</span> <span class="n">RGBPipeline2D</span><span class="p">()</span>
+
+<span class="c1"># camera</span>
+<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">(</span><span class="n">pixels</span><span class="o">=</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span> <span class="n">fov</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">pipeline</span><span class="o">=</span><span class="p">[</span><span class="n">rgb</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 
 <span class="c1"># camera - pixel sampling settings</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">fov</span> <span class="o">=</span> <span class="mi">45</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">pixels</span> <span class="o">=</span> <span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">250</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">sub_sample</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="c1"># camera - ray sampling settings</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">rays</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">spectral_samples</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">ray_min_depth</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">ray_max_depth</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">ray_extinction_prob</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">min_wavelength</span> <span class="o">=</span> <span class="mf">375.0</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">max_wavelength</span> <span class="o">=</span> <span class="mf">740.0</span>
-
-<span class="c1"># camera- progress update settings</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">display_progress</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">display_update_time</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">spectral_bins</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">spectral_rays</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -230,8 +221,8 @@ settings will be explained in detail in another section:</p>
 <span class="n">camera</span><span class="o">.</span><span class="n">observe</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">ioff</span><span class="p">()</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;render.png&quot;</span><span class="p">)</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<span class="n">rgb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;render.png&quot;</span><span class="p">)</span>
+<span class="n">rgb</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The resulting image should render like this.</p>
@@ -244,11 +235,18 @@ settings will be explained in detail in another section:</p>
           <span class="n">direction</span><span class="o">=</span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
           <span class="n">min_wavelength</span><span class="o">=</span><span class="mi">375</span><span class="p">,</span>
           <span class="n">max_wavelength</span><span class="o">=</span><span class="mi">785</span><span class="p">,</span>
-          <span class="n">num_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+          <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">ray</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The resulting plot should look something like this.</p>
 <img alt="_images/example_spectra.png" class="align-center" src="_images/example_spectra.png" />
+<p>Due to the statistical nature of the path tracer, you may need to run the trace command more than once until you find a path that intersects with the light source.</p>
+<p>You can ask the ray to trace repeatedly using the sample method instead. This will combine the results of multiple paths:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ray</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 
