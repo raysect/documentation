@@ -15,8 +15,6 @@
   
     <link rel="shortcut icon" href="_static/RaysectLogo_web.ico"/>
   
-  
-  
 
   
 
@@ -36,6 +34,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Raysect Documentation" href="#"/>
         <link rel="next" title="1. Introduction" href="introduction.html"/> 
 
@@ -46,7 +47,6 @@
 
 <body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -90,10 +90,7 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">2. Downloading and Installation</a></li>
@@ -127,10 +124,8 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Raysect</a>
-        
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Raysect</a>
       </nav>
 
 
@@ -139,40 +134,23 @@
         <div class="rst-content">
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="#">Docs</a> &raquo;</li>
-        
-      <li>Home</li>
-    
-    
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Home</li>
       <li class="wy-breadcrumbs-aside">
         
-            
-            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -195,7 +173,18 @@
 <li>Easily extensible, written with user customisation of materials and emissive sources in mind.</li>
 <li>Different observer types supported such as Pinhole cameras and optical fibres.</li>
 </ul>
-<p>The Raysect development repository is hosted on <a class="reference external" href="https://github.com/raysect/source">github</a>.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Raysect is available from the python package repository <a class="reference external" href="https://pypi.python.org/pypi/raysect">pypi</a>. The easiest way to install Raysect is using <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">raysect</span>
+</pre></div>
+</div>
+<p>If pip is not available, the source files can be downloaded from <a class="reference external" href="https://pypi.python.org/pypi/raysect">pypi</a> or from our <a class="reference external" href="https://github.com/raysect/source">development repository</a>. Once you have the source files, locate the folder containing setup.py and run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>If all the required dependencies are present (cython, numpy, scipy and matplotlib), this should start the Raysect compilation and installation process.</p>
+<p>If you would like to play with the bleeding-edge code or contribute to development, please see the Raysect development repository on <a class="reference external" href="https://github.com/raysect/source">github</a>.</p>
 <div class="toctree-wrapper compound" id="mastertoc">
 <p class="caption"><span class="caption-text">Table of Contents</span><a class="headerlink" href="#mastertoc" title="Permalink to this toctree">¶</a></p>
 <ul>
@@ -270,6 +259,7 @@
 </li>
 </ul>
 </div>
+</div>
 <div class="section" id="indices-and-tables">
 <h2>Indices and Tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -282,15 +272,12 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="introduction.html" class="btn btn-neutral float-right" title="1. Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-right" title="1. Introduction" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -325,8 +312,7 @@
             VERSION:'0.3.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
