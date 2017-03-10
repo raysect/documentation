@@ -95,13 +95,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Downloading and Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#prerequisites">2.1. Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#downloads">2.2. Downloads</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installation">2.3. Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#testing">2.4. Testing</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#license">2.4.1. License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">2.1. Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">2.1.1. Installation</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">2.2. Testing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="how_it_works.html">3. How it works</a></li>
@@ -170,32 +168,30 @@
 <h1>2. Downloading and Installation<a class="headerlink" href="#downloading-and-installation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="prerequisites">
 <h2>2.1. Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>The Raysect package requires Python 3, Numpy, Scipy and Matplotlib. Scipy version 0.13 or
+<p>The Raysect package requires Python 3.3+, numpy, scipy and matplotlib. Scipy version 0.13 or
 higher is recommended. Raysect has not been tested on Python 2, currently support for Python
 2 is not planned. IPython is recommended for interactive use.</p>
-</div>
-<div class="section" id="downloads">
-<h2>2.2. Downloads<a class="headerlink" href="#downloads" title="Permalink to this headline">¶</a></h2>
-<p>The latest stable version of Raysect is tagged as release v0.1 and available from
-<a class="reference external" href="https://github.com/raysect/">github</a>.</p>
-</div>
 <div class="section" id="installation">
-<h2>2.3. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Download the source, unpack it and install with:</p>
+<h3>2.1.1. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>Raysect is available from the python package repository <a class="reference external" href="https://pypi.python.org/pypi/raysect">pypi</a>. The easiest way to install Raysect is using <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">raysect</span>
+</pre></div>
+</div>
+<p>If pip is not available, the source files can be downloaded from <a class="reference external" href="https://pypi.python.org/pypi/raysect">pypi</a> or from our <a class="reference external" href="https://github.com/raysect/source">development repository</a>. Once you have the source files, locate the folder containing setup.py and run:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
 </pre></div>
 </div>
-<p>Installation with pip and setup tools is not currently supported but will be with a future version.</p>
+<p>If all the required dependencies are present (cython, numpy, scipy and matplotlib), this should start the Raysect compilation and installation process.</p>
+<p>If you would like to play with the bleeding-edge code or contribute to development, please see the Raysect development repository on <a class="reference external" href="https://github.com/raysect/source">github</a>.</p>
+</div>
 </div>
 <div class="section" id="testing">
-<h2>2.4. Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<h2>2.2. Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
 <p>A selection of test scripts can be run with the <cite>nose</cite> testing framework. These are routinely
 run on the development version.  Running <code class="docutils literal"><span class="pre">nosetests</span></code> at the terminal in the source directory
 should run all of these tests to completion without errors or failures.</p>
 <p>Many of the demos used throughout the Raysect documentation are distributed with the source code in
 the <code class="docutils literal"><span class="pre">demo</span></code> folder.</p>
-<div class="section" id="license">
-<h3>2.4.1. License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">License</span>
 <span class="o">=======</span>
 
@@ -228,7 +224,6 @@ the <code class="docutils literal"><span class="pre">demo</span></code> folder.<
 <span class="n">ARISING</span> <span class="n">IN</span> <span class="n">ANY</span> <span class="n">WAY</span> <span class="n">OUT</span> <span class="n">OF</span> <span class="n">THE</span> <span class="n">USE</span> <span class="n">OF</span> <span class="n">THIS</span> <span class="n">SOFTWARE</span><span class="p">,</span> <span class="n">EVEN</span> <span class="n">IF</span> <span class="n">ADVISED</span> <span class="n">OF</span> <span class="n">THE</span>
 <span class="n">POSSIBILITY</span> <span class="n">OF</span> <span class="n">SUCH</span> <span class="n">DAMAGE</span><span class="o">.</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
