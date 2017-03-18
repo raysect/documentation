@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
   
+  
+  
 
   
 
@@ -40,7 +42,7 @@
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="1.2. Math Module" href="math.html"/>
         <link rel="next" title="1.2.5. Unit Conversions" href="units.html"/>
-        <link rel="prev" title="1.2.3. Affine Matricies" href="affinematrix.html"/> 
+        <link rel="prev" title="1.2.3. Functions and Interpolators" href="functions.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -49,6 +51,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -92,7 +95,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
@@ -115,13 +121,18 @@
 <li class="toctree-l2"><a class="reference internal" href="core_classes.html">1.1. Core Classes</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="math.html">1.2. Math Module</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="points_and_vectors.html">1.2.1. Points and Vectors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="functions.html">1.2.2. Functions and Interpolators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="affinematrix.html">1.2.3. Affine Matricies</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">1.2.4. Random</a></li>
+<li class="toctree-l3"><a class="reference internal" href="affinematrix.html">1.2.2. Affine Matricies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="functions.html">1.2.3. Functions and Interpolators</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.2.4. Random</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#random-samplers">1.2.4.1. Random samplers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bulk-sampling">1.2.4.2. Bulk sampling</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="units.html">1.2.5. Unit Conversions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="raysect_core_scenegraph.html">1.3. Scenegraph Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">1.4. Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../primitives/primitives.html">2. Primitives Module</a></li>
@@ -138,8 +149,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Raysect</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Raysect</a>
+        
       </nav>
 
 
@@ -148,106 +161,53 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="core.html">1. Raysect Core</a> &raquo;</li>
-      
+        
           <li><a href="math.html">1.2. Math Module</a> &raquo;</li>
-      
-    <li>1.2.4. Random</li>
+        
+      <li>1.2.4. Random</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../../_sources/api_reference/core/random.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-raysect.core.math.random">
-<span id="random"></span><h1>1.2.4. Random<a class="headerlink" href="#module-raysect.core.math.random" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="raysect.core.math.random.normal">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">normal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.normal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a normally distributed random number.</p>
-<p>The mean and standard deviation of the distribution must be specified.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>mean</strong> (<em>float</em>) &#8211; The distribution mean.</li>
-<li><strong>stddev</strong> (<em>float</em>) &#8211; The distribution standard deviation.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Random double.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="raysect.core.math.random.point_disk">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">point_disk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.point_disk" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a random point on a disk of unit radius.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Point2D</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="raysect.core.math.random.point_square">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">point_square</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.point_square" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a random point on a square of unit radius.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Point2D</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="raysect.core.math.random.probability">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">probability</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.probability" title="Permalink to this definition">¶</a></dt>
-<dd><p>Samples from the Bernoulli distribution where P(True) = prob.</p>
-<p>For example, if probability is 0.8, this function will return True 80% of
-the time and False 20% of the time.</p>
-<p>Values of prob outside the [0, 1] range of probabilities will be clamped to
-the nearest end of the range [0, 1].</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>prob</strong> (<em>double</em>) &#8211; A probability from [0, 1].</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True or False.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
+  <div class="section" id="random">
+<h1>1.2.4. Random<a class="headerlink" href="#random" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="random-samplers">
+<h2>1.2.4.1. Random samplers<a class="headerlink" href="#random-samplers" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="raysect.core.math.random.seed">
 <code class="descclassname">raysect.core.math.random.</code><code class="descname">seed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.seed" title="Permalink to this definition">¶</a></dt>
@@ -280,32 +240,81 @@ system cryptographic random number generator (urandom).</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="raysect.core.math.random.vector_cone">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_cone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_cone" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a random vector in a cone along the z-axis.</p>
-<p>The angle of the cone is specified with the theta parameter. For speed, no
-checks are performs on the theta parameter, it is up to user to ensure the
-angle is sensible.</p>
+<dt id="raysect.core.math.random.normal">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">normal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a normally distributed random number.</p>
+<p>The mean and standard deviation of the distribution must be specified.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>theta</strong> (<em>float</em>) &#8211; An angle between 0 and 90 degrees.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mean</strong> (<em>float</em>) &#8211; The distribution mean.</li>
+<li><strong>stddev</strong> (<em>float</em>) &#8211; The distribution standard deviation.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A random Vector3D in the cone defined by theta.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Random double.</p>
+</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="function">
-<dt id="raysect.core.math.random.vector_hemisphere_cosine">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_hemisphere_cosine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_hemisphere_cosine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a cosine-weighted random vector on a unit hemisphere.</p>
-<p>The hemisphere is aligned along the z-axis - the plane that forms the
-hemisphere base lies in the x-y plane.</p>
+<dt id="raysect.core.math.random.probability">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">probability</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.probability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Samples from the Bernoulli distribution where P(True) = prob.</p>
+<p>For example, if probability is 0.8, this function will return True 80% of
+the time and False 20% of the time.</p>
+<p>Values of prob outside the [0, 1] range of probabilities will be clamped to
+the nearest end of the range [0, 1].</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>prob</strong> (<em>double</em>) &#8211; A probability from [0, 1].</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True or False.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.random.point_disk">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">point_disk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.point_disk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a random point on a disk of unit radius.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D">Point2D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.random.point_square">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">point_square</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.point_square" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a random point on a square of unit radius.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D">Point2D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.core.math.random.vector_sphere">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_sphere</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_sphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a random vector on a unit sphere.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -333,9 +342,11 @@ hemisphere base lies in the x-y plane.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="raysect.core.math.random.vector_sphere">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_sphere</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_sphere" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a random vector on a unit sphere.</p>
+<dt id="raysect.core.math.random.vector_hemisphere_cosine">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_hemisphere_cosine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_hemisphere_cosine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a cosine-weighted random vector on a unit hemisphere.</p>
+<p>The hemisphere is aligned along the z-axis - the plane that forms the
+hemisphere base lies in the x-y plane.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -346,19 +357,194 @@ hemisphere base lies in the x-y plane.</p>
 </table>
 </dd></dl>
 
+<dl class="function">
+<dt id="raysect.core.math.random.vector_cone">
+<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_cone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_cone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a random vector in a cone along the z-axis.</p>
+<p>The angle of the cone is specified with the theta parameter. For speed, no
+checks are performs on the theta parameter, it is up to user to ensure the
+angle is sensible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>theta</strong> (<em>float</em>) &#8211; An angle between 0 and 90 degrees.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A random Vector3D in the cone defined by theta.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="bulk-sampling">
+<h2>1.2.4.2. Bulk sampling<a class="headerlink" href="#bulk-sampling" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raysect.core.math.sampler.PointSampler">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">PointSampler</code><a class="headerlink" href="#raysect.core.math.sampler.PointSampler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for an object that generates a list of Point3D objects.</p>
+<dl class="attribute">
+<dt id="raysect.core.math.sampler.PointSampler.__call__">
+<code class="descname">__call__</code><a class="headerlink" href="#raysect.core.math.sampler.PointSampler.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>samples</strong> (<em>int</em>) &#8211; Number of points to generate.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.sampler.PointSampler.sample">
+<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.sampler.PointSampler.sample" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>samples</strong> (<em>int</em>) &#8211; Number of points to generate.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.sampler.DiskSampler">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">DiskSampler</code><a class="headerlink" href="#raysect.core.math.sampler.DiskSampler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.PointSampler" title="raysect.core.math.sampler.PointSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.PointSampler</span></code></a></p>
+<p>Generates a random Point3D on a disk.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>radius</strong> (<em>double</em>) &#8211; The radius of the disk.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.sampler.RectangleSampler">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">RectangleSampler</code><a class="headerlink" href="#raysect.core.math.sampler.RectangleSampler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.PointSampler" title="raysect.core.math.sampler.PointSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.PointSampler</span></code></a></p>
+<p>Generates a random Point3D on a rectangle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>width</strong> (<em>double</em>) &#8211; The width of the rectangular sampling area of this observer.</li>
+<li><strong>height</strong> (<em>double</em>) &#8211; The height of the rectangular sampling area of this observer.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.sampler.VectorSampler">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">VectorSampler</code><a class="headerlink" href="#raysect.core.math.sampler.VectorSampler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for an object that generates a list of Vector3D objects.</p>
+<dl class="attribute">
+<dt id="raysect.core.math.sampler.VectorSampler.__call__">
+<code class="descname">__call__</code><a class="headerlink" href="#raysect.core.math.sampler.VectorSampler.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>samples</strong> (<em>int</em>) &#8211; Number of vectors to generate.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.sampler.VectorSampler.sample">
+<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.sampler.VectorSampler.sample" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>samples</strong> (<em>int</em>) &#8211; Number of vectors to generate.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.sampler.ConeSampler">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">ConeSampler</code><a class="headerlink" href="#raysect.core.math.sampler.ConeSampler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.VectorSampler" title="raysect.core.math.sampler.VectorSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.VectorSampler</span></code></a></p>
+<p>Generates a list of random unit Vector3D objects inside a cone.</p>
+<p>The cone is aligned along the z-axis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> &#8211; Angle of the cone in degrees.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.sampler.SphereSampler">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">SphereSampler</code><a class="headerlink" href="#raysect.core.math.sampler.SphereSampler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.VectorSampler" title="raysect.core.math.sampler.VectorSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.VectorSampler</span></code></a></p>
+<p>Generates a random vector on a unit sphere.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.sampler.HemisphereUniformSampler">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">HemisphereUniformSampler</code><a class="headerlink" href="#raysect.core.math.sampler.HemisphereUniformSampler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.VectorSampler" title="raysect.core.math.sampler.VectorSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.VectorSampler</span></code></a></p>
+<p>Generates a random vector on a unit hemisphere.</p>
+<p>The hemisphere is aligned along the z-axis - the plane that forms the
+hemisphere base lies in the x-y plane.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.sampler.HemisphereCosineSampler">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">HemisphereCosineSampler</code><a class="headerlink" href="#raysect.core.math.sampler.HemisphereCosineSampler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.VectorSampler" title="raysect.core.math.sampler.VectorSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.VectorSampler</span></code></a></p>
+<p>Generates a cosine-weighted random vector on a unit hemisphere.</p>
+<p>The hemisphere is aligned along the z-axis - the plane that forms the
+hemisphere base lies in the x-y plane.</p>
+</dd></dl>
+
+</div>
 </div>
 
 
+           </div>
+           <div class="articleComments">
+            
            </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="units.html" class="btn btn-neutral float-right" title="1.2.5. Unit Conversions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="units.html" class="btn btn-neutral float-right" title="1.2.5. Unit Conversions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="affinematrix.html" class="btn btn-neutral" title="1.2.3. Affine Matricies" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="functions.html" class="btn btn-neutral" title="1.2.3. Functions and Interpolators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -389,10 +575,11 @@ hemisphere base lies in the x-y plane.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.3.0',
+            VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

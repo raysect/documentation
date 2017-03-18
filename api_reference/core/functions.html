@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1.2.2. Functions and Interpolators &mdash; Raysect Documentation</title>
+  <title>1.2.3. Functions and Interpolators &mdash; Raysect Documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
+  
+  
   
 
   
@@ -39,8 +41,8 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="1.2. Math Module" href="math.html"/>
-        <link rel="next" title="1.2.3. Affine Matricies" href="affinematrix.html"/>
-        <link rel="prev" title="1.2.1. Points and Vectors" href="points_and_vectors.html"/> 
+        <link rel="next" title="1.2.4. Random" href="random.html"/>
+        <link rel="prev" title="1.2.2. Affine Matricies" href="affinematrix.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -49,6 +51,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -92,7 +95,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
@@ -115,13 +121,14 @@
 <li class="toctree-l2"><a class="reference internal" href="core_classes.html">1.1. Core Classes</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="math.html">1.2. Math Module</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="points_and_vectors.html">1.2.1. Points and Vectors</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">1.2.2. Functions and Interpolators</a></li>
-<li class="toctree-l3"><a class="reference internal" href="affinematrix.html">1.2.3. Affine Matricies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="affinematrix.html">1.2.2. Affine Matricies</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.2.3. Functions and Interpolators</a></li>
 <li class="toctree-l3"><a class="reference internal" href="random.html">1.2.4. Random</a></li>
 <li class="toctree-l3"><a class="reference internal" href="units.html">1.2.5. Unit Conversions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="raysect_core_scenegraph.html">1.3. Scenegraph Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">1.4. Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../primitives/primitives.html">2. Primitives Module</a></li>
@@ -138,8 +145,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Raysect</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Raysect</a>
+        
       </nav>
 
 
@@ -148,34 +157,51 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="core.html">1. Raysect Core</a> &raquo;</li>
-      
+        
           <li><a href="math.html">1.2. Math Module</a> &raquo;</li>
-      
-    <li>1.2.2. Functions and Interpolators</li>
+        
+      <li>1.2.3. Functions and Interpolators</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../../_sources/api_reference/core/functions.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="functions-and-interpolators">
-<h1>1.2.2. Functions and Interpolators<a class="headerlink" href="#functions-and-interpolators" title="Permalink to this headline">¶</a></h1>
+<h1>1.2.3. Functions and Interpolators<a class="headerlink" href="#functions-and-interpolators" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="raysect.core.math.function.function1d.Function1D">
 <em class="property">class </em><code class="descclassname">raysect.core.math.function.function1d.</code><code class="descname">Function1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.Function1D" title="Permalink to this definition">¶</a></dt>
@@ -187,6 +213,49 @@ function call.</p>
 <p>To create a new function object, inherit this class and implement the
 evaluate() method. The new function object can then be used with any code
 that accepts a function object.</p>
+<dl class="attribute">
+<dt id="raysect.core.math.function.function1d.Function1D.__call__">
+<code class="descname">__call__</code><a class="headerlink" href="#raysect.core.math.function.function1d.Function1D.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the function f(x)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>float</em>) &#8211; function parameter x</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function1d.PythonFunction1D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.function.function1d.</code><code class="descname">PythonFunction1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.PythonFunction1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.Function1D" title="raysect.core.math.function.function1d.Function1D"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.function.function1d.Function1D</span></code></a></p>
+<p>Wraps a python callable object with a Function1D object.</p>
+<p>This class allows a python object to interact with cython code that requires
+a Function1D object. The python object must implement __call__() expecting
+one argument.</p>
+<p>This class is intended to be used to transparently wrap python objects that
+are passed via constructors or methods into cython optimised code. It is not
+intended that the users should need to directly interact with these wrapping
+objects. Constructors and methods expecting a Function1D object should be
+designed to accept a generic python object and then test that object to
+determine if it is an instance of Function1D. If the object is not a
+Function1D object it should be wrapped using this class for internal use.</p>
+<p>See also: autowrap_function1d()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> (<em>object</em>) &#8211; the python function to wrap, __call__() function must be</td>
+</tr>
+</tbody>
+</table>
+<p>implemented on the object.</p>
 </dd></dl>
 
 <dl class="class">
@@ -200,6 +269,54 @@ function call.</p>
 <p>To create a new function object, inherit this class and implement the
 evaluate() method. The new function object can then be used with any code
 that accepts a function object.</p>
+<dl class="attribute">
+<dt id="raysect.core.math.function.function2d.Function2D.__call__">
+<code class="descname">__call__</code><a class="headerlink" href="#raysect.core.math.function.function2d.Function2D.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the function f(x, y)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>float</em>) &#8211; function parameter x</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; function parameter y</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function2d.PythonFunction2D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.function.function2d.</code><code class="descname">PythonFunction2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.PythonFunction2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.Function2D" title="raysect.core.math.function.function2d.Function2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.function.function2d.Function2D</span></code></a></p>
+<p>Wraps a python callable object with a Function2D object.</p>
+<p>This class allows a python object to interact with cython code that requires
+a Function2D object. The python object must implement __call__() expecting
+two arguments.</p>
+<p>This class is intended to be used to transparently wrap python objects that
+are passed via constructors or methods into cython optimised code. It is not
+intended that the users should need to directly interact with these wrapping
+objects. Constructors and methods expecting a Function2D object should be
+designed to accept a generic python object and then test that object to
+determine if it is an instance of Function2D. If the object is not a
+Function2D object it should be wrapped using this class for internal use.</p>
+<p>See also: autowrap_function2d()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> (<em>object</em>) &#8211; the python function to wrap, __call__() function must</td>
+</tr>
+</tbody>
+</table>
+<p>be implemented on the object.</p>
 </dd></dl>
 
 <dl class="class">
@@ -213,12 +330,53 @@ function call.</p>
 <p>To create a new function object, inherit this class and implement the
 evaluate() method. The new function object can then be used with any code
 that accepts a function object.</p>
+<dl class="attribute">
+<dt id="raysect.core.math.function.function3d.Function3D.__call__">
+<code class="descname">__call__</code><a class="headerlink" href="#raysect.core.math.function.function3d.Function3D.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the function f(x, y, z)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>float</em>) &#8211; function parameter x</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; function parameter y</li>
+<li><strong>y</strong> &#8211; function parameter z</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function3d.PythonFunction3D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.function.function3d.</code><code class="descname">PythonFunction3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.PythonFunction3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.Function3D" title="raysect.core.math.function.function3d.Function3D"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.function.function3d.Function3D</span></code></a></p>
+<p>Wraps a python callable object with a Function3D object.</p>
+<p>This class allows a python object to interact with cython code that requires
+a Function3D object. The python object must implement __call__() expecting
+three arguments.</p>
+<p>This class is intended to be used to transparently wrap python objects that
+are passed via constructors or methods into cython optimised code. It is not
+intended that the users should need to directly interact with these wrapping
+objects. Constructors and methods expecting a Function3D object should be
+designed to accept a generic python object and then test that object to
+determine if it is an instance of Function3D. If the object is not a
+Function3D object it should be wrapped using this class for internal use.</p>
+<p>See also: autowrap_function3d()</p>
 </dd></dl>
 
 <span class="target" id="module-raysect.core.math.interpolators.discrete2dmesh"></span><dl class="class">
 <dt id="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh">
 <em class="property">class </em><code class="descclassname">raysect.core.math.interpolators.discrete2dmesh.</code><code class="descname">Discrete2DMesh</code><a class="headerlink" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Discrete interpolator for data on a 2d ungridded tri-poly mesh.</p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.Function2D" title="raysect.core.math.function.function2d.Function2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.function.function2d.Function2D</span></code></a></p>
+<p>Discrete interpolator for data on a 2d ungridded tri-poly mesh.</p>
 <p>The mesh is specified as a set of 2D vertices supplied as an Nx2 numpy
 array or a suitably sized sequence that can be converted to a numpy array.</p>
 <p>The mesh triangles are defined with a Mx3 array where the three values are
@@ -299,7 +457,8 @@ geometry data between multiple interpolator objects.</p>
 <span class="target" id="module-raysect.core.math.interpolators.interpolator2dmesh"></span><dl class="class">
 <dt id="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh">
 <em class="property">class </em><code class="descclassname">raysect.core.math.interpolators.interpolator2dmesh.</code><code class="descname">Interpolator2DMesh</code><a class="headerlink" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Linear interpolator for data on a 2d ungridded tri-poly mesh.</p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.Function2D" title="raysect.core.math.function.function2d.Function2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.function.function2d.Function2D</span></code></a></p>
+<p>Linear interpolator for data on a 2d ungridded tri-poly mesh.</p>
 <p>The mesh is specified as a set of 2D vertices supplied as an Nx2 numpy
 array or a suitably sized sequence that can be converted to a numpy array.</p>
 <p>The mesh triangles are defined with a Mx3 array where the three values are
@@ -381,15 +540,18 @@ geometry data between multiple interpolator objects.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="affinematrix.html" class="btn btn-neutral float-right" title="1.2.3. Affine Matricies" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="random.html" class="btn btn-neutral float-right" title="1.2.4. Random" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="points_and_vectors.html" class="btn btn-neutral" title="1.2.1. Points and Vectors" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="affinematrix.html" class="btn btn-neutral" title="1.2.2. Affine Matricies" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -420,10 +582,11 @@ geometry data between multiple interpolator objects.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.3.0',
+            VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

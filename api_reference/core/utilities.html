@@ -1,0 +1,442 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1.4. Utilities &mdash; Raysect Documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Raysect Documentation" href="../../index.html"/>
+        <link rel="up" title="1. Raysect Core" href="core.html"/>
+        <link rel="next" title="2. Primitives Module" href="../primitives/primitives.html"/>
+        <link rel="prev" title="1.3. Scenegraph Module" href="raysect_core_scenegraph.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Raysect
+          
+
+          
+            
+            <img src="../../_static/RaysectLogo_web.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">3. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">4. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">7. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">8. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">9. Need Help?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demonstrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="core.html">1. Raysect Core</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="core_classes.html">1.1. Core Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math.html">1.2. Math Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raysect_core_scenegraph.html">1.3. Scenegraph Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.4. Utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#containers">1.4.1. Containers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../primitives/primitives.html">2. Primitives Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optical/optical.html">3. Optical Module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Raysect</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="core.html">1. Raysect Core</a> &raquo;</li>
+        
+      <li>1.4. Utilities</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api_reference/core/utilities.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="utilities">
+<h1>1.4. Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="containers">
+<h2>1.4.1. Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h2>
+<p>Raysect has a number of container classes available for fast operations
+in cython. These are mainly intended for use by developers.</p>
+<dl class="class">
+<dt id="raysect.core.containers.LinkedList">
+<em class="property">class </em><code class="descclassname">raysect.core.containers.</code><code class="descname">LinkedList</code><a class="headerlink" href="#raysect.core.containers.LinkedList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic implementation of a Linked List for fast container operations in cython.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>initial_items</strong> (<em>object</em>) &#8211; Optional iterable for initialising container.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector2D.length" title="raysect.core.math.vector.Vector2D.length"><strong>length</strong></a> (<em>int</em>) &#8211; number of items in the container</li>
+<li><strong>first</strong> &#8211; starting element of container</li>
+<li><strong>last</strong> &#8211; final element of container</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="raysect.core.containers.LinkedList.add">
+<code class="descname">add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an item to the end of the container.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>object</em>) &#8211; The item to add to the end of the container.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.containers.LinkedList.add_items">
+<code class="descname">add_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.add_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extend this container with another iterable container.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iterable</strong> (<em>object</em>) &#8211; Iterable object such as a list or ndarray with
+which to extend this container.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.containers.LinkedList.get_index">
+<code class="descname">get_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.get_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the item from the container at specified index.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) &#8211; requested item index</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.containers.LinkedList.insert">
+<code class="descname">insert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert an item at the specified index.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>value</strong> (<em>object</em>) &#8211; item to insert</li>
+<li><strong>index</strong> (<em>int</em>) &#8211; index at which to insert this item</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.containers.LinkedList.is_empty">
+<code class="descname">is_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.is_empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if the container is empty.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.containers.LinkedList.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove and return the specified item from the container.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) &#8211; Index at which an item will be removed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The object at the specified index position.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.containers.Stack">
+<em class="property">class </em><code class="descclassname">raysect.core.containers.</code><code class="descname">Stack</code><a class="headerlink" href="#raysect.core.containers.Stack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.containers.LinkedList" title="raysect.core.containers.LinkedList"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.containers.LinkedList</span></code></a></p>
+<p>Basic implementation of a Stack container for fast container operations in cython.
+Inherits attributes and methods from LinkedList.</p>
+<dl class="method">
+<dt id="raysect.core.containers.Stack.pop">
+<code class="descname">pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Stack.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes and returns the most recently added item from the stack</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.containers.Stack.push">
+<code class="descname">push</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Stack.push" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds an item to the top of the stack</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>object</em>) &#8211; Object that will be pushed to top of the stack</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.containers.Queue">
+<em class="property">class </em><code class="descclassname">raysect.core.containers.</code><code class="descname">Queue</code><a class="headerlink" href="#raysect.core.containers.Queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.containers.LinkedList" title="raysect.core.containers.LinkedList"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.containers.LinkedList</span></code></a></p>
+<p>Basic implementation of a Queue container for fast container operations in cython.
+Inherits attributes and methods from LinkedList.</p>
+<dl class="method">
+<dt id="raysect.core.containers.Queue.next_in_queue">
+<code class="descname">next_in_queue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Queue.next_in_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the next object in the queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../primitives/primitives.html" class="btn btn-neutral float-right" title="2. Primitives Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="raysect_core_scenegraph.html" class="btn btn-neutral" title="1.3. Scenegraph Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, Dr Alex Meakins.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.3.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

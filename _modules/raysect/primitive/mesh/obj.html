@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../../../../_static/RaysectLogo_web.ico"/>
   
+  
+  
 
   
 
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,7 +93,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">2. Downloading and Installation</a></li>
@@ -124,8 +130,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../../../index.html">Raysect</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Raysect</a>
+        
       </nav>
 
 
@@ -138,19 +146,36 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="../../../index.html">Module code</a> &raquo;</li>
-      
-    <li>raysect.primitive.mesh.obj</li>
+        
+      <li>raysect.primitive.mesh.obj</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -195,7 +220,7 @@
 <span class="k">class</span> <span class="nc">OBJHandler</span><span class="p">:</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">import_obj</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">import_obj</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="n">vertices</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">normals</span> <span class="o">=</span> <span class="p">[]</span>
@@ -216,7 +241,7 @@
                 <span class="n">tokens</span> <span class="o">=</span> <span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
 
                 <span class="k">if</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;v&quot;</span><span class="p">:</span>
-                    <span class="n">vertex</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_to_point</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">scaling</span><span class="p">)</span>
+                    <span class="n">vertex</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_to_point</span><span class="p">(</span><span class="n">tokens</span><span class="p">,</span> <span class="n">scaling</span><span class="p">)</span>
                     <span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span>
 
                 <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;vt&quot;</span><span class="p">:</span>
@@ -224,11 +249,11 @@
                     <span class="k">continue</span>
 
                 <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;vn&quot;</span><span class="p">:</span>
-                    <span class="n">normal</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_to_normal</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+                    <span class="n">normal</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_to_normal</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
                     <span class="n">normals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">normal</span><span class="p">)</span>
 
                 <span class="k">elif</span> <span class="n">cmd</span> <span class="o">==</span> <span class="s2">&quot;f&quot;</span><span class="p">:</span>
-                    <span class="n">triangle</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_to_triangle</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+                    <span class="n">triangle</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_to_triangle</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
                     <span class="n">triangles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">triangle</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">normals</span><span class="p">:</span>
@@ -236,27 +261,27 @@
         <span class="k">return</span> <span class="n">Mesh</span><span class="p">(</span><span class="n">vertices</span><span class="p">,</span> <span class="n">triangles</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">_to_point</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">scaling</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_to_point</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">tokens</span><span class="p">,</span> <span class="n">scaling</span><span class="p">):</span>
 
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">tokens</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">scaling</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">scaling</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">scaling</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">)]</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">_to_normal</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_to_normal</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
 
         <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">tokens</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">Normal3D</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="o">.</span><span class="n">normalise</span><span class="p">()</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">n</span><span class="o">.</span><span class="n">z</span><span class="p">]</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">_to_triangle</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_to_triangle</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">tokens</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The .obj importer only support meshes containing 3 sided faces (triangles).&quot;</span><span class="p">)</span>
 
-        <span class="n">v1</span><span class="p">,</span> <span class="n">n1</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_parse_face_token</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">v2</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_parse_face_token</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">v3</span><span class="p">,</span> <span class="n">n3</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">_parse_face_token</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">v1</span><span class="p">,</span> <span class="n">n1</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_parse_face_token</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">v2</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_parse_face_token</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">v3</span><span class="p">,</span> <span class="n">n3</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_parse_face_token</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 
         <span class="c1"># do we have a full set of normals?</span>
         <span class="k">if</span> <span class="n">n1</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">n2</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">n3</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -264,7 +289,7 @@
         <span class="k">return</span> <span class="p">[</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">n3</span><span class="p">]</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">_parse_face_token</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_parse_face_token</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
 
         <span class="c1"># texture coordinates not currently supported</span>
         <span class="c1"># note indexing in obj format is 1 based, Python is 0 based</span>
@@ -284,6 +309,9 @@
 <span class="n">import_obj</span> <span class="o">=</span> <span class="n">OBJHandler</span><span class="o">.</span><span class="n">import_obj</span>
 </pre></div>
 
+           </div>
+           <div class="articleComments">
+            
            </div>
           </div>
           <footer>
@@ -315,10 +343,11 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'0.3.0',
+            VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../../../_static/jquery.js"></script>
