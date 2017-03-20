@@ -15,8 +15,6 @@
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
   
-  
-  
 
   
 
@@ -32,7 +30,7 @@
   
 
   
-    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
   
 
   
@@ -51,7 +49,6 @@
 
 <body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -95,10 +92,7 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
@@ -137,10 +131,8 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Raysect</a>
-        
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Raysect</a>
       </nav>
 
 
@@ -149,42 +141,25 @@
         <div class="rst-content">
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
           <li><a href="primitives.html">2. Primitives Module</a> &raquo;</li>
-        
-      <li>2.1. Geometric Primitives</li>
-    
-    
+      
+    <li>2.1. Geometric Primitives</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/api_reference/primitives/geometric_primitives.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -193,9 +168,63 @@
   <div class="section" id="geometric-primitives">
 <h1>2.1. Geometric Primitives<a class="headerlink" href="#geometric-primitives" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
+<dt id="raysect.primitive.Box">
+<em class="property">class </em><code class="descclassname">raysect.primitive.</code><code class="descname">Box</code><a class="headerlink" href="#raysect.primitive.Box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
+<p>A box primitive.</p>
+<p>The box is defined by lower and upper points in the local co-ordinate
+system.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>lower</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Lower point of the box (default = Point3D(-0.5, -0.5, -0.5)).</li>
+<li><strong>upper</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Upper point of the box (default = Point3D(0.5, 0.5, 0.5)).</li>
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
+<li><strong>material</strong> (<em>Material</em>) &#8211; A Material object defining the box&#8217;s material (default = None).</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the box (default = &#8220;&#8221;).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="raysect.primitive.Box.lower">
+<code class="descname">lower</code><a class="headerlink" href="#raysect.primitive.Box.lower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower 3D coordinate of the box in primitive&#8217;s local coordinates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D">Point3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.primitive.Box.upper">
+<code class="descname">upper</code><a class="headerlink" href="#raysect.primitive.Box.upper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upper 3D coordinate of the box in primitive&#8217;s local coordinates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D">Point3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="raysect.primitive.Sphere">
 <em class="property">class </em><code class="descclassname">raysect.primitive.</code><code class="descname">Sphere</code><a class="headerlink" href="#raysect.primitive.Sphere" title="Permalink to this definition">¶</a></dt>
-<dd><p>A sphere primitive.</p>
+<dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
+<p>A sphere primitive.</p>
 <p>The sphere is centered at the origin of the local co-ordinate system.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -213,35 +242,14 @@
 </tbody>
 </table>
 <dl class="attribute">
-<dt id="raysect.primitive.Sphere.__init__">
-<code class="descname">__init__</code><a class="headerlink" href="#raysect.primitive.Sphere.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="raysect.primitive.Box">
-<em class="property">class </em><code class="descclassname">raysect.primitive.</code><code class="descname">Box</code><a class="headerlink" href="#raysect.primitive.Box" title="Permalink to this definition">¶</a></dt>
-<dd><p>A box primitive.</p>
-<p>The box is defined by lower and upper points in the local co-ordinate
-system.</p>
-<dl class="attribute">
-<dt id="raysect.primitive.Box.__init__">
-<code class="descname">__init__</code><a class="headerlink" href="#raysect.primitive.Box.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dt id="raysect.primitive.Sphere.radius">
+<code class="descname">radius</code><a class="headerlink" href="#raysect.primitive.Sphere.radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>The radius of this sphere.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>lower</strong> &#8211; Lower point of the box (default = Point3D(-0.5, -0.5, -0.5)).</li>
-<li><strong>upper</strong> &#8211; Upper point of the box (default = Point3D(0.5, 0.5, 0.5)).</li>
-<li><strong>parent</strong> &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> &#8211; An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> &#8211; A Material object defining the box&#8217;s material (default = None).</li>
-<li><strong>name</strong> &#8211; A string specifying a user-friendly name for the box (default = &#8220;&#8221;).</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
 </tbody>
 </table>
@@ -252,28 +260,43 @@ system.</p>
 <dl class="class">
 <dt id="raysect.primitive.Cylinder">
 <em class="property">class </em><code class="descclassname">raysect.primitive.</code><code class="descname">Cylinder</code><a class="headerlink" href="#raysect.primitive.Cylinder" title="Permalink to this definition">¶</a></dt>
-<dd><p>A cylinder primitive.</p>
+<dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
+<p>A cylinder primitive.</p>
 <p>The cylinder is defined by a radius and height. It lies along the z-axis
 and extends over the z range [0, height]. The ends of the cylinder are
 capped with disks forming a closed surface.</p>
-<dl class="attribute">
-<dt id="raysect.primitive.Cylinder.__init__">
-<code class="descname">__init__</code><a class="headerlink" href="#raysect.primitive.Cylinder.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Radius is radius of the cylinder in x-y plane.
-Height of cylinder is defines extent along z-axis [0, height].</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>radius</strong> &#8211; Radius of the cylinder in meters (default = 0.5).</li>
-<li><strong>height</strong> &#8211; Height of the cylinder in meters (default = 1.0).</li>
-<li><strong>parent</strong> &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> &#8211; An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> &#8211; A Material object defining the cylinder&#8217;s material (default = None).</li>
-<li><strong>name</strong> &#8211; A string specifying a user-friendly name for the cylinder (default = &#8220;&#8221;).</li>
+<li><strong>radius</strong> (<em>float</em>) &#8211; Radius of the cylinder in meters (default = 0.5).</li>
+<li><strong>height</strong> (<em>float</em>) &#8211; Height of the cylinder in meters (default = 1.0).</li>
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
+system relative to the scene-graph parent (default = identity matrix).</li>
+<li><strong>material</strong> (<em>Material</em>) &#8211; A Material object defining the cylinder&#8217;s material (default = None).</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the cylinder (default = &#8220;&#8221;).</li>
 </ul>
 </td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="raysect.primitive.Cylinder.height">
+<code class="descname">height</code><a class="headerlink" href="#raysect.primitive.Cylinder.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extent of the cylinder along the z-axis.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.primitive.Cylinder.radius">
+<code class="descname">radius</code><a class="headerlink" href="#raysect.primitive.Cylinder.radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Radius of the cylinder in x-y plane.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
 </tbody>
 </table>
@@ -284,29 +307,52 @@ Height of cylinder is defines extent along z-axis [0, height].</p>
 <dl class="class">
 <dt id="raysect.primitive.Cone">
 <em class="property">class </em><code class="descclassname">raysect.primitive.</code><code class="descname">Cone</code><a class="headerlink" href="#raysect.primitive.Cone" title="Permalink to this definition">¶</a></dt>
-<dd><p>A cone primitive.</p>
+<dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
+<p>A cone primitive.</p>
 <p>The cone is defined by a radius and height. It lies along the z-axis
 and extends over the z range [0, height]. The tip of the cone lies at
 z = height. The base of the cone sits on the x-y plane and is capped
 with a disk, forming a closed surface.</p>
-<dl class="attribute">
-<dt id="raysect.primitive.Cone.__init__">
-<code class="descname">__init__</code><a class="headerlink" href="#raysect.primitive.Cone.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Radius is radius of the cone in x-y plane.
-Height of cone is the extent along z-axis [0, height].</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>radius</strong> &#8211; Radius of the cone in meters (default = 0.5).</li>
-<li><strong>height</strong> &#8211; Height of the cone in meters (default = 1.0).</li>
-<li><strong>parent</strong> &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> &#8211; An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> &#8211; A Material object defining the cone&#8217;s material (default = None).</li>
-<li><strong>name</strong> &#8211; A string specifying a user-friendly name for the cone (default = &#8220;&#8221;).</li>
+<li><strong>radius</strong> (<em>float</em>) &#8211; Radius of the cone in meters in x-y plane (default = 0.5).</li>
+<li><strong>height</strong> (<em>float</em>) &#8211; Height of the cone in meters (default = 1.0).</li>
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
+system relative to the scene-graph parent (default = identity matrix).</li>
+<li><strong>material</strong> (<em>Material</em>) &#8211; A Material object defining the cone&#8217;s material (default = None).</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the cone (default = &#8220;&#8221;).</li>
 </ul>
 </td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="raysect.primitive.Cone.height">
+<code class="descname">height</code><a class="headerlink" href="#raysect.primitive.Cone.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>The extend of the cone along the z-axis</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.primitive.Cone.radius">
+<code class="descname">radius</code><a class="headerlink" href="#raysect.primitive.Cone.radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>The radius of the cone base in the x-y plane</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
 </tbody>
 </table>
@@ -317,29 +363,51 @@ Height of cone is the extent along z-axis [0, height].</p>
 <dl class="class">
 <dt id="raysect.primitive.Parabola">
 <em class="property">class </em><code class="descclassname">raysect.primitive.</code><code class="descname">Parabola</code><a class="headerlink" href="#raysect.primitive.Parabola" title="Permalink to this definition">¶</a></dt>
-<dd><p>A parabola primitive.</p>
+<dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
+<p>A parabola primitive.</p>
 <p>The parabola is defined by a radius and height. It lies along the z-axis
 and extends over the z range [0, height]. The base of the parabola is
 capped with a disk forming a closed surface. The base of the parabola lies
 on the x-y plane, the parabola vertex (tip) lies at z=height.</p>
-<dl class="attribute">
-<dt id="raysect.primitive.Parabola.__init__">
-<code class="descname">__init__</code><a class="headerlink" href="#raysect.primitive.Parabola.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Radius is radius of the parabola base in x-y plane.
-Height of parabola is its extent along the z-axis [0, height].</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>radius</strong> &#8211; Radius of the parabola in meters (default = 0.5).</li>
-<li><strong>height</strong> &#8211; Height of the parabola in meters (default = 1.0).</li>
-<li><strong>parent</strong> &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> &#8211; An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> &#8211; A Material object defining the parabola&#8217;s material (default = None).</li>
-<li><strong>name</strong> &#8211; A string specifying a user-friendly name for the parabola (default = &#8220;&#8221;).</li>
+<li><strong>radius</strong> (<em>float</em>) &#8211; Radius of the parabola in meters (default = 0.5).</li>
+<li><strong>height</strong> (<em>float</em>) &#8211; Height of the parabola in meters (default = 1.0).</li>
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
+<li><strong>material</strong> (<em>Material</em>) &#8211; A Material object defining the parabola&#8217;s material (default = None).</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the parabola (default = &#8220;&#8221;).</li>
 </ul>
 </td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="raysect.primitive.Parabola.height">
+<code class="descname">height</code><a class="headerlink" href="#raysect.primitive.Parabola.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>The parabola&#8217;s extent along the z-axis [0, height].</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.primitive.Parabola.radius">
+<code class="descname">radius</code><a class="headerlink" href="#raysect.primitive.Parabola.radius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Radius of the parabola base in x-y plane.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
 </tbody>
 </table>
@@ -351,18 +419,15 @@ Height of parabola is its extent along the z-axis [0, height].</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="meshes.html" class="btn btn-neutral float-right" title="2.2. Meshes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="meshes.html" class="btn btn-neutral float-right" title="2.2. Meshes" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="primitives.html" class="btn btn-neutral" title="2. Primitives Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="primitives.html" class="btn btn-neutral" title="2. Primitives Module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -396,8 +461,7 @@ Height of parabola is its extent along the z-axis [0, height].</p>
             VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

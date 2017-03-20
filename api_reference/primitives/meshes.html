@@ -15,8 +15,6 @@
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
   
-  
-  
 
   
 
@@ -32,7 +30,7 @@
   
 
   
-    <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
   
 
   
@@ -51,7 +49,6 @@
 
 <body class="wy-body-for-nav" role="document">
 
-   
   <div class="wy-grid-for-nav">
 
     
@@ -95,10 +92,7 @@
           
             
             
-              
-            
-            
-              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
@@ -137,10 +131,8 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">Raysect</a>
-        
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Raysect</a>
       </nav>
 
 
@@ -149,42 +141,25 @@
         <div class="rst-content">
           
 
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
-
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
-        
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
           <li><a href="primitives.html">2. Primitives Module</a> &raquo;</li>
-        
-      <li>2.2. Meshes</li>
-    
-    
+      
+    <li>2.2. Meshes</li>
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/api_reference/primitives/meshes.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -192,20 +167,11 @@
             
   <div class="section" id="meshes">
 <h1>2.2. Meshes<a class="headerlink" href="#meshes" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="raysect.primitive.mesh.obj.import_obj">
-<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">import_obj</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="raysect.primitive.mesh.stl.import_stl">
-<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">import_stl</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>mode=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<span class="target" id="module-raysect.primitive.mesh.mesh"></span><dl class="class">
+<dl class="class">
 <dt id="raysect.primitive.mesh.mesh.Mesh">
 <em class="property">class </em><code class="descclassname">raysect.primitive.mesh.mesh.</code><code class="descname">Mesh</code><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>This primitive defines a polyhedral surface with triangular faces.</p>
+<dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
+<p>This primitive defines a polyhedral surface with triangular faces.</p>
 <p>To define a new mesh, a list of vertices and triangles must be supplied.
 A set of vertex normals, used for smoothing calculations may also be
 provided.</p>
@@ -259,26 +225,32 @@ are used.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>vertices</strong> &#8211; An N x 3 list of vertices.</li>
-<li><strong>triangles</strong> &#8211; An M x 3 or N x 6 list of vertex/normal indicies defining the mesh triangles.</li>
-<li><strong>normals</strong> &#8211; An K x 3 list of vertex normals or None.</li>
-<li><strong>smoothing</strong> &#8211; True to enable normal interpolation, False to disable.</li>
-<li><strong>closed</strong> &#8211; True is the mesh defines a closed volume, False otherwise.</li>
-<li><strong>tolerant</strong> &#8211; Mesh will automatically correct meshes with degenerate triangles if set to True (default).</li>
-<li><strong>instance</strong> &#8211; The Mesh to become an instance of.</li>
-<li><strong>kdtree_max_depth</strong> &#8211; The maximum tree depth (automatic if set to 0, default is 0).</li>
-<li><strong>kdtree_min_items</strong> &#8211; The item count threshold for forcing creation of a new leaf node (default 1).</li>
-<li><strong>kdtree_hit_cost</strong> &#8211; The relative computational cost of item hit evaluations vs kd-tree traversal (default 20.0).</li>
-<li><strong>kdtree_empty_bonus</strong> &#8211; The bonus applied to node splits that generate empty leaves (default 0.2).</li>
-<li><strong>parent</strong> &#8211; Attaches the mesh to the specified scene-graph node.</li>
-<li><strong>transform</strong> &#8211; The co-ordinate transform between the mesh and its parent.</li>
-<li><strong>material</strong> &#8211; The surface/volume material.</li>
-<li><strong>name</strong> &#8211; A human friendly name to identity the mesh in the scene-graph.</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>vertices</strong> (<em>object</em>) &#8211; An N x 3 list of vertices.</li>
+<li><strong>triangles</strong> (<em>object</em>) &#8211; An M x 3 or N x 6 list of vertex/normal indices
+defining the mesh triangles.</li>
+<li><strong>normals</strong> (<em>object</em>) &#8211; An K x 3 list of vertex normals or None (default=None).</li>
+<li><strong>smoothing</strong> (<em>bool</em>) &#8211; True to enable normal interpolation (default=True).</li>
+<li><strong>closed</strong> (<em>bool</em>) &#8211; True is the mesh defines a closed volume (default=True).</li>
+<li><strong>tolerant</strong> (<em>bool</em>) &#8211; Mesh will automatically correct meshes with degenerate
+triangles if set to True (default=True).</li>
+<li><strong>instance</strong> (<a class="reference internal" href="#raysect.primitive.mesh.mesh.Mesh" title="raysect.primitive.mesh.mesh.Mesh"><em>Mesh</em></a>) &#8211; The Mesh to become an instance of (default=None).</li>
+<li><strong>kdtree_max_depth</strong> (<em>int</em>) &#8211; The maximum tree depth (automatic if set to 0, default=0).</li>
+<li><strong>kdtree_min_items</strong> (<em>int</em>) &#8211; The item count threshold for forcing creation of
+a new leaf node (default=1).</li>
+<li><strong>kdtree_hit_cost</strong> (<em>double</em>) &#8211; The relative computational cost of item hit
+evaluations vs kd-tree traversal (default=20.0).</li>
+<li><strong>kdtree_empty_bonus</strong> (<em>double</em>) &#8211; The bonus applied to node splits that
+generate empty leaves (default=0.2).</li>
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Attaches the mesh to the specified scene-graph
+node (default=None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The co-ordinate transform between
+the mesh and its parent (default=unity matrix).</li>
+<li><strong>material</strong> (<em>Material</em>) &#8211; The surface/volume material
+(default=Material() instance).</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; A human friendly name to identity the mesh in the
+scene-graph (default=&#8221;&#8221;).</li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
 </td>
 </tr>
 </tbody>
@@ -330,11 +302,11 @@ are created with the Mesh save() method.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>file</strong> &#8211; File object or string path.</li>
-<li><strong>parent</strong> &#8211; Attaches the mesh to the specified scene-graph node.</li>
-<li><strong>transform</strong> &#8211; The co-ordinate transform between the mesh and its parent.</li>
-<li><strong>material</strong> &#8211; The surface/volume material.</li>
-<li><strong>name</strong> &#8211; A human friendly name to identity the mesh in the scene-graph.</li>
+<li><strong>file</strong> (<em>object</em>) &#8211; File object or string path.</li>
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Attaches the mesh to the specified scene-graph node.</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The co-ordinate transform between the mesh and its parent.</li>
+<li><strong>material</strong> (<em>Material</em>) &#8211; The surface/volume material.</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; A human friendly name to identity the mesh in the scene-graph.</li>
 </ul>
 </td>
 </tr>
@@ -419,68 +391,71 @@ contains the mesh geometry and the mesh acceleration structures.</p>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="raysect.primitive.mesh.mesh.MeshData">
-<em class="property">class </em><code class="descclassname">raysect.primitive.mesh.mesh.</code><code class="descname">MeshData</code><a class="headerlink" href="#raysect.primitive.mesh.mesh.MeshData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Holds the mesh data and acceleration structures.</p>
-<p>The Mesh primitive is a thin wrapper around a MeshData object. This
-arrangement simplifies mesh instancing and the load/dump methods.</p>
-<dl class="method">
-<dt id="raysect.primitive.mesh.mesh.MeshData.bounding_box">
-<code class="descname">bounding_box</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.MeshData.bounding_box" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a bounding box that encloses the mesh.</p>
-<p>The box is padded by a small margin to reduce the risk of numerical
-accuracy problems between the mesh and box representations following
-coordinate transforms.</p>
+<dl class="function">
+<dt id="raysect.primitive.mesh.obj.import_obj">
+<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">import_obj</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mesh instance from a Wavefront OBJ mesh file (.obj).</p>
+<p>Some engineering meshes are exported in different units (mm for example)
+whereas Raysect units are in m. Applying a scale factor of 0.001 would
+convert the mesh into m for use in Raysect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>to_world</strong> &#8211; Local to world space transform matrix.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>str</em>) &#8211; Mesh file path.</li>
+<li><strong>scaling</strong> (<em>double</em>) &#8211; Scale the mesh by this factor (default=1.0).</li>
+<li><strong>**kwargs</strong> &#8211; <p>Accepts optional keyword arguments from the Mesh class.</p>
+</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A BoundingBox3D object.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.primitive.mesh.mesh.Mesh" title="raysect.primitive.mesh.mesh.Mesh">Mesh</a></p>
+</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
-<dl class="method">
-<dt id="raysect.primitive.mesh.mesh.MeshData.contains">
-<code class="descname">contains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.MeshData.contains" title="Permalink to this definition">¶</a></dt>
-<dd><p>Tests if a point is contained by the mesh.</p>
-<p>Note, this method assumes the mesh is closed. Any open/closed mesh test
-must be performed externally (this is generally quicker as coordinate
-transforms etc... can be skipped if the mesh is open).</p>
+<dl class="function">
+<dt id="raysect.primitive.mesh.stl.import_stl">
+<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">import_stl</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>mode=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mesh instance from a STereoLithography (STL) mesh file (.stl).</p>
+<p>Some engineering meshes are exported in different units (mm for example)
+whereas Raysect units are in m. Applying a scale factor of 0.001 would
+convert the mesh into m for use in Raysect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> &#8211; Local space Point3D.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>str</em>) &#8211; Mesh file path.</li>
+<li><strong>scaling</strong> (<em>double</em>) &#8211; Scale the mesh by this factor (default=1.0).</li>
+<li><strong>**kwargs</strong> &#8211; <p>Accepts optional keyword arguments from the Mesh class.</p>
+</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if mesh contains point, False otherwise.</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.primitive.mesh.mesh.Mesh" title="raysect.primitive.mesh.mesh.Mesh">Mesh</a></p>
+</td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
 </dd></dl>
 
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="csg_operations.html" class="btn btn-neutral float-right" title="2.3. CSG Operations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="csg_operations.html" class="btn btn-neutral float-right" title="2.3. CSG Operations" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="geometric_primitives.html" class="btn btn-neutral" title="2.1. Geometric Primitives" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="geometric_primitives.html" class="btn btn-neutral" title="2.1. Geometric Primitives" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -514,8 +489,7 @@ transforms etc... can be skipped if the mesh is open).</p>
             VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            HAS_SOURCE:  true
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
