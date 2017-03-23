@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3.1. Optical Classes &mdash; Raysect Documentation</title>
+  <title>3.1. Main Optical Classes &mdash; Raysect Documentation</title>
   
 
   
@@ -114,7 +114,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../core/core.html">1. Raysect Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../primitives/primitives.html">2. Primitives Module</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="optical.html">3. Optical Module</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">3.1. Optical Classes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.1. Main Optical Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#optical-rays">3.1.1. Optical Rays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spectral-functions">3.1.2. Spectral Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#colours">3.1.3. Colours</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-raysect.optical.scenegraph.world">3.1.4. Optical Scenegraph</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="observers.html">3.2. Observers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="materials.html">3.3. Optical Materials</a></li>
 </ul>
@@ -151,7 +157,7 @@
       
           <li><a href="optical.html">3. Optical Module</a> &raquo;</li>
       
-    <li>3.1. Optical Classes</li>
+    <li>3.1. Main Optical Classes</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -165,12 +171,253 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-raysect.optical.ray">
-<span id="optical-classes"></span><h1>3.1. Optical Classes<a class="headerlink" href="#module-raysect.optical.ray" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-raysect.optical.spectrum"></span><dl class="class">
+  <div class="section" id="main-optical-classes">
+<h1>3.1. Main Optical Classes<a class="headerlink" href="#main-optical-classes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="optical-rays">
+<h2>3.1.1. Optical Rays<a class="headerlink" href="#optical-rays" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raysect.optical.ray.Ray">
+<em class="property">class </em><code class="descclassname">raysect.optical.ray.</code><code class="descname">Ray</code><a class="headerlink" href="#raysect.optical.ray.Ray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.ray.Ray</span></code></a></p>
+<dl class="method">
+<dt id="raysect.optical.ray.Ray.new_spectrum">
+<code class="descname">new_spectrum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.new_spectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new Spectrum compatible with the ray spectral settings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.optical.ray.Ray.sample">
+<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Samples the radiance directed along the ray direction.</p>
+<p>This methods calls trace repeatedly to obtain a statistical sample of
+the radiance directed along the ray direction from the world. The count
+parameter specifies the number of samples to obtain. The mean spectrum
+accumulated from these samples is returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>world</strong> &#8211; World object defining the scene.</li>
+<li><strong>count</strong> &#8211; Number of samples to take.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A Spectrum object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.optical.ray.Ray.spawn_daughter">
+<code class="descname">spawn_daughter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.spawn_daughter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spawns a new daughter of the ray.</p>
+<p>A daughter ray has the same spectral configuration as the source ray,
+however the ray depth is increased by 1.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>origin</strong> &#8211; A Point3D defining the ray origin.</li>
+<li><strong>direction</strong> &#8211; A vector defining the ray direction.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A Ray object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.optical.ray.Ray.trace">
+<code class="descname">trace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.trace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Traces a single ray path through the world.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>world</strong> &#8211; World object defining the scene.</li>
+<li><strong>keep_alive</strong> &#8211; If true, disables Russian roulette termination of the ray.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A Spectrum object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="spectral-functions">
+<h2>3.1.2. Spectral Functions<a class="headerlink" href="#spectral-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raysect.optical.spectralfunction.SpectralFunction">
+<em class="property">class </em><code class="descclassname">raysect.optical.spectralfunction.</code><code class="descname">SpectralFunction</code><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>SpectralFunction abstract base class.</p>
+<p>A common interface for representing optical properties that are a function
+of wavelength. It provides methods for sampling, integrating and averaging
+a spectral function over specified wavelength ranges. The optical package
+uses SpectralFunctions to represent a number of different wavelength
+dependent optical properties, for example emission spectra, refractive
+indices and attenuation curves.</p>
+<p>Deriving classes must implement the integrate method.</p>
+<p>It is also recommended that subclasses implement __call__(). This should
+accept a single argument - wavelength - and return a single sample of the
+function at that wavelength. The units of wavelength are nanometers.</p>
+<p>A number of utility sub-classes exist to simplify SpectralFunction
+development.</p>
+<p>see also: NumericallyIntegratedSF, InterpolatedSF, ConstantSF, Spectrum</p>
+<dl class="method">
+<dt id="raysect.optical.spectralfunction.SpectralFunction.average">
+<code class="descname">average</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.average" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>min_wavelength</strong> &#8211; </li>
+<li><strong>max_wavelength</strong> &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.optical.spectralfunction.SpectralFunction.integrate">
+<code class="descname">integrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.integrate" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>min_wavelength</strong> &#8211; </li>
+<li><strong>max_wavelength</strong> &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.optical.spectralfunction.SpectralFunction.sample">
+<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.sample" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>min_wavelength</strong> &#8211; </li>
+<li><strong>max_wavelength</strong> &#8211; </li>
+<li><strong>bins</strong> &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.spectralfunction.NumericallyIntegratedSF">
+<em class="property">class </em><code class="descclassname">raysect.optical.spectralfunction.</code><code class="descname">NumericallyIntegratedSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.NumericallyIntegratedSF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.spectralfunction.SpectralFunction</span></code></a></p>
+<p>Numerically integrates a supplied function.</p>
+<p>This abstract class provides an implementation of the integrate method that
+numerically integrates a supplied function (typically a non-integrable
+analytical function). The function to numerically integrate is supplied by
+sub-classing this class and implementing the function() method.</p>
+<p>The function is numerically sampled at regular intervals. A sampling
+resolution may be specified in the class constructor (default: 1 sample/nm).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sample_resolution</strong> (<em>double</em>) &#8211; The numerical sampling resolution in nanometers.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="raysect.optical.spectralfunction.NumericallyIntegratedSF.function">
+<code class="descname">function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.NumericallyIntegratedSF.function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to numerically integrate.</p>
+<p>This is a virtual method and must be implemented through sub-classing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wavelength</strong> (<em>double</em>) &#8211; Wavelength in nanometers.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Function value at the specified wavelength.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.optical.spectralfunction.NumericallyIntegratedSF.integrate">
+<code class="descname">integrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.NumericallyIntegratedSF.integrate" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>min_wavelength</strong> &#8211; </li>
+<li><strong>max_wavelength</strong> &#8211; </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.spectralfunction.InterpolatedSF">
+<em class="property">class </em><code class="descclassname">raysect.optical.spectralfunction.</code><code class="descname">InterpolatedSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.InterpolatedSF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.spectralfunction.SpectralFunction</span></code></a></p>
+<p>Linearly interpolated spectral function.</p>
+<p>spectral function defined by samples of regular or irregular spacing</p>
+<p>ends are extrapolated. must set ends to zero if you want function to end!</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.spectralfunction.ConstantSF">
+<em class="property">class </em><code class="descclassname">raysect.optical.spectralfunction.</code><code class="descname">ConstantSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.ConstantSF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.spectralfunction.SpectralFunction</span></code></a></p>
+<p>Constant value spectral function</p>
+</dd></dl>
+
+<dl class="class">
 <dt id="raysect.optical.spectrum.Spectrum">
 <em class="property">class </em><code class="descclassname">raysect.optical.spectrum.</code><code class="descname">Spectrum</code><a class="headerlink" href="#raysect.optical.spectrum.Spectrum" title="Permalink to this definition">¶</a></dt>
-<dd><p>radiance units: W/m^2/str/nm</p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.spectralfunction.SpectralFunction</span></code></a></p>
+<p>radiance units: W/m^2/str/nm</p>
 <p>Regularly spaced samples.</p>
 <p>Used internally by the raytracer.</p>
 <p>samples lie in centre of wavelength bins.</p>
@@ -310,158 +557,63 @@ and returns the data in a numpy array.</p>
 </table>
 </dd></dl>
 
-<span class="target" id="module-raysect.optical.spectralfunction"></span><dl class="class">
-<dt id="raysect.optical.spectralfunction.ConstantSF">
-<em class="property">class </em><code class="descclassname">raysect.optical.spectralfunction.</code><code class="descname">ConstantSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.ConstantSF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Constant value spectral function</p>
+</div>
+<div class="section" id="colours">
+<h2>3.1.3. Colours<a class="headerlink" href="#colours" title="Permalink to this headline">¶</a></h2>
+<p>The CIE 1931 colour spaces define quantitatively the link between pure physical colours
+(i.e. wavelengths in the visible spectrum) and human perceivable colours. The mathematical
+relationships between the spectrum and perceivable colours are based on the sensitivity
+curves for the three different cone cells in the human eye. Raysect implements three X,
+Y, Z normalised spectral functions from the CIE 1931 Standard Colorimetric Observer. For
+more information see <a class="reference external" href="https://en.wikipedia.org/wiki/CIE_1931_color_space">Wikipedia</a>.</p>
+<dl class="data">
+<dt id="raysect.optical.colour.ciexyz_x">
+<code class="descclassname">raysect.optical.colour.</code><code class="descname">ciexyz_x</code><a class="headerlink" href="#raysect.optical.colour.ciexyz_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>X spectral function from CIE 1931 Standard Colorimetric Observer (normalised)</p>
 </dd></dl>
 
-<dl class="class">
-<dt id="raysect.optical.spectralfunction.InterpolatedSF">
-<em class="property">class </em><code class="descclassname">raysect.optical.spectralfunction.</code><code class="descname">InterpolatedSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.InterpolatedSF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Linearly interpolated spectral function.</p>
-<p>spectral function defined by samples of regular or irregular spacing</p>
-<p>ends are extrapolated. must set ends to zero if you want function to end!</p>
+<dl class="data">
+<dt id="raysect.optical.colour.ciexyz_y">
+<code class="descclassname">raysect.optical.colour.</code><code class="descname">ciexyz_y</code><a class="headerlink" href="#raysect.optical.colour.ciexyz_y" title="Permalink to this definition">¶</a></dt>
+<dd><p>Y spectral function from CIE 1931 Standard Colorimetric Observer (normalised)</p>
 </dd></dl>
 
-<dl class="class">
-<dt id="raysect.optical.spectralfunction.NumericallyIntegratedSF">
-<em class="property">class </em><code class="descclassname">raysect.optical.spectralfunction.</code><code class="descname">NumericallyIntegratedSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.NumericallyIntegratedSF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Numerically integrates a supplied function.</p>
-<p>This abstract class provides an implementation of the integrate method that
-numerically integrates a supplied function (typically a non-integrable
-analytical function). The function to numerically integrate is supplied by
-sub-classing this class and implementing the function() method.</p>
-<p>The function is numerically sampled at regular intervals. A sampling
-resolution may be specified in the class constructor (default: 1 sample/nm).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sample_resolution</strong> (<em>double</em>) &#8211; The numerical sampling resolution in nanometers.</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="raysect.optical.spectralfunction.NumericallyIntegratedSF.function">
-<code class="descname">function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.NumericallyIntegratedSF.function" title="Permalink to this definition">¶</a></dt>
-<dd><p>Function to numerically integrate.</p>
-<p>This is a virtual method and must be implemented through sub-classing.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wavelength</strong> (<em>double</em>) &#8211; Wavelength in nanometers.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Function value at the specified wavelength.</td>
-</tr>
-</tbody>
-</table>
+<dl class="data">
+<dt id="raysect.optical.colour.ciexyz_z">
+<code class="descclassname">raysect.optical.colour.</code><code class="descname">ciexyz_z</code><a class="headerlink" href="#raysect.optical.colour.ciexyz_z" title="Permalink to this definition">¶</a></dt>
+<dd><p>Z spectral function from CIE 1931 Standard Colorimetric Observer (normalised)</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="raysect.optical.spectralfunction.NumericallyIntegratedSF.integrate">
-<code class="descname">integrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.NumericallyIntegratedSF.integrate" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> &#8211; </li>
-<li><strong>max_wavelength</strong> &#8211; </li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
-</td>
-</tr>
-</tbody>
-</table>
+<dl class="data">
+<dt id="raysect.optical.colour.d65_white">
+<code class="descclassname">raysect.optical.colour.</code><code class="descname">d65_white</code><a class="headerlink" href="#raysect.optical.colour.d65_white" title="Permalink to this definition">¶</a></dt>
+<dd><p>CIE D65 standard illuminant, normalised to 1.0 over visual range 375-785 nm</p>
 </dd></dl>
 
-</dd></dl>
+<dl class="function">
+<dt id="raysect.optical.colour.resample_ciexyz">
+<code class="descclassname">raysect.optical.colour.</code><code class="descname">resample_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.resample_ciexyz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
-<dl class="class">
-<dt id="raysect.optical.spectralfunction.SpectralFunction">
-<em class="property">class </em><code class="descclassname">raysect.optical.spectralfunction.</code><code class="descname">SpectralFunction</code><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction" title="Permalink to this definition">¶</a></dt>
-<dd><p>SpectralFunction abstract base class.</p>
-<p>A common interface for representing optical properties that are a function
-of wavelength. It provides methods for sampling, integrating and averaging
-a spectral function over specified wavelength ranges. The optical package
-uses SpectralFunctions to represent a number of different wavelength
-dependent optical properties, for example emission spectra, refractive
-indices and attenuation curves.</p>
-<p>Deriving classes must implement the integrate method.</p>
-<p>It is also recommended that subclasses implement __call__(). This should
-accept a single argument - wavelength - and return a single sample of the
-function at that wavelength. The units of wavelength are nanometers.</p>
-<p>A number of utility sub-classes exist to simplify SpectralFunction
-development.</p>
-<p>see also: NumericallyIntegratedSF, InterpolatedSF, ConstantSF, Spectrum</p>
-<dl class="method">
-<dt id="raysect.optical.spectralfunction.SpectralFunction.average">
-<code class="descname">average</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.average" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> &#8211; </li>
-<li><strong>max_wavelength</strong> &#8211; </li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
+<dl class="function">
+<dt id="raysect.optical.colour.spectrum_to_ciexyz">
+<code class="descclassname">raysect.optical.colour.</code><code class="descname">spectrum_to_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.spectrum_to_ciexyz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
-<dl class="method">
-<dt id="raysect.optical.spectralfunction.SpectralFunction.integrate">
-<code class="descname">integrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.integrate" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> &#8211; </li>
-<li><strong>max_wavelength</strong> &#8211; </li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
+<dl class="function">
+<dt id="raysect.optical.colour.ciexyy_to_ciexyz">
+<code class="descclassname">raysect.optical.colour.</code><code class="descname">ciexyy_to_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.ciexyy_to_ciexyz" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
-<dl class="method">
-<dt id="raysect.optical.spectralfunction.SpectralFunction.sample">
-<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.sample" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> &#8211; </li>
-<li><strong>max_wavelength</strong> &#8211; </li>
-<li><strong>bins</strong> &#8211; </li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
+<dl class="function">
+<dt id="raysect.optical.colour.ciexyz_to_ciexyy">
+<code class="descclassname">raysect.optical.colour.</code><code class="descname">ciexyz_to_ciexyy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.ciexyz_to_ciexyy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
-</dd></dl>
-
-<span class="target" id="module-raysect.optical.colour"></span><dl class="function">
+<p>Raysect also supports conversion of CIE colour space values to standard sRGB colour space
+as defined by HP and Microsoft in 1996 as per IEC 61966-2-1:1999. For more information
+see <a class="reference external" href="https://en.wikipedia.org/wiki/SRGB">Wikipedia</a>.</p>
+<dl class="function">
 <dt id="raysect.optical.colour.ciexyz_to_srgb">
 <code class="descclassname">raysect.optical.colour.</code><code class="descname">ciexyz_to_srgb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.ciexyz_to_srgb" title="Permalink to this definition">¶</a></dt>
 <dd><p>sRGB specified as per IEC 61966-2-1:1999.</p>
@@ -470,17 +622,21 @@ r, g, b in range [0, 1]</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="raysect.optical.colour.srgb_to_ciexyz">
-<code class="descclassname">raysect.optical.colour.</code><code class="descname">srgb_to_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.srgb_to_ciexyz" title="Permalink to this definition">¶</a></dt>
+<dt>
+<code class="descclassname">raysect.optical.colour.</code><code class="descname">ciexyz_to_srgb</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
 <dd><p>sRGB specified as per IEC 61966-2-1:1999.</p>
-<p>r, g, b in range [0, 1]
-x, y, z in range [0, 1]</p>
+<p>x, y, z in range [0, 1]
+r, g, b in range [0, 1]</p>
 </dd></dl>
 
-<span class="target" id="module-raysect.optical.scenegraph.world"></span><dl class="class">
+</div>
+<div class="section" id="module-raysect.optical.scenegraph.world">
+<span id="optical-scenegraph"></span><h2>3.1.4. Optical Scenegraph<a class="headerlink" href="#module-raysect.optical.scenegraph.world" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
 <dt id="raysect.optical.scenegraph.world.World">
 <em class="property">class </em><code class="descclassname">raysect.optical.scenegraph.world.</code><code class="descname">World</code><a class="headerlink" href="#raysect.optical.scenegraph.world.World" title="Permalink to this definition">¶</a></dt>
-<dd><p>The root node of the optical scene-graph.</p>
+<dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.scenegraph.world.World</span></code></a></p>
+<p>The root node of the optical scene-graph.</p>
 <p>The world node tracks all primitives and observers in the world. It maintains acceleration structures to speed up
 the ray-tracing calculations. The particular acceleration algorithm used is selectable. The default acceleration
 structure is a kd-tree.</p>
@@ -494,6 +650,7 @@ structure is a kd-tree.</p>
 </table>
 </dd></dl>
 
+</div>
 </div>
 
 

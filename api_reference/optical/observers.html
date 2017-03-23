@@ -40,7 +40,7 @@
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="3. Optical Module" href="optical.html"/>
         <link rel="next" title="3.3. Optical Materials" href="materials.html"/>
-        <link rel="prev" title="3.1. Optical Classes" href="main_optical_classes.html"/> 
+        <link rel="prev" title="3.1. Main Optical Classes" href="main_optical_classes.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -114,7 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../core/core.html">1. Raysect Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../primitives/primitives.html">2. Primitives Module</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="optical.html">3. Optical Module</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="main_optical_classes.html">3.1. Optical Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main_optical_classes.html">3.1. Main Optical Classes</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">3.2. Observers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="materials.html">3.3. Optical Materials</a></li>
 </ul>
@@ -167,7 +167,126 @@
             
   <div class="section" id="observers">
 <h1>3.2. Observers<a class="headerlink" href="#observers" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-raysect.optical.observer.nonimaging"></span></div>
+<dl class="class">
+<dt id="raysect.optical.observer.imaging.pinhole.PinholeCamera">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.imaging.pinhole.</code><code class="descname">PinholeCamera</code><a class="headerlink" href="#raysect.optical.observer.imaging.pinhole.PinholeCamera" title="Permalink to this definition">¶</a></dt>
+<dd><p>An observer that models an idealised pinhole camera.</p>
+<p>A simple camera that launches rays from the observer&#8217;s origin point over a
+specified field of view.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fov</strong> (<em>double</em>) &#8211; The field of view of the camera in degrees (default: 45 degrees).</li>
+<li><strong>etendue</strong> (<em>double</em>) &#8211; The etendue of each pixel (default: 1.0)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.imaging.orthographic.OrthographicCamera">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.imaging.orthographic.</code><code class="descname">OrthographicCamera</code><a class="headerlink" href="#raysect.optical.observer.imaging.orthographic.OrthographicCamera" title="Permalink to this definition">¶</a></dt>
+<dd><p>A camera observing an orthogonal (orthographic) projection of the scene, avoiding perspective effects.</p>
+<p>Arguments and attributes are inherited from the base Imaging sensor class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>width</strong> (<em>double</em>) &#8211; width of the orthographic area to observe in meters, the height is deduced from the &#8216;pixels&#8217;
+attribute.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.imaging.ccd.CCDArray">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.imaging.ccd.</code><code class="descname">CCDArray</code><a class="headerlink" href="#raysect.optical.observer.imaging.ccd.CCDArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>An observer that models an idealised CCD-like imaging sensor.</p>
+<p>The CCD is a regular array of square pixels. Each pixel samples red, green
+and blue channels (behaves like a Foveon imaging sensor). The CCD sensor
+width is specified with the width parameter. The CCD height is calculated
+from the width and the number of vertical and horizontal pixels. The
+default width and sensor ratio approximates a 35mm camera sensor.</p>
+<p>Arguments and attributes are inherited from the base Imaging sensor class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>width</strong> (<em>double</em>) &#8211; The width in metres of the sensor (default is 0.035m).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.imaging.vector.VectorCamera">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.imaging.vector.</code><code class="descname">VectorCamera</code><a class="headerlink" href="#raysect.optical.observer.imaging.vector.VectorCamera" title="Permalink to this definition">¶</a></dt>
+<dd><p>An observer that uses a specified set of pixel vectors.</p>
+<p>A simple camera that uses calibrated vectors for each pixel to sample the scene.
+Arguments and attributes are inherited from the base Observer2D sensor class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>fov</strong> (<em>double</em>) &#8211; The field of view of the camera in degrees (default is 90 degrees).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.nonimaging.fibreoptic.</code><code class="descname">FibreOptic</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic" title="Permalink to this definition">¶</a></dt>
+<dd><p>An optical fibre observer that samples rays from an acceptance cone and circular area at the fibre tip.
+Inherits arguments and attributes from the base NonImaging sensor class. Rays are sampled over a circular area at
+the fibre tip and a conical solid angle defined by the acceptance_angle parameter.
+:param float acceptance_angle: The angle in degrees between the z axis and the cone surface which defines the fibres</p>
+<blockquote>
+<div>soild angle sampling area.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>radius</strong> (<em>float</em>) &#8211; The radius of the fibre tip in metres. This radius defines a circular area at the fibre tip
+which will be sampled over.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.nonimaging.pixel.Pixel">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.nonimaging.pixel.</code><code class="descname">Pixel</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel" title="Permalink to this definition">¶</a></dt>
+<dd><p>A pixel observer that samples rays from a hemisphere and rectangular area.</p>
+<p>Inherits arguments and attributes from the base NonImaging sensor class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x_width</strong> (<em>float</em>) &#8211; The rectangular collection area&#8217;s width along the x-axis in local coordinates.</li>
+<li><strong>y_width</strong> (<em>float</em>) &#8211; The rectangular collection area&#8217;s width along the y-axis in local coordinates.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.nonimaging.sightline.SightLine">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.nonimaging.sightline.</code><code class="descname">SightLine</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.sightline.SightLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>An observer that fires rays along the observers z axis.
+Inherits arguments and attributes from the base NonImaging sensor class. Fires a single ray oriented along the
+observer&#8217;s z axis in world space.</p>
+</dd></dl>
+
+</div>
 
 
            </div>
@@ -179,7 +298,7 @@
         <a href="materials.html" class="btn btn-neutral float-right" title="3.3. Optical Materials" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="main_optical_classes.html" class="btn btn-neutral" title="3.1. Optical Classes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="main_optical_classes.html" class="btn btn-neutral" title="3.1. Main Optical Classes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

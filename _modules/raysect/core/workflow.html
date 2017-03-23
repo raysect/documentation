@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>raysect.core.workflow &mdash; Raysect Documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/RaysectLogo_web.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="Raysect Documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Raysect
+          
+
+          
+            
+            <img src="../../../_static/RaysectLogo_web.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">2. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../how_it_works.html">3. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart_guide.html">4. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../primitives.html">5. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../materials.html">6. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../conventions.html">7. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../license.html">8. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../help.html">9. Need Help?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demonstrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_reference/core/core.html">1. Raysect Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_reference/primitives/primitives.html">2. Primitives Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api_reference/optical/optical.html">3. Optical Module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">Raysect</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>raysect.core.workflow</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for raysect.core.workflow</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Copyright (c) 2014-2016, Dr Alex Meakins, Raysect Project</span>
+<span class="c1"># All rights reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Redistribution and use in source and binary forms, with or without</span>
+<span class="c1"># modification, are permitted provided that the following conditions are met:</span>
+<span class="c1">#</span>
+<span class="c1">#     1. Redistributions of source code must retain the above copyright notice,</span>
+<span class="c1">#        this list of conditions and the following disclaimer.</span>
+<span class="c1">#</span>
+<span class="c1">#     2. Redistributions in binary form must reproduce the above copyright</span>
+<span class="c1">#        notice, this list of conditions and the following disclaimer in the</span>
+<span class="c1">#        documentation and/or other materials provided with the distribution.</span>
+<span class="c1">#</span>
+<span class="c1">#     3. Neither the name of the Raysect Project nor the names of its</span>
+<span class="c1">#        contributors may be used to endorse or promote products derived from</span>
+<span class="c1">#        this software without specific prior written permission.</span>
+<span class="c1">#</span>
+<span class="c1"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;</span>
+<span class="c1"># AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</span>
+<span class="c1"># IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</span>
+<span class="c1"># ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE</span>
+<span class="c1"># LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR</span>
+<span class="c1"># CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF</span>
+<span class="c1"># SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS</span>
+<span class="c1"># INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN</span>
+<span class="c1"># CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)</span>
+<span class="c1"># ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</span>
+<span class="c1"># POSSIBILITY OF SUCH DAMAGE.</span>
+
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="k">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">cpu_count</span><span class="p">,</span> <span class="n">SimpleQueue</span>
+<span class="kn">from</span> <span class="nn">raysect.core.math</span> <span class="k">import</span> <span class="n">random</span>
+
+
+<div class="viewcode-block" id="RenderEngine"><a class="viewcode-back" href="../../../api_reference/core/render_engines.html#raysect.core.workflow.RenderEngine">[docs]</a><span class="k">class</span> <span class="nc">RenderEngine</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Provides a common rendering workflow interface.</span>
+
+<span class="sd">    This is a base class, its functionality must be implemented fully by the deriving class.</span>
+
+<span class="sd">    This class provides a rendering workflow that abstracts away the underlying</span>
+<span class="sd">    system performing the work. It is intended that render engines may be built</span>
+<span class="sd">    that provide rendering on single cores, multi-cores (SMP) and clusters.</span>
+
+<span class="sd">    The basic workflow is as follows. The render task is split into small,</span>
+<span class="sd">    self-contained chunks of work - &#39;tasks&#39;. These tasks are passed to the</span>
+<span class="sd">    render engine which distributes the work to the available computing</span>
+<span class="sd">    resources. These discrete computing resources are know as &quot;workers&quot;.</span>
+<span class="sd">    Workers process one task at a time and return their result to the render</span>
+<span class="sd">    engine. When results are received the render engine assembles them into</span>
+<span class="sd">    the final result.</span>
+
+<span class="sd">    This workflow is implemented by supplying a set of tasks and two methods to</span>
+<span class="sd">    the render engines&#39; run() method which processes those tasks. The functions</span>
+<span class="sd">    supplied to the run() method may be given additional args and kwargs.</span>
+
+<span class="sd">    A worker calls render for each task object received. render has the following signature: ::</span>
+
+<span class="sd">        def render(task, *render_args, **render_kwargs)</span>
+
+<span class="sd">    where args and kwargs are additional arguments supplied by the user.</span>
+
+<span class="sd">    Similarly, the worker calls update() for the results generated by a call to</span>
+<span class="sd">    render(). Update() has the following signature: ::</span>
+
+<span class="sd">        def update(results, *update_args, **update_kwargs)</span>
+
+<span class="sd">    where args and kwargs are additional arguments supplied by the user.</span>
+
+<span class="sd">    The render() function must return an object representing the results,</span>
+<span class="sd">    this must be a picklable python object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="RenderEngine.run"><a class="viewcode-back" href="../../../api_reference/core/render_engines.html#raysect.core.workflow.RenderEngine.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">render_args</span><span class="o">=</span><span class="p">(),</span> <span class="n">render_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">update_args</span><span class="o">=</span><span class="p">(),</span> <span class="n">update_kwargs</span><span class="o">=</span><span class="p">{}):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Starts the render engine executing the requested tasks.</span>
+
+<span class="sd">        :param list tasks: List of user defined tuples that describe the task to execute.</span>
+<span class="sd">        :param object render: Callable python object that executes the tasks.</span>
+<span class="sd">        :param object update: Callable python object that is called following a render task and must be</span>
+<span class="sd">          used to update the internal state of the object requesting work.</span>
+<span class="sd">        :param tuple render_args: Additional arguments to pass to user defined render function.</span>
+<span class="sd">        :param tuple render_kwargs: Additional keyword arguments to pass to user defined render function.</span>
+<span class="sd">        :param tuple update_args: Additional arguments to pass to user defined update function.</span>
+<span class="sd">        :param tuple update_kwargs: Additional keyword arguments to pass to user defined update function.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Virtual method must be implemented in sub-class.&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RenderEngine.worker_count"><a class="viewcode-back" href="../../../api_reference/core/render_engines.html#raysect.core.workflow.RenderEngine.worker_count">[docs]</a>    <span class="k">def</span> <span class="nf">worker_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the number of workers in use by this engine.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Virtual method must be implemented in sub-class.&quot;</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="SerialEngine"><a class="viewcode-back" href="../../../api_reference/core/render_engines.html#raysect.core.workflow.SerialEngine">[docs]</a><span class="k">class</span> <span class="nc">SerialEngine</span><span class="p">(</span><span class="n">RenderEngine</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Render engine for running on a single CPU processor.</span>
+
+<span class="sd">    This engine is useful for debugging.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">render_args</span><span class="o">=</span><span class="p">(),</span> <span class="n">render_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">update_args</span><span class="o">=</span><span class="p">(),</span> <span class="n">update_kwargs</span><span class="o">=</span><span class="p">{}):</span>
+
+        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">render</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="o">*</span><span class="n">render_args</span><span class="p">,</span> <span class="o">**</span><span class="n">render_kwargs</span><span class="p">)</span>
+            <span class="n">update</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="o">*</span><span class="n">update_args</span><span class="p">,</span> <span class="o">**</span><span class="n">update_kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">worker_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">1</span></div>
+
+
+<div class="viewcode-block" id="MulticoreEngine"><a class="viewcode-back" href="../../../api_reference/core/render_engines.html#raysect.core.workflow.MulticoreEngine">[docs]</a><span class="k">class</span> <span class="nc">MulticoreEngine</span><span class="p">(</span><span class="n">RenderEngine</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A render engine for distributing work across multiple CPU cores.</span>
+
+<span class="sd">    By default this will use all available CPU cores on the host machine.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">render_args</span><span class="o">=</span><span class="p">(),</span> <span class="n">render_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">update_args</span><span class="o">=</span><span class="p">(),</span> <span class="n">update_kwargs</span><span class="o">=</span><span class="p">{}):</span>
+
+        <span class="c1"># establish ipc queues using a manager process</span>
+        <span class="n">task_queue</span> <span class="o">=</span> <span class="n">SimpleQueue</span><span class="p">()</span>
+        <span class="n">result_queue</span> <span class="o">=</span> <span class="n">SimpleQueue</span><span class="p">()</span>
+
+        <span class="c1"># start process to generate image samples</span>
+        <span class="n">producer</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_producer</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">tasks</span><span class="p">,</span> <span class="n">task_queue</span><span class="p">))</span>
+        <span class="n">producer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+        <span class="c1"># start worker processes</span>
+        <span class="n">workers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">pid</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cpu_count</span><span class="p">()):</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">render</span><span class="p">,</span> <span class="n">render_args</span><span class="p">,</span> <span class="n">render_kwargs</span><span class="p">,</span> <span class="n">task_queue</span><span class="p">,</span> <span class="n">result_queue</span><span class="p">))</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="n">workers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+        <span class="c1"># consume results</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">result_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">update</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="o">*</span><span class="n">update_args</span><span class="p">,</span> <span class="o">**</span><span class="n">update_kwargs</span><span class="p">)</span>
+
+        <span class="c1"># shutdown workers</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">workers</span><span class="p">:</span>
+            <span class="n">task_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">worker_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">cpu_count</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_producer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">task_queue</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
+            <span class="n">task_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_worker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">task_queue</span><span class="p">,</span> <span class="n">result_queue</span><span class="p">):</span>
+
+        <span class="c1"># re-seed the random number generator to prevent all workers inheriting the same sequence</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">()</span>
+
+        <span class="c1"># process tasks</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+
+            <span class="n">task</span> <span class="o">=</span> <span class="n">task_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+            <span class="c1"># have we been commanded to shutdown?</span>
+            <span class="k">if</span> <span class="n">task</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="n">result</span> <span class="o">=</span> <span class="n">render</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">result_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">time</span>
+
+    <span class="k">class</span> <span class="nc">Job</span><span class="p">:</span>
+
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">engine</span> <span class="k">if</span> <span class="n">engine</span> <span class="k">else</span> <span class="n">MulticoreEngine</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">v</span><span class="p">)),</span> <span class="bp">self</span><span class="o">.</span><span class="n">render</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">,</span> <span class="n">render_args</span><span class="o">=</span><span class="p">(</span><span class="mi">10000</span><span class="p">,))</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">total</span>
+
+        <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+            <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+                <span class="nb">sum</span> <span class="o">+=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">count</span>
+            <span class="k">return</span> <span class="nb">sum</span>
+
+        <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">total</span> <span class="o">+=</span> <span class="n">result</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">2000</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">Job</span><span class="p">(</span><span class="n">SerialEngine</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">Job</span><span class="p">(</span><span class="n">MulticoreEngine</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, Dr Alex Meakins.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.3.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

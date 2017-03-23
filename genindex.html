@@ -325,9 +325,15 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.ccd.CCDArray">CCDArray (class in raysect.optical.observer.imaging.ccd)</a>
+</li>
       <li><a href="api_reference/core/core_classes.html#raysect.core.boundingbox.BoundingBox3D.centre">centre (raysect.core.boundingbox.BoundingBox3D attribute)</a>
 </li>
-      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.ciexyz_to_srgb">ciexyz_to_srgb() (in module raysect.optical.colour)</a>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.ciexyy_to_ciexyz">ciexyy_to_ciexyz() (in module raysect.optical.colour)</a>
+</li>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.ciexyz_to_ciexyy">ciexyz_to_ciexyy() (in module raysect.optical.colour)</a>
+</li>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.ciexyz_to_srgb">ciexyz_to_srgb() (in module raysect.optical.colour)</a>, <a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.ciexyz_to_srgb">[1]</a>
 </li>
       <li><a href="api_reference/core/units.html#raysect.core.math.units.cm">cm() (in module raysect.core.math.units)</a>
 </li>
@@ -433,6 +439,8 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic">FibreOptic (class in raysect.optical.observer.nonimaging.fibreoptic)</a>
+</li>
       <li><a href="api_reference/core/units.html#raysect.core.math.units.foot">foot() (in module raysect.core.math.units)</a>
 </li>
       <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.mesh.Mesh.from_file">from_file() (raysect.primitive.mesh.mesh.Mesh method)</a>
@@ -591,13 +599,15 @@
 </li>
       <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.mesh.Mesh">Mesh (class in raysect.primitive.mesh.mesh)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/core/units.html#raysect.core.math.units.mil">mil() (in module raysect.core.math.units)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/core/units.html#raysect.core.math.units.mile">mile() (in module raysect.core.math.units)</a>
 </li>
       <li><a href="api_reference/core/units.html#raysect.core.math.units.mm">mm() (in module raysect.core.math.units)</a>
+</li>
+      <li><a href="api_reference/core/render_engines.html#raysect.core.workflow.MulticoreEngine">MulticoreEngine (class in raysect.core.workflow)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -611,8 +621,12 @@
         <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World.name">(raysect.core.scenegraph.world.World attribute)</a>
 </li>
       </ul></li>
-      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.new_spectrum">new_spectrum() (raysect.optical.spectrum.Spectrum method)</a>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.new_spectrum">new_spectrum() (raysect.optical.ray.Ray method)</a>
+
+      <ul>
+        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.new_spectrum">(raysect.optical.spectrum.Spectrum method)</a>
 </li>
+      </ul></li>
       <li><a href="api_reference/core/utilities.html#raysect.core.containers.Queue.next_in_queue">next_in_queue() (raysect.core.containers.Queue method)</a>
 </li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive.next_intersection">next_intersection() (raysect.core.scenegraph.primitive.Primitive method)</a>
@@ -621,10 +635,10 @@
         <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.mesh.Mesh.next_intersection">(raysect.primitive.mesh.mesh.Mesh method)</a>
 </li>
       </ul></li>
-      <li><a href="api_reference/core/units.html#raysect.core.math.units.nm">nm() (in module raysect.core.math.units)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/core/units.html#raysect.core.math.units.nm">nm() (in module raysect.core.math.units)</a>
+</li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node">Node (class in raysect.core.scenegraph.node)</a>
 </li>
       <li><a href="api_reference/core/random.html#raysect.core.math.random.normal">normal() (in module raysect.core.math.random)</a>
@@ -651,16 +665,18 @@
 </li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.observer.Observer">Observer (class in raysect.core.scenegraph.observer)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World.observers">observers (raysect.core.scenegraph.world.World attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.orthogonal">orthogonal() (raysect.core.math.vector.Vector2D method)</a>
 
       <ul>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.orthogonal">(raysect.core.math.vector.Vector3D method)</a>
 </li>
       </ul></li>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.orthographic.OrthographicCamera">OrthographicCamera (class in raysect.optical.observer.imaging.orthographic)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -681,6 +697,10 @@
 </li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.photon_energy">photon_energy() (in module raysect.optical.spectrum)</a>
 </li>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.pinhole.PinholeCamera">PinholeCamera (class in raysect.optical.observer.imaging.pinhole)</a>
+</li>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.pixel.Pixel">Pixel (class in raysect.optical.observer.nonimaging.pixel)</a>
+</li>
       <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D">Point2D (class in raysect.core.math.point)</a>
 </li>
       <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D">Point3D (class in raysect.core.math.point)</a>
@@ -689,10 +709,10 @@
 </li>
       <li><a href="api_reference/core/core_classes.html#raysect.core.ray.Ray.point_on">point_on() (raysect.core.ray.Ray method)</a>
 </li>
-      <li><a href="api_reference/core/random.html#raysect.core.math.random.point_square">point_square() (in module raysect.core.math.random)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/core/random.html#raysect.core.math.random.point_square">point_square() (in module raysect.core.math.random)</a>
+</li>
       <li><a href="api_reference/core/random.html#raysect.core.math.sampler.PointSampler">PointSampler (class in raysect.core.math.sampler)</a>
 </li>
       <li><a href="api_reference/core/utilities.html#raysect.core.containers.Stack.pop">pop() (raysect.core.containers.Stack method)</a>
@@ -744,7 +764,11 @@
 </li>
       </ul></li>
       <li><a href="api_reference/core/core_classes.html#raysect.core.ray.Ray">Ray (class in raysect.core.ray)</a>
+
+      <ul>
+        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray">(class in raysect.optical.ray)</a>
 </li>
+      </ul></li>
       <li><a href="api_reference/core/raysect_core_kdtree.html#module-raysect.core.acceleration.accelerator">raysect.core.acceleration.accelerator (module)</a>
 </li>
       <li><a href="api_reference/core/raysect_core_kdtree.html#module-raysect.core.acceleration.boundprimitive">raysect.core.acceleration.boundprimitive (module)</a>
@@ -777,10 +801,16 @@
 </li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#module-raysect.core.scenegraph.world">raysect.core.scenegraph.world (module)</a>
 </li>
-      <li><a href="api_reference/optical/main_optical_classes.html#module-raysect.optical.colour">raysect.optical.colour (module)</a>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.ciexyz_x">raysect.optical.colour.ciexyz_x (built-in variable)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.ciexyz_y">raysect.optical.colour.ciexyz_y (built-in variable)</a>
+</li>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.ciexyz_z">raysect.optical.colour.ciexyz_z (built-in variable)</a>
+</li>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.d65_white">raysect.optical.colour.d65_white (built-in variable)</a>
+</li>
       <li><a href="api_reference/optical/materials.html#module-raysect.optical.material.absorber">raysect.optical.material.absorber (module)</a>
 </li>
       <li><a href="api_reference/optical/materials.html#module-raysect.optical.material.conductor">raysect.optical.material.conductor (module)</a>
@@ -797,19 +827,15 @@
 </li>
       <li><a href="api_reference/optical/materials.html#module-raysect.optical.material.modifiers">raysect.optical.material.modifiers (module)</a>
 </li>
-      <li><a href="api_reference/optical/observers.html#module-raysect.optical.observer.nonimaging">raysect.optical.observer.nonimaging (module)</a>
-</li>
-      <li><a href="api_reference/optical/main_optical_classes.html#module-raysect.optical.ray">raysect.optical.ray (module)</a>
-</li>
       <li><a href="api_reference/optical/main_optical_classes.html#module-raysect.optical.scenegraph.world">raysect.optical.scenegraph.world (module)</a>
-</li>
-      <li><a href="api_reference/optical/main_optical_classes.html#module-raysect.optical.spectralfunction">raysect.optical.spectralfunction (module)</a>
-</li>
-      <li><a href="api_reference/optical/main_optical_classes.html#module-raysect.optical.spectrum">raysect.optical.spectrum (module)</a>
 </li>
       <li><a href="api_reference/core/random.html#raysect.core.math.sampler.RectangleSampler">RectangleSampler (class in raysect.core.math.sampler)</a>
 </li>
       <li><a href="api_reference/core/utilities.html#raysect.core.containers.LinkedList.remove">remove() (raysect.core.containers.LinkedList method)</a>
+</li>
+      <li><a href="api_reference/core/render_engines.html#raysect.core.workflow.RenderEngine">RenderEngine (class in raysect.core.workflow)</a>
+</li>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.resample_ciexyz">resample_ciexyz() (in module raysect.optical.colour)</a>
 </li>
       <li><a href="api_reference/core/affinematrix.html#raysect.core.math.transform.rotate">rotate() (in module raysect.core.math.transform)</a>
 </li>
@@ -827,6 +853,8 @@
 </li>
       <li><a href="api_reference/optical/materials.html#raysect.optical.material.modifiers.Roughen">Roughen (class in raysect.optical.material.modifiers)</a>
 </li>
+      <li><a href="api_reference/core/render_engines.html#raysect.core.workflow.RenderEngine.run">run() (raysect.core.workflow.RenderEngine method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -838,6 +866,8 @@
       <ul>
         <li><a href="api_reference/core/random.html#raysect.core.math.sampler.VectorSampler.sample">(raysect.core.math.sampler.VectorSampler method)</a>
 </li>
+        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.sample">(raysect.optical.ray.Ray method)</a>
+</li>
         <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction.sample">(raysect.optical.spectralfunction.SpectralFunction method)</a>
 </li>
       </ul></li>
@@ -845,17 +875,23 @@
 </li>
       <li><a href="api_reference/core/random.html#raysect.core.math.random.seed">seed() (in module raysect.core.math.random)</a>
 </li>
+      <li><a href="api_reference/core/render_engines.html#raysect.core.workflow.SerialEngine">SerialEngine (class in raysect.core.workflow)</a>
+</li>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.sightline.SightLine">SightLine (class in raysect.optical.observer.nonimaging.sightline)</a>
+</li>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.spawn_daughter">spawn_daughter() (raysect.optical.ray.Ray method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction">SpectralFunction (class in raysect.optical.spectralfunction)</a>
 </li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum">Spectrum (class in raysect.optical.spectrum)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.spectrum_to_ciexyz">spectrum_to_ciexyz() (in module raysect.optical.colour)</a>
+</li>
       <li><a href="api_reference/primitives/geometric_primitives.html#raysect.primitive.Sphere">Sphere (class in raysect.primitive)</a>, <a href="primitives.html#raysect.primitive.Sphere">[1]</a>
 </li>
       <li><a href="api_reference/core/random.html#raysect.core.math.sampler.SphereSampler">SphereSampler (class in raysect.core.math.sampler)</a>
-</li>
-      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.srgb_to_ciexyz">srgb_to_ciexyz() (in module raysect.optical.colour)</a>
 </li>
       <li><a href="api_reference/core/utilities.html#raysect.core.containers.Stack">Stack (class in raysect.core.containers)</a>
 </li>
@@ -888,6 +924,8 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.total">total() (raysect.optical.spectrum.Spectrum method)</a>
+</li>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.trace">trace() (raysect.optical.ray.Ray method)</a>
 </li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node.transform">transform (raysect.core.scenegraph.node.Node attribute)</a>
 </li>
@@ -953,6 +991,8 @@
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.vector_to">(raysect.core.math.point.Point3D method)</a>
 </li>
       </ul></li>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.vector.VectorCamera">VectorCamera (class in raysect.optical.observer.imaging.vector)</a>
+</li>
       <li><a href="api_reference/core/random.html#raysect.core.math.sampler.VectorSampler">VectorSampler (class in raysect.core.math.sampler)</a>
 </li>
       <li><a href="api_reference/core/core_classes.html#raysect.core.boundingbox.BoundingBox2D.vertices">vertices() (raysect.core.boundingbox.BoundingBox2D method)</a>
@@ -968,6 +1008,10 @@
 
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/core/render_engines.html#raysect.core.workflow.RenderEngine.worker_count">worker_count() (raysect.core.workflow.RenderEngine method)</a>
+</li>
+  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World">World (class in raysect.core.scenegraph.world)</a>
 
