@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.4. Optical Material Base Classes &mdash; Raysect Documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Raysect Documentation" href="../../index.html"/>
+        <link rel="up" title="3. Optical Module" href="optical.html"/>
+        <link rel="next" title="3.5. Optical Surface Materials" href="optical_surfaces.html"/>
+        <link rel="prev" title="3.3. Frame Samples and Pipelines" href="pipelines.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Raysect
+          
+
+          
+            
+            <img src="../../_static/RaysectLogo_web.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">3. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">4. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">7. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">8. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">9. Need Help?</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demonstrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core/core.html">1. Raysect Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitives/primitives.html">2. Primitives Module</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="optical.html">3. Optical Module</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="main_optical_classes.html">3.1. Main Optical Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="observers.html">3.2. Observers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipelines.html">3.3. Frame Samples and Pipelines</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.4. Optical Material Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optical_surfaces.html">3.5. Optical Surface Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optical_volumes.html">3.6. Optical Volume Materials</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Raysect</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="optical.html">3. Optical Module</a> &raquo;</li>
+        
+      <li>3.4. Optical Material Base Classes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api_reference/optical/optical_material_base_classes.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="optical-material-base-classes">
+<h1>3.4. Optical Material Base Classes<a class="headerlink" href="#optical-material-base-classes" title="Permalink to this headline">¶</a></h1>
+<p>The Bidirectional Scattering Distribution Function (BSDF) function describes how
+incoming light is split into the reflected (bidirectional reflectance distribution
+function BRDF) and transmitted (bidirectional transmittance distribution function
+BTDF) components. See
+<a class="reference external" href="https://en.wikipedia.org/wiki/Bidirectional_scattering_distribution_function">wikipedia</a>.</p>
+<dl class="class">
+<dt id="raysect.optical.material.material.Material">
+<em class="property">class </em><code class="descclassname">raysect.optical.material.material.</code><code class="descname">Material</code><a class="headerlink" href="#raysect.optical.material.material.Material" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.material.Material</span></code></a></p>
+<p>Base class for optical material classes.</p>
+<p>Derived classes must implement the evaluate_surface() and evaluate_volume() methods.</p>
+<dl class="method">
+<dt id="raysect.optical.material.material.Material.evaluate_surface">
+<code class="descname">evaluate_surface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.Material.evaluate_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Virtual method for evaluating the spectrum at a material surface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) &#8211; The world scenegraph belonging to this material.</li>
+<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) &#8211; The ray incident at the material surface.</li>
+<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; The geometric shape the holds this material
+(i.e. mesh, cylinder, etc.).</li>
+<li><strong>hit_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The point where the ray is incident on the
+primitive surface.</li>
+<li><strong>exiting</strong> (<em>bool</em>) &#8211; Boolean toggle indicating if this ray is exiting or
+entering the material surface (True means ray is exiting).</li>
+<li><strong>inside_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; </li>
+<li><strong>outside_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; </li>
+<li><strong>normal</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D"><em>Normal3D</em></a>) &#8211; The surface normal vector at location of hit_point.</li>
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining transformation
+from world space to local primitive space.</li>
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining transformation
+from local primitive space to world space.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.optical.material.material.Material.evaluate_volume">
+<code class="descname">evaluate_volume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.Material.evaluate_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Virtual method for evaluating the spectrum emitted/absorbed along the rays trajectory
+through a material surface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) &#8211; The spectrum already accumulated along the ray path.
+Don&#8217;t overwrite this array, add the materials emission/absorption to the existing
+spectrum.</li>
+<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) &#8211; The world scenegraph belonging to this material.</li>
+<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) &#8211; The ray incident at the material surface.</li>
+<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; The geometric shape the holds this material
+(i.e. mesh, cylinder, etc.).</li>
+<li><strong>start_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The starting point of the ray&#8217;s trajectory
+through the material.</li>
+<li><strong>end_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The end point of the ray&#8217;s trajectory through
+the material.</li>
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining transformation
+from world space to local primitive space.</li>
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining transformation
+from local primitive space to world space.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.optical.material.material.Material.importance">
+<code class="descname">importance</code><a class="headerlink" href="#raysect.optical.material.material.Material.importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Importance sampling weight for this material.</p>
+<p>Only effective if importance sampling is turned on.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.material.material.NullSurface">
+<em class="property">class </em><code class="descclassname">raysect.optical.material.material.</code><code class="descname">NullSurface</code><a class="headerlink" href="#raysect.optical.material.material.NullSurface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
+<p>A base class for materials that have volume properties such as emission/absorption
+but no surface properties (e.g. a plasma). This material will launch a new ray after
+the initial ray has transited the material primitive&#8217;s volume. evaluate_volume() must be
+implemented by the deriving class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.material.material.NullVolume">
+<em class="property">class </em><code class="descclassname">raysect.optical.material.material.</code><code class="descname">NullVolume</code><a class="headerlink" href="#raysect.optical.material.material.NullVolume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
+<p>A base class for materials that have surface properties such as reflection
+but no volume properties (e.g. a metallic mirror). evaluate_surface() must be
+implemented by the deriving class.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.material.material.DiscreteBSDF">
+<em class="property">class </em><code class="descclassname">raysect.optical.material.material.</code><code class="descname">DiscreteBSDF</code><a class="headerlink" href="#raysect.optical.material.material.DiscreteBSDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
+<p>A base class for materials implementing a discrete BSDF.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.material.material.ContinuousBSDF">
+<em class="property">class </em><code class="descclassname">raysect.optical.material.material.</code><code class="descname">ContinuousBSDF</code><a class="headerlink" href="#raysect.optical.material.material.ContinuousBSDF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
+<p>A base class for materials implementing a continuous BSDF.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="optical_surfaces.html" class="btn btn-neutral float-right" title="3.5. Optical Surface Materials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pipelines.html" class="btn btn-neutral" title="3.3. Frame Samples and Pipelines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, Dr Alex Meakins.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.3.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
