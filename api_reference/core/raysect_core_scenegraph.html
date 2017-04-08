@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
   
+  
+  
 
   
 
@@ -39,7 +41,7 @@
         <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="1. Raysect Core" href="core.html"/>
-        <link rel="next" title="1.4. Utilities" href="utilities.html"/>
+        <link rel="next" title="1.4. Spatial Acceleration" href="spatial_acceleration.html"/>
         <link rel="prev" title="1.2.5. Unit Conversions" href="units.html"/> 
 
   
@@ -49,6 +51,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -92,7 +95,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
@@ -115,7 +121,9 @@
 <li class="toctree-l2"><a class="reference internal" href="core_classes.html">1.1. Core Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="math.html">1.2. Math Module</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1.3. Scenegraph Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utilities.html">1.4. Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_acceleration.html">1.4. Spatial Acceleration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render_engines.html">1.5. Render Engines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">1.6. Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../primitives/primitives.html">2. Primitives Module</a></li>
@@ -132,8 +140,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Raysect</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Raysect</a>
+        
       </nav>
 
 
@@ -142,25 +152,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="core.html">1. Raysect Core</a> &raquo;</li>
-      
-    <li>1.3. Scenegraph Module</li>
+        
+      <li>1.3. Scenegraph Module</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../../_sources/api_reference/core/raysect_core_scenegraph.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -336,7 +363,7 @@ primitive class is the only class in the scene-graph with which a ray can intera
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>parent</strong> (<em>_NodeBase</em>) &#8211; Assigns the Node&#8217;s parent to the specified scene-graph object.</li>
 <li><strong>transform</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Sets the affine transform associated with the Node.</li>
-<li><strong>material</strong> (<em>Material</em>) &#8211; An object representing the material properties of the primitive.</li>
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; An object representing the material properties of the primitive.</li>
 <li><strong>name</strong> (<em>str</em>) &#8211; A string defining the node name.</li>
 </ul>
 </td>
@@ -361,7 +388,7 @@ exception.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A world space BoundingBox3D object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="core_classes.html#raysect.core.boundingbox.BoundingBox3D" title="raysect.core.boundingbox.BoundingBox3D">BoundingBox3D</a></td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D" title="raysect.core.boundingbox.BoundingBox3D">BoundingBox3D</a></td>
 </tr>
 </tbody>
 </table>
@@ -423,7 +450,7 @@ the objects involved in the intersection.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Setter:</th><td class="field-body">Sets this primitive&#8217;s material.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Material</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material">Material</a></td>
 </tr>
 </tbody>
 </table>
@@ -687,15 +714,18 @@ with the string: &#8220;[referring node]&#8221;.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="utilities.html" class="btn btn-neutral float-right" title="1.4. Utilities" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="spatial_acceleration.html" class="btn btn-neutral float-right" title="1.4. Spatial Acceleration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="units.html" class="btn btn-neutral" title="1.2.5. Unit Conversions" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="units.html" class="btn btn-neutral" title="1.2.5. Unit Conversions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -729,7 +759,8 @@ with the string: &#8220;[referring node]&#8221;.</p>
             VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

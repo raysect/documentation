@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="_static/RaysectLogo_web.ico"/>
   
+  
+  
 
   
 
@@ -47,6 +49,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -90,7 +93,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">2. Downloading and Installation</a></li>
@@ -124,8 +130,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">Raysect</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Raysect</a>
+        
       </nav>
 
 
@@ -134,23 +142,40 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
-      
-    <li>Home</li>
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Home</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -237,9 +262,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html">1.3. Scenegraph Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference/core/render_engines.html">1.4. Render Engines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference/core/utilities.html">1.5. Utilities</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api_reference/core/utilities.html#containers">1.5.1. Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/core/spatial_acceleration.html">1.4. Spatial Acceleration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/core/render_engines.html">1.5. Render Engines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/core/utilities.html">1.6. Utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/core/utilities.html#containers">1.6.1. Containers</a></li>
 </ul>
 </li>
 </ul>
@@ -255,11 +281,34 @@
 <li class="toctree-l3"><a class="reference internal" href="api_reference/optical/main_optical_classes.html#optical-rays">3.1.1. Optical Rays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api_reference/optical/main_optical_classes.html#spectral-functions">3.1.2. Spectral Functions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api_reference/optical/main_optical_classes.html#colours">3.1.3. Colours</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/main_optical_classes.html#module-raysect.optical.scenegraph.world">3.1.4. Optical Scenegraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/main_optical_classes.html#optical-scenegraph">3.1.4. Optical Scenegraph</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference/optical/observers.html">3.2. Observers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference/optical/materials.html">3.3. Optical Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/optical/observers.html">3.2. Observers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/observers.html#d-observers">3.2.1. 0D Observers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/observers.html#id9">3.2.2. 2D Observers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/optical/pipelines.html">3.3. Frame Samples and Pipelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/pipelines.html#base-classes">3.3.1. Base Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/pipelines.html#rgb">3.3.2. RGB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/pipelines.html#bayer">3.3.3. Bayer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/pipelines.html#power">3.3.4. Power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/pipelines.html#spectral">3.3.5. Spectral</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/optical/optical_material_base_classes.html">3.4. Optical Material Base Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/optical/optical_surfaces.html">3.5. Optical Surface Materials</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/optical_surfaces.html#absorber">3.5.1. Absorber</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/optical_surfaces.html#emitters">3.5.2. Emitters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/optical_surfaces.html#lambertian">3.5.3. Lambertian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/optical_surfaces.html#conductors">3.5.4. Conductors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/optical_surfaces.html#dielectrics">3.5.5. Dielectrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/optical_surfaces.html#modifiers">3.5.6. Modifiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api_reference/optical/optical_surfaces.html#debugging">3.5.7. Debugging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api_reference/optical/optical_volumes.html">3.6. Optical Volume Materials</a></li>
 </ul>
 </li>
 </ul>
@@ -277,12 +326,15 @@
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="introduction.html" class="btn btn-neutral float-right" title="1. Introduction" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="introduction.html" class="btn btn-neutral float-right" title="1. Introduction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -317,7 +369,8 @@
             VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>

@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
   
+  
+  
 
   
 
@@ -49,6 +51,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -92,7 +95,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
@@ -131,8 +137,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Raysect</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Raysect</a>
+        
       </nav>
 
 
@@ -141,25 +149,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="primitives.html">2. Primitives Module</a> &raquo;</li>
-      
-    <li>2.1. Geometric Primitives</li>
+        
+      <li>2.1. Geometric Primitives</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../../_sources/api_reference/primitives/geometric_primitives.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -183,7 +208,7 @@ system.</p>
 <li><strong>upper</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Upper point of the box (default = Point3D(0.5, 0.5, 0.5)).</li>
 <li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
 <li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<em>Material</em>) &#8211; A Material object defining the box&#8217;s material (default = None).</li>
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; A Material object defining the box&#8217;s material (default = None).</li>
 <li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the box (default = &#8220;&#8221;).</li>
 </ul>
 </td>
@@ -234,7 +259,7 @@ system.</p>
 <li><strong>radius</strong> (<em>float</em>) &#8211; Radius of the sphere in meters (default = 0.5).</li>
 <li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
 <li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<em>Material</em>) &#8211; A Material object defining the sphere&#8217;s material (default = None).</li>
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; A Material object defining the sphere&#8217;s material (default = None).</li>
 <li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the sphere (default = &#8220;&#8221;).</li>
 </ul>
 </td>
@@ -275,7 +300,7 @@ capped with disks forming a closed surface.</p>
 <li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
 <li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<em>Material</em>) &#8211; A Material object defining the cylinder&#8217;s material (default = None).</li>
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; A Material object defining the cylinder&#8217;s material (default = None).</li>
 <li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the cylinder (default = &#8220;&#8221;).</li>
 </ul>
 </td>
@@ -323,7 +348,7 @@ with a disk, forming a closed surface.</p>
 <li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
 <li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<em>Material</em>) &#8211; A Material object defining the cone&#8217;s material (default = None).</li>
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; A Material object defining the cone&#8217;s material (default = None).</li>
 <li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the cone (default = &#8220;&#8221;).</li>
 </ul>
 </td>
@@ -378,7 +403,7 @@ on the x-y plane, the parabola vertex (tip) lies at z=height.</p>
 <li><strong>height</strong> (<em>float</em>) &#8211; Height of the parabola in meters (default = 1.0).</li>
 <li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
 <li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<em>Material</em>) &#8211; A Material object defining the parabola&#8217;s material (default = None).</li>
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; A Material object defining the parabola&#8217;s material (default = None).</li>
 <li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the parabola (default = &#8220;&#8221;).</li>
 </ul>
 </td>
@@ -419,15 +444,18 @@ on the x-y plane, the parabola vertex (tip) lies at z=height.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="meshes.html" class="btn btn-neutral float-right" title="2.2. Meshes" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="meshes.html" class="btn btn-neutral float-right" title="2.2. Meshes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="primitives.html" class="btn btn-neutral" title="2. Primitives Module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="primitives.html" class="btn btn-neutral" title="2. Primitives Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -461,7 +489,8 @@ on the x-y plane, the parabola vertex (tip) lies at z=height.</p>
             VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
   
+  
+  
 
   
 
@@ -49,6 +51,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -92,7 +95,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
@@ -115,7 +121,9 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1.1. Core Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="math.html">1.2. Math Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raysect_core_scenegraph.html">1.3. Scenegraph Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utilities.html">1.4. Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_acceleration.html">1.4. Spatial Acceleration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render_engines.html">1.5. Render Engines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">1.6. Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../primitives/primitives.html">2. Primitives Module</a></li>
@@ -132,8 +140,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Raysect</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Raysect</a>
+        
       </nav>
 
 
@@ -142,25 +152,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="core.html">1. Raysect Core</a> &raquo;</li>
-      
-    <li>1.1. Core Classes</li>
+        
+      <li>1.1. Core Classes</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../../_sources/api_reference/core/core_classes.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -230,7 +257,7 @@
 
 </dd></dl>
 
-<span class="target" id="module-raysect.core.material"></span><span class="target" id="module-raysect.core.intersection"></span><dl class="class">
+<span class="target" id="module-raysect.core.intersection"></span><dl class="class">
 <dt id="raysect.core.intersection.Intersection">
 <em class="property">class </em><code class="descclassname">raysect.core.intersection.</code><code class="descname">Intersection</code><a class="headerlink" href="#raysect.core.intersection.Intersection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describes the result of a ray-primitive intersection.</p>
@@ -251,7 +278,7 @@ normal.</p>
 <li><strong>hit_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The point of intersection between the ray and the primitive (primitive local space).</li>
 <li><strong>inside_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The interior ray launch point (primitive local space).</li>
 <li><strong>outside_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The exterior ray launch point (primitive local space).</li>
-<li><strong>normal</strong> (<em>Normal3D</em>) &#8211; The surface normal (primitive local space)</li>
+<li><strong>normal</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D"><em>Normal3D</em></a>) &#8211; The surface normal (primitive local space)</li>
 <li><strong>exiting</strong> (<em>bool</em>) &#8211; True if the ray is exiting the surface, False otherwise.</li>
 <li><strong>world_to_primitive</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; A world to primitive local transform matrix.</li>
 <li><strong>primitive_to_world</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; A primitive local to world transform matrix.</li>
@@ -262,478 +289,17 @@ normal.</p>
 </table>
 </dd></dl>
 
-<span class="target" id="module-raysect.core.boundingbox"></span><dl class="class">
-<dt id="raysect.core.boundingbox.BoundingBox2D">
-<em class="property">class </em><code class="descclassname">raysect.core.boundingbox.</code><code class="descname">BoundingBox2D</code><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox2D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Axis-aligned 2D bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>lower</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D"><em>Point2D</em></a>) &#8211; (optional) starting point for lower box corner</li>
-<li><strong>upper</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D"><em>Point2D</em></a>) &#8211; (optional) starting point for upper box corner</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
+<span class="target" id="module-raysect.core.material"></span><dl class="class">
+<dt id="raysect.core.material.Material">
+<em class="property">class </em><code class="descclassname">raysect.core.material.</code><code class="descname">Material</code><a class="headerlink" href="#raysect.core.material.Material" title="Permalink to this definition">¶</a></dt>
+<dd><p>A base class for all Material classes.</p>
 <dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox2D.contains">
-<code class="descname">contains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox2D.contains" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns true if the given 2D point lies inside the bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D"><em>Point2D</em></a>) &#8211; A given test point.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox2D.extend">
-<code class="descname">extend</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox2D.extend" title="Permalink to this definition">¶</a></dt>
-<dd><p>Enlarge this bounding box to enclose the given point.</p>
-<p>The resulting bounding box will be larger so as to just enclose the existing bounding box and the new point.
-This class instance will be edited in place to have the new bounding box dimensions.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D"><em>Point2D</em></a>) &#8211; the point to use for extending the bounding box.</li>
-<li><strong>padding</strong> (<em>float</em>) &#8211; optional padding parameter, gives extra margin around the new point.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox2D.extent">
-<code class="descname">extent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox2D.extent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the spatial extend of this bounding box along the given dimension.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>axis</strong> (<em>int</em>) &#8211; specifies the axis to return, {0: X axis, 1: Y axis}.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox2D.largest_axis">
-<code class="descname">largest_axis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox2D.largest_axis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find the largest axis of this bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an int specifying the longest axis, {0: X axis, 1: Y axis}.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox2D.largest_extent">
-<code class="descname">largest_extent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox2D.largest_extent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find the largest spatial extent across all axes.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">distance along the largest bounding box axis.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="raysect.core.boundingbox.BoundingBox2D.lower">
-<code class="descname">lower</code><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox2D.lower" title="Permalink to this definition">¶</a></dt>
-<dd><p>The point defining the lower corner of the bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D">Point2D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox2D.pad">
-<code class="descname">pad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox2D.pad" title="Permalink to this definition">¶</a></dt>
-<dd><p>Makes the bounding box larger by the specified amount of padding.</p>
-<p>Every bounding box axis will end up larger by a factor of 2 x padding.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>padding</strong> (<em>float</em>) &#8211; distance to use as padding margin</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox2D.surface_area">
-<code class="descname">surface_area</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox2D.surface_area" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the surface area of the bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox2D.union">
-<code class="descname">union</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox2D.union" title="Permalink to this definition">¶</a></dt>
-<dd><p>Union this bounding box instance with the input bounding box.</p>
-<p>The resulting bounding box will be larger so as to just enclose both bounding boxes. This class instance
-will be edited in place to have the new bounding box dimensions.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>box</strong> (<a class="reference internal" href="#raysect.core.boundingbox.BoundingBox2D" title="raysect.core.boundingbox.BoundingBox2D"><em>BoundingBox2D</em></a>) &#8211; A bounding box instance to union with this bounding box instance.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="raysect.core.boundingbox.BoundingBox2D.upper">
-<code class="descname">upper</code><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox2D.upper" title="Permalink to this definition">¶</a></dt>
-<dd><p>The point defining the upper corner of the bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D">Point2D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox2D.vertices">
-<code class="descname">vertices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox2D.vertices" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the list of vertices for this bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of Point2D&#8217;s representing the corners of the bounding box.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="raysect.core.boundingbox.BoundingBox3D">
-<em class="property">class </em><code class="descclassname">raysect.core.boundingbox.</code><code class="descname">BoundingBox3D</code><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Axis-aligned bounding box.</p>
-<p>Represents a bounding box around a primitive&#8217;s surface. The points defining
-the lower and upper corners of the box must be specified in world space.</p>
-<p>Axis aligned bounding box ray intersections are extremely fast to evaluate
-compared to intersections with more general geometry. Prior to testing a
-primitives hit() method the hit() method of the bounding box is called. If
-the bounding box is not hit, then the expensive primitive hit() method is
-avoided.</p>
-<p>Combined with a spatial subdivision acceleration structure, the cost of ray-
-primitive evaluations can be heavily reduced (O(n) -&gt; O(log n)).</p>
-<p>For optimal speed the bounding box is aligned with the world space axes. As
-rays are propagated in world space, co-ordinate transforms can be avoided.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>lower</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; (optional) starting point for lower box corner</li>
-<li><strong>upper</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; (optional) starting point for upper box corner</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="attribute">
-<dt id="raysect.core.boundingbox.BoundingBox3D.centre">
-<code class="descname">centre</code><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.centre" title="Permalink to this definition">¶</a></dt>
-<dd><p>The point defining the geometric centre of the bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D">Point3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox3D.contains">
-<code class="descname">contains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.contains" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns true if the given 3D point lies inside the bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; A given test point.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox3D.enclosing_sphere">
-<code class="descname">enclosing_sphere</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.enclosing_sphere" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the radius of a sphere guaranteed to enclose the bounding box.</p>
-<p>The sphere is centred at the box centre. A small degree of padding is
-added to avoid numerical accuracy issues.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Radius of sphere.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox3D.extend">
-<code class="descname">extend</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.extend" title="Permalink to this definition">¶</a></dt>
-<dd><p>Enlarge this bounding box to enclose the given point.</p>
-<p>The resulting bounding box will be larger so as to just enclose the existing bounding box and the new point.
-This class instance will be edited in place to have the new bounding box dimensions.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; the point to use for extending the bounding box.</li>
-<li><strong>padding</strong> (<em>float</em>) &#8211; optional padding parameter, gives extra margin around the new point.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox3D.extent">
-<code class="descname">extent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.extent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the spatial extend of this bounding box along the given dimension.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>axis</strong> (<em>int</em>) &#8211; specifies the axis to return, {0: X axis, 1: Y axis, 2: Z axis}.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox3D.full_intersection">
-<code class="descname">full_intersection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.full_intersection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns full intersection information for an intersection between a ray and a bounding box.</p>
-<p>The first value is a boolean which is true if an intersection has occured, false otherwise. Each intersection
-with a bounding box will produce two intersections, one on the front and back of the box. The remaining two
-tuple parameters are floats representing the distance along the ray path to the respective intersections.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ray</strong> &#8211; The ray to test for intersection</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A tuple of intersection parameters, (hit, front_intersection, back_intersection).</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox3D.hit">
-<code class="descname">hit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.hit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns true if the ray hits the bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ray</strong> (<a class="reference internal" href="#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) &#8211; The ray to test for intersection.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">boolean</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox3D.largest_axis">
-<code class="descname">largest_axis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.largest_axis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find the largest axis of this bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">an int specifying the longest axis, {0: X axis, 1: Y axis, 2: Z axis}.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox3D.largest_extent">
-<code class="descname">largest_extent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.largest_extent" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find the largest spatial extent across all axes.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">distance along the largest bounding box axis.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="raysect.core.boundingbox.BoundingBox3D.lower">
-<code class="descname">lower</code><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.lower" title="Permalink to this definition">¶</a></dt>
-<dd><p>The point defining the lower corner of the bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D">Point3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox3D.pad">
-<code class="descname">pad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.pad" title="Permalink to this definition">¶</a></dt>
-<dd><p>Makes the bounding box larger by the specified amount of padding.</p>
-<p>Every bounding box axis will end up larger by a factor of 2 x padding.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>padding</strong> (<em>float</em>) &#8211; distance to use as padding margin</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox3D.surface_area">
-<code class="descname">surface_area</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.surface_area" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the surface area of the bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox3D.union">
-<code class="descname">union</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.union" title="Permalink to this definition">¶</a></dt>
-<dd><p>Union this bounding box instance with the input bounding box.</p>
-<p>The resulting bounding box will be larger so as to just enclose both bounding boxes. This class instance
-will be edited in place to have the new bounding box dimensions.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>box</strong> (<a class="reference internal" href="#raysect.core.boundingbox.BoundingBox3D" title="raysect.core.boundingbox.BoundingBox3D"><em>BoundingBox3D</em></a>) &#8211; A bounding box instance to union with this bounding box instance.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="raysect.core.boundingbox.BoundingBox3D.upper">
-<code class="descname">upper</code><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.upper" title="Permalink to this definition">¶</a></dt>
-<dd><p>The point defining the upper corner of the bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D">Point3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox3D.vertices">
-<code class="descname">vertices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.vertices" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get the list of vertices for this bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of Point3D&#8217;s representing the corners of the bounding box.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.boundingbox.BoundingBox3D.volume">
-<code class="descname">volume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.volume" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the volume of the bounding box.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dt id="raysect.core.material.Material.notify_material_change">
+<code class="descname">notify_material_change</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.material.Material.notify_material_change" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notifies any connected scene-graph root of a change to the material.</p>
+<p>The notification informs the root node that any caching structures used
+to accelerate ray-tracing calculations are now potentially invalid and
+must be recalculated, taking the new material properties into account.</p>
 </dd></dl>
 
 </dd></dl>
@@ -742,15 +308,18 @@ will be edited in place to have the new bounding box dimensions.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="math.html" class="btn btn-neutral float-right" title="1.2. Math Module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="math.html" class="btn btn-neutral float-right" title="1.2. Math Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="core.html" class="btn btn-neutral" title="1. Raysect Core" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="core.html" class="btn btn-neutral" title="1. Raysect Core" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -784,7 +353,8 @@ will be edited in place to have the new bounding box dimensions.</p>
             VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

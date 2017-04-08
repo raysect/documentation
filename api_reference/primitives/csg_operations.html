@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
   
+  
+  
 
   
 
@@ -49,6 +51,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -92,7 +95,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
@@ -131,8 +137,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Raysect</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Raysect</a>
+        
       </nav>
 
 
@@ -141,25 +149,42 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="primitives.html">2. Primitives Module</a> &raquo;</li>
-      
-    <li>2.3. CSG Operations</li>
+        
+      <li>2.3. CSG Operations</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../../_sources/api_reference/primitives/csg_operations.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -187,7 +212,7 @@ primitive with the combined volume of the underlying primitives.</p>
 <li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
 <li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<em>Material</em>) &#8211; A Material object defining the CSG primitive&#8217;s
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; A Material object defining the CSG primitive&#8217;s
 material (default = None).</li>
 </ul>
 </td>
@@ -240,7 +265,7 @@ material (default = None).</li>
 <li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
 <li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<em>Material</em>) &#8211; A Material object defining the new CSG primitive&#8217;s
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; A Material object defining the new CSG primitive&#8217;s
 material (default = None).</li>
 </ul>
 </td>
@@ -266,7 +291,7 @@ CSG primitive.</p>
 <li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
 <li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<em>Material</em>) &#8211; A Material object defining the new CSG primitive&#8217;s
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; A Material object defining the new CSG primitive&#8217;s
 material (default = None).</li>
 </ul>
 </td>
@@ -292,7 +317,7 @@ B will be in the new CSG primitive.</p>
 <li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
 <li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<em>Material</em>) &#8211; A Material object defining the new CSG primitive&#8217;s
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; A Material object defining the new CSG primitive&#8217;s
 material (default = None).</li>
 </ul>
 </td>
@@ -305,15 +330,18 @@ material (default = None).</li>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../optical/optical.html" class="btn btn-neutral float-right" title="3. Optical Module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../optical/optical.html" class="btn btn-neutral float-right" title="3. Optical Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="meshes.html" class="btn btn-neutral" title="2.2. Meshes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="meshes.html" class="btn btn-neutral" title="2.2. Meshes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -347,7 +375,8 @@ material (default = None).</li>
             VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

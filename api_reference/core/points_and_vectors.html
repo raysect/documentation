@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
   
+  
+  
 
   
 
@@ -49,6 +51,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -92,7 +95,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
@@ -114,7 +120,11 @@
 <li class="toctree-l1 current"><a class="reference internal" href="core.html">1. Raysect Core</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="core_classes.html">1.1. Core Classes</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="math.html">1.2. Math Module</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">1.2.1. Points and Vectors</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">1.2.1. Points and Vectors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#two-dimensions">1.2.1.1. Two Dimensions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#three-dimensions">1.2.1.2. Three Dimensions</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="affinematrix.html">1.2.2. Affine Matricies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="functions.html">1.2.3. Functions and Interpolators</a></li>
 <li class="toctree-l3"><a class="reference internal" href="random.html">1.2.4. Random</a></li>
@@ -122,7 +132,9 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="raysect_core_scenegraph.html">1.3. Scenegraph Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utilities.html">1.4. Utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_acceleration.html">1.4. Spatial Acceleration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render_engines.html">1.5. Render Engines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">1.6. Utilities</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../primitives/primitives.html">2. Primitives Module</a></li>
@@ -139,8 +151,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Raysect</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Raysect</a>
+        
       </nav>
 
 
@@ -149,27 +163,44 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="core.html">1. Raysect Core</a> &raquo;</li>
-      
+        
           <li><a href="math.html">1.2. Math Module</a> &raquo;</li>
-      
-    <li>1.2.1. Points and Vectors</li>
+        
+      <li>1.2.1. Points and Vectors</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../../_sources/api_reference/core/points_and_vectors.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -177,6 +208,8 @@
             
   <div class="section" id="points-and-vectors">
 <h1>1.2.1. Points and Vectors<a class="headerlink" href="#points-and-vectors" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="two-dimensions">
+<h2>1.2.1.1. Two Dimensions<a class="headerlink" href="#two-dimensions" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="raysect.core.math.point.Point2D">
 <em class="property">class </em><code class="descclassname">raysect.core.math.point.</code><code class="descname">Point2D</code><a class="headerlink" href="#raysect.core.math.point.Point2D" title="Permalink to this definition">¶</a></dt>
@@ -312,6 +345,115 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 
 </dd></dl>
 
+<dl class="class">
+<dt id="raysect.core.math.vector.Vector2D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.vector.</code><code class="descname">Vector2D</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a vector in 2D space.</p>
+<p>2D vectors are described by their (x, y) coordinates. Standard Vector2D operations are
+supported such as addition, subtraction, scaling, dot product, cross product and normalisation.</p>
+<p>If no initial values are passed, Vector2D defaults to a unit vector
+aligned with the x-axis: Vector2D(1.0, 0.0)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>float</em>) &#8211; initial x coordinate, defaults to x = 0.0.</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; initial y coordinate, defaults to y = 0.0.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>float</em>) &#8211; x-coordinate</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; y-coordinate</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="raysect.core.math.vector.Vector2D.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a copy of the vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector2D" title="raysect.core.math.vector.Vector2D">Vector2D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.vector.Vector2D.cross">
+<code class="descname">cross</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.cross" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the 2D cross product analogue between this vector and the supplied vector</p>
+<p>C = A.cross(B) &lt;=&gt; C = A x B &lt;=&gt; det(A, B) = A.x B.y - A.y B.x</p>
+<p>Note that for 2D vectors, the cross product is the equivalent of the determinant of a
+2x2 matrix. The result is a scalar.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector2D" title="raysect.core.math.vector.Vector2D"><em>Vector2D</em></a>) &#8211; An input vector with which to calculate the cross product.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.vector.Vector2D.dot">
+<code class="descname">dot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the dot product between this vector and the supplied vector.</p>
+<p>Returns a scalar.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.vector.Vector2D.length">
+<code class="descname">length</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vector&#8217;s length.</p>
+<p>Raises a ZeroDivisionError if an attempt is made to change the length of
+a zero length vector. The direction of a zero length vector is
+undefined hence it can not be lengthened.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.vector.Vector2D.normalise">
+<code class="descname">normalise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.normalise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a normalised copy of the vector.</p>
+<p>The returned vector is normalised to length 1.0 - a unit vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector2D" title="raysect.core.math.vector.Vector2D">Vector2D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.vector.Vector2D.orthogonal">
+<code class="descname">orthogonal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.orthogonal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a unit vector that is guaranteed to be orthogonal to the vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">vector2D</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="three-dimensions">
+<h2>1.2.1.2. Three Dimensions<a class="headerlink" href="#three-dimensions" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="raysect.core.math.point.Point3D">
 <em class="property">class </em><code class="descclassname">raysect.core.math.point.</code><code class="descname">Point3D</code><a class="headerlink" href="#raysect.core.math.point.Point3D" title="Permalink to this definition">¶</a></dt>
@@ -491,112 +633,6 @@ checks are performed on the matrix.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; the point to which a vector will be calculated.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="raysect.core.math.vector.Vector2D">
-<em class="property">class </em><code class="descclassname">raysect.core.math.vector.</code><code class="descname">Vector2D</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represents a vector in 2D space.</p>
-<p>2D vectors are described by their (x, y) coordinates. Standard Vector2D operations are
-supported such as addition, subtraction, scaling, dot product, cross product and normalisation.</p>
-<p>If no initial values are passed, Vector2D defaults to a unit vector
-aligned with the x-axis: Vector2D(1.0, 0.0)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; initial x coordinate, defaults to x = 0.0.</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; initial y coordinate, defaults to y = 0.0.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; x-coordinate</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; y-coordinate</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="raysect.core.math.vector.Vector2D.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.copy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a copy of the vector.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector2D" title="raysect.core.math.vector.Vector2D">Vector2D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.math.vector.Vector2D.cross">
-<code class="descname">cross</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.cross" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the 2D cross product analogue between this vector and the supplied vector</p>
-<p>C = A.cross(B) &lt;=&gt; C = A x B &lt;=&gt; det(A, B) = A.x B.y - A.y B.x</p>
-<p>Note that for 2D vectors, the cross product is the equivalent of the determinant of a
-2x2 matrix. The result is a scalar.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector2D" title="raysect.core.math.vector.Vector2D"><em>Vector2D</em></a>) &#8211; An input vector with which to calculate the cross product.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.math.vector.Vector2D.dot">
-<code class="descname">dot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.dot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the dot product between this vector and the supplied vector.</p>
-<p>Returns a scalar.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="raysect.core.math.vector.Vector2D.length">
-<code class="descname">length</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D.length" title="Permalink to this definition">¶</a></dt>
-<dd><p>The vector&#8217;s length.</p>
-<p>Raises a ZeroDivisionError if an attempt is made to change the length of
-a zero length vector. The direction of a zero length vector is
-undefined hence it can not be lengthened.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.math.vector.Vector2D.normalise">
-<code class="descname">normalise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.normalise" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a normalised copy of the vector.</p>
-<p>The returned vector is normalised to length 1.0 - a unit vector.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector2D" title="raysect.core.math.vector.Vector2D">Vector2D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.math.vector.Vector2D.orthogonal">
-<code class="descname">orthogonal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.orthogonal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a unit vector that is guaranteed to be orthogonal to the vector.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">vector2D</td>
 </tr>
 </tbody>
 </table>
@@ -825,19 +861,247 @@ operator of AffineMatrix3D when called from cython code.</p>
 
 </dd></dl>
 
+<dl class="class">
+<dt id="raysect.core.math.normal.Normal3D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.normal.</code><code class="descname">Normal3D</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a normal vector in 3D affine space.</p>
+<p>A Normal3D is just a special case of a Vector3D that is perpendicular to a surface. A normal can be generated by
+taking the cross product of two non parallel Vectors that lie inside the surface. Because a Normal3D is defined
+in terms of a surface it supports a reduced set of operations when compared with Vectors.</p>
+<p>If no initial values are passed, Normal3D defaults to a unit vector
+aligned with the z-axis: Normal3D(0.0, 0.0, 1.0)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>float</em>) &#8211; initial x coordinate, defaults to x = 0.0.</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; initial y coordinate, defaults to y = 0.0.</li>
+<li><strong>z</strong> (<em>float</em>) &#8211; initial z coordinate, defaults to z = 0.0.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="raysect.core.math.normal.Normal3D.__add__">
+<code class="descname">__add__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__add__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Addition operator.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.normal.Normal3D.__getitem__">
+<code class="descname">__getitem__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the vector coordinates by index ([0,1,2] -&gt; [x,y,z]).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.normal.Normal3D.__getstate__">
+<code class="descname">__getstate__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__getstate__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes state for pickling.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.normal.Normal3D.__iter__">
+<code class="descname">__iter__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement iter(self).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.normal.Normal3D.__mul__">
+<code class="descname">__mul__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiply operator.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.normal.Normal3D.__neg__">
+<code class="descname">__neg__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__neg__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a normal with the reverse orientation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.normal.Normal3D.__setitem__">
+<code class="descname">__setitem__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the vector coordinates by index ([0,1,2] -&gt; [x,y,z]).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.normal.Normal3D.__setstate__">
+<code class="descname">__setstate__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__setstate__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decodes state for pickling.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.normal.Normal3D.__sub__">
+<code class="descname">__sub__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__sub__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subtract operator.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.normal.Normal3D.__truediv__">
+<code class="descname">__truediv__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__truediv__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Division operator.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.normal.Normal3D.as_vector">
+<code class="descname">as_vector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.as_vector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a Vector3D copy of the normal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.normal.Normal3D.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a copy of the normal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D">Normal3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.normal.Normal3D.cross">
+<code class="descname">cross</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.cross" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the cross product between this vector and the supplied vector</p>
+<p>C = A.cross(B) &lt;=&gt; C = A x B</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; An input vector with which to calculate the cross product.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.normal.Normal3D.dot">
+<code class="descname">dot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.dot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the dot product between this vector and the supplied vector.</p>
+<p>Returns a scalar.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.normal.Normal3D.length">
+<code class="descname">length</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>The vector&#8217;s length.</p>
+<p>Raises a ZeroDivisionError if an attempt is made to change the length of
+a zero length vector. The direction of a zero length vector is
+undefined hence it can not be lengthened.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.normal.Normal3D.normalise">
+<code class="descname">normalise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.normalise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a normalised copy of the normal vector.</p>
+<p>The returned normal is normalised to length 1.0 - a unit vector.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D">Normal3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.normal.Normal3D.orthogonal">
+<code class="descname">orthogonal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.orthogonal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a unit vector that is guaranteed to be orthogonal to the normal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.normal.Normal3D.transform">
+<code class="descname">transform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms the normal with the supplied Affine Matrix.</p>
+<p>The normal is multiplied by the inverse transpose of the transform
+matrix. This resulting normal remains perpendicular to its surface post
+transform.</p>
+<p>Warning: this method performs a costly inversion of the supplied matrix.
+If an inverse matrix is already available in scope, use the
+transform_with_inverse() method as it is considerably faster.</p>
+<p>For cython code this method is substantially faster than using the
+multiplication operator of the affine matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The affine matrix describing the required coordinate transformation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new instance of this normal vector that has been transformed with the supplied Affine Matrix.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D">Normal3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.normal.Normal3D.transform_with_inverse">
+<code class="descname">transform_with_inverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.transform_with_inverse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms the normal with the supplied inverse Affine Matrix.</p>
+<p>If an inverse matrix is already available in scope, this method is
+considerably faster than the transform() method - it skips a matrix
+inversion required to calculate the transformed normal (see the
+transform() documentation).</p>
+<p>For cython code this method is substantially faster than using the
+multiplication operator of the affine matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An inverse affine matrix of the required coordinate transformation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new instance of this normal vector that has been transformed.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D">Normal3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 
 
+           </div>
+           <div class="articleComments">
+            
            </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="affinematrix.html" class="btn btn-neutral float-right" title="1.2.2. Affine Matricies" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="affinematrix.html" class="btn btn-neutral float-right" title="1.2.2. Affine Matricies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="math.html" class="btn btn-neutral" title="1.2. Math Module" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="math.html" class="btn btn-neutral" title="1.2. Math Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -871,7 +1135,8 @@ operator of AffineMatrix3D when called from cython code.</p>
             VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

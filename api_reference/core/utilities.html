@@ -8,12 +8,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1.5. Utilities &mdash; Raysect Documentation</title>
+  <title>1.6. Utilities &mdash; Raysect Documentation</title>
   
 
   
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
+  
+  
   
 
   
@@ -40,7 +42,7 @@
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="1. Raysect Core" href="core.html"/>
         <link rel="next" title="2. Primitives Module" href="../primitives/primitives.html"/>
-        <link rel="prev" title="1.4. Render Engines" href="render_engines.html"/> 
+        <link rel="prev" title="1.5. Render Engines" href="render_engines.html"/> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
@@ -49,6 +51,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -92,7 +95,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
@@ -115,9 +121,10 @@
 <li class="toctree-l2"><a class="reference internal" href="core_classes.html">1.1. Core Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="math.html">1.2. Math Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="raysect_core_scenegraph.html">1.3. Scenegraph Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="render_engines.html">1.4. Render Engines</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">1.5. Utilities</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#containers">1.5.1. Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spatial_acceleration.html">1.4. Spatial Acceleration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render_engines.html">1.5. Render Engines</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1.6. Utilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#containers">1.6.1. Containers</a></li>
 </ul>
 </li>
 </ul>
@@ -136,8 +143,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../index.html">Raysect</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Raysect</a>
+        
       </nav>
 
 
@@ -146,34 +155,51 @@
         <div class="rst-content">
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../../index.html">Docs</a> &raquo;</li>
-      
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
           <li><a href="core.html">1. Raysect Core</a> &raquo;</li>
-      
-    <li>1.5. Utilities</li>
+        
+      <li>1.6. Utilities</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
             <a href="../../_sources/api_reference/core/utilities.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="utilities">
-<h1>1.5. Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
+<h1>1.6. Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="containers">
-<h2>1.5.1. Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h2>
+<h2>1.6.1. Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h2>
 <p>Raysect has a number of container classes available for fast operations
 in cython. These are mainly intended for use by developers.</p>
 <dl class="class">
@@ -188,7 +214,7 @@ in cython. These are mainly intended for use by developers.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector2D.length" title="raysect.core.math.vector.Vector2D.length"><strong>length</strong></a> (<em>int</em>) &#8211; number of items in the container</li>
+<li><a class="reference internal" href="points_and_vectors.html#raysect.core.math.normal.Normal3D.length" title="raysect.core.math.normal.Normal3D.length"><strong>length</strong></a> (<em>int</em>) &#8211; number of items in the container</li>
 <li><strong>first</strong> &#8211; starting element of container</li>
 <li><strong>last</strong> &#8211; final element of container</li>
 </ul>
@@ -344,15 +370,18 @@ Inherits attributes and methods from LinkedList.</p>
 
 
            </div>
+           <div class="articleComments">
+            
+           </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../primitives/primitives.html" class="btn btn-neutral float-right" title="2. Primitives Module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../primitives/primitives.html" class="btn btn-neutral float-right" title="2. Primitives Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="render_engines.html" class="btn btn-neutral" title="1.4. Render Engines" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="render_engines.html" class="btn btn-neutral" title="1.5. Render Engines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -386,7 +415,8 @@ Inherits attributes and methods from LinkedList.</p>
             VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

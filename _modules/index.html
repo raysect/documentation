@@ -15,6 +15,8 @@
   
     <link rel="shortcut icon" href="../_static/RaysectLogo_web.ico"/>
   
+  
+  
 
   
 
@@ -46,6 +48,7 @@
 
 <body class="wy-body-for-nav" role="document">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -89,7 +92,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">2. Downloading and Installation</a></li>
@@ -123,8 +129,10 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../index.html">Raysect</a>
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Raysect</a>
+        
       </nav>
 
 
@@ -137,17 +145,34 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-    <li>Overview: module code</li>
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Overview: module code</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
+            
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -157,12 +182,14 @@
 <ul><li><a href="raysect/core/boundingbox.html">raysect.core.boundingbox</a></li>
 <li><a href="raysect/core/containers.html">raysect.core.containers</a></li>
 <li><a href="raysect/core/intersection.html">raysect.core.intersection</a></li>
+<li><a href="raysect/core/material.html">raysect.core.material</a></li>
 <li><a href="raysect/core/math/affinematrix.html">raysect.core.math.affinematrix</a></li>
 <li><a href="raysect/core/math/function/function1d.html">raysect.core.math.function.function1d</a></li>
 <li><a href="raysect/core/math/function/function2d.html">raysect.core.math.function.function2d</a></li>
 <li><a href="raysect/core/math/function/function3d.html">raysect.core.math.function.function3d</a></li>
 <li><a href="raysect/core/math/interpolators/discrete2dmesh.html">raysect.core.math.interpolators.discrete2dmesh</a></li>
 <li><a href="raysect/core/math/interpolators/interpolator2dmesh.html">raysect.core.math.interpolators.interpolator2dmesh</a></li>
+<li><a href="raysect/core/math/normal.html">raysect.core.math.normal</a></li>
 <li><a href="raysect/core/math/point.html">raysect.core.math.point</a></li>
 <li><a href="raysect/core/math/random.html">raysect.core.math.random</a></li>
 <li><a href="raysect/core/math/sampler.html">raysect.core.math.sampler</a></li>
@@ -180,8 +207,19 @@
 <li><a href="raysect/optical/material/absorber.html">raysect.optical.material.absorber</a></li>
 <li><a href="raysect/optical/material/conductor.html">raysect.optical.material.conductor</a></li>
 <li><a href="raysect/optical/material/debug.html">raysect.optical.material.debug</a></li>
+<li><a href="raysect/optical/material/dielectric.html">raysect.optical.material.dielectric</a></li>
+<li><a href="raysect/optical/material/emitter/checkerboard.html">raysect.optical.material.emitter.checkerboard</a></li>
+<li><a href="raysect/optical/material/emitter/homogeneous.html">raysect.optical.material.emitter.homogeneous</a></li>
+<li><a href="raysect/optical/material/emitter/inhomogeneous.html">raysect.optical.material.emitter.inhomogeneous</a></li>
+<li><a href="raysect/optical/material/emitter/uniform.html">raysect.optical.material.emitter.uniform</a></li>
+<li><a href="raysect/optical/material/emitter/unity.html">raysect.optical.material.emitter.unity</a></li>
+<li><a href="raysect/optical/material/lambert.html">raysect.optical.material.lambert</a></li>
 <li><a href="raysect/optical/material/material.html">raysect.optical.material.material</a></li>
 <li><a href="raysect/optical/material/modifiers.html">raysect.optical.material.modifiers</a></li>
+<li><a href="raysect/optical/observer/base/observer.html">raysect.optical.observer.base.observer</a></li>
+<li><a href="raysect/optical/observer/base/pipeline.html">raysect.optical.observer.base.pipeline</a></li>
+<li><a href="raysect/optical/observer/base/processor.html">raysect.optical.observer.base.processor</a></li>
+<li><a href="raysect/optical/observer/base/sampler.html">raysect.optical.observer.base.sampler</a></li>
 <li><a href="raysect/optical/observer/imaging/ccd.html">raysect.optical.observer.imaging.ccd</a></li>
 <li><a href="raysect/optical/observer/imaging/orthographic.html">raysect.optical.observer.imaging.orthographic</a></li>
 <li><a href="raysect/optical/observer/imaging/pinhole.html">raysect.optical.observer.imaging.pinhole</a></li>
@@ -189,6 +227,10 @@
 <li><a href="raysect/optical/observer/nonimaging/fibreoptic.html">raysect.optical.observer.nonimaging.fibreoptic</a></li>
 <li><a href="raysect/optical/observer/nonimaging/pixel.html">raysect.optical.observer.nonimaging.pixel</a></li>
 <li><a href="raysect/optical/observer/nonimaging/sightline.html">raysect.optical.observer.nonimaging.sightline</a></li>
+<li><a href="raysect/optical/observer/pipeline/bayer.html">raysect.optical.observer.pipeline.bayer</a></li>
+<li><a href="raysect/optical/observer/pipeline/power.html">raysect.optical.observer.pipeline.power</a></li>
+<li><a href="raysect/optical/observer/pipeline/rgb.html">raysect.optical.observer.pipeline.rgb</a></li>
+<li><a href="raysect/optical/observer/pipeline/spectral.html">raysect.optical.observer.pipeline.spectral</a></li>
 <li><a href="raysect/optical/ray.html">raysect.optical.ray</a></li>
 <li><a href="raysect/optical/scenegraph/world.html">raysect.optical.scenegraph.world</a></li>
 <li><a href="raysect/optical/spectralfunction.html">raysect.optical.spectralfunction</a></li>
@@ -204,6 +246,9 @@
 <li><a href="raysect/primitive/sphere.html">raysect.primitive.sphere</a></li>
 </ul>
 
+           </div>
+           <div class="articleComments">
+            
            </div>
           </div>
           <footer>
@@ -238,7 +283,8 @@
             VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
