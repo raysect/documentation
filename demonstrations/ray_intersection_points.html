@@ -36,9 +36,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../index.html"/> 
 
   
@@ -104,8 +101,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../primitives.html">5. Primitives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../materials.html">6. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../conventions.html">7. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../license.html">8. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../help.html">9. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">8. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">9. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">10. Need Help?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -167,7 +165,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/demonstrations/ray_intersection_points.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/demonstrations/ray_intersection_points.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -235,11 +233,11 @@ Converted to obj format using MeshLab</dd>
 
 <span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
 
-<span class="n">mesh_path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="s2">&quot;../resources/stanford_bunny.rsm&quot;</span><span class="p">)</span>
+<span class="n">mesh_path</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="s2">&quot;../resources/stanford_bunny.rsm&quot;</span><span class="p">)</span>
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">Mesh</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">mesh_path</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 
 <span class="c1"># LIGHT BOX</span>
-<span class="n">padding</span> <span class="o">=</span> <span class="mf">1e-5</span>
+<span class="n">padding</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">5</span>
 <span class="n">enclosure_thickness</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="o">+</span> <span class="n">padding</span>
 <span class="n">glass_thickness</span> <span class="o">=</span> <span class="mf">0.003</span>
 
@@ -365,7 +363,7 @@ visualisation.</span></p>
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

@@ -36,9 +36,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="3. Optical Module" href="optical.html"/>
         <link rel="next" title="3.3. Frame Samples and Pipelines" href="pipelines.html"/>
@@ -107,8 +104,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../conventions.html">7. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../license.html">8. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../help.html">9. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">8. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">9. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">10. Need Help?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -184,7 +182,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api_reference/optical/observers.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api_reference/optical/observers.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -236,6 +234,8 @@ ray extinction (default=3).</li>
 <li><strong>ray_importance_sampling</strong> (<em>bool</em>) &#8211; Toggle importance sampling behaviour (default=True).</li>
 <li><strong>ray_important_path_weight</strong> (<em>float</em>) &#8211; Relative weight of important path sampling
 (default=0.2).</li>
+<li><strong>quiet</strong> (<em>bool</em>) &#8211; When True, suppresses the printing of observer performance statistics and completion
+(default=False).</li>
 </ul>
 </td>
 </tr>
@@ -999,7 +999,7 @@ at each pixel by the camera (default=RGBPipeline2D()).</li>
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>

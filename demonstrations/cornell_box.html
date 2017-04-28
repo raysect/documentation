@@ -36,9 +36,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../index.html"/> 
 
   
@@ -104,8 +101,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../primitives.html">5. Primitives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../materials.html">6. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../conventions.html">7. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../license.html">8. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../help.html">9. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">8. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">9. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">10. Need Help?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -167,7 +165,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/demonstrations/cornell_box.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/demonstrations/cornell_box.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -295,14 +293,14 @@ for the physical Cornell Box.</p>
 <span class="c1"># objects in enclosure</span>
 <span class="n">box</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span>
           <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
-          <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+          <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
           <span class="c1"># material=RoughTungsten(0.5))</span>
           <span class="c1"># material=Lambert())</span>
           <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;N-BK7&quot;</span><span class="p">))</span>
 
 <span class="n">sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span>
     <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
-    <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span> <span class="o">+</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span> <span class="o">+</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
     <span class="c1"># material=RoughGold(0.1))</span>
     <span class="c1"># material=Lambert())</span>
     <span class="c1"># material=Titanium())</span>
@@ -345,7 +343,7 @@ for the physical Cornell Box.</p>
 <span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">((</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.3</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pipelines</span><span class="o">=</span><span class="n">pipelines</span><span class="p">)</span>
 <span class="c1"># camera = CCDArray((64, 64), parent=world, transform=translate(0, 0, -3.3) * rotate(0, 0, 0), pipelines=pipelines)</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">frame_sampler</span> <span class="o">=</span> <span class="n">sampler</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">spectral_bins</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">spectral_rays</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">ray_importance_sampling</span> <span class="o">=</span> <span class="kc">True</span>
@@ -422,7 +420,7 @@ for the physical Cornell Box.</p>
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>

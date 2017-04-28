@@ -36,9 +36,6 @@
   
 
   
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="2. Primitives Module" href="primitives.html"/>
         <link rel="next" title="2.3. CSG Operations" href="csg_operations.html"/>
@@ -107,8 +104,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../conventions.html">7. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../license.html">8. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../help.html">9. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">8. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">9. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">10. Need Help?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -177,7 +175,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api_reference/primitives/meshes.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api_reference/primitives/meshes.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -271,7 +269,7 @@ generate empty leaves (default=0.2).</li>
 node (default=None).</li>
 <li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The co-ordinate transform between
 the mesh and its parent (default=unity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; The surface/volume material
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; The surface/volume material
 (default=Material() instance).</li>
 <li><strong>name</strong> (<em>str</em>) &#8211; A human friendly name to identity the mesh in the
 scene-graph (default=&#8221;&#8221;).</li>
@@ -330,7 +328,7 @@ are created with the Mesh save() method.</p>
 <li><strong>file</strong> (<em>object</em>) &#8211; File object or string path.</li>
 <li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Attaches the mesh to the specified scene-graph node.</li>
 <li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The co-ordinate transform between the mesh and its parent.</li>
-<li><strong>material</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; The surface/volume material.</li>
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; The surface/volume material.</li>
 <li><strong>name</strong> (<em>str</em>) &#8211; A human friendly name to identity the mesh in the scene-graph.</li>
 </ul>
 </td>
@@ -518,7 +516,7 @@ convert the mesh into m for use in Raysect.</p>
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
+            SOURCELINK_SUFFIX: ''
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
