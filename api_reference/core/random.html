@@ -103,10 +103,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">4. Quickstart Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">7. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../references.html">8. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../license.html">9. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../help.html">10. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">7. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">8. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">9. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">10. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">11. Need Help?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -123,7 +124,8 @@
 <li class="toctree-l3"><a class="reference internal" href="functions.html">1.2.3. Functions and Interpolators</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">1.2.4. Random</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#random-samplers">1.2.4.1. Random samplers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#bulk-sampling">1.2.4.2. Bulk sampling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#d-surface-samplers">1.2.4.2. 3D Surface Samplers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#solid-angle-samplers">1.2.4.3. Solid Angle Samplers</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="statistics_arrays.html">1.2.5. Statistics Arrays</a></li>
@@ -284,188 +286,67 @@ the nearest end of the range [0, 1].</p>
 </table>
 </dd></dl>
 
-<dl class="function">
-<dt id="raysect.core.math.random.point_disk">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">point_disk</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.point_disk" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a random point on a disk of unit radius.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D">Point2D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="raysect.core.math.random.point_square">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">point_square</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.point_square" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a random point on a square of unit radius.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D">Point2D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="raysect.core.math.random.vector_sphere">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_sphere</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_sphere" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a random vector on a unit sphere.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="raysect.core.math.random.vector_hemisphere_uniform">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_hemisphere_uniform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_hemisphere_uniform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a random vector on a unit hemisphere.</p>
-<p>The hemisphere is aligned along the z-axis - the plane that forms the
-hemisphere base lies in the x-y plane.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="raysect.core.math.random.vector_hemisphere_cosine">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_hemisphere_cosine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_hemisphere_cosine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a cosine-weighted random vector on a unit hemisphere.</p>
-<p>The hemisphere is aligned along the z-axis - the plane that forms the
-hemisphere base lies in the x-y plane.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="raysect.core.math.random.vector_cone_uniform">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_cone_uniform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_cone_uniform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a random vector in a cone along the z-axis.</p>
-<p>The angle of the cone is specified with the theta parameter. For speed, no
-checks are performs on the theta parameter, it is up to user to ensure the
-angle is sensible.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>theta</strong> (<em>float</em>) &#8211; An angle between 0 and 90 degrees.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A random Vector3D in the cone defined by theta.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="raysect.core.math.random.vector_cone_cosine">
-<code class="descclassname">raysect.core.math.random.</code><code class="descname">vector_cone_cosine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.vector_cone_cosine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a cosine-weighted random vector on a cone along the z-axis.</p>
-<p>The angle of the cone is specified with the theta parameter. For speed, no
-checks are performs on the theta parameter, it is up to user to ensure the
-angle is sensible.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>theta</strong> (<em>float</em>) &#8211; An angle between 0 and 90 degrees.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A random Vector3D in the cone defined by theta.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 </div>
-<div class="section" id="bulk-sampling">
-<h2>1.2.4.2. Bulk sampling<a class="headerlink" href="#bulk-sampling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="d-surface-samplers">
+<h2>1.2.4.2. 3D Surface Samplers<a class="headerlink" href="#d-surface-samplers" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="raysect.core.math.sampler.PointSampler">
-<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">PointSampler</code><a class="headerlink" href="#raysect.core.math.sampler.PointSampler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Base class for an object that generates a list of Point3D objects.</p>
+<dt id="raysect.core.math.sampler.surface3d.SurfaceSampler3D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.surface3d.</code><code class="descname">SurfaceSampler3D</code><a class="headerlink" href="#raysect.core.math.sampler.surface3d.SurfaceSampler3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for an object that generates samples from a surface in 3D.</p>
 <dl class="attribute">
-<dt id="raysect.core.math.sampler.PointSampler.__call__">
-<code class="descname">__call__</code><a class="headerlink" href="#raysect.core.math.sampler.PointSampler.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>samples</strong> (<em>int</em>) &#8211; Number of points to generate.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.math.sampler.PointSampler.sample">
-<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.sampler.PointSampler.sample" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>samples</strong> (<em>int</em>) &#8211; Number of points to generate.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="raysect.core.math.sampler.DiskSampler">
-<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">DiskSampler</code><a class="headerlink" href="#raysect.core.math.sampler.DiskSampler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.PointSampler" title="raysect.core.math.sampler.PointSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.PointSampler</span></code></a></p>
-<p>Generates a random Point3D on a disk.</p>
+<dt id="raysect.core.math.sampler.surface3d.SurfaceSampler3D.__call__">
+<code class="descname">__call__</code><a class="headerlink" href="#raysect.core.math.sampler.surface3d.SurfaceSampler3D.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>If samples is not provided, returns a single Point3D sample from
+the distribution. If samples is set to a value then a number of
+samples equal to the value specified is returned in a list.</p>
+<p>If pdf is set to True the Point3D sample is returned inside a tuple
+with its associated pdf value as the second element.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>radius</strong> (<em>double</em>) &#8211; The radius of the disk.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>samples</strong> (<em>int</em>) &#8211; Number of points to generate (default=None).</li>
+<li><strong>pdf</strong> (<em>bool</em>) &#8211; Toggle for returning associated sample pdfs (default=False).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A Point3D, tuple or list.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.sampler.surface3d.DiskSampler3D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.surface3d.</code><code class="descname">DiskSampler3D</code><a class="headerlink" href="#raysect.core.math.sampler.surface3d.DiskSampler3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.surface3d.SurfaceSampler3D" title="raysect.core.math.sampler.surface3d.SurfaceSampler3D"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.surface3d.SurfaceSampler3D</span></code></a></p>
+<p>Generates Point3D samples from a disk centred in the x-y plane.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>radius</strong> (<em>double</em>) &#8211; The radius of the disk in metres (default=1).</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.core.math.sampler.RectangleSampler">
-<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">RectangleSampler</code><a class="headerlink" href="#raysect.core.math.sampler.RectangleSampler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.PointSampler" title="raysect.core.math.sampler.PointSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.PointSampler</span></code></a></p>
-<p>Generates a random Point3D on a rectangle.</p>
+<dt id="raysect.core.math.sampler.surface3d.RectangleSampler3D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.surface3d.</code><code class="descname">RectangleSampler3D</code><a class="headerlink" href="#raysect.core.math.sampler.surface3d.RectangleSampler3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.surface3d.SurfaceSampler3D" title="raysect.core.math.sampler.surface3d.SurfaceSampler3D"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.surface3d.SurfaceSampler3D</span></code></a></p>
+<p>Generates Point3D samples from a rectangle centred in the x-y plane.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>width</strong> (<em>double</em>) &#8211; The width of the rectangular sampling area of this observer.</li>
-<li><strong>height</strong> (<em>double</em>) &#8211; The height of the rectangular sampling area of this observer.</li>
+<li><strong>width</strong> (<em>double</em>) &#8211; The width of the rectangle.</li>
+<li><strong>height</strong> (<em>double</em>) &#8211; The height of the rectangle.</li>
 </ul>
 </td>
 </tr>
@@ -474,34 +355,69 @@ angle is sensible.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.core.math.sampler.VectorSampler">
-<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">VectorSampler</code><a class="headerlink" href="#raysect.core.math.sampler.VectorSampler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Base class for an object that generates a list of Vector3D objects.</p>
-<dl class="attribute">
-<dt id="raysect.core.math.sampler.VectorSampler.__call__">
-<code class="descname">__call__</code><a class="headerlink" href="#raysect.core.math.sampler.VectorSampler.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dt id="raysect.core.math.sampler.surface3d.TriangleSampler3D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.surface3d.</code><code class="descname">TriangleSampler3D</code><a class="headerlink" href="#raysect.core.math.sampler.surface3d.TriangleSampler3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.surface3d.SurfaceSampler3D" title="raysect.core.math.sampler.surface3d.SurfaceSampler3D"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.surface3d.SurfaceSampler3D</span></code></a></p>
+<p>Generates Point3D samples from a triangle in 3D space.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>samples</strong> (<em>int</em>) &#8211; Number of vectors to generate.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>v1</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Triangle vertex 1.</li>
+<li><strong>v2</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Triangle vertex 2.</li>
+<li><strong>v3</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Triangle vertex 3.</li>
+</ul>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="solid-angle-samplers">
+<h2>1.2.4.3. Solid Angle Samplers<a class="headerlink" href="#solid-angle-samplers" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raysect.core.math.sampler.solidangle.SolidAngleSampler">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.solidangle.</code><code class="descname">SolidAngleSampler</code><a class="headerlink" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for an object that generates samples over a solid angle.</p>
+<dl class="attribute">
+<dt id="raysect.core.math.sampler.solidangle.SolidAngleSampler.__call__">
+<code class="descname">__call__</code><a class="headerlink" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>If samples is not provided, returns a single Vector3D sample from
+the distribution. If samples is set to a value then a number of
+samples equal to the value specified is returned in a list.</p>
+<p>If pdf is set to True the Vector3D sample is returned inside a tuple
+with its associated pdf value as the second element.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>samples</strong> (<em>int</em>) &#8211; Number of points to generate (default=None).</li>
+<li><strong>pdf</strong> (<em>bool</em>) &#8211; Toggle for returning associated sample pdfs (default=False).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A Vector3D, tuple or list of Vector3D objects.</p>
+</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="raysect.core.math.sampler.VectorSampler.sample">
-<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.sampler.VectorSampler.sample" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
+<dt id="raysect.core.math.sampler.solidangle.SolidAngleSampler.pdf">
+<code class="descname">pdf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler.pdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a pdf for a given sample value.</p>
+<p>Vectors <em>must</em> be normalised.</p>
+<table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>samples</strong> (<em>int</em>) &#8211; Number of vectors to generate.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sample</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The sample point at which to get the pdf.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
 </tbody>
 </table>
@@ -510,57 +426,41 @@ angle is sensible.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.core.math.sampler.SphereSampler">
-<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">SphereSampler</code><a class="headerlink" href="#raysect.core.math.sampler.SphereSampler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.VectorSampler" title="raysect.core.math.sampler.VectorSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.VectorSampler</span></code></a></p>
+<dt id="raysect.core.math.sampler.solidangle.SphereSampler">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.solidangle.</code><code class="descname">SphereSampler</code><a class="headerlink" href="#raysect.core.math.sampler.solidangle.SphereSampler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler" title="raysect.core.math.sampler.solidangle.SolidAngleSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.solidangle.SolidAngleSampler</span></code></a></p>
 <p>Generates a random vector on a unit sphere.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.core.math.sampler.HemisphereUniformSampler">
-<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">HemisphereUniformSampler</code><a class="headerlink" href="#raysect.core.math.sampler.HemisphereUniformSampler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.VectorSampler" title="raysect.core.math.sampler.VectorSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.VectorSampler</span></code></a></p>
+<dt id="raysect.core.math.sampler.solidangle.HemisphereUniformSampler">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.solidangle.</code><code class="descname">HemisphereUniformSampler</code><a class="headerlink" href="#raysect.core.math.sampler.solidangle.HemisphereUniformSampler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler" title="raysect.core.math.sampler.solidangle.SolidAngleSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.solidangle.SolidAngleSampler</span></code></a></p>
 <p>Generates a random vector on a unit hemisphere.</p>
 <p>The hemisphere is aligned along the z-axis - the plane that forms the
 hemisphere base lies in the x-y plane.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.core.math.sampler.HemisphereCosineSampler">
-<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">HemisphereCosineSampler</code><a class="headerlink" href="#raysect.core.math.sampler.HemisphereCosineSampler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.VectorSampler" title="raysect.core.math.sampler.VectorSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.VectorSampler</span></code></a></p>
+<dt id="raysect.core.math.sampler.solidangle.HemisphereCosineSampler">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.solidangle.</code><code class="descname">HemisphereCosineSampler</code><a class="headerlink" href="#raysect.core.math.sampler.solidangle.HemisphereCosineSampler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler" title="raysect.core.math.sampler.solidangle.SolidAngleSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.solidangle.SolidAngleSampler</span></code></a></p>
 <p>Generates a cosine-weighted random vector on a unit hemisphere.</p>
 <p>The hemisphere is aligned along the z-axis - the plane that forms the
 hemisphere base lies in the x-y plane.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.core.math.sampler.ConeUniformSampler">
-<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">ConeUniformSampler</code><a class="headerlink" href="#raysect.core.math.sampler.ConeUniformSampler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.VectorSampler" title="raysect.core.math.sampler.VectorSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.VectorSampler</span></code></a></p>
-<p>Generates a list of random unit Vector3D objects inside a cone.</p>
+<dt id="raysect.core.math.sampler.solidangle.ConeUniformSampler">
+<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.solidangle.</code><code class="descname">ConeUniformSampler</code><a class="headerlink" href="#raysect.core.math.sampler.solidangle.ConeUniformSampler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler" title="raysect.core.math.sampler.solidangle.SolidAngleSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.solidangle.SolidAngleSampler</span></code></a></p>
+<p>Generates a uniform weighted random vector from a cone.</p>
 <p>The cone is aligned along the z-axis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> &#8211; Angle of the cone in degrees.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="class">
-<dt id="raysect.core.math.sampler.ConeCosineSampler">
-<em class="property">class </em><code class="descclassname">raysect.core.math.sampler.</code><code class="descname">ConeCosineSampler</code><a class="headerlink" href="#raysect.core.math.sampler.ConeCosineSampler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.VectorSampler" title="raysect.core.math.sampler.VectorSampler"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.sampler.VectorSampler</span></code></a></p>
-<p>Generates a list of random unit Vector3D objects inside a cone with cosine weighting.</p>
-<p>The cone is aligned along the z-axis.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> &#8211; Angle of the cone in degrees.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> &#8211; Angle of the cone in degrees (default=45).</td>
 </tr>
 </tbody>
 </table>

@@ -103,10 +103,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">4. Quickstart Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">7. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../references.html">8. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../license.html">9. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../help.html">10. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">7. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">8. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">9. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">10. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">11. Need Help?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -266,10 +267,22 @@ used to update the internal state of the object requesting work.</li>
 
 <dl class="class">
 <dt id="raysect.core.workflow.MulticoreEngine">
-<em class="property">class </em><code class="descclassname">raysect.core.workflow.</code><code class="descname">MulticoreEngine</code><a class="reference internal" href="../../_modules/raysect/core/workflow.html#MulticoreEngine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.MulticoreEngine" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">raysect.core.workflow.</code><code class="descname">MulticoreEngine</code><span class="sig-paren">(</span><em>processes=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/raysect/core/workflow.html#MulticoreEngine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.MulticoreEngine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.workflow.RenderEngine" title="raysect.core.workflow.RenderEngine"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.workflow.RenderEngine</span></code></a></p>
 <p>A render engine for distributing work across multiple CPU cores.</p>
-<p>By default this will use all available CPU cores on the host machine.</p>
+<p>The number of processes spawned by this render engine is controlled via
+the processes attribute. This can also be set at object initialisation.</p>
+<p>If the processes attribute is set to None (the default), the render engine
+will automatically set the number pf processes to be equal to the number
+of CPU cores detected on the machine.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>processes</strong> &#8211; The number of worker processes, or None to use all available cores (default).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>

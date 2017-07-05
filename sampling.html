@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>10. License &mdash; Raysect Documentation</title>
+  <title>Monte-Carlo Sampling &mdash; Raysect Documentation</title>
   
 
   
@@ -36,9 +36,7 @@
   
 
   
-    <link rel="top" title="Raysect Documentation" href="index.html"/>
-        <link rel="next" title="11. Need Help?" href="help.html"/>
-        <link rel="prev" title="9. References" href="references.html"/> 
+    <link rel="top" title="Raysect Documentation" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -95,7 +93,7 @@
             
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">2. Downloading and Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_it_works.html">3. How it works</a></li>
@@ -105,7 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="observers.html">7. Sampling and Observers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conventions.html">8. Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">9. References</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">10. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">10. License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="help.html">11. Need Help?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
@@ -162,13 +160,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>10. License</li>
+      <li>Monte-Carlo Sampling</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/license.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/sampling.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -181,35 +179,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="license">
-<h1>10. License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h1>
-<p>Copyright (c) 2014-2017, Dr Alex Meakins, Raysect Project
-All rights reserved.</p>
-<p>Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li>Redistributions of source code must retain the above copyright notice,
-this list of conditions and the following disclaimer.</li>
-<li>Redistributions in binary form must reproduce the above copyright
-notice, this list of conditions and the following disclaimer in the
-documentation and/or other materials provided with the distribution.</li>
-<li>Neither the name of the Raysect Project nor the names of its
-contributors may be used to endorse or promote products derived from
-this software without specific prior written permission.</li>
-</ol>
-</div></blockquote>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &#8220;AS IS&#8221;
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-POSSIBILITY OF SUCH DAMAGE.</p>
+  <div class="section" id="monte-carlo-sampling">
+<h1>Monte-Carlo Sampling<a class="headerlink" href="#monte-carlo-sampling" title="Permalink to this headline">¶</a></h1>
+<p>The coordinate transformation is applied by multiplying the column vector for
+the desired Point3D/Vector3D against the transformation matrix. For example,
+if the original vector <span class="math">\(\\vec{V_a}\)</span> is in space A and the transformation matrix
+<span class="math">\(\\mathbf{T_{AB}}\)</span> describes the position and orientation of Space A relative
+to Space B, then the multiplication</p>
+<div class="section" id="general-monte-carlo-integration">
+<h2>General Monte-carlo integration<a class="headerlink" href="#general-monte-carlo-integration" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+\[\begin{split}Q_{N} = \\frac{1}{N} \\sum_{i=1}^{N} \frac{f(x_0) \\cos(\\theta)}{p(x_0)}\end{split}\]</div>
+</div>
+<div class="section" id="uniform-sampling">
+<h2>Uniform Sampling<a class="headerlink" href="#uniform-sampling" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+\[\begin{split}p(x_0) = \\frac{1}{2 \\pi}\end{split}\]</div>
+<div class="math">
+\[\begin{split}Q_{N} = \\frac{2 \\pi}{N} \\sum_{i=1}^{N} f(x_0) \\cos(\\theta)\end{split}\]</div>
+</div>
+<div class="section" id="cosine-weighted">
+<h2>Cosine Weighted<a class="headerlink" href="#cosine-weighted" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+\[\begin{split}p(x_0) = \\frac{\\cos(\\theta)}{\\pi}\end{split}\]</div>
+<div class="math">
+\[\begin{split}Q_{N} = \\frac{\\pi}{N \\cos(\\theta)} \\sum_{i=1}^{N} f(x_0) \\cos(\\theta) = \\frac{\\pi}{N} \\sum_{i=1}^{N} f(x_0)\end{split}\]</div>
+</div>
+<div class="section" id="irradiance-vs-radiance">
+<h2>Irradiance vs Radiance<a class="headerlink" href="#irradiance-vs-radiance" title="Permalink to this headline">¶</a></h2>
+<p>Irradiance at surface.</p>
+<div class="math">
+\[\begin{split}I = \\frac{1}{N} \\sum_{i=1}^{N} \\frac{f(x_0) \\cos(\\theta)}{p(x)}\end{split}\]</div>
+<p>Conversion to radiance:</p>
+<div class="math">
+\[\begin{split}radiance = I / (2 \\pi)\end{split}\]</div>
+</div>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p>Implementation in base observer:</p>
+<div class="math">
+\[\begin{split}radiance = \\frac{1}{2 \\pi} \\frac{1}{N} \\sum_{i=1}^{N} w f(x)\end{split}\]</div>
+<ul class="simple">
+<li>f(x) is obtained from ray-tracing in base class</li>
+<li>w is cos(theta)/p(x).</li>
+<li>for an observer its this.</li>
+<li>or a surface its this.</li>
+</ul>
+</div>
 </div>
 
 
@@ -219,15 +235,6 @@ POSSIBILITY OF SUCH DAMAGE.</p>
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="help.html" class="btn btn-neutral float-right" title="11. Need Help?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="references.html" class="btn btn-neutral" title="9. References" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

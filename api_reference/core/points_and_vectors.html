@@ -103,10 +103,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">4. Quickstart Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">7. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../references.html">8. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../license.html">9. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../help.html">10. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">7. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">8. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">9. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">10. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">11. Need Help?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -806,6 +807,26 @@ undefined hence it can not be lengthened.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="raysect.core.math.vector.Vector3D.lerp">
+<code class="descname">lerp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.lerp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the linear interpolation between this vector and the supplied vector.</p>
+<div class="math">
+\[v = t \times \vec{a} + (1-t) \times \vec{b}\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>b</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The other vector that bounds the interpolation.</li>
+<li><strong>t</strong> (<em>double</em>) &#8211; The parametric interpolation point t in (0, 1).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="raysect.core.math.vector.Vector3D.normalise">
 <code class="descname">normalise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.normalise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a normalised copy of the vector.</p>
@@ -829,6 +850,48 @@ undefined hence it can not be lengthened.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">vector3D</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.vector.Vector3D.slerp">
+<code class="descname">slerp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.slerp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs spherical vector interpolation between two vectors.</p>
+<p>The difference between this function and lerp (linear interpolation) is that the
+vectors are treated as directions and their angles and magnitudes are interpolated
+separately.</p>
+<p>Let <span class="math">\(\theta_0\)</span> be the angle between two arbitrary vectors <span class="math">\(\vec{a}\)</span>
+and <span class="math">\(\vec{b}\)</span>. <span class="math">\(\theta_0\)</span> can be calculated through the dot product
+relationship.</p>
+<div class="math">
+\[\theta_0 = \cos{^{-1}(\vec{a} \cdot \vec{b})}\]</div>
+<p>The interpolated vector, <span class="math">\(\vec{v}\)</span>, has angle <span class="math">\(\theta\)</span> measured from
+<span class="math">\(\vec{a}\)</span>.</p>
+<div class="math">
+\[\theta = t \times \theta_0\]</div>
+<p>Next we need to find the basis vector <span class="math">\(\hat{e}\)</span> such that {<span class="math">\(\hat{a}\)</span>,
+<span class="math">\(\hat{e}\)</span>} form an orthonormal basis in the same plane as {<span class="math">\(\vec{a}\)</span>,
+<span class="math">\(\vec{b}\)</span>}.</p>
+<div class="math">
+\[\hat{e} = \frac{\vec{b} - \vec{a} \times (\vec{a} \cdot \vec{b})}{|\vec{b} - \vec{a} \times (\vec{a} \cdot \vec{b})|}\]</div>
+<p>The resulting interpolated direction vector can now be defined as</p>
+<div class="math">
+\[\hat{v} = \hat{a} \times \cos{\theta} + \hat{e} \times \sin{\theta}.\]</div>
+<p>Finally, the magnitude can be interpolated separately by linearly interpolating the original
+vector magnitudes.</p>
+<div class="math">
+\[\vec{v} = \hat{v} \times (t \times |\vec{a}| + (1-t) \times |\vec{b}|)\]</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>b</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The other vector that bounds the interpolation.</li>
+<li><strong>t</strong> (<em>double</em>) &#8211; The parametric interpolation point t in (0, 1).</li>
+</ul>
+</td>
 </tr>
 </tbody>
 </table>

@@ -103,10 +103,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">4. Quickstart Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">7. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../references.html">8. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../license.html">9. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../help.html">10. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">7. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">8. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">9. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">10. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">11. Need Help?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -387,6 +388,32 @@ exception.</p>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A world space BoundingBox3D object.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D" title="raysect.core.boundingbox.BoundingBox3D">BoundingBox3D</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.scenegraph.primitive.Primitive.bounding_sphere">
+<code class="descname">bounding_sphere</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.bounding_sphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>When the primitive is connected to a scene-graph containing a World
+object at its root, this method should return a bounding sphere that
+fully encloses the primitive&#8217;s surface (plus a small margin to
+avoid numerical accuracy problems). The bounding sphere must be
+defined in the world&#8217;s coordinate space.</p>
+<p>If this method is called when the primitive is not connected to a
+scene-graph with a World object at its root, it must throw a TypeError
+exception.</p>
+<p>The default implementation is to wrap the the primitive&#8217;s bounding box
+with a sphere. If the bounding sphere can be more optimally calculated
+for the primitive, it should override this method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A world space BoundingSphere3D object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">BoundingSphere3D</td>
 </tr>
 </tbody>
 </table>

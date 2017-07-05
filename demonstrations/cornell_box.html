@@ -100,10 +100,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../quickstart_guide.html">4. Quickstart Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../primitives.html">5. Primitives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../conventions.html">7. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">8. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../license.html">9. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../help.html">10. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../observers.html">7. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conventions.html">8. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">9. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">10. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">11. Need Help?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -340,10 +341,10 @@ for the physical Cornell Box.</p>
 <span class="n">sampler</span> <span class="o">=</span> <span class="n">RGBAdaptiveSampler2D</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 
 <span class="c1"># camera = PinholeCamera((128, 128), parent=world, transform=translate(0, 0, -3.3) * rotate(0, 0, 0), pipelines=pipelines)</span>
-<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">((</span><span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.3</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pipelines</span><span class="o">=</span><span class="n">pipelines</span><span class="p">)</span>
+<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">((</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.3</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pipelines</span><span class="o">=</span><span class="n">pipelines</span><span class="p">)</span>
 <span class="c1"># camera = CCDArray((64, 64), parent=world, transform=translate(0, 0, -3.3) * rotate(0, 0, 0), pipelines=pipelines)</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">frame_sampler</span> <span class="o">=</span> <span class="n">sampler</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">250</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">spectral_bins</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">spectral_rays</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">ray_importance_sampling</span> <span class="o">=</span> <span class="kc">True</span>

@@ -101,10 +101,11 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart_guide.html">4. Quickstart Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="primitives.html">5. Primitives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conventions.html">7. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="references.html">8. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">9. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">10. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observers.html">7. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conventions.html">8. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">9. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">10. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">11. Need Help?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -243,11 +244,11 @@
   </dt>
 
         
-  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.PointSampler.__call__">(raysect.core.math.sampler.PointSampler attribute)</a>
+  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.solidangle.SolidAngleSampler.__call__">(raysect.core.math.sampler.solidangle.SolidAngleSampler attribute)</a>
   </dt>
 
         
-  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.VectorSampler.__call__">(raysect.core.math.sampler.VectorSampler attribute)</a>
+  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.surface3d.SurfaceSampler3D.__call__">(raysect.core.math.sampler.surface3d.SurfaceSampler3D attribute)</a>
   </dt>
 
       </dl></dd>
@@ -496,6 +497,10 @@
 
       </dl></dd>
       
+  <dt><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive.bounding_sphere">bounding_sphere() (raysect.core.scenegraph.primitive.Primitive method)</a>
+  </dt>
+
+      
   <dt><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox2D">BoundingBox2D (class in raysect.core.boundingbox)</a>
   </dt>
 
@@ -576,11 +581,7 @@
   </dt>
 
       
-  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.ConeCosineSampler">ConeCosineSampler (class in raysect.core.math.sampler)</a>
-  </dt>
-
-      
-  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.ConeUniformSampler">ConeUniformSampler (class in raysect.core.math.sampler)</a>
+  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.solidangle.ConeUniformSampler">ConeUniformSampler (class in raysect.core.math.sampler.solidangle)</a>
   </dt>
 
       
@@ -688,7 +689,7 @@
   </dt>
 
       
-  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.DiskSampler">DiskSampler (class in raysect.core.math.sampler)</a>
+  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.surface3d.DiskSampler3D">DiskSampler3D (class in raysect.core.math.sampler.surface3d)</a>
   </dt>
 
       
@@ -996,13 +997,13 @@
 
       </dl></dd>
       
-  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.HemisphereCosineSampler">HemisphereCosineSampler (class in raysect.core.math.sampler)</a>
+  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.solidangle.HemisphereCosineSampler">HemisphereCosineSampler (class in raysect.core.math.sampler.solidangle)</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.HemisphereUniformSampler">HemisphereUniformSampler (class in raysect.core.math.sampler)</a>
+  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.solidangle.HemisphereUniformSampler">HemisphereUniformSampler (class in raysect.core.math.sampler.solidangle)</a>
   </dt>
 
       
@@ -1207,6 +1208,10 @@
   </dt>
 
       </dl></dd>
+      
+  <dt><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.lerp">lerp() (raysect.core.math.vector.Vector3D method)</a>
+  </dt>
+
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
@@ -1484,9 +1489,15 @@
   </dt>
 
       
-  <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.scenegraph.world.ImportanceManager.pdf">pdf() (raysect.optical.scenegraph.world.ImportanceManager method)</a>
+  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.solidangle.SolidAngleSampler.pdf">pdf() (raysect.core.math.sampler.solidangle.SolidAngleSampler method)</a>
   </dt>
 
+      <dd><dl>
+        
+  <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.scenegraph.world.ImportanceManager.pdf">(raysect.optical.scenegraph.world.ImportanceManager method)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt><a href="api_reference/optical/optical_surfaces.html#raysect.optical.material.debug.PerfectReflectingSurface">PerfectReflectingSurface (class in raysect.optical.material.debug)</a>
   </dt>
@@ -1561,26 +1572,14 @@
   <dt><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D">Point2D (class in raysect.core.math.point)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D">Point3D (class in raysect.core.math.point)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="api_reference/core/random.html#raysect.core.math.random.point_disk">point_disk() (in module raysect.core.math.random)</a>
-  </dt>
-
       
   <dt><a href="api_reference/core/core_classes.html#raysect.core.ray.Ray.point_on">point_on() (raysect.core.ray.Ray method)</a>
-  </dt>
-
-      
-  <dt><a href="api_reference/core/random.html#raysect.core.math.random.point_square">point_square() (in module raysect.core.math.random)</a>
-  </dt>
-
-      
-  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.PointSampler">PointSampler (class in raysect.core.math.sampler)</a>
   </dt>
 
       
@@ -1794,7 +1793,7 @@
   </dt>
 
       
-  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.RectangleSampler">RectangleSampler (class in raysect.core.math.sampler)</a>
+  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.surface3d.RectangleSampler3D">RectangleSampler3D (class in raysect.core.math.sampler.surface3d)</a>
   </dt>
 
       
@@ -1860,18 +1859,10 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.PointSampler.sample">sample() (raysect.core.math.sampler.PointSampler method)</a>
+  <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.sample">sample() (raysect.optical.ray.Ray method)</a>
   </dt>
 
       <dd><dl>
-        
-  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.VectorSampler.sample">(raysect.core.math.sampler.VectorSampler method)</a>
-  </dt>
-
-        
-  <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.sample">(raysect.optical.ray.Ray method)</a>
-  </dt>
-
         
   <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.scenegraph.world.ImportanceManager.sample">(raysect.optical.scenegraph.world.ImportanceManager method)</a>
   </dt>
@@ -1928,6 +1919,10 @@
   </dt>
 
       
+  <dt><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.slerp">slerp() (raysect.core.math.vector.Vector3D method)</a>
+  </dt>
+
+      
   <dt><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.solid_angle">solid_angle (raysect.optical.observer.nonimaging.fibreoptic.FibreOptic attribute)</a>
   </dt>
 
@@ -1937,6 +1932,10 @@
   </dt>
 
       </dl></dd>
+      
+  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.solidangle.SolidAngleSampler">SolidAngleSampler (class in raysect.core.math.sampler.solidangle)</a>
+  </dt>
+
       
   <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.spawn_daughter">spawn_daughter() (raysect.optical.ray.Ray method)</a>
   </dt>
@@ -1949,12 +1948,12 @@
   <dt><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer._ObserverBase.spectral_rays">spectral_rays (raysect.optical.observer.base.observer._ObserverBase attribute)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction">SpectralFunction (class in raysect.optical.spectralfunction)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralPipeline0D">SpectralPipeline0D (class in raysect.optical.observer.pipeline.spectral)</a>
   </dt>
@@ -1980,7 +1979,7 @@
   </dt>
 
       
-  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.SphereSampler">SphereSampler (class in raysect.core.math.sampler)</a>
+  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.solidangle.SphereSampler">SphereSampler (class in raysect.core.math.sampler.solidangle)</a>
   </dt>
 
       
@@ -2005,6 +2004,10 @@
   </dt>
 
       </dl></dd>
+      
+  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.surface3d.SurfaceSampler3D">SurfaceSampler3D (class in raysect.core.math.sampler.surface3d)</a>
+  </dt>
+
   </dl></td>
 </tr></table>
 
@@ -2037,12 +2040,12 @@
   <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.total">total() (raysect.optical.spectrum.Spectrum method)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.trace">trace() (raysect.optical.ray.Ray method)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node.transform">transform (raysect.core.scenegraph.node.Node attribute)</a>
   </dt>
@@ -2067,6 +2070,10 @@
 
       
   <dt><a href="api_reference/core/affinematrix.html#raysect.core.math.transform.translate">translate() (in module raysect.core.math.transform)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.surface3d.TriangleSampler3D">TriangleSampler3D (class in raysect.core.math.sampler.surface3d)</a>
   </dt>
 
   </dl></td>
@@ -2158,28 +2165,6 @@
   </dt>
 
       
-  <dt><a href="api_reference/core/random.html#raysect.core.math.random.vector_cone_cosine">vector_cone_cosine() (in module raysect.core.math.random)</a>
-  </dt>
-
-      
-  <dt><a href="api_reference/core/random.html#raysect.core.math.random.vector_cone_uniform">vector_cone_uniform() (in module raysect.core.math.random)</a>
-  </dt>
-
-      
-  <dt><a href="api_reference/core/random.html#raysect.core.math.random.vector_hemisphere_cosine">vector_hemisphere_cosine() (in module raysect.core.math.random)</a>
-  </dt>
-
-      
-  <dt><a href="api_reference/core/random.html#raysect.core.math.random.vector_hemisphere_uniform">vector_hemisphere_uniform() (in module raysect.core.math.random)</a>
-  </dt>
-
-      
-  <dt><a href="api_reference/core/random.html#raysect.core.math.random.vector_sphere">vector_sphere() (in module raysect.core.math.random)</a>
-  </dt>
-
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
-      
   <dt><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D.vector_to">vector_to() (raysect.core.math.point.Point2D method)</a>
   </dt>
 
@@ -2193,10 +2178,8 @@
   <dt><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.vector.VectorCamera">VectorCamera (class in raysect.optical.observer.imaging.vector)</a>
   </dt>
 
-      
-  <dt><a href="api_reference/core/random.html#raysect.core.math.sampler.VectorSampler">VectorSampler (class in raysect.core.math.sampler)</a>
-  </dt>
-
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox2D.vertices">vertices() (raysect.core.boundingbox.BoundingBox2D method)</a>
   </dt>

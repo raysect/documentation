@@ -103,10 +103,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">4. Quickstart Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">7. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../references.html">8. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../license.html">9. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../help.html">10. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">7. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">8. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">9. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">10. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">11. Need Help?</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -444,16 +445,16 @@ rays are propagated in world space, co-ordinate transforms can be avoided.</p>
 <dl class="method">
 <dt id="raysect.core.boundingbox.BoundingBox3D.enclosing_sphere">
 <code class="descname">enclosing_sphere</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.boundingbox.BoundingBox3D.enclosing_sphere" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the radius of a sphere guaranteed to enclose the bounding box.</p>
+<dd><p>Returns a BoundingSphere3D guaranteed to enclose the bounding box.</p>
 <p>The sphere is centred at the box centre. A small degree of padding is
 added to avoid numerical accuracy issues.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Radius of sphere.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A BoundingSphere3D object.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">BoundingSphere3D</td>
 </tr>
 </tbody>
 </table>
