@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. How it works &mdash; Raysect Documentation</title>
+  <title>4. How it works &mdash; Raysect Documentation</title>
   
 
   
@@ -37,8 +37,8 @@
 
   
     <link rel="top" title="Raysect Documentation" href="index.html"/>
-        <link rel="next" title="4. Quickstart Guide" href="quickstart_guide.html"/>
-        <link rel="prev" title="2. Downloading and Installation" href="installation.html"/> 
+        <link rel="next" title="5. Quickstart Guide" href="quickstart_guide.html"/>
+        <link rel="prev" title="3. Downloading and Installation" href="installation.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -97,27 +97,27 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Downloading and Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. How it works</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#what-is-a-ray-tracer">3.1. What is a ray tracer?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#key-concepts">3.2. Key Concepts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#rays">3.2.1. Rays</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#observers">3.2.2. Observers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#primitives">3.2.3. Primitives</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scene-graph">3.2.4. Scene-graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">2. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">3. Downloading and Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. How it works</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-ray-tracer">4.1. What is a ray tracer?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-concepts">4.2. Key Concepts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rays">4.2.1. Rays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#observers">4.2.2. Observers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#primitives">4.2.3. Primitives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scene-graph">4.2.4. Scene-graph</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#process-of-raytracing">3.3. Process of raytracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#process-of-raytracing">4.3. Process of raytracing</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart_guide.html">4. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="primitives.html">5. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="observers.html">7. Sampling and Observers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conventions.html">8. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="references.html">9. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">10. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">11. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart_guide.html">5. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitives.html">6. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">7. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observers.html">8. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conventions.html">9. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">10. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">11. Glossary</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -173,7 +173,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>3. How it works</li>
+      <li>4. How it works</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,9 +193,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="how-it-works">
-<h1>3. How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h1>
+<h1>4. How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-is-a-ray-tracer">
-<h2>3.1. What is a ray tracer?<a class="headerlink" href="#what-is-a-ray-tracer" title="Permalink to this headline">¶</a></h2>
+<h2>4.1. What is a ray tracer?<a class="headerlink" href="#what-is-a-ray-tracer" title="Permalink to this headline">¶</a></h2>
 <p>An algorithm for simulating light propogation, light is modelled as a bundle of rays
 that travel through a scene. The paths of the rays follow a straight line unless
 they interact with objects in the scene. As rays interact with materials, their
@@ -213,9 +213,9 @@ design optimisation.</li>
 applications that don&#8217;t require real-time calculation.</p>
 </div>
 <div class="section" id="key-concepts">
-<h2>3.2. Key Concepts<a class="headerlink" href="#key-concepts" title="Permalink to this headline">¶</a></h2>
+<h2>4.2. Key Concepts<a class="headerlink" href="#key-concepts" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="rays">
-<h3>3.2.1. Rays<a class="headerlink" href="#rays" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.1. Rays<a class="headerlink" href="#rays" title="Permalink to this headline">¶</a></h3>
 <p>Represent a ray of light</p>
 <ul class="simple">
 <li>defines a line with an origin and direction</li>
@@ -230,7 +230,7 @@ applications that don&#8217;t require real-time calculation.</p>
 </ul>
 </div>
 <div class="section" id="observers">
-<h3>3.2.2. Observers<a class="headerlink" href="#observers" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.2. Observers<a class="headerlink" href="#observers" title="Permalink to this headline">¶</a></h3>
 <p>Represents objects that measure light, e.g. CCDs, cameras, photo diodes, eyes. Observers launch rays and accumulate
 samples of the scene, which is more convenient than tracing individual rays manually.</p>
 <ul class="simple">
@@ -239,7 +239,7 @@ samples of the scene, which is more convenient than tracing individual rays manu
 </ul>
 </div>
 <div class="section" id="primitives">
-<h3>3.2.3. Primitives<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.3. Primitives<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h3>
 <p>Scenes in Raysect consist of primitives, which are the basic objects making up the scene. These are objects that rays
 can interact with, e.g light sources, lenses, mirrors, diffuse surfaces. Types of primitives:</p>
 <ul class="simple">
@@ -250,7 +250,7 @@ can interact with, e.g light sources, lenses, mirrors, diffuse surfaces. Types o
 <p>Primitive surfaces and volumes can be assigned materials, e.g. glass, metal, emitter properties.</p>
 </div>
 <div class="section" id="scene-graph">
-<h3>3.2.4. Scene-graph<a class="headerlink" href="#scene-graph" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.4. Scene-graph<a class="headerlink" href="#scene-graph" title="Permalink to this headline">¶</a></h3>
 <p>Primitives and Observers are typically defined in their own local coordinate system but need to be placed into the
 “world”. There needs to be a system to keep track of the locations/co-ordinate transforms of all objects in the scene.</p>
 <p>The Scene-graph is a tree structure consisting of nodes, which can be both primitives and observers. Each node has an
@@ -264,7 +264,7 @@ one transform.</p>
 </div>
 </div>
 <div class="section" id="process-of-raytracing">
-<h2>3.3. Process of raytracing<a class="headerlink" href="#process-of-raytracing" title="Permalink to this headline">¶</a></h2>
+<h2>4.3. Process of raytracing<a class="headerlink" href="#process-of-raytracing" title="Permalink to this headline">¶</a></h2>
 <p>We desire the intensity/spectrum of light reaching an observer e.g. camera pixel.
 Our strategy is to sample light (radiance) along paths reaching observer and
 accumulate many samples to obtain intensity. Raysect uses a “Path tracing” algorithm
@@ -315,10 +315,10 @@ and combined in a weighted average. (Image credit: Carr, M., Meakins, A., et. al
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="quickstart_guide.html" class="btn btn-neutral float-right" title="4. Quickstart Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="quickstart_guide.html" class="btn btn-neutral float-right" title="5. Quickstart Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="installation.html" class="btn btn-neutral" title="2. Downloading and Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral" title="3. Downloading and Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -98,16 +98,16 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">3. How it works</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">4. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../observers.html">7. Sampling and Observers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">8. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../references.html">9. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../license.html">10. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../help.html">11. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">2. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">3. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">4. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">5. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">6. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materials.html">7. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">8. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">9. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -1106,11 +1106,11 @@ cutoff of 0.01 corresponds to 1% standard error.</li>
 <div class="section" id="spectral">
 <h2>3.3.5. Spectral<a class="headerlink" href="#spectral" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="raysect.optical.observer.pipeline.spectral.SpectralPipeline0D">
-<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="descname">SpectralPipeline0D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralPipeline0D" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline0D">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="descname">SpectralPowerPipeline0D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline0D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline0D" title="raysect.optical.observer.base.pipeline.Pipeline0D"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline0D</span></code></a></p>
-<p>A basic spectrum pipeline for 0D observers.</p>
-<p>The raw spectrum for the observer is stored along with the associated
+<p>A basic spectral power pipeline for 0D observers (W/nm).</p>
+<p>The mean spectral power for the observer is stored along with the associated
 error on each wavelength bin.</p>
 <p>Spectral values and errors are available through the self.frame attribute.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1129,11 +1129,40 @@ to observe() (default=True).</li>
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.optical.observer.pipeline.spectral.SpectralPipeline2D">
-<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="descname">SpectralPipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralPipeline2D" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline0D">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="descname">SpectralRadiancePipeline0D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline0D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.pipeline.spectral.power.SpectralPowerPipeline0D</span></code></p>
+<p>A basic spectral radiance pipeline for 0D observers (W/str/m^2/nm).</p>
+<p>The mean spectral radiance for the observer is stored along with the associated
+error on each wavelength bin.</p>
+<p>Spectral values and errors are available through the self.frame attribute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>accumulate</strong> (<em>bool</em>) &#8211; Whether to accumulate samples with subsequent calls
+to observe() (default=True).</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; User friendly name for this pipeline.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline0D.to_spectrum">
+<code class="descname">to_spectrum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline0D.to_spectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the mean spectral radiance in a Spectrum() object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline2D">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="descname">SpectralPowerPipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline2D" title="raysect.optical.observer.base.pipeline.Pipeline2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline2D</span></code></a></p>
-<p>A basic spectrum pipeline for 2D observers.</p>
-<p>The raw spectrum for each pixel is stored along with the associated
+<p>A basic spectral power pipeline for 2D observers (W/nm).</p>
+<p>The mean spectral power for each pixel is stored along with the associated
 error on each wavelength bin in a 2D frame object.</p>
 <p>Spectral values and errors are available through the self.frame attribute.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1152,10 +1181,46 @@ to observe() (default=True).</li>
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.optical.observer.pipeline.spectral.SpectralPixelProcessor">
-<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="descname">SpectralPixelProcessor</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralPixelProcessor" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="descname">SpectralRadiancePipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.pipeline.spectral.power.SpectralPowerPipeline2D</span></code></p>
+<p>A basic spectral radiance pipeline for 2D observers (W/str/m^2/nm).</p>
+<p>The mean spectral radiance for each pixel is stored along with the associated
+error on each wavelength bin in a 2D frame object.</p>
+<p>Spectral values and errors are available through the self.frame attribute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>accumulate</strong> (<em>bool</em>) &#8211; Whether to accumulate samples with subsequent calls
+to observe() (default=True).</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; User friendly name for this pipeline.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D.to_spectrum">
+<code class="descname">to_spectrum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D.to_spectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the mean spectral radiance of pixel (x, y) in a Spectrum() object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.pipeline.spectral.power.SpectralPowerPixelProcessor">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.spectral.power.</code><code class="descname">SpectralPowerPixelProcessor</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.power.SpectralPowerPixelProcessor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.processor.PixelProcessor" title="raysect.optical.observer.base.processor.PixelProcessor"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.processor.PixelProcessor</span></code></a></p>
-<p>PixelProcessor that stores the spectrum observed by each pixel.</p>
+<p>PixelProcessor that stores the spectral power observed by each pixel.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.pipeline.spectral.radiance.SpectralRadiancePixelProcessor">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.spectral.radiance.</code><code class="descname">SpectralRadiancePixelProcessor</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.radiance.SpectralRadiancePixelProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.processor.PixelProcessor" title="raysect.optical.observer.base.processor.PixelProcessor"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.processor.PixelProcessor</span></code></a></p>
+<p>PixelProcessor that stores the spectral radiance observed by each pixel.</p>
 </dd></dl>
 
 </div>

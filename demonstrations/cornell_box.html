@@ -95,16 +95,16 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">2. Downloading and Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_it_works.html">3. How it works</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart_guide.html">4. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../primitives.html">5. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../observers.html">7. Sampling and Observers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../conventions.html">8. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">9. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../license.html">10. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../help.html">11. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">2. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">3. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_it_works.html">4. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart_guide.html">5. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitives.html">6. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../materials.html">7. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../observers.html">8. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conventions.html">9. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">10. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. Glossary</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -309,7 +309,7 @@ for the physical Cornell Box.</p>
 
 
 <span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span><span class="p">,</span> <span class="n">CCDArray</span>
-<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">RGBPipeline2D</span><span class="p">,</span> <span class="n">BayerPipeline2D</span><span class="p">,</span> <span class="n">SpectralPipeline2D</span><span class="p">,</span> <span class="n">PowerPipeline2D</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">RGBPipeline2D</span><span class="p">,</span> <span class="n">BayerPipeline2D</span><span class="p">,</span> <span class="n">SpectralPowerPipeline2D</span><span class="p">,</span> <span class="n">PowerPipeline2D</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PowerAdaptiveSampler2D</span><span class="p">,</span> <span class="n">RGBAdaptiveSampler2D</span>
 <span class="kn">from</span> <span class="nn">raysect.core.workflow</span> <span class="k">import</span> <span class="n">SerialEngine</span>
 
@@ -332,7 +332,7 @@ for the physical Cornell Box.</p>
 <span class="n">bayer</span> <span class="o">=</span> <span class="n">BayerPipeline2D</span><span class="p">(</span><span class="n">filter_red</span><span class="p">,</span> <span class="n">filter_green</span><span class="p">,</span> <span class="n">filter_blue</span><span class="p">,</span> <span class="n">display_unsaturated_fraction</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bayer Filter&quot;</span><span class="p">)</span>
 <span class="n">bayer</span><span class="o">.</span><span class="n">display_update_time</span> <span class="o">=</span> <span class="mi">15</span>
 
-<span class="n">spectral</span> <span class="o">=</span> <span class="n">SpectralPipeline2D</span><span class="p">()</span>
+<span class="n">spectral</span> <span class="o">=</span> <span class="n">SpectralPowerPipeline2D</span><span class="p">()</span>
 
 <span class="c1"># pipelines = [power, rgb, bayer, spectral]</span>
 <span class="c1"># pipelines = [power_unfiltered] #, power_green, power_red, bayer]#, spectral]</span>

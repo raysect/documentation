@@ -96,16 +96,16 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Downloading and Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how_it_works.html">3. How it works</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart_guide.html">4. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="primitives.html">5. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="observers.html">7. Sampling and Observers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conventions.html">8. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="references.html">9. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">10. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">11. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">2. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">3. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_it_works.html">4. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart_guide.html">5. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitives.html">6. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">7. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observers.html">8. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conventions.html">9. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">10. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">11. Glossary</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -1972,22 +1972,34 @@
   <dt><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer._ObserverBase.spectral_rays">spectral_rays (raysect.optical.observer.base.observer._ObserverBase attribute)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction">SpectralFunction (class in raysect.optical.spectralfunction)</a>
   </dt>
 
       
-  <dt><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralPipeline0D">SpectralPipeline0D (class in raysect.optical.observer.pipeline.spectral)</a>
+  <dt><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline0D">SpectralPowerPipeline0D (class in raysect.optical.observer.pipeline.spectral)</a>
+  </dt>
+
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline2D">SpectralPowerPipeline2D (class in raysect.optical.observer.pipeline.spectral)</a>
   </dt>
 
       
-  <dt><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralPipeline2D">SpectralPipeline2D (class in raysect.optical.observer.pipeline.spectral)</a>
+  <dt><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.power.SpectralPowerPixelProcessor">SpectralPowerPixelProcessor (class in raysect.optical.observer.pipeline.spectral.power)</a>
   </dt>
 
       
-  <dt><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralPixelProcessor">SpectralPixelProcessor (class in raysect.optical.observer.pipeline.spectral)</a>
+  <dt><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline0D">SpectralRadiancePipeline0D (class in raysect.optical.observer.pipeline.spectral)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D">SpectralRadiancePipeline2D (class in raysect.optical.observer.pipeline.spectral)</a>
+  </dt>
+
+      
+  <dt><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.radiance.SpectralRadiancePixelProcessor">SpectralRadiancePixelProcessor (class in raysect.optical.observer.pipeline.spectral.radiance)</a>
   </dt>
 
       
@@ -2061,15 +2073,25 @@
   </dt>
 
       
-  <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.total">total() (raysect.optical.spectrum.Spectrum method)</a>
+  <dt><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline0D.to_spectrum">to_spectrum() (raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline0D method)</a>
   </dt>
 
+      <dd><dl>
+        
+  <dt><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D.to_spectrum">(raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D method)</a>
+  </dt>
+
+      </dl></dd>
       
-  <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.trace">trace() (raysect.optical.ray.Ray method)</a>
+  <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.total">total() (raysect.optical.spectrum.Spectrum method)</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.trace">trace() (raysect.optical.ray.Ray method)</a>
+  </dt>
+
       
   <dt><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node.transform">transform (raysect.core.scenegraph.node.Node attribute)</a>
   </dt>
