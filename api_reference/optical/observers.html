@@ -102,9 +102,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">3. Downloading and Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">4. How it works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">5. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">6. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../materials.html">7. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../observers.html">8. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materials.html">8. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../conventions.html">9. Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
@@ -392,6 +392,40 @@ observe() (default=1000).</li>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="raysect.optical.observer.base.observer.Observer0D._generate_rays">
+<code class="descname">_generate_rays</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer0D._generate_rays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a list of Rays that sample over the etendue of the pixel.</p>
+<p>This is a virtual method to be implemented by derived classes.</p>
+<p>Runs during the observe() loop to generate the rays. Allows observers
+to customise how they launch rays.</p>
+<p>This method must return a list of tuples, with each tuple containing
+a Ray object and a corresponding weighting, typically the projected
+area/direction cosine. In general the weight will be:</p>
+<div class="math">
+\[W = \frac{1}{2\pi} * \frac{1}{A} * \frac{1}{pdf_A} * \frac{1}{pdf_\Omega} * cos(\theta)\]</div>
+<p>If the projected area weight is not required (due to the ray sampling
+algorithm taking the weighting into account in the distribution e.g.
+cosine weighted) then the weight should be set to 1.0.</p>
+<p>The number of rays returned must be equal to
+ray_count otherwise pipeline statistics will be incorrectly calculated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>template</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.ray.Ray" title="raysect.optical.ray.Ray"><em>Ray</em></a>) &#8211; The template ray from which all rays should be generated.</li>
+<li><strong>ray_count</strong> (<em>int</em>) &#8211; The number of rays to be generated.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return list:</th><td class="field-body"><p class="first last">A list of tuples of (ray, weight)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="raysect.optical.observer.base.observer.Observer0D.pipelines">
 <code class="descname">pipelines</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer0D.pipelines" title="Permalink to this definition">¶</a></dt>
@@ -693,6 +727,42 @@ observe() (default=1000).</li>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="raysect.optical.observer.base.observer.Observer2D._generate_rays">
+<code class="descname">_generate_rays</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D._generate_rays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a list of Rays that sample over the etendue of the pixel.</p>
+<p>This is a virtual method to be implemented by derived classes.</p>
+<p>Runs during the observe() loop to generate the rays. Allows observers
+to customise how they launch rays.</p>
+<p>This method must return a list of tuples, with each tuple containing
+a Ray object and a corresponding weighting, typically the projected
+area/direction cosine. In general the weight will be:</p>
+<div class="math">
+\[W = \frac{1}{2\pi} * \frac{1}{A} * \frac{1}{pdf_A} * \frac{1}{pdf_\Omega} * cos(\theta)\]</div>
+<p>If the projected area weight is not required (due to the ray sampling
+algorithm taking the weighting into account in the distribution e.g.
+cosine weighted) then the weight should be set to 1.0.</p>
+<p>The number of rays returned must be equal to ray_count otherwise pipeline
+statistics will be incorrectly calculated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>int</em>) &#8211; Pixel x index.</li>
+<li><strong>y</strong> (<em>int</em>) &#8211; Pixel y index.</li>
+<li><strong>template</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.ray.Ray" title="raysect.optical.ray.Ray"><em>Ray</em></a>) &#8211; The template ray from which all rays should be generated.</li>
+<li><strong>ray_count</strong> (<em>int</em>) &#8211; The number of rays to be generated.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return list:</th><td class="field-body"><p class="first last">A list of tuples of (ray, weight)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="raysect.optical.observer.base.observer.Observer2D.frame_sampler">
 <code class="descname">frame_sampler</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D.frame_sampler" title="Permalink to this definition">¶</a></dt>

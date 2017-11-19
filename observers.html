@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>8. Sampling and Observers &mdash; Raysect Documentation</title>
+  <title>6. Sampling and Observers &mdash; Raysect Documentation</title>
   
 
   
@@ -37,8 +37,8 @@
 
   
     <link rel="top" title="Raysect Documentation" href="index.html"/>
-        <link rel="next" title="9. Conventions" href="conventions.html"/>
-        <link rel="prev" title="7. Materials" href="materials.html"/> 
+        <link rel="next" title="7. Primitives" href="primitives.html"/>
+        <link rel="prev" title="5. Quickstart Guide" href="quickstart_guide.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -101,25 +101,29 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">3. Downloading and Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="how_it_works.html">4. How it works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart_guide.html">5. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="primitives.html">6. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="materials.html">7. Materials</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">8. Sampling and Observers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#observer-equation">8.1. Observer equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#monte-carlo-integration">8.2. Monte-Carlo Integration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#importance-sampling">8.3. Importance Sampling</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#uniform-hemisphere-distribution">8.3.1. Uniform hemisphere distribution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cosine-distribution">8.3.2. Cosine distribution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#uniform-cone-distribution">8.3.3. Uniform cone distribution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sampling-the-lights">8.3.4. Sampling the lights</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Sampling and Observers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#primer-on-monte-carlo-integration">6.1. Primer on Monte-Carlo Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#average-value-method">6.1.1. Average value method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#importance-sampling">6.1.2. Importance Sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-importance-sampling">6.1.3. Multiple Importance Sampling</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#materials">8.4. Materials</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#sampling-the-brdf">8.4.1. Sampling the BRDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#observing-surfaces">6.2. Observing Surfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ccd-pixel-with-uniform-hemisphere-sampling">6.2.1. CCD Pixel with Uniform Hemisphere Sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ccd-pixel-with-a-cosine-distribution">6.2.2. CCD Pixel with a Cosine distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optical-fibre">6.2.3. Optical Fibre</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sampling-the-lights">6.2.4. Sampling the lights</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#multiple-importance-sampling">8.5. Multiple Importance Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#material-surfaces">6.3. Material Surfaces</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sampling-the-brdf">6.3.1. Sampling the BRDF</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#participating-media">6.4. Participating Media</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">8. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conventions.html">9. Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">10. References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">11. Glossary</a></li>
@@ -178,7 +182,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>8. Sampling and Observers</li>
+      <li>6. Sampling and Observers</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -198,30 +202,15 @@
            <div itemprop="articleBody">
             
   <div class="section" id="sampling-and-observers">
-<h1>8. Sampling and Observers<a class="headerlink" href="#sampling-and-observers" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="observer-equation">
-<h2>8.1. Observer equation<a class="headerlink" href="#observer-equation" title="Permalink to this headline">¶</a></h2>
-<p>The total intensity measured by an observing pixel is given be the integral of
-the incident emission over the collecting solid angle <span class="math">\(\Omega\)</span> and surface
-area <span class="math">\(A\)</span>.</p>
-<div class="math">
-\[I = \int_{A} \int_{\Omega} L_{i}(p, \omega_i) \times \cos (\theta_i) d\omega_i dA\]</div>
-<p>Here, <span class="math">\(L_{i}(p, \omega_i)\)</span> is the incident emission at a given point <span class="math">\(p\)</span>
-and incident angle <span class="math">\(\omega_i\)</span> on the observing surface. <span class="math">\(\cos (\theta_i)\)</span>
-is a geometry factor describing the increase in effective observing area as the incident
-rays become increasingly parallel to the surface.</p>
-<div class="figure align-center" id="id1">
-<img alt="_images/pixel_sampling.png" src="_images/pixel_sampling.png" />
-<p class="caption"><span class="caption-text"><strong>Caption:</strong> Example sampling geometry for a pixel in a camera. (Image credit: Carr, M.,
-Meakins, A., et. al. (2017))</span></p>
-</div>
-</div>
-<div class="section" id="monte-carlo-integration">
-<h2>8.2. Monte-Carlo Integration<a class="headerlink" href="#monte-carlo-integration" title="Permalink to this headline">¶</a></h2>
-<p>The integral in the observer equation is exact but difficult to evaluate analytically
-for most physically relevant scenes. Monte-Carlo integration is a technique for
-approximating the value of an integral by simulating a random process with random
-numbers.</p>
+<h1>6. Sampling and Observers<a class="headerlink" href="#sampling-and-observers" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="primer-on-monte-carlo-integration">
+<h2>6.1. Primer on Monte-Carlo Integration<a class="headerlink" href="#primer-on-monte-carlo-integration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="average-value-method">
+<h3>6.1.1. Average value method<a class="headerlink" href="#average-value-method" title="Permalink to this headline">¶</a></h3>
+<p>The integrals encountered in optical ray-tracing are exact but difficult to evaluate
+analytically for most physically relevant scenes. Monte-Carlo integration is a
+technique for approximating the value of an integral by simulating a random process
+with random numbers.</p>
 <p>The simplest form of Monte-Carlo integration is the average value method, which starts by
 considering the integral</p>
 <div class="math">
@@ -243,7 +232,7 @@ square area <span class="math">\(A\)</span> and 3D vectors in the hemisphere <sp
 <span class="math">\(N\)</span> samples.</p>
 </div>
 <div class="section" id="importance-sampling">
-<h2>8.3. Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h2>
+<h3>6.1.2. Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h3>
 <p>The average value formula works well for smoothly varying functions but becomes inefficient when
 the integral contains steep gradients or a divergence, for example, a bright point light source.
 The standard error on the integral estimator can become large in such circumstances.</p>
@@ -265,61 +254,121 @@ pay is that the random samples are being drawn from a more complicated distribut
 <p>Importance sampling exploits the fact that the Monte-Carlo estimator converges fastest when samples
 are taken from a distribution p(x) that is similar to the function f(x) in the integrand
 (i.e. concentrate the calculations where the integrand is high).</p>
-<div class="section" id="uniform-hemisphere-distribution">
-<h3>8.3.1. Uniform hemisphere distribution<a class="headerlink" href="#uniform-hemisphere-distribution" title="Permalink to this headline">¶</a></h3>
-<p>When calculating the irradiance at an observer surface we need to sample a set of
-randomly distributed unit vectors in a hemisphere oriented along the surface normal. The simplest
-distribution would be the uniform distribution where all angles over <span class="math">\(2 \pi\)</span> have equal
-probability of being sampled. The weighting distribution is <span class="math">\(w(\omega) = 1\)</span>. Thus the
-distributions normalisation constant evaluates to the area of solid angle being sampled, similar to
+</div>
+<div class="section" id="multiple-importance-sampling">
+<h3>6.1.3. Multiple Importance Sampling<a class="headerlink" href="#multiple-importance-sampling" title="Permalink to this headline">¶</a></h3>
+<p>It is difficult to construct a single sampling distribution that represents a physically relevant scene.
+Instead, the integrand of the lighting equations can be approximated as sums and products of the
+underlying features in a scene, such as individual light sources and geometry factors. Ideally we would
+sample all candidate distributions in a physical scene.</p>
+<p>Suppose the complicated integrand in our scene can approximated by a set operations on a number of simpler
+underlying distributions. e.g.</p>
+<div class="math">
+\[f(x) = (f_1(x) + f_2(x)) \times f_3(x)\]</div>
+<p>Multiple importance sampling is a generalisation of the importance sampling equation which allows us to
+evaluate complicated integrands by simultaneously sampling multiple underlying important distributions
+(see Veach, E. 1998). Without going into the derivation, the integrand becomes</p>
+<div class="math">
+\[I \approx \sum_{i=1}^{N} \sum_{j=1}^{n_i} \frac{w_i(x_{i,j}) f(x_{i,j})}{p(x_{i,j})}\]</div>
+<p>with sample weights given by</p>
+<div class="math">
+\[w_i(x) = \frac{n_i p_i(x)}{\sum_j n_j p_j(x)}\]</div>
+</div>
+</div>
+<div class="section" id="observing-surfaces">
+<h2>6.2. Observing Surfaces<a class="headerlink" href="#observing-surfaces" title="Permalink to this headline">¶</a></h2>
+<p>The total intensity measured by an observing surface is given be the integral of
+the incident emission over the collecting solid angle <span class="math">\(\Omega\)</span> and surface
+area <span class="math">\(A\)</span>. Therefore the observer equation is</p>
+<div class="math">
+\[I = \int_{A} \int_{\Omega} L_{i}(x_i, \omega_i) \times \cos (\theta_i) d\omega_i dA\]</div>
+<p>Here, <span class="math">\(L_{i}(x_i, \omega_i)\)</span> is the incident emission at a given point <span class="math">\(p\)</span>
+and incident angle <span class="math">\(\omega_i\)</span> on the observing surface. <span class="math">\(\cos (\theta_i)\)</span>
+is a geometry factor describing the increase in effective observing area as the incident
+rays become increasingly parallel to the surface.</p>
+<p>Let us now re-express this equation in terms of a general Monte Carlo estimator. The
+samples will be drawn from two different distributions, 2D points on the observing
+surface and 3D Vectors over the <span class="math">\(2/pi\)</span> solid angle hemisphere. Therefore, the
+average value estimator would become</p>
+<div class="math">
+\[I = \frac{1}{N} \sum_{i=1}^{N} \frac{L_i(x_i, \omega_i) \cos(\theta_i)}{p_A(x_i) p_\Omega(\omega_i)}\]</div>
+<p>where <span class="math">\(p_A(x_i)\)</span> is the probability of drawing sample point <span class="math">\(x_i\)</span> from
+area <span class="math">\(A\)</span> and <span class="math">\(p_\Omega(\omega_i)\)</span> is the probability of drawing sample
+vector <span class="math">\(\omega_i\)</span> from solid angle <span class="math">\(\Omega\)</span>.</p>
+<p>This is the root equation being evaluated in all Raysect observers. In most cases
+the detector area is sampled with uniform sampling and hence <span class="math">\(p_A(x_i)\)</span> ends
+up dropping out of the equation. It is far more common to use a variety of sampling
+strategies for the sample directions, <span class="math">\(\omega_i\)</span>, and hence <span class="math">\(p_\Omega(\omega_i)\)</span>
+is typically more important.</p>
+<p>Let us now consider some more specialised cases.</p>
+<div class="figure align-center" id="id1">
+<img alt="_images/pixel_sampling.png" src="_images/pixel_sampling.png" />
+<p class="caption"><span class="caption-text"><strong>Caption:</strong> Example sampling geometry for a pixel in a camera. (Image credit: Carr, M.,
+Meakins, A., et. al. (2017))</span></p>
+</div>
+<div class="section" id="ccd-pixel-with-uniform-hemisphere-sampling">
+<h3>6.2.1. CCD Pixel with Uniform Hemisphere Sampling<a class="headerlink" href="#ccd-pixel-with-uniform-hemisphere-sampling" title="Permalink to this headline">¶</a></h3>
+<p>Let us consider one of the most common cases for an observing surface, a rectangular
+pixel surface with a hemisphere of solid angle over which incident light can be collected.
+To calculate the Monte Carlo estimator we need <span class="math">\(N\)</span> sample points and vectors. The simplest
+vector distribution would be the uniform distribution where all angles over <span class="math">\(2 \pi\)</span> have equal
+probability of being sampled. The weighting distribution is</p>
+<div class="math">
+\[w(\omega) = 1.\]</div>
+<p>Thus the distributions normalisation constant evaluates to the area of solid angle being sampled, similar to
 the <span class="math">\(b-a\)</span> length scale for the 1D cartesian case.</p>
 <div class="math">
 \[c = \int_{0}^{2\pi} \int_{0}^{\frac{\pi}{2}} \sin(\theta) d\theta d\phi = 2 \pi\]</div>
 <p>Therefore <span class="math">\(p(\omega)\)</span> for uniformly distributed vectors is</p>
 <div class="math">
-\[p(\omega) = \frac{1}{2 \pi}.\]</div>
+\[p_\Omega(\omega_i) = \frac{w(\omega_i)}{\int_{a}^{b} w(\omega) d\omega} = \frac{1}{2 \pi}.\]</div>
 <p>The estimator for the irradiance becomes</p>
 <div class="math">
-\[I = \frac{2 \pi}{N} \sum_{i=1}^{N} L_i(p, \omega_i) \cos(\theta_i)\]</div>
+\[I = \frac{2 \pi}{N} \sum_{i=1}^{N} L_i(x_i, \omega_i) \cos(\theta_i)\]</div>
 </div>
-<div class="section" id="cosine-distribution">
-<h3>8.3.2. Cosine distribution<a class="headerlink" href="#cosine-distribution" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ccd-pixel-with-a-cosine-distribution">
+<h3>6.2.2. CCD Pixel with a Cosine distribution<a class="headerlink" href="#ccd-pixel-with-a-cosine-distribution" title="Permalink to this headline">¶</a></h3>
 <p>As mentioned above, it is often advantageous to draw samples from a distribution with similar shape
 to the function being integrated. The observer equation is weighted with a cosine theta term meaning
-that samples near the top of the hemisphere are weighted much more than samples near the edge. Hence
-it is useful to generate observer samples proportional to the cosine distribution.</p>
+that vector samples near the top of the hemisphere are weighted much more than samples near the edge.
+Hence it is useful to generate vector samples proportional to the cosine distribution.</p>
 <div class="math">
-\[w(\omega) = \cos(\theta)\]</div>
-<p>The normalisation constant, <span class="math">\(c\)</span>, can be evaluated by integrating <span class="math">\(w(x)\)</span> over the domain.</p>
+\[w(\omega_i) = \cos(\theta_i)\]</div>
+<p>The normalisation constant, <span class="math">\(c\)</span>, can be evaluated by integrating <span class="math">\(w(\omega)\)</span> over the domain.</p>
 <div class="math">
 \[c = \int_{0}^{2\pi} \int_{0}^{\frac{\pi}{2}} w(\omega) \sin(\theta) d\theta d\phi = \pi\]</div>
-<p>Therefore <span class="math">\(p(\omega)\)</span> for a cosine distribution would be</p>
+<p>Therefore <span class="math">\(p(\omega_i)\)</span> for a cosine distribution would be</p>
 <div class="math">
-\[p(\omega) = \frac{\cos(\theta)}{\pi}\]</div>
+\[p_\Omega(\omega_i) = \frac{w(\omega_i)}{\int_{a}^{b} w(\omega) d\omega} = \frac{\cos(\theta)}{\pi}\]</div>
 <p>and the estimator becomes</p>
 <div class="math">
-\[I = \frac{\pi}{N \cos(\theta)} \sum_{i=1}^{N} L_i(p, \omega_i) \cos(\theta) = \frac{\pi}{N} \sum_{i=1}^{N} L_i(p, \omega_i)\]</div>
+\[I = \frac{1}{N} \sum_{i=1}^{N} L_i(x_i, \omega_i) \cos(\theta_i) \frac{\pi}{\cos(\theta_i)} = \frac{\pi}{N} \sum_{i=1}^{N} L_i(x_i, \omega_i)\]</div>
 <p>Note that the cosine factors have cancelled, which makes sense since we are treating
 the <span class="math">\(\cos(\theta)\)</span> term as the important distribution.</p>
 </div>
-<div class="section" id="uniform-cone-distribution">
-<h3>8.3.3. Uniform cone distribution<a class="headerlink" href="#uniform-cone-distribution" title="Permalink to this headline">¶</a></h3>
-<p>A common sampling distribution is the uniform cone, where vectors are sampled uniformly over the
-circular solid angle centred around the z-axis with angle to z <span class="math">\(\theta_{max}\)</span>. Samples
+<div class="section" id="optical-fibre">
+<h3>6.2.3. Optical Fibre<a class="headerlink" href="#optical-fibre" title="Permalink to this headline">¶</a></h3>
+<p>Consider an optical fibre with circular area <span class="math">\(A_f\)</span> and radius <span class="math">\(r_f\)</span>. The area of solid angle
+over which light can be collected is a cone with half angle <span class="math">\(\theta_{max}\)</span>. The circular area can
+be sampled with uniformly distributed points, meaning <span class="math">\(p_A(x_i)\)</span> would cancel out again. An
+appropriate vector sampling distribution is the uniform cone, where vectors are sampled uniformly
+over the circular solid angle centred around the z-axis with angle to z <span class="math">\(\theta_{max}\)</span>. Samples
 around the z-axis can be transformed by rotation without effecting the sample density. The weighting
-function is uniform and hence <span class="math">\(w(\omega) = 1\)</span>. The normalisation constant for the distribution
-is</p>
+function is uniform and hence</p>
+<div class="math">
+\[w(\omega) = 1.\]</div>
+<p>The normalisation constant for the distribution is</p>
 <div class="math">
 \[c = \int_{0}^{2\pi} \int_{0}^{\theta_{max}} \sin(\theta) d\theta d\phi = 2\pi (1-\cos(\theta_{max}))\]</div>
 <p>with corresponding pdf equal to</p>
 <div class="math">
-\[p(\omega) = \frac{1}{2\pi (1-\cos(\theta_{max}))}.\]</div>
+\[p_\Omega(\omega_i) = \frac{1}{2\pi (1-\cos(\theta_{max}))}.\]</div>
 <p>The estimator is</p>
 <div class="math">
-\[I = \frac{2\pi (1-\cos(\theta_{max}))}{N} \sum_{i=1}^{N} L_i(p, \omega_i) \cos(\theta_i).\]</div>
+\[I = \frac{2\pi (1-\cos(\theta_{max}))}{N} \sum_{i=1}^{N} L_i(x_i, \omega_i) \cos(\theta_i).\]</div>
 </div>
 <div class="section" id="sampling-the-lights">
-<h3>8.3.4. Sampling the lights<a class="headerlink" href="#sampling-the-lights" title="Permalink to this headline">¶</a></h3>
+<h3>6.2.4. Sampling the lights<a class="headerlink" href="#sampling-the-lights" title="Permalink to this headline">¶</a></h3>
 <p>Arbitrary light sources and important primitives can be sampled with the projection method. The
 light (or primitive) in question is wrapped in a bounding sphere that just encloses the object.
 It is then a matter of projecting the bounding sphere into a uniform cone at the surface of the
@@ -331,8 +380,8 @@ inside the bounding sphere that defines the effective solid angle to be sampled.
 </div>
 </div>
 </div>
-<div class="section" id="materials">
-<h2>8.4. Materials<a class="headerlink" href="#materials" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="material-surfaces">
+<h2>6.3. Material Surfaces<a class="headerlink" href="#material-surfaces" title="Permalink to this headline">¶</a></h2>
 <p>The amount of light that reaches a camera from a point on an object surface is
 given by the sum of light emitted and reflected from other sources.</p>
 <div class="math">
@@ -354,11 +403,12 @@ transmission and absorption.</p>
 Meakins, A., et. al. (2017))</span></p>
 </div>
 <div class="section" id="sampling-the-brdf">
-<h3>8.4.1. Sampling the BRDF<a class="headerlink" href="#sampling-the-brdf" title="Permalink to this headline">¶</a></h3>
+<h3>6.3.1. Sampling the BRDF<a class="headerlink" href="#sampling-the-brdf" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
-<div class="section" id="multiple-importance-sampling">
-<h2>8.5. Multiple Importance Sampling<a class="headerlink" href="#multiple-importance-sampling" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="participating-media">
+<h2>6.4. Participating Media<a class="headerlink" href="#participating-media" title="Permalink to this headline">¶</a></h2>
+<p>Volume scattering, fluorescence and opacity effects.</p>
 </div>
 </div>
 
@@ -372,10 +422,10 @@ Meakins, A., et. al. (2017))</span></p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="conventions.html" class="btn btn-neutral float-right" title="9. Conventions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="primitives.html" class="btn btn-neutral float-right" title="7. Primitives" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="materials.html" class="btn btn-neutral" title="7. Materials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="quickstart_guide.html" class="btn btn-neutral" title="5. Quickstart Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
