@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../index.html"/> 
 
   
@@ -68,7 +71,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -191,10 +194,9 @@
 <li><a href="raysect/core/math/normal.html">raysect.core.math.normal</a></li>
 <li><a href="raysect/core/math/point.html">raysect.core.math.point</a></li>
 <li><a href="raysect/core/math/random.html">raysect.core.math.random</a></li>
-<li><a href="raysect/core/math/sampler.html">raysect.core.math.sampler</a></li>
-<ul><li><a href="raysect/core/math/sampler/solidangle.html">raysect.core.math.sampler.solidangle</a></li>
+<li><a href="raysect/core/math/sampler/solidangle.html">raysect.core.math.sampler.solidangle</a></li>
 <li><a href="raysect/core/math/sampler/surface3d.html">raysect.core.math.sampler.surface3d</a></li>
-</ul><li><a href="raysect/core/math/transform.html">raysect.core.math.transform</a></li>
+<li><a href="raysect/core/math/transform.html">raysect.core.math.transform</a></li>
 <li><a href="raysect/core/math/units.html">raysect.core.math.units</a></li>
 <li><a href="raysect/core/math/vector.html">raysect.core.math.vector</a></li>
 <li><a href="raysect/core/ray.html">raysect.core.ray</a></li>
@@ -209,13 +211,12 @@
 <li><a href="raysect/optical/material/conductor.html">raysect.optical.material.conductor</a></li>
 <li><a href="raysect/optical/material/debug.html">raysect.optical.material.debug</a></li>
 <li><a href="raysect/optical/material/dielectric.html">raysect.optical.material.dielectric</a></li>
-<li><a href="raysect/optical/material/emitter.html">raysect.optical.material.emitter</a></li>
-<ul><li><a href="raysect/optical/material/emitter/checkerboard.html">raysect.optical.material.emitter.checkerboard</a></li>
+<li><a href="raysect/optical/material/emitter/checkerboard.html">raysect.optical.material.emitter.checkerboard</a></li>
 <li><a href="raysect/optical/material/emitter/homogeneous.html">raysect.optical.material.emitter.homogeneous</a></li>
 <li><a href="raysect/optical/material/emitter/inhomogeneous.html">raysect.optical.material.emitter.inhomogeneous</a></li>
 <li><a href="raysect/optical/material/emitter/uniform.html">raysect.optical.material.emitter.uniform</a></li>
 <li><a href="raysect/optical/material/emitter/unity.html">raysect.optical.material.emitter.unity</a></li>
-</ul><li><a href="raysect/optical/material/lambert.html">raysect.optical.material.lambert</a></li>
+<li><a href="raysect/optical/material/lambert.html">raysect.optical.material.lambert</a></li>
 <li><a href="raysect/optical/material/material.html">raysect.optical.material.material</a></li>
 <li><a href="raysect/optical/material/modifiers.html">raysect.optical.material.modifiers</a></li>
 <li><a href="raysect/optical/observer/base/observer.html">raysect.optical.observer.base.observer</a></li>
@@ -230,12 +231,13 @@
 <li><a href="raysect/optical/observer/nonimaging/pixel.html">raysect.optical.observer.nonimaging.pixel</a></li>
 <li><a href="raysect/optical/observer/nonimaging/sightline.html">raysect.optical.observer.nonimaging.sightline</a></li>
 <li><a href="raysect/optical/observer/pipeline/bayer.html">raysect.optical.observer.pipeline.bayer</a></li>
-<li><a href="raysect/optical/observer/pipeline/power.html">raysect.optical.observer.pipeline.power</a></li>
+<li><a href="raysect/optical/observer/pipeline/mono/power.html">raysect.optical.observer.pipeline.mono.power</a></li>
+<li><a href="raysect/optical/observer/pipeline/mono/radiance.html">raysect.optical.observer.pipeline.mono.radiance</a></li>
 <li><a href="raysect/optical/observer/pipeline/rgb.html">raysect.optical.observer.pipeline.rgb</a></li>
-<li><a href="raysect/optical/observer/pipeline/spectral.html">raysect.optical.observer.pipeline.spectral</a></li>
-<ul><li><a href="raysect/optical/observer/pipeline/spectral/power.html">raysect.optical.observer.pipeline.spectral.power</a></li>
+<li><a href="raysect/optical/observer/pipeline/spectral/power.html">raysect.optical.observer.pipeline.spectral.power</a></li>
 <li><a href="raysect/optical/observer/pipeline/spectral/radiance.html">raysect.optical.observer.pipeline.spectral.radiance</a></li>
-</ul><li><a href="raysect/optical/ray.html">raysect.optical.ray</a></li>
+<li><a href="raysect/optical/observer/sampler2d.html">raysect.optical.observer.sampler2d</a></li>
+<li><a href="raysect/optical/ray.html">raysect.optical.ray</a></li>
 <li><a href="raysect/optical/scenegraph/world.html">raysect.optical.scenegraph.world</a></li>
 <li><a href="raysect/optical/spectralfunction.html">raysect.optical.spectralfunction</a></li>
 <li><a href="raysect/optical/spectrum.html">raysect.optical.spectrum</a></li>
@@ -285,17 +287,17 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

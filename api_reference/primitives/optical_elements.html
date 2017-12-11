@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="2. Primitives Module" href="primitives.html"/>
         <link rel="next" title="3. Optical Module" href="../optical/optical.html"/>
@@ -71,7 +74,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -102,9 +105,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">3. Downloading and Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">4. How it works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">5. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">6. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../materials.html">7. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../observers.html">8. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materials.html">8. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../conventions.html">9. Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
@@ -180,7 +183,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api_reference/primitives/optical_elements.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api_reference/primitives/optical_elements.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -214,14 +217,14 @@ surface lies on z=0 and with the lens extending along the +ve z direction.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>diameter</strong> &#8211; The diameter of the lens body.</li>
-<li><strong>center_thickness</strong> &#8211; The thickness of the lens measured along the lens axis.</li>
-<li><strong>front_curvature</strong> &#8211; The radius of curvature of the front surface.</li>
-<li><strong>back_curvature</strong> &#8211; The radius of curvature of the back surface.</li>
-<li><strong>parent</strong> &#8211; Assigns the Node&#8217;s parent to the specified scene-graph object.</li>
-<li><strong>transform</strong> &#8211; Sets the affine transform associated with the Node.</li>
-<li><strong>material</strong> &#8211; An object representing the material properties of the primitive.</li>
-<li><strong>name</strong> &#8211; A string defining the node name.</li>
+<li><strong>diameter</strong> – The diameter of the lens body.</li>
+<li><strong>center_thickness</strong> – The thickness of the lens measured along the lens axis.</li>
+<li><strong>front_curvature</strong> – The radius of curvature of the front surface.</li>
+<li><strong>back_curvature</strong> – The radius of curvature of the back surface.</li>
+<li><strong>parent</strong> – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> – A string defining the node name.</li>
 </ul>
 </td>
 </tr>
@@ -245,14 +248,14 @@ surface lies on z=0 and with the lens extending along the +ve z direction.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>diameter</strong> &#8211; The diameter of the lens body.</li>
-<li><strong>center_thickness</strong> &#8211; The thickness of the lens measured along the lens axis.</li>
-<li><strong>front_curvature</strong> &#8211; The radius of curvature of the front surface.</li>
-<li><strong>back_curvature</strong> &#8211; The radius of curvature of the back surface.</li>
-<li><strong>parent</strong> &#8211; Assigns the Node&#8217;s parent to the specified scene-graph object.</li>
-<li><strong>transform</strong> &#8211; Sets the affine transform associated with the Node.</li>
-<li><strong>material</strong> &#8211; An object representing the material properties of the primitive.</li>
-<li><strong>name</strong> &#8211; A string defining the node name.</li>
+<li><strong>diameter</strong> – The diameter of the lens body.</li>
+<li><strong>center_thickness</strong> – The thickness of the lens measured along the lens axis.</li>
+<li><strong>front_curvature</strong> – The radius of curvature of the front surface.</li>
+<li><strong>back_curvature</strong> – The radius of curvature of the back surface.</li>
+<li><strong>parent</strong> – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> – A string defining the node name.</li>
 </ul>
 </td>
 </tr>
@@ -277,13 +280,13 @@ extending along the +ve z direction.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>diameter</strong> &#8211; The diameter of the lens body.</li>
-<li><strong>center_thickness</strong> &#8211; The thickness of the lens measured along the lens axis.</li>
-<li><strong>curvature</strong> &#8211; The radius of curvature of the spherical front surface.</li>
-<li><strong>parent</strong> &#8211; Assigns the Node&#8217;s parent to the specified scene-graph object.</li>
-<li><strong>transform</strong> &#8211; Sets the affine transform associated with the Node.</li>
-<li><strong>material</strong> &#8211; An object representing the material properties of the primitive.</li>
-<li><strong>name</strong> &#8211; A string defining the node name.</li>
+<li><strong>diameter</strong> – The diameter of the lens body.</li>
+<li><strong>center_thickness</strong> – The thickness of the lens measured along the lens axis.</li>
+<li><strong>curvature</strong> – The radius of curvature of the spherical front surface.</li>
+<li><strong>parent</strong> – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> – A string defining the node name.</li>
 </ul>
 </td>
 </tr>
@@ -311,13 +314,13 @@ extending along the +ve z direction.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>diameter</strong> &#8211; The diameter of the lens body.</li>
-<li><strong>center_thickness</strong> &#8211; The thickness of the lens measured along the lens axis.</li>
-<li><strong>curvature</strong> &#8211; The radius of curvature of the spherical front surface.</li>
-<li><strong>parent</strong> &#8211; Assigns the Node&#8217;s parent to the specified scene-graph object.</li>
-<li><strong>transform</strong> &#8211; Sets the affine transform associated with the Node.</li>
-<li><strong>material</strong> &#8211; An object representing the material properties of the primitive.</li>
-<li><strong>name</strong> &#8211; A string defining the node name.</li>
+<li><strong>diameter</strong> – The diameter of the lens body.</li>
+<li><strong>center_thickness</strong> – The thickness of the lens measured along the lens axis.</li>
+<li><strong>curvature</strong> – The radius of curvature of the spherical front surface.</li>
+<li><strong>parent</strong> – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> – A string defining the node name.</li>
 </ul>
 </td>
 </tr>
@@ -345,14 +348,14 @@ the +ve z direction.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>diameter</strong> &#8211; The diameter of the lens body.</li>
-<li><strong>center_thickness</strong> &#8211; The thickness of the lens measured along the lens axis.</li>
-<li><strong>front_curvature</strong> &#8211; The radius of curvature of the front (convex) surface.</li>
-<li><strong>back_curvature</strong> &#8211; The radius of curvature of the back (concave) surface.</li>
-<li><strong>parent</strong> &#8211; Assigns the Node&#8217;s parent to the specified scene-graph object.</li>
-<li><strong>transform</strong> &#8211; Sets the affine transform associated with the Node.</li>
-<li><strong>material</strong> &#8211; An object representing the material properties of the primitive.</li>
-<li><strong>name</strong> &#8211; A string defining the node name.</li>
+<li><strong>diameter</strong> – The diameter of the lens body.</li>
+<li><strong>center_thickness</strong> – The thickness of the lens measured along the lens axis.</li>
+<li><strong>front_curvature</strong> – The radius of curvature of the front (convex) surface.</li>
+<li><strong>back_curvature</strong> – The radius of curvature of the back (concave) surface.</li>
+<li><strong>parent</strong> – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> – A string defining the node name.</li>
 </ul>
 </td>
 </tr>
@@ -407,17 +410,17 @@ the +ve z direction.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

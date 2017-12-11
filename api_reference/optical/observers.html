@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="3. Optical Module" href="optical.html"/>
         <link rel="next" title="3.3. Frame Samples and Pipelines" href="pipelines.html"/>
@@ -71,7 +74,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -183,7 +186,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api_reference/optical/observers.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api_reference/optical/observers.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -215,27 +218,27 @@ properties of all observers and the overall observing workflow.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; The parent node in the scenegraph. Observers will only observe items
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – The parent node in the scenegraph. Observers will only observe items
 in the same scenegraph as them.</li>
-<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix describing the location and orientation of
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix describing the location and orientation of
 this observer in the world.</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; User friendly name for this observer.</li>
-<li><strong>render_engine</strong> (<em>object</em>) &#8211; A workflow manager for controlling whether tasks will be
+<li><strong>name</strong> (<em>str</em>) – User friendly name for this observer.</li>
+<li><strong>render_engine</strong> (<em>object</em>) – A workflow manager for controlling whether tasks will be
 executed in serial, parallel or on a cluster (default=MulticoreEngine()).</li>
-<li><strong>spectral_rays</strong> (<em>int</em>) &#8211; The number of smaller sub-spectrum rays the full spectrum will
+<li><strong>spectral_rays</strong> (<em>int</em>) – The number of smaller sub-spectrum rays the full spectrum will
 be divided into (default=1).</li>
-<li><strong>spectral_bins</strong> (<em>int</em>) &#8211; The number of spectral samples over the wavelength range (default=15).</li>
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; Lower wavelength bound for sampled spectral range (default=375nm).</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; Upper wavelength bound for sampled spectral range (default=740nm).</li>
-<li><strong>ray_extinction_prob</strong> (<em>float</em>) &#8211; Probability of ray extinction after every material
+<li><strong>spectral_bins</strong> (<em>int</em>) – The number of spectral samples over the wavelength range (default=15).</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – Lower wavelength bound for sampled spectral range (default=375nm).</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – Upper wavelength bound for sampled spectral range (default=740nm).</li>
+<li><strong>ray_extinction_prob</strong> (<em>float</em>) – Probability of ray extinction after every material
 intersection (default=0.01).</li>
-<li><strong>ray_extinction_min_depth</strong> (<em>int</em>) &#8211; Minimum number of paths before russian roulette style
+<li><strong>ray_extinction_min_depth</strong> (<em>int</em>) – Minimum number of paths before russian roulette style
 ray extinction (default=3).</li>
-<li><strong>ray_max_depth</strong> (<em>int</em>) &#8211; Maximum number of Ray paths before terminating Ray (default=500).</li>
-<li><strong>ray_importance_sampling</strong> (<em>bool</em>) &#8211; Toggle importance sampling behaviour (default=True).</li>
-<li><strong>ray_important_path_weight</strong> (<em>float</em>) &#8211; Relative weight of important path sampling
+<li><strong>ray_max_depth</strong> (<em>int</em>) – Maximum number of Ray paths before terminating Ray (default=500).</li>
+<li><strong>ray_importance_sampling</strong> (<em>bool</em>) – Toggle importance sampling behaviour (default=True).</li>
+<li><strong>ray_important_path_weight</strong> (<em>float</em>) – Relative weight of important path sampling
 (default=0.2).</li>
-<li><strong>quiet</strong> (<em>bool</em>) &#8211; When True, suppresses the printing of observer performance statistics and completion
+<li><strong>quiet</strong> (<em>bool</em>) – When True, suppresses the printing of observer performance statistics and completion
 (default=False).</li>
 </ul>
 </td>
@@ -381,12 +384,12 @@ bins.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pipelines</strong> (<em>list</em>) &#8211; A list of pipelines that will process the resulting spectra
+<li><strong>pipelines</strong> (<em>list</em>) – A list of pipelines that will process the resulting spectra
 from this observer.</li>
-<li><strong>pixel_samples</strong> (<em>int</em>) &#8211; Number of samples to generate per pixel with one call to
+<li><strong>pixel_samples</strong> (<em>int</em>) – Number of samples to generate per pixel with one call to
 observe() (default=1000).</li>
-<li><strong>samples_per_task</strong> (<em>int</em>) &#8211; Minimum number of samples to request per task (default=250).</li>
-<li><strong>kwargs</strong> &#8211; <a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs from _ObserverBase.</li>
+<li><strong>samples_per_task</strong> (<em>int</em>) – Minimum number of samples to request per task (default=250).</li>
+<li><strong>kwargs</strong> – <a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs from _ObserverBase.</li>
 </ul>
 </td>
 </tr>
@@ -414,8 +417,8 @@ ray_count otherwise pipeline statistics will be incorrectly calculated.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>template</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) &#8211; The template ray from which all rays should be generated.</li>
-<li><strong>ray_count</strong> (<em>int</em>) &#8211; The number of rays to be generated.</li>
+<li><strong>template</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The template ray from which all rays should be generated.</li>
+<li><strong>ray_count</strong> (<em>int</em>) – The number of rays to be generated.</li>
 </ul>
 </td>
 </tr>
@@ -483,13 +486,13 @@ defined by the acceptance_angle parameter.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pipelines</strong> (<em>list</em>) &#8211; The list of pipelines that will process the spectrum measured
+<li><strong>pipelines</strong> (<em>list</em>) – The list of pipelines that will process the spectrum measured
 by this optical fibre (default=SpectralPipeline0D()).</li>
-<li><strong>acceptance_angle</strong> (<em>float</em>) &#8211; The angle in degrees between the z axis and the cone surface which defines the fibres
+<li><strong>acceptance_angle</strong> (<em>float</em>) – The angle in degrees between the z axis and the cone surface which defines the fibres
 solid angle sampling area.</li>
-<li><strong>radius</strong> (<em>float</em>) &#8211; The radius of the fibre tip in metres. This radius defines a circular area at the fibre tip
+<li><strong>radius</strong> (<em>float</em>) – The radius of the fibre tip in metres. This radius defines a circular area at the fibre tip
 which will be sampled over.</li>
-<li><strong>kwargs</strong> &#8211; <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs from Observer0D and _ObserverBase</li>
+<li><strong>kwargs</strong> – <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs from Observer0D and _ObserverBase</li>
 </ul>
 </td>
 </tr>
@@ -513,7 +516,7 @@ solid angle sampling area.</p>
 <dl class="attribute">
 <dt id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.collection_area">
 <code class="descname">collection_area</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.collection_area" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fibre&#8217;s collection area in m^2.</p>
+<dd><p>The fibre’s collection area in m^2.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -527,7 +530,7 @@ solid angle sampling area.</p>
 <dl class="attribute">
 <dt id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.etendue">
 <code class="descname">etendue</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.etendue" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fibre&#8217;s etendue measured in units of per area per solid angle (m^-2 str^-1).</p>
+<dd><p>The fibre’s etendue measured in units of per area per solid angle (m^-2 str^-1).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -556,7 +559,7 @@ which will be sampled over.</p>
 <dl class="attribute">
 <dt id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.solid_angle">
 <code class="descname">solid_angle</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.solid_angle" title="Permalink to this definition">¶</a></dt>
-<dd><p>The fibre&#8217;s solid angle in steradians str.</p>
+<dd><p>The fibre’s solid angle in steradians str.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -579,13 +582,13 @@ which will be sampled over.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pipelines</strong> (<em>list</em>) &#8211; The list of pipelines that will process the spectrum measured
+<li><strong>pipelines</strong> (<em>list</em>) – The list of pipelines that will process the spectrum measured
 by this pixel (default=SpectralPipeline0D()).</li>
-<li><strong>x_width</strong> (<em>float</em>) &#8211; The rectangular collection area&#8217;s width along the
+<li><strong>x_width</strong> (<em>float</em>) – The rectangular collection area’s width along the
 x-axis in local coordinates (default=1cm).</li>
-<li><strong>y_width</strong> (<em>float</em>) &#8211; The rectangular collection area&#8217;s width along the
+<li><strong>y_width</strong> (<em>float</em>) – The rectangular collection area’s width along the
 y-axis in local coordinates (default=1cm).</li>
-<li><strong>kwargs</strong> &#8211; <a href="#id5"><span class="problematic" id="id6">**</span></a>kwargs from Observer0D and _ObserverBase</li>
+<li><strong>kwargs</strong> – <a href="#id5"><span class="problematic" id="id6">**</span></a>kwargs from Observer0D and _ObserverBase</li>
 </ul>
 </td>
 </tr>
@@ -594,7 +597,7 @@ y-axis in local coordinates (default=1cm).</li>
 <dl class="attribute">
 <dt id="raysect.optical.observer.nonimaging.pixel.Pixel.collection_area">
 <code class="descname">collection_area</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.collection_area" title="Permalink to this definition">¶</a></dt>
-<dd><p>The pixel&#8217;s collection area in m^2.</p>
+<dd><p>The pixel’s collection area in m^2.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -608,7 +611,7 @@ y-axis in local coordinates (default=1cm).</li>
 <dl class="attribute">
 <dt id="raysect.optical.observer.nonimaging.pixel.Pixel.etendue">
 <code class="descname">etendue</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.etendue" title="Permalink to this definition">¶</a></dt>
-<dd><p>The pixel&#8217;s etendue measured in units of per area per solid angle (m^-2 str^-1).</p>
+<dd><p>The pixel’s etendue measured in units of per area per solid angle (m^-2 str^-1).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -622,7 +625,7 @@ y-axis in local coordinates (default=1cm).</li>
 <dl class="attribute">
 <dt id="raysect.optical.observer.nonimaging.pixel.Pixel.solid_angle">
 <code class="descname">solid_angle</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.solid_angle" title="Permalink to this definition">¶</a></dt>
-<dd><p>The pixel&#8217;s solid angle in steradians str.</p>
+<dd><p>The pixel’s solid angle in steradians str.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -636,7 +639,7 @@ y-axis in local coordinates (default=1cm).</li>
 <dl class="attribute">
 <dt id="raysect.optical.observer.nonimaging.pixel.Pixel.x_width">
 <code class="descname">x_width</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.x_width" title="Permalink to this definition">¶</a></dt>
-<dd><p>The rectangular collection area&#8217;s width along the x-axis in local coordinates.</p>
+<dd><p>The rectangular collection area’s width along the x-axis in local coordinates.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -650,7 +653,7 @@ y-axis in local coordinates (default=1cm).</li>
 <dl class="attribute">
 <dt id="raysect.optical.observer.nonimaging.pixel.Pixel.y_width">
 <code class="descname">y_width</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.y_width" title="Permalink to this definition">¶</a></dt>
-<dd><p>The rectangular collection area&#8217;s width along the y-axis in local coordinates.</p>
+<dd><p>The rectangular collection area’s width along the y-axis in local coordinates.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -668,17 +671,17 @@ y-axis in local coordinates (default=1cm).</li>
 <em class="property">class </em><code class="descclassname">raysect.optical.observer.nonimaging.sightline.</code><code class="descname">SightLine</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.sightline.SightLine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer.Observer0D" title="raysect.optical.observer.base.observer.Observer0D"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.observer.Observer0D</span></code></a></p>
 <p>A simple line of sight observer.</p>
-<p>Fires a single ray oriented along the observer&#8217;s z axis in world space.</p>
+<p>Fires a single ray oriented along the observer’s z axis in world space.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>etendue</strong> (<em>float</em>) &#8211; Optional user specified etendue. Defaults to etendue=1.0
+<li><strong>etendue</strong> (<em>float</em>) – Optional user specified etendue. Defaults to etendue=1.0
 in which case the returned units will always be in radiance (W/m^2/str/nm)</li>
-<li><strong>pipelines</strong> (<em>list</em>) &#8211; The list of pipelines that will process the spectrum measured
+<li><strong>pipelines</strong> (<em>list</em>) – The list of pipelines that will process the spectrum measured
 by this line of sight (default=SpectralPipeline0D()).</li>
-<li><strong>kwargs</strong> &#8211; <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs and instance properties from Observer0D and _ObserverBase</li>
+<li><strong>kwargs</strong> – <a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs and instance properties from Observer0D and _ObserverBase</li>
 </ul>
 </td>
 </tr>
@@ -715,13 +718,13 @@ by this line of sight (default=SpectralPipeline0D()).</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pixels</strong> (<em>tuple</em>) &#8211; A tuple of pixel dimensions for this observer, i.e. (512, 512).</li>
-<li><strong>frame_sampler</strong> (<a class="reference internal" href="pipelines.html#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><em>FrameSampler2D</em></a>) &#8211; A frame sampler class.</li>
-<li><strong>pipelines</strong> (<em>list</em>) &#8211; A list of pipelines that will process the resulting spectra
+<li><strong>pixels</strong> (<em>tuple</em>) – A tuple of pixel dimensions for this observer, i.e. (512, 512).</li>
+<li><strong>frame_sampler</strong> (<a class="reference internal" href="pipelines.html#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><em>FrameSampler2D</em></a>) – A frame sampler class.</li>
+<li><strong>pipelines</strong> (<em>list</em>) – A list of pipelines that will process the resulting spectra
 from this observer.</li>
-<li><strong>pixel_samples</strong> (<em>int</em>) &#8211; Number of samples to generate per pixel with one call to
+<li><strong>pixel_samples</strong> (<em>int</em>) – Number of samples to generate per pixel with one call to
 observe() (default=1000).</li>
-<li><strong>kwargs</strong> &#8211; <a href="#id10"><span class="problematic" id="id11">**</span></a>kwargs from _ObserverBase.</li>
+<li><strong>kwargs</strong> – <a href="#id10"><span class="problematic" id="id11">**</span></a>kwargs from _ObserverBase.</li>
 </ul>
 </td>
 </tr>
@@ -749,10 +752,10 @@ statistics will be incorrectly calculated.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>int</em>) &#8211; Pixel x index.</li>
-<li><strong>y</strong> (<em>int</em>) &#8211; Pixel y index.</li>
-<li><strong>template</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) &#8211; The template ray from which all rays should be generated.</li>
-<li><strong>ray_count</strong> (<em>int</em>) &#8211; The number of rays to be generated.</li>
+<li><strong>x</strong> (<em>int</em>) – Pixel x index.</li>
+<li><strong>y</strong> (<em>int</em>) – Pixel y index.</li>
+<li><strong>template</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The template ray from which all rays should be generated.</li>
+<li><strong>ray_count</strong> (<em>int</em>) – The number of rays to be generated.</li>
 </ul>
 </td>
 </tr>
@@ -826,21 +829,21 @@ statistics will be incorrectly calculated.</p>
 <em class="property">class </em><code class="descclassname">raysect.optical.observer.imaging.pinhole.</code><code class="descname">PinholeCamera</code><a class="headerlink" href="#raysect.optical.observer.imaging.pinhole.PinholeCamera" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer.Observer2D" title="raysect.optical.observer.base.observer.Observer2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.observer.Observer2D</span></code></a></p>
 <p>An observer that models an idealised pinhole camera.</p>
-<p>A simple camera that launches rays from the observer&#8217;s origin point over a
+<p>A simple camera that launches rays from the observer’s origin point over a
 specified field of view.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pixels</strong> (<em>tuple</em>) &#8211; A tuple of pixel dimensions for the camera, i.e. (512, 512).</li>
-<li><strong>fov</strong> (<em>float</em>) &#8211; The field of view of the camera in degrees (default=45 degrees).</li>
-<li><strong>etendue</strong> (<em>float</em>) &#8211; The etendue of each pixel (default=1.0)</li>
-<li><strong>frame_sampler</strong> (<a class="reference internal" href="pipelines.html#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><em>FrameSampler2D</em></a>) &#8211; The frame sampling strategy, defaults to adaptive
+<li><strong>pixels</strong> (<em>tuple</em>) – A tuple of pixel dimensions for the camera, i.e. (512, 512).</li>
+<li><strong>fov</strong> (<em>float</em>) – The field of view of the camera in degrees (default=45 degrees).</li>
+<li><strong>etendue</strong> (<em>float</em>) – The etendue of each pixel (default=1.0)</li>
+<li><strong>frame_sampler</strong> (<a class="reference internal" href="pipelines.html#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><em>FrameSampler2D</em></a>) – The frame sampling strategy, defaults to adaptive
 sampling (i.e. extra samples for noisier pixels).</li>
-<li><strong>pipelines</strong> (<em>list</em>) &#8211; The list of pipelines that will process the spectrum measured
+<li><strong>pipelines</strong> (<em>list</em>) – The list of pipelines that will process the spectrum measured
 at each pixel by the camera (default=RGBPipeline2D()).</li>
-<li><strong>kwargs</strong> &#8211; <a href="#id12"><span class="problematic" id="id13">**</span></a>kwargs and properties from Observer2D and _ObserverBase.</li>
+<li><strong>kwargs</strong> – <a href="#id12"><span class="problematic" id="id13">**</span></a>kwargs and properties from Observer2D and _ObserverBase.</li>
 </ul>
 </td>
 </tr>
@@ -888,15 +891,15 @@ avoiding perspective effects.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pixels</strong> (<em>tuple</em>) &#8211; A tuple of pixel dimensions for the camera, i.e. (512, 512).</li>
-<li><strong>width</strong> (<em>double</em>) &#8211; width of the orthographic area to observe in meters,
-the height is deduced from the &#8216;pixels&#8217; attribute.</li>
-<li><strong>etendue</strong> (<em>float</em>) &#8211; The etendue of each pixel (default=1.0)</li>
-<li><strong>frame_sampler</strong> (<a class="reference internal" href="pipelines.html#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><em>FrameSampler2D</em></a>) &#8211; The frame sampling strategy
+<li><strong>pixels</strong> (<em>tuple</em>) – A tuple of pixel dimensions for the camera, i.e. (512, 512).</li>
+<li><strong>width</strong> (<em>double</em>) – width of the orthographic area to observe in meters,
+the height is deduced from the ‘pixels’ attribute.</li>
+<li><strong>etendue</strong> (<em>float</em>) – The etendue of each pixel (default=1.0)</li>
+<li><strong>frame_sampler</strong> (<a class="reference internal" href="pipelines.html#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><em>FrameSampler2D</em></a>) – The frame sampling strategy
 (default=FullFrameSampler2D()).</li>
-<li><strong>pipelines</strong> (<em>list</em>) &#8211; The list of pipelines that will process the spectrum measured
+<li><strong>pipelines</strong> (<em>list</em>) – The list of pipelines that will process the spectrum measured
 at each pixel by the camera (default=RGBPipeline2D()).</li>
-<li><strong>kwargs</strong> &#8211; <a href="#id14"><span class="problematic" id="id15">**</span></a>kwargs and properties from Observer2D and _ObserverBase.</li>
+<li><strong>kwargs</strong> – <a href="#id14"><span class="problematic" id="id15">**</span></a>kwargs and properties from Observer2D and _ObserverBase.</li>
 </ul>
 </td>
 </tr>
@@ -921,7 +924,7 @@ at each pixel by the camera (default=RGBPipeline2D()).</li>
 <dt id="raysect.optical.observer.imaging.orthographic.OrthographicCamera.width">
 <code class="descname">width</code><a class="headerlink" href="#raysect.optical.observer.imaging.orthographic.OrthographicCamera.width" title="Permalink to this definition">¶</a></dt>
 <dd><p>The width of the orthographic area to observe in meters, the height is
-deduced from the &#8216;pixels&#8217; attribute.</p>
+deduced from the ‘pixels’ attribute.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -949,12 +952,12 @@ default width and sensor ratio approximates a 35mm camera sensor.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pixels</strong> (<em>tuple</em>) &#8211; A tuple of pixel dimensions for the camera (default=(512, 512)).</li>
-<li><strong>width</strong> (<em>float</em>) &#8211; The CCD sensor x-width in metres (default=35mm).</li>
-<li><strong>etendue</strong> (<em>float</em>) &#8211; The etendue of each pixel (default=1.0)</li>
-<li><strong>pipelines</strong> (<em>list</em>) &#8211; The list of pipelines that will process the spectrum measured
+<li><strong>pixels</strong> (<em>tuple</em>) – A tuple of pixel dimensions for the camera (default=(512, 512)).</li>
+<li><strong>width</strong> (<em>float</em>) – The CCD sensor x-width in metres (default=35mm).</li>
+<li><strong>etendue</strong> (<em>float</em>) – The etendue of each pixel (default=1.0)</li>
+<li><strong>pipelines</strong> (<em>list</em>) – The list of pipelines that will process the spectrum measured
 at each pixel by the camera (default=RGBPipeline2D()).</li>
-<li><strong>kwargs</strong> &#8211; <a href="#id16"><span class="problematic" id="id17">**</span></a>kwargs and properties from Observer2D and _ObserverBase.</li>
+<li><strong>kwargs</strong> – <a href="#id16"><span class="problematic" id="id17">**</span></a>kwargs and properties from Observer2D and _ObserverBase.</li>
 </ul>
 </td>
 </tr>
@@ -988,15 +991,15 @@ Arguments and attributes are inherited from the base Observer2D sensor class.</p
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pixel_origins</strong> (<em>np.ndarray</em>) &#8211; Numpy array of Point3Ds describing the origin points
+<li><strong>pixel_origins</strong> (<em>np.ndarray</em>) – Numpy array of Point3Ds describing the origin points
 of each pixel. Must have same shape as the pixel dimensions.</li>
-<li><strong>pixel_directions</strong> (<em>np.ndarray</em>) &#8211; Numpy array of Vector3Ds describing the sampling
+<li><strong>pixel_directions</strong> (<em>np.ndarray</em>) – Numpy array of Vector3Ds describing the sampling
 direction vectors of each pixel. Must have same shape as the pixel dimensions.</li>
-<li><strong>etendue</strong> (<em>float</em>) &#8211; The etendue of each pixel (default=1.0)</li>
-<li><strong>frame_sampler</strong> (<a class="reference internal" href="pipelines.html#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><em>FrameSampler2D</em></a>) &#8211; The frame sampling strategy (default=FullFrameSampler2D()).</li>
-<li><strong>pipelines</strong> (<em>list</em>) &#8211; The list of pipelines that will process the spectrum measured
+<li><strong>etendue</strong> (<em>float</em>) – The etendue of each pixel (default=1.0)</li>
+<li><strong>frame_sampler</strong> (<a class="reference internal" href="pipelines.html#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><em>FrameSampler2D</em></a>) – The frame sampling strategy (default=FullFrameSampler2D()).</li>
+<li><strong>pipelines</strong> (<em>list</em>) – The list of pipelines that will process the spectrum measured
 at each pixel by the camera (default=RGBPipeline2D()).</li>
-<li><strong>kwargs</strong> &#8211; <a href="#id18"><span class="problematic" id="id19">**</span></a>kwargs and properties from Observer2D and _ObserverBase.</li>
+<li><strong>kwargs</strong> – <a href="#id18"><span class="problematic" id="id19">**</span></a>kwargs and properties from Observer2D and _ObserverBase.</li>
 </ul>
 </td>
 </tr>
@@ -1066,17 +1069,17 @@ at each pixel by the camera (default=RGBPipeline2D()).</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

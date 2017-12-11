@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="1. Raysect Core" href="core.html"/>
         <link rel="next" title="1.6. Utilities" href="utilities.html"/>
@@ -71,7 +74,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -102,9 +105,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">3. Downloading and Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">4. How it works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">5. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">6. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../materials.html">7. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../observers.html">8. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materials.html">8. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../conventions.html">9. Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
@@ -179,7 +182,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api_reference/core/render_engines.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api_reference/core/render_engines.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -203,14 +206,14 @@
 system performing the work. It is intended that render engines may be built
 that provide rendering on single cores, multi-cores (SMP) and clusters.</p>
 <p>The basic workflow is as follows. The render task is split into small,
-self-contained chunks of work - &#8216;tasks&#8217;. These tasks are passed to the
+self-contained chunks of work - ‘tasks’. These tasks are passed to the
 render engine which distributes the work to the available computing
-resources. These discrete computing resources are know as &#8220;workers&#8221;.
+resources. These discrete computing resources are know as “workers”.
 Workers process one task at a time and return their result to the render
 engine. When results are received the render engine assembles them into
 the final result.</p>
 <p>This workflow is implemented by supplying a set of tasks and two methods to
-the render engines&#8217; run() method which processes those tasks. The functions
+the render engines’ run() method which processes those tasks. The functions
 supplied to the run() method may be given additional args and kwargs.</p>
 <p>A worker calls render for each task object received. render has the following signature:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="o">*</span><span class="n">render_args</span><span class="p">,</span> <span class="o">**</span><span class="n">render_kwargs</span><span class="p">)</span>
@@ -234,14 +237,14 @@ this must be a picklable python object.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>tasks</strong> (<em>list</em>) &#8211; List of user defined tuples that describe the task to execute.</li>
-<li><strong>render</strong> (<em>object</em>) &#8211; Callable python object that executes the tasks.</li>
-<li><strong>update</strong> (<em>object</em>) &#8211; Callable python object that is called following a render task and must be
+<li><strong>tasks</strong> (<em>list</em>) – List of user defined tuples that describe the task to execute.</li>
+<li><strong>render</strong> (<em>object</em>) – Callable python object that executes the tasks.</li>
+<li><strong>update</strong> (<em>object</em>) – Callable python object that is called following a render task and must be
 used to update the internal state of the object requesting work.</li>
-<li><strong>render_args</strong> (<em>tuple</em>) &#8211; Additional arguments to pass to user defined render function.</li>
-<li><strong>render_kwargs</strong> (<em>tuple</em>) &#8211; Additional keyword arguments to pass to user defined render function.</li>
-<li><strong>update_args</strong> (<em>tuple</em>) &#8211; Additional arguments to pass to user defined update function.</li>
-<li><strong>update_kwargs</strong> (<em>tuple</em>) &#8211; Additional keyword arguments to pass to user defined update function.</li>
+<li><strong>render_args</strong> (<em>tuple</em>) – Additional arguments to pass to user defined render function.</li>
+<li><strong>render_kwargs</strong> (<em>tuple</em>) – Additional keyword arguments to pass to user defined render function.</li>
+<li><strong>update_args</strong> (<em>tuple</em>) – Additional arguments to pass to user defined update function.</li>
+<li><strong>update_kwargs</strong> (<em>tuple</em>) – Additional keyword arguments to pass to user defined update function.</li>
 </ul>
 </td>
 </tr>
@@ -279,7 +282,7 @@ of CPU cores detected on the machine.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>processes</strong> &#8211; The number of worker processes, or None to use all available cores (default).</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>processes</strong> – The number of worker processes, or None to use all available cores (default).</td>
 </tr>
 </tbody>
 </table>
@@ -331,17 +334,17 @@ of CPU cores detected on the machine.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

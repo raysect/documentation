@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="3. Optical Module" href="optical.html"/>
         <link rel="next" title="3.4. Optical Material Base Classes" href="optical_material_base_classes.html"/>
@@ -71,7 +74,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -102,9 +105,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">3. Downloading and Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">4. How it works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">5. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">6. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../materials.html">7. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../observers.html">8. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materials.html">8. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../conventions.html">9. Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
@@ -131,7 +134,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#rgb">3.3.2. RGB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#bayer">3.3.3. Bayer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#power">3.3.4. Power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#spectral">3.3.5. Spectral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#radiance">3.3.5. Radiance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spectral">3.3.6. Spectral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#frame-samplers">3.3.7. Frame Samplers</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="optical_material_base_classes.html">3.4. Optical Material Base Classes</a></li>
@@ -191,7 +196,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api_reference/optical/pipelines.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api_reference/optical/pipelines.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -224,13 +229,13 @@ or adaptively select pixels to sample based on their noise level.</p>
 <p>Must return a list of tuples where each tuple contains the id of a pixel
 to render. For example:</p>
 <blockquote>
-<div>tasks = [(1,), (5,), (512,), ...]</div></blockquote>
+<div>tasks = [(1,), (5,), (512,), …]</div></blockquote>
 <p>This is a virtual method and must be implemented in a sub class.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pixels</strong> (<em>int</em>) &#8211; The number of pixels in the frame.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pixels</strong> (<em>int</em>) – The number of pixels in the frame.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
 </tr>
@@ -251,13 +256,13 @@ to render. For example:</p>
 <p>Must return a list of tuples where each tuple contains the id of a pixel
 to render. For example:</p>
 <blockquote>
-<div>tasks = [(1, 10), (5, 53), (512, 354), ...]</div></blockquote>
+<div>tasks = [(1, 10), (5, 53), (512, 354), …]</div></blockquote>
 <p>This is a virtual method and must be implemented in a sub class.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pixels</strong> (<em>tuple</em>) &#8211; Contains the (x, y) pixel dimensions of the frame.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pixels</strong> (<em>tuple</em>) – Contains the (x, y) pixel dimensions of the frame.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list</td>
 </tr>
@@ -300,8 +305,8 @@ processor. These results are sent back to the process handling the frame assembl
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) &#8211; The sampled spectrum.</li>
-<li><strong>etendue</strong> (<em>float</em>) &#8211; The pixel etendue.</li>
+<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – The sampled spectrum.</li>
+<li><strong>etendue</strong> (<em>float</em>) – The pixel etendue.</li>
 </ul>
 </td>
 </tr>
@@ -353,7 +358,7 @@ final visualisation of results.</p>
 <dl class="method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline0D.initialise">
 <code class="descname">initialise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline0D.initialise" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialises containers for the pipeline&#8217;s processing output.</p>
+<dd><p>Initialises containers for the pipeline’s processing output.</p>
 <p>The deriving class should use this method to perform any initialisation needed
 for their calculations.</p>
 <p>This is a virtual method and must be implemented in a sub class.</p>
@@ -362,12 +367,12 @@ for their calculations.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; The minimum wavelength in the spectral range.</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; The maximum wavelength in the spectral range.</li>
-<li><strong>spectral_bins</strong> (<em>int</em>) &#8211; Number of spectral samples across wavelength range.</li>
-<li><strong>spectral_slices</strong> (<em>list</em>) &#8211; List of spectral sub-ranges for cases where spectral
+<li><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in the spectral range.</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in the spectral range.</li>
+<li><strong>spectral_bins</strong> (<em>int</em>) – Number of spectral samples across wavelength range.</li>
+<li><strong>spectral_slices</strong> (<em>list</em>) – List of spectral sub-ranges for cases where spectral
 rays is &gt; 1 (i.e. dispersion effects turned on).</li>
-<li><strong>quiet</strong> (<em>bool</em>) &#8211; When True, suppresses output to the terminal.</li>
+<li><strong>quiet</strong> (<em>bool</em>) – When True, suppresses output to the terminal.</li>
 </ul>
 </td>
 </tr>
@@ -386,7 +391,7 @@ processing the output of their work from each pipeline.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>slice_id</strong> (<em>int</em>) &#8211; The integer identifying the spectral slice being worked on
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>slice_id</strong> (<em>int</em>) – The integer identifying the spectral slice being worked on
 by the requesting worker thread.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.optical.observer.base.processor.PixelProcessor" title="raysect.optical.observer.base.processor.PixelProcessor">PixelProcessor</a></td>
@@ -410,11 +415,11 @@ at the end of this method.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>slice_id</strong> (<em>int</em>) &#8211; The integer identifying the spectral slice being worked on
+<li><strong>slice_id</strong> (<em>int</em>) – The integer identifying the spectral slice being worked on
 by the worker thread.</li>
-<li><strong>packed_result</strong> (<em>tuple</em>) &#8211; The tuple of results generated by this pipeline&#8217;s
+<li><strong>packed_result</strong> (<em>tuple</em>) – The tuple of results generated by this pipeline’s
 PixelProcessor.</li>
-<li><strong>samples</strong> (<em>int</em>) &#8211; The number of samples taken by the worker. Needed for ensuring
+<li><strong>samples</strong> (<em>int</em>) – The number of samples taken by the worker. Needed for ensuring
 accuracy of statistical errors when combining new samples with previous results.</li>
 </ul>
 </td>
@@ -443,7 +448,7 @@ final visualisation of results.</p>
 <dl class="method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline1D.initialise">
 <code class="descname">initialise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline1D.initialise" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialises containers for the pipeline&#8217;s processing output.</p>
+<dd><p>Initialises containers for the pipeline’s processing output.</p>
 <p>The deriving class should use this method to perform any initialisation needed
 for their calculations.</p>
 <p>This is a virtual method and must be implemented in a sub class.</p>
@@ -452,16 +457,16 @@ for their calculations.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pixels</strong> (<em>tuple</em>) &#8211; A tuple defining the pixel dimensions being sampled
+<li><strong>pixels</strong> (<em>tuple</em>) – A tuple defining the pixel dimensions being sampled
 (i.e. (256,)).</li>
-<li><strong>pixel_samples</strong> (<em>int</em>) &#8211; The number of samples being taken per pixel. Needed
+<li><strong>pixel_samples</strong> (<em>int</em>) – The number of samples being taken per pixel. Needed
 for statistical calculations.</li>
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; The minimum wavelength in the spectral range.</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; The maximum wavelength in the spectral range.</li>
-<li><strong>spectral_bins</strong> (<em>int</em>) &#8211; Number of spectral samples across wavelength range.</li>
-<li><strong>spectral_slices</strong> (<em>list</em>) &#8211; List of spectral sub-ranges for cases where spectral
+<li><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in the spectral range.</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in the spectral range.</li>
+<li><strong>spectral_bins</strong> (<em>int</em>) – Number of spectral samples across wavelength range.</li>
+<li><strong>spectral_slices</strong> (<em>list</em>) – List of spectral sub-ranges for cases where spectral
 rays is &gt; 1 (i.e. dispersion effects turned on).</li>
-<li><strong>quiet</strong> (<em>bool</em>) &#8211; When True, suppresses output to the terminal.</li>
+<li><strong>quiet</strong> (<em>bool</em>) – When True, suppresses output to the terminal.</li>
 </ul>
 </td>
 </tr>
@@ -481,8 +486,8 @@ the pixel they are processing.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>pixel</strong> (<em>int</em>) &#8211; The pixel coordinate of the pixel being sampled by the worker.</li>
-<li><strong>slice_id</strong> (<em>int</em>) &#8211; The integer identifying the spectral slice being worked on
+<li><strong>pixel</strong> (<em>int</em>) – The pixel coordinate of the pixel being sampled by the worker.</li>
+<li><strong>slice_id</strong> (<em>int</em>) – The integer identifying the spectral slice being worked on
 by the requesting worker thread.</li>
 </ul>
 </td>
@@ -501,7 +506,7 @@ by the requesting worker thread.</li>
 <p>After worker threads have observed the world and used the pixel processor to
 process the spectra into packed results, the worker then passes the packed results
 for the current pixel to the pipeline with the update() method. This method should
-add the results for this pixel to the pipeline&#8217;s results array.</p>
+add the results for this pixel to the pipeline’s results array.</p>
 <p>If this pipeline implements some form of visualisation, update the visualisation
 at the end of this method.</p>
 <p>This is a virtual method and must be implemented in a sub class.</p>
@@ -510,10 +515,10 @@ at the end of this method.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pixel</strong> (<em>int</em>) &#8211; The integer identifying the pixel being worked on.</li>
-<li><strong>slice_id</strong> (<em>int</em>) &#8211; The integer identifying the spectral slice being worked on
+<li><strong>pixel</strong> (<em>int</em>) – The integer identifying the pixel being worked on.</li>
+<li><strong>slice_id</strong> (<em>int</em>) – The integer identifying the spectral slice being worked on
 by the worker thread.</li>
-<li><strong>packed_result</strong> (<em>tuple</em>) &#8211; The tuple of results generated by this pipeline&#8217;s
+<li><strong>packed_result</strong> (<em>tuple</em>) – The tuple of results generated by this pipeline’s
 PixelProcessor.</li>
 </ul>
 </td>
@@ -542,7 +547,7 @@ final visualisation of results.</p>
 <dl class="method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline2D.initialise">
 <code class="descname">initialise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline2D.initialise" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialises containers for the pipeline&#8217;s processing output.</p>
+<dd><p>Initialises containers for the pipeline’s processing output.</p>
 <p>The deriving class should use this method to perform any initialisation needed
 for their calculations.</p>
 <p>This is a virtual method and must be implemented in a sub class.</p>
@@ -551,16 +556,16 @@ for their calculations.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pixels</strong> (<em>tuple</em>) &#8211; A tuple defining the pixel dimensions being sampled
+<li><strong>pixels</strong> (<em>tuple</em>) – A tuple defining the pixel dimensions being sampled
 (i.e. (512, 512)).</li>
-<li><strong>pixel_samples</strong> (<em>int</em>) &#8211; The number of samples being taken per pixel. Needed
+<li><strong>pixel_samples</strong> (<em>int</em>) – The number of samples being taken per pixel. Needed
 for statistical calculations.</li>
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; The minimum wavelength in the spectral range.</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; The maximum wavelength in the spectral range.</li>
-<li><strong>spectral_bins</strong> (<em>int</em>) &#8211; Number of spectral samples across wavelength range.</li>
-<li><strong>spectral_slices</strong> (<em>list</em>) &#8211; List of spectral sub-ranges for cases where spectral
+<li><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in the spectral range.</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in the spectral range.</li>
+<li><strong>spectral_bins</strong> (<em>int</em>) – Number of spectral samples across wavelength range.</li>
+<li><strong>spectral_slices</strong> (<em>list</em>) – List of spectral sub-ranges for cases where spectral
 rays is &gt; 1 (i.e. dispersion effects turned on).</li>
-<li><strong>quiet</strong> (<em>bool</em>) &#8211; When True, suppresses output to the terminal.</li>
+<li><strong>quiet</strong> (<em>bool</em>) – When True, suppresses output to the terminal.</li>
 </ul>
 </td>
 </tr>
@@ -580,9 +585,9 @@ the pixel they are currently processing.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>int</em>) &#8211; The x pixel coordinate (x, y) of the pixel being sampled by the worker.</li>
-<li><strong>y</strong> (<em>int</em>) &#8211; The y pixel coordinate (x, y) of the pixel being sampled by the worker.</li>
-<li><strong>slice_id</strong> (<em>int</em>) &#8211; The integer identifying the spectral slice being worked on
+<li><strong>x</strong> (<em>int</em>) – The x pixel coordinate (x, y) of the pixel being sampled by the worker.</li>
+<li><strong>y</strong> (<em>int</em>) – The y pixel coordinate (x, y) of the pixel being sampled by the worker.</li>
+<li><strong>slice_id</strong> (<em>int</em>) – The integer identifying the spectral slice being worked on
 by the requesting worker thread.</li>
 </ul>
 </td>
@@ -601,7 +606,7 @@ by the requesting worker thread.</li>
 <p>After worker threads have observed the world and used the pixel processor to
 process the spectra into packed results, the worker then passes the packed results
 for the current pixel to the pipeline with the update() method. This method should
-add the results for this pixel to the pipeline&#8217;s results array.</p>
+add the results for this pixel to the pipeline’s results array.</p>
 <p>If this pipeline implements some form of visualisation, update the visualisation
 at the end of this method.</p>
 <p>This is a virtual method and must be implemented in a sub class.</p>
@@ -610,11 +615,11 @@ at the end of this method.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>int</em>) &#8211; The x pixel coordinate (x, y) of the pixel being sampled by the worker.</li>
-<li><strong>y</strong> (<em>int</em>) &#8211; The y pixel coordinate (x, y) of the pixel being sampled by the worker.</li>
-<li><strong>slice_id</strong> (<em>int</em>) &#8211; The integer identifying the spectral slice being worked on
+<li><strong>x</strong> (<em>int</em>) – The x pixel coordinate (x, y) of the pixel being sampled by the worker.</li>
+<li><strong>y</strong> (<em>int</em>) – The y pixel coordinate (x, y) of the pixel being sampled by the worker.</li>
+<li><strong>slice_id</strong> (<em>int</em>) – The integer identifying the spectral slice being worked on
 by the worker thread.</li>
-<li><strong>packed_result</strong> (<em>tuple</em>) &#8211; The tuple of results generated by this pipeline&#8217;s
+<li><strong>packed_result</strong> (<em>tuple</em>) – The tuple of results generated by this pipeline’s
 PixelProcessor.</li>
 </ul>
 </td>
@@ -644,20 +649,20 @@ default pipeline for most 2D observers.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>display_progress</strong> (<em>bool</em>) &#8211; Toggles the display of live render progress
+<li><strong>display_progress</strong> (<em>bool</em>) – Toggles the display of live render progress
 (default=True).</li>
-<li><strong>display_update_time</strong> (<em>float</em>) &#8211; Time in seconds between preview display
+<li><strong>display_update_time</strong> (<em>float</em>) – Time in seconds between preview display
 updates (default=15 seconds).</li>
-<li><strong>accumulate</strong> (<em>bool</em>) &#8211; Whether to accumulate samples with subsequent calls
+<li><strong>accumulate</strong> (<em>bool</em>) – Whether to accumulate samples with subsequent calls
 to observe() (default=True).</li>
-<li><strong>display_auto_exposure</strong> (<em>bool</em>) &#8211; Toggles the use of automatic exposure of
+<li><strong>display_auto_exposure</strong> (<em>bool</em>) – Toggles the use of automatic exposure of
 final images (default=True).</li>
-<li><strong>display_sensitivity</strong> (<em>float</em>) &#8211; The sensitivity of the camera, effectively
+<li><strong>display_sensitivity</strong> (<em>float</em>) – The sensitivity of the camera, effectively
 inverse of the exposure time (default=1.0).</li>
-<li><strong>display_unsaturated_fraction</strong> (<em>float</em>) &#8211; Fraction of pixels that must not
+<li><strong>display_unsaturated_fraction</strong> (<em>float</em>) – Fraction of pixels that must not
 be saturated. Display values will be scaled to satisfy this value
 (default=1.0).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; User friendly name for this pipeline.</li>
+<li><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline.</li>
 </ul>
 </td>
 </tr>
@@ -736,7 +741,7 @@ process the image prior saving.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) &#8211; Image path and filename.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) – Image path and filename.</td>
 </tr>
 </tbody>
 </table>
@@ -748,36 +753,8 @@ process the image prior saving.</p>
 <dt id="raysect.optical.observer.pipeline.rgb.XYZPixelProcessor">
 <em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.rgb.</code><code class="descname">XYZPixelProcessor</code><a class="headerlink" href="#raysect.optical.observer.pipeline.rgb.XYZPixelProcessor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.processor.PixelProcessor" title="raysect.optical.observer.base.processor.PixelProcessor"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.processor.PixelProcessor</span></code></a></p>
-<p>PixelProcessor that converts each pixel&#8217;s spectrum into three
+<p>PixelProcessor that converts each pixel’s spectrum into three
 XYZ colourspace values.</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="raysect.optical.observer.pipeline.rgb.RGBAdaptiveSampler2D">
-<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.rgb.</code><code class="descname">RGBAdaptiveSampler2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.rgb.RGBAdaptiveSampler2D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler2D</span></code></a></p>
-<p>FrameSampler that dynamically adjusts a camera&#8217;s pixel samples based on the noise
-level in each RGB pixel value.</p>
-<p>Pixels that have high noise levels will receive extra samples until the desired
-noise threshold is achieve across the whole image.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pipeline</strong> (<a class="reference internal" href="#raysect.optical.observer.pipeline.rgb.RGBPipeline2D" title="raysect.optical.observer.pipeline.rgb.RGBPipeline2D"><em>RGBPipeline2D</em></a>) &#8211; The specific RGB pipeline to use for feedback control.</li>
-<li><strong>fraction</strong> (<em>float</em>) &#8211; The fraction of frame pixels to receive extra sampling
-(default=0.2).</li>
-<li><strong>ratio</strong> (<em>float</em>) &#8211; </li>
-<li><strong>min_samples</strong> (<em>int</em>) &#8211; Minimum number of pixel samples across the image before
-turning on adaptive sampling (default=1000).</li>
-<li><strong>cutoff</strong> (<em>double</em>) &#8211; Noise threshold at which extra sampling will be aborted and
-rendering will complete (default=0.0).</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
 </div>
@@ -800,26 +777,26 @@ eye interpolates these values to create other colours. See
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>red_filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; The spectral function representing the red pixel filter.</li>
-<li><strong>green_filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; The spectral function representing the green pixel filter.</li>
-<li><strong>blue_filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; The spectral function representing the blue pixel filter.</li>
-<li><strong>display_progress</strong> (<em>bool</em>) &#8211; Toggles the display of live render progress (default=True).</li>
-<li><strong>display_update_time</strong> (<em>float</em>) &#8211; Time in seconds between preview display
+<li><strong>red_filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – The spectral function representing the red pixel filter.</li>
+<li><strong>green_filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – The spectral function representing the green pixel filter.</li>
+<li><strong>blue_filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – The spectral function representing the blue pixel filter.</li>
+<li><strong>display_progress</strong> (<em>bool</em>) – Toggles the display of live render progress (default=True).</li>
+<li><strong>display_update_time</strong> (<em>float</em>) – Time in seconds between preview display
 updates (default=15 seconds).</li>
-<li><strong>accumulate</strong> (<em>bool</em>) &#8211; Whether to accumulate samples with subsequent calls
+<li><strong>accumulate</strong> (<em>bool</em>) – Whether to accumulate samples with subsequent calls
 to observe() (default=True).</li>
-<li><strong>display_auto_exposure</strong> (<em>bool</em>) &#8211; Toggles the use of automatic exposure of
+<li><strong>display_auto_exposure</strong> (<em>bool</em>) – Toggles the use of automatic exposure of
 final images (default=True).</li>
-<li><strong>display_black_point</strong> (<em>float</em>) &#8211; Lower clamp point for pixel to appear black
+<li><strong>display_black_point</strong> (<em>float</em>) – Lower clamp point for pixel to appear black
 (default=0.0).</li>
-<li><strong>display_white_point</strong> (<em>float</em>) &#8211; Upper clamp point for pixel saturation
+<li><strong>display_white_point</strong> (<em>float</em>) – Upper clamp point for pixel saturation
 (default=1.0).</li>
-<li><strong>display_unsaturated_fraction</strong> (<em>float</em>) &#8211; Fraction of pixels that must not
+<li><strong>display_unsaturated_fraction</strong> (<em>float</em>) – Fraction of pixels that must not
 be saturated. Display values will be scaled to satisfy this value
 (default=1.0).</li>
-<li><strong>display_gamma</strong> (<em>float</em>) &#8211; Gamma exponent to account for non-linear response of
+<li><strong>display_gamma</strong> (<em>float</em>) – Gamma exponent to account for non-linear response of
 display screens (default=2.2).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; User friendly name for this pipeline (default=&#8221;Bayer Pipeline&#8221;).</li>
+<li><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline (default=”Bayer Pipeline”).</li>
 </ul>
 </td>
 </tr>
@@ -930,7 +907,7 @@ process the image prior saving.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) &#8211; Image path and filename.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) – Image path and filename.</td>
 </tr>
 </tbody>
 </table>
@@ -942,8 +919,8 @@ process the image prior saving.</p>
 <div class="section" id="power">
 <h2>3.3.4. Power<a class="headerlink" href="#power" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="raysect.optical.observer.pipeline.power.PowerPipeline0D">
-<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.power.</code><code class="descname">PowerPipeline0D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.power.PowerPipeline0D" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.optical.observer.pipeline.mono.PowerPipeline0D">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.mono.</code><code class="descname">PowerPipeline0D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline0D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline0D" title="raysect.optical.observer.base.pipeline.Pipeline0D"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline0D</span></code></a></p>
 <p>A power pipeline for 0D observers.</p>
 <p>The raw spectrum collected by the observer is multiplied by a spectra filter
@@ -955,10 +932,10 @@ respectively.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; A filter function to be multiplied with the
+<li><strong>filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – A filter function to be multiplied with the
 measured spectrum.</li>
-<li><strong>accumulate</strong> (<em>bool</em>) &#8211; </li>
-<li><strong>name</strong> (<em>str</em>) &#8211; User friendly name for this pipeline.</li>
+<li><strong>accumulate</strong> (<em>bool</em>) – </li>
+<li><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline.</li>
 </ul>
 </td>
 </tr>
@@ -967,8 +944,8 @@ measured spectrum.</li>
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.optical.observer.pipeline.power.PowerPipeline2D">
-<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.power.</code><code class="descname">PowerPipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.power.PowerPipeline2D" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.optical.observer.pipeline.mono.PowerPipeline2D">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.mono.</code><code class="descname">PowerPipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline2D" title="raysect.optical.observer.base.pipeline.Pipeline2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline2D</span></code></a></p>
 <p>A power pipeline for 2D observers.</p>
 <p>The raw spectrum collected at each pixel by the observer is multiplied by
@@ -981,31 +958,31 @@ respectively.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; A filter function to be multiplied with the
+<li><strong>filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – A filter function to be multiplied with the
 measured spectrum.</li>
-<li><strong>display_progress</strong> (<em>bool</em>) &#8211; Toggles the display of live render progress
+<li><strong>display_progress</strong> (<em>bool</em>) – Toggles the display of live render progress
 (default=True).</li>
-<li><strong>display_update_time</strong> (<em>float</em>) &#8211; Time in seconds between preview display
+<li><strong>display_update_time</strong> (<em>float</em>) – Time in seconds between preview display
 updates (default=15 seconds).</li>
-<li><strong>accumulate</strong> (<em>bool</em>) &#8211; Whether to accumulate samples with subsequent calls
+<li><strong>accumulate</strong> (<em>bool</em>) – Whether to accumulate samples with subsequent calls
 to observe() (default=True).</li>
-<li><strong>display_auto_exposure</strong> (<em>bool</em>) &#8211; Toggles the use of automatic exposure of
+<li><strong>display_auto_exposure</strong> (<em>bool</em>) – Toggles the use of automatic exposure of
 final images (default=True).</li>
-<li><strong>display_black_point</strong> (<em>float</em>) &#8211; </li>
-<li><strong>display_white_point</strong> (<em>float</em>) &#8211; </li>
-<li><strong>display_unsaturated_fraction</strong> (<em>float</em>) &#8211; Fraction of pixels that must not
+<li><strong>display_black_point</strong> (<em>float</em>) – </li>
+<li><strong>display_white_point</strong> (<em>float</em>) – </li>
+<li><strong>display_unsaturated_fraction</strong> (<em>float</em>) – Fraction of pixels that must not
 be saturated. Display values will be scaled to satisfy this value
 (default=1.0).</li>
-<li><strong>display_gamma</strong> (<em>float</em>) &#8211; </li>
-<li><strong>name</strong> (<em>str</em>) &#8211; User friendly name for this pipeline.</li>
+<li><strong>display_gamma</strong> (<em>float</em>) – </li>
+<li><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <dl class="attribute">
-<dt id="raysect.optical.observer.pipeline.power.PowerPipeline2D.display_auto_exposure">
-<code class="descname">display_auto_exposure</code><a class="headerlink" href="#raysect.optical.observer.pipeline.power.PowerPipeline2D.display_auto_exposure" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.optical.observer.pipeline.mono.PowerPipeline2D.display_auto_exposure">
+<code class="descname">display_auto_exposure</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline2D.display_auto_exposure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Toggles the use of automatic exposure on final image.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1018,8 +995,8 @@ be saturated. Display values will be scaled to satisfy this value
 </dd></dl>
 
 <dl class="attribute">
-<dt id="raysect.optical.observer.pipeline.power.PowerPipeline2D.display_unsaturated_fraction">
-<code class="descname">display_unsaturated_fraction</code><a class="headerlink" href="#raysect.optical.observer.pipeline.power.PowerPipeline2D.display_unsaturated_fraction" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.optical.observer.pipeline.mono.PowerPipeline2D.display_unsaturated_fraction">
+<code class="descname">display_unsaturated_fraction</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline2D.display_unsaturated_fraction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fraction of pixels that must not be saturated. Display values will
 be scaled to satisfy this value.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1033,8 +1010,8 @@ be scaled to satisfy this value.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="raysect.optical.observer.pipeline.power.PowerPipeline2D.display_update_time">
-<code class="descname">display_update_time</code><a class="headerlink" href="#raysect.optical.observer.pipeline.power.PowerPipeline2D.display_update_time" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.optical.observer.pipeline.mono.PowerPipeline2D.display_update_time">
+<code class="descname">display_update_time</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline2D.display_update_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Time in seconds between preview display updates.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1047,8 +1024,8 @@ be scaled to satisfy this value.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="raysect.optical.observer.pipeline.power.PowerPipeline2D.save">
-<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.pipeline.power.PowerPipeline2D.save" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.optical.observer.pipeline.mono.PowerPipeline2D.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline2D.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves the display image to a png file.</p>
 <p>The current display settings (exposure, gamma, etc..) are used to
 process the image prior saving.</p>
@@ -1056,7 +1033,7 @@ process the image prior saving.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) &#8211; Image path and filename.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> (<em>str</em>) – Image path and filename.</td>
 </tr>
 </tbody>
 </table>
@@ -1065,36 +1042,35 @@ process the image prior saving.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.optical.observer.pipeline.power.PowerPixelProcessor">
-<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.power.</code><code class="descname">PowerPixelProcessor</code><a class="headerlink" href="#raysect.optical.observer.pipeline.power.PowerPixelProcessor" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.optical.observer.pipeline.mono.power.PowerPixelProcessor">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.mono.power.</code><code class="descname">PowerPixelProcessor</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.power.PowerPixelProcessor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.processor.PixelProcessor" title="raysect.optical.observer.base.processor.PixelProcessor"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.processor.PixelProcessor</span></code></a></p>
-<p>PixelProcessor that converts each pixel&#8217;s spectrum into total power by
+<p>PixelProcessor that converts each pixel’s spectrum into total power by
 integrating over the spectrum and multiplying the resulting radiance
-value by the pixel&#8217;s etendue.</p>
+value by the pixel’s etendue.</p>
 </dd></dl>
 
+</div>
+<div class="section" id="radiance">
+<h2>3.3.5. Radiance<a class="headerlink" href="#radiance" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="raysect.optical.observer.pipeline.power.PowerAdaptiveSampler2D">
-<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.power.</code><code class="descname">PowerAdaptiveSampler2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.power.PowerAdaptiveSampler2D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler2D</span></code></a></p>
-<p>FrameSampler that dynamically adjusts a camera&#8217;s pixel samples based on the noise
-level in each pixel&#8217;s power value.</p>
-<p>Pixels that have high noise levels will receive extra samples until the desired
-noise threshold is achieve across the whole image.</p>
+<dt id="raysect.optical.observer.pipeline.mono.RadiancePipeline0D">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.mono.</code><code class="descname">RadiancePipeline0D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.RadiancePipeline0D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.pipeline.mono.power.PowerPipeline0D</span></code></p>
+<p>A radiance pipeline for 0D observers.</p>
+<p>The raw spectrum collected by the observer is multiplied by a spectra filter
+and integrated to give to total radiance collected (W/str/m^2).</p>
+<p>The measured value and error are accessed at self.value.mean and self.value.error
+respectively.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>pipeline</strong> (<a class="reference internal" href="#raysect.optical.observer.pipeline.power.PowerPipeline2D" title="raysect.optical.observer.pipeline.power.PowerPipeline2D"><em>PowerPipeline2D</em></a>) &#8211; The specific power pipeline to use for feedback control.</li>
-<li><strong>fraction</strong> (<em>float</em>) &#8211; The fraction of frame pixels to receive extra sampling
-(default=0.2).</li>
-<li><strong>ratio</strong> (<em>float</em>) &#8211; </li>
-<li><strong>min_samples</strong> (<em>int</em>) &#8211; Minimum number of pixel samples across the image before
-turning on adaptive sampling (default=1000).</li>
-<li><strong>cutoff</strong> (<em>double</em>) &#8211; Normalised noise threshold at which extra sampling will be aborted and
-rendering will complete (default=0.0). The standard error is normalised to 1 so that a
-cutoff of 0.01 corresponds to 1% standard error.</li>
+<li><strong>filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – A filter function to be multiplied with the
+measured spectrum.</li>
+<li><strong>accumulate</strong> (<em>bool</em>) – </li>
+<li><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline.</li>
 </ul>
 </td>
 </tr>
@@ -1102,9 +1078,56 @@ cutoff of 0.01 corresponds to 1% standard error.</li>
 </table>
 </dd></dl>
 
+<dl class="class">
+<dt id="raysect.optical.observer.pipeline.mono.RadiancePipeline2D">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.mono.</code><code class="descname">RadiancePipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.RadiancePipeline2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.pipeline.mono.power.PowerPipeline2D</span></code></p>
+<p>A radiance pipeline for 2D observers.</p>
+<p>The raw spectrum collected at each pixel by the observer is multiplied by
+a spectral filter and integrated to give to total radiance collected at that
+pixel (W/str/m^2).</p>
+<p>The measured value and error for each pixel are accessed at self.frame.mean and self.frame.error
+respectively.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – A filter function to be multiplied with the
+measured spectrum.</li>
+<li><strong>display_progress</strong> (<em>bool</em>) – Toggles the display of live render progress
+(default=True).</li>
+<li><strong>display_update_time</strong> (<em>float</em>) – Time in seconds between preview display
+updates (default=15 seconds).</li>
+<li><strong>accumulate</strong> (<em>bool</em>) – Whether to accumulate samples with subsequent calls
+to observe() (default=True).</li>
+<li><strong>display_auto_exposure</strong> (<em>bool</em>) – Toggles the use of automatic exposure of
+final images (default=True).</li>
+<li><strong>display_black_point</strong> (<em>float</em>) – </li>
+<li><strong>display_white_point</strong> (<em>float</em>) – </li>
+<li><strong>display_unsaturated_fraction</strong> (<em>float</em>) – Fraction of pixels that must not
+be saturated. Display values will be scaled to satisfy this value
+(default=1.0).</li>
+<li><strong>display_gamma</strong> (<em>float</em>) – </li>
+<li><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.pipeline.mono.radiance.RadiancePixelProcessor">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.mono.radiance.</code><code class="descname">RadiancePixelProcessor</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.radiance.RadiancePixelProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.processor.PixelProcessor" title="raysect.optical.observer.base.processor.PixelProcessor"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.processor.PixelProcessor</span></code></a></p>
+<p>PixelProcessor that converts each pixel’s spectrum into total radiance by
+integrating over the spectrum.</p>
+</dd></dl>
+
 </div>
 <div class="section" id="spectral">
-<h2>3.3.5. Spectral<a class="headerlink" href="#spectral" title="Permalink to this headline">¶</a></h2>
+<h2>3.3.6. Spectral<a class="headerlink" href="#spectral" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline0D">
 <em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="descname">SpectralPowerPipeline0D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline0D" title="Permalink to this definition">¶</a></dt>
@@ -1118,9 +1141,9 @@ error on each wavelength bin.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>accumulate</strong> (<em>bool</em>) &#8211; Whether to accumulate samples with subsequent calls
+<li><strong>accumulate</strong> (<em>bool</em>) – Whether to accumulate samples with subsequent calls
 to observe() (default=True).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; User friendly name for this pipeline.</li>
+<li><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline.</li>
 </ul>
 </td>
 </tr>
@@ -1141,9 +1164,9 @@ error on each wavelength bin.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>accumulate</strong> (<em>bool</em>) &#8211; Whether to accumulate samples with subsequent calls
+<li><strong>accumulate</strong> (<em>bool</em>) – Whether to accumulate samples with subsequent calls
 to observe() (default=True).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; User friendly name for this pipeline.</li>
+<li><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline.</li>
 </ul>
 </td>
 </tr>
@@ -1170,9 +1193,9 @@ error on each wavelength bin in a 2D frame object.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>accumulate</strong> (<em>bool</em>) &#8211; Whether to accumulate samples with subsequent calls
+<li><strong>accumulate</strong> (<em>bool</em>) – Whether to accumulate samples with subsequent calls
 to observe() (default=True).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; User friendly name for this pipeline.</li>
+<li><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline.</li>
 </ul>
 </td>
 </tr>
@@ -1193,9 +1216,9 @@ error on each wavelength bin in a 2D frame object.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>accumulate</strong> (<em>bool</em>) &#8211; Whether to accumulate samples with subsequent calls
+<li><strong>accumulate</strong> (<em>bool</em>) – Whether to accumulate samples with subsequent calls
 to observe() (default=True).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; User friendly name for this pipeline.</li>
+<li><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline.</li>
 </ul>
 </td>
 </tr>
@@ -1221,6 +1244,72 @@ to observe() (default=True).</li>
 <em class="property">class </em><code class="descclassname">raysect.optical.observer.pipeline.spectral.radiance.</code><code class="descname">SpectralRadiancePixelProcessor</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.radiance.SpectralRadiancePixelProcessor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.processor.PixelProcessor" title="raysect.optical.observer.base.processor.PixelProcessor"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.processor.PixelProcessor</span></code></a></p>
 <p>PixelProcessor that stores the spectral radiance observed by each pixel.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="frame-samplers">
+<h2>3.3.7. Frame Samplers<a class="headerlink" href="#frame-samplers" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="raysect.optical.observer.sampler2d.FullFrameSampler2D">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.sampler2d.</code><code class="descname">FullFrameSampler2D</code><a class="headerlink" href="#raysect.optical.observer.sampler2d.FullFrameSampler2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler2D</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.sampler2d.MonoAdaptiveSampler2D">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.sampler2d.</code><code class="descname">MonoAdaptiveSampler2D</code><a class="headerlink" href="#raysect.optical.observer.sampler2d.MonoAdaptiveSampler2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler2D</span></code></a></p>
+<p>FrameSampler that dynamically adjusts a camera’s pixel samples based on the noise
+level in each pixel’s power value.</p>
+<p>Pixels that have high noise levels will receive extra samples until the desired
+noise threshold is achieve across the whole image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pipeline</strong> (<a class="reference internal" href="#raysect.optical.observer.pipeline.mono.PowerPipeline2D" title="raysect.optical.observer.pipeline.mono.PowerPipeline2D"><em>PowerPipeline2D</em></a>) – The specific power pipeline to use for feedback control.</li>
+<li><strong>fraction</strong> (<em>float</em>) – The fraction of frame pixels to receive extra sampling
+(default=0.2).</li>
+<li><strong>ratio</strong> (<em>float</em>) – </li>
+<li><strong>min_samples</strong> (<em>int</em>) – Minimum number of pixel samples across the image before
+turning on adaptive sampling (default=1000).</li>
+<li><strong>cutoff</strong> (<em>double</em>) – Normalised noise threshold at which extra sampling will be aborted and
+rendering will complete (default=0.0). The standard error is normalised to 1 so that a
+cutoff of 0.01 corresponds to 1% standard error.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.sampler2d.RGBAdaptiveSampler2D">
+<em class="property">class </em><code class="descclassname">raysect.optical.observer.sampler2d.</code><code class="descname">RGBAdaptiveSampler2D</code><a class="headerlink" href="#raysect.optical.observer.sampler2d.RGBAdaptiveSampler2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler2D</span></code></a></p>
+<p>FrameSampler that dynamically adjusts a camera’s pixel samples based on the noise
+level in each RGB pixel value.</p>
+<p>Pixels that have high noise levels will receive extra samples until the desired
+noise threshold is achieve across the whole image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pipeline</strong> (<a class="reference internal" href="#raysect.optical.observer.pipeline.rgb.RGBPipeline2D" title="raysect.optical.observer.pipeline.rgb.RGBPipeline2D"><em>RGBPipeline2D</em></a>) – The specific RGB pipeline to use for feedback control.</li>
+<li><strong>fraction</strong> (<em>float</em>) – The fraction of frame pixels to receive extra sampling
+(default=0.2).</li>
+<li><strong>ratio</strong> (<em>float</em>) – </li>
+<li><strong>min_samples</strong> (<em>int</em>) – Minimum number of pixel samples across the image before
+turning on adaptive sampling (default=1000).</li>
+<li><strong>cutoff</strong> (<em>double</em>) – Noise threshold at which extra sampling will be aborted and
+rendering will complete (default=0.0).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -1270,17 +1359,17 @@ to observe() (default=True).</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

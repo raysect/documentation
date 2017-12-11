@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../index.html"/> 
 
   
@@ -68,7 +71,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -99,9 +102,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">3. Downloading and Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../how_it_works.html">4. How it works</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart_guide.html">5. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../primitives.html">6. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../materials.html">7. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../observers.html">8. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../materials.html">8. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../conventions.html">9. Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../references.html">10. References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. Glossary</a></li>
@@ -166,7 +169,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/demonstrations/surface_roughness.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/demonstrations/surface_roughness.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -185,12 +188,14 @@
 the front row is glass. The surface roughness is increased from left to right
 from 0 to 50%.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="k">import</span> <span class="o">*</span>
+
 <span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">d65_white</span>
 <span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Cylinder</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span><span class="p">,</span> <span class="n">RGBPipeline2D</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="k">import</span> <span class="n">Lambert</span><span class="p">,</span> <span class="n">UniformSurfaceEmitter</span><span class="p">,</span> <span class="n">Roughen</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="k">import</span> <span class="o">*</span>
+
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Material Roughness Scan</span>
@@ -200,6 +205,7 @@ from 0 to 50%.</p>
 <span class="sd">the front row is glass. The surface roughness is increased from left to right</span>
 <span class="sd">from 0 to 50%.</span>
 <span class="sd">&quot;&quot;&quot;</span>
+
 
 <span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
 
@@ -319,17 +325,17 @@ from 0 to 50%.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

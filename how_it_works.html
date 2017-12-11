@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Raysect Documentation" href="index.html"/>
         <link rel="next" title="5. Quickstart Guide" href="quickstart_guide.html"/>
         <link rel="prev" title="3. Downloading and Installation" href="installation.html"/> 
@@ -70,7 +73,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -112,9 +115,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart_guide.html">5. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="primitives.html">6. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="materials.html">7. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="observers.html">8. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">8. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conventions.html">9. Conventions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">10. References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">11. Glossary</a></li>
@@ -179,7 +182,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/how_it_works.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/how_it_works.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -210,7 +213,7 @@ Image-forming properties of a system to be modeled.</li>
 design optimisation.</li>
 </ul>
 <p>Ray-tracing is typically very computationally expensive and is best suited for
-applications that don&#8217;t require real-time calculation.</p>
+applications that don’t require real-time calculation.</p>
 </div>
 <div class="section" id="key-concepts">
 <h2>4.2. Key Concepts<a class="headerlink" href="#key-concepts" title="Permalink to this headline">¶</a></h2>
@@ -254,7 +257,7 @@ can interact with, e.g light sources, lenses, mirrors, diffuse surfaces. Types o
 <p>Primitives and Observers are typically defined in their own local coordinate system but need to be placed into the
 “world”. There needs to be a system to keep track of the locations/co-ordinate transforms of all objects in the scene.</p>
 <p>The Scene-graph is a tree structure consisting of nodes, which can be both primitives and observers. Each node has an
-associated coordinate space and is translated/rotated relative to it&#8217;s parent node. I.e. a car node may have four
+associated coordinate space and is translated/rotated relative to it’s parent node. I.e. a car node may have four
 wheel nodes as children. Operations applied to a parent are automatically propogated down to all children. The resulting
 data structure describes the spatial arrangement of primitives throughout a scene.</p>
 <p>The World is the root node of the scene-graph - all primitives and observers must be attached to World. When adding
@@ -280,7 +283,7 @@ directions. In forward ray-tracing, light is traced from the light sources throu
 interactions to the observer. In backward ray-tracing, light starts at the observer and ray
 paths are followed through to the sources of emission. Raysect traces light in the reverse
 direction because this is generally more computationally efficient. The majority of light
-rays fired from a light source won&#8217;t reach the observer resulting in wasted computation.</p>
+rays fired from a light source won’t reach the observer resulting in wasted computation.</p>
 <div class="figure" id="id1">
 <img alt="_images/ray-tracing_directions.png" src="_images/ray-tracing_directions.png" />
 <p class="caption"><span class="caption-text"><strong>Caption:</strong> Ray-tracing algorithms are generally bi-directional and can be evaluated in both the
@@ -290,12 +293,12 @@ Meakins, A., et. al. (2017))</span></p>
 <p>During ray propogation, rays are tested for intersection with objects in the scene. Once
 the nearest object has been identified, the material properties of the object are inspected
 to determine the next step of the algorithm. Materials can alter the path of ray propagation
-and alter the ray&#8217;s spectra through absorption and reflection curves. Some materials will
+and alter the ray’s spectra through absorption and reflection curves. Some materials will
 require more rays to be launched to return an accurate spectra.</p>
 <div class="figure" id="id2">
 <img alt="_images/calculate_emission.png" src="_images/calculate_emission.png" />
 <p class="caption"><span class="caption-text"><strong>Caption:</strong> In the first stage of path tracing, a single ray path is generated. This path may be
-represented by a number of smaller straight path segments that represent a ray&#8217;s interactions
+represented by a number of smaller straight path segments that represent a ray’s interactions
 with surfaces and light sources in the scene. Once the termination criteria has been met
 (absorbing surface or recursion limit, etc) the emission is evaluated along the segment stack
 in the forward direction. This ensures materials along the path can correctly add their emission
@@ -349,17 +352,17 @@ and combined in a weighted average. (Image credit: Carr, M., Meakins, A., et. al
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
