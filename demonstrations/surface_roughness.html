@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -188,12 +188,14 @@
 the front row is glass. The surface roughness is increased from left to right
 from 0 to 50%.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="k">import</span> <span class="o">*</span>
+
 <span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">d65_white</span>
 <span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Cylinder</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span><span class="p">,</span> <span class="n">RGBPipeline2D</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="k">import</span> <span class="n">Lambert</span><span class="p">,</span> <span class="n">UniformSurfaceEmitter</span><span class="p">,</span> <span class="n">Roughen</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="k">import</span> <span class="o">*</span>
+
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Material Roughness Scan</span>
@@ -203,6 +205,7 @@ from 0 to 50%.</p>
 <span class="sd">the front row is glass. The surface roughness is increased from left to right</span>
 <span class="sd">from 0 to 50%.</span>
 <span class="sd">&quot;&quot;&quot;</span>
+
 
 <span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
 
@@ -322,7 +325,7 @@ from 0 to 50%.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
