@@ -60,10 +60,6 @@ RGB
    :members:
    :show-inheritance:
 
-.. autoclass:: raysect.optical.observer.pipeline.rgb.RGBAdaptiveSampler2D
-   :members:
-   :show-inheritance:
-
 
 Bayer
 -----
@@ -76,19 +72,31 @@ Bayer
 Power
 -----
 
-.. autoclass:: raysect.optical.observer.pipeline.power.PowerPipeline0D
+.. autoclass:: raysect.optical.observer.pipeline.mono.PowerPipeline0D
    :members:
    :show-inheritance:
 
-.. autoclass:: raysect.optical.observer.pipeline.power.PowerPipeline2D
+.. autoclass:: raysect.optical.observer.pipeline.mono.PowerPipeline2D
    :members:
    :show-inheritance:
 
-.. autoclass:: raysect.optical.observer.pipeline.power.PowerPixelProcessor
+.. autoclass:: raysect.optical.observer.pipeline.mono.power.PowerPixelProcessor
    :members:
    :show-inheritance:
 
-.. autoclass:: raysect.optical.observer.pipeline.power.PowerAdaptiveSampler2D
+
+Radiance
+--------
+
+.. autoclass:: raysect.optical.observer.pipeline.mono.RadiancePipeline0D
+   :members:
+   :show-inheritance:
+
+.. autoclass:: raysect.optical.observer.pipeline.mono.RadiancePipeline2D
+   :members:
+   :show-inheritance:
+
+.. autoclass:: raysect.optical.observer.pipeline.mono.radiance.RadiancePixelProcessor
    :members:
    :show-inheritance:
 
@@ -96,18 +104,42 @@ Power
 Spectral
 --------
 
-.. autoclass:: raysect.optical.observer.pipeline.spectral.SpectralPipeline0D
+.. autoclass:: raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline0D
    :members:
    :show-inheritance:
 
-.. autoclass:: raysect.optical.observer.pipeline.spectral.SpectralPipeline2D
+.. autoclass:: raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline0D
    :members:
    :show-inheritance:
 
-.. autoclass:: raysect.optical.observer.pipeline.spectral.SpectralPixelProcessor
+.. autoclass:: raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline2D
+   :members:
+   :show-inheritance:
+
+.. autoclass:: raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D
+   :members:
+   :show-inheritance:
+
+.. autoclass:: raysect.optical.observer.pipeline.spectral.power.SpectralPowerPixelProcessor
+   :members:
+   :show-inheritance:
+
+.. autoclass:: raysect.optical.observer.pipeline.spectral.radiance.SpectralRadiancePixelProcessor
    :members:
    :show-inheritance:
 
 
+Frame Samplers
+--------------
 
+.. autoclass:: raysect.optical.observer.sampler2d.FullFrameSampler2D
+   :members:
+   :show-inheritance:
 
+.. autoclass:: raysect.optical.observer.sampler2d.MonoAdaptiveSampler2D
+   :members:
+   :show-inheritance:
+
+.. autoclass:: raysect.optical.observer.sampler2d.RGBAdaptiveSampler2D
+   :members:
+   :show-inheritance:

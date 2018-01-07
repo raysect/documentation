@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="1. Raysect Core" href="core.html"/>
         <link rel="next" title="2. Primitives Module" href="../primitives/primitives.html"/>
@@ -71,7 +74,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -98,16 +101,16 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">3. How it works</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">4. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../observers.html">7. Sampling and Observers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">8. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../references.html">9. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../license.html">10. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../help.html">11. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">2. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">3. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">4. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">5. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materials.html">8. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">9. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -182,7 +185,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api_reference/core/utilities.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api_reference/core/utilities.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -209,13 +212,13 @@ in cython. These are mainly intended for use by developers.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>initial_items</strong> (<em>object</em>) &#8211; Optional iterable for initialising container.</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>initial_items</strong> (<em>object</em>) – Optional iterable for initialising container.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="points_and_vectors.html#raysect.core.math.normal.Normal3D.length" title="raysect.core.math.normal.Normal3D.length"><strong>length</strong></a> (<em>int</em>) &#8211; number of items in the container</li>
-<li><strong>first</strong> &#8211; starting element of container</li>
-<li><strong>last</strong> &#8211; final element of container</li>
+<li><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector2D.length" title="raysect.core.math.vector.Vector2D.length"><strong>length</strong></a> (<em>int</em>) – number of items in the container</li>
+<li><strong>first</strong> – starting element of container</li>
+<li><strong>last</strong> – final element of container</li>
 </ul>
 </td>
 </tr>
@@ -229,7 +232,7 @@ in cython. These are mainly intended for use by developers.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>object</em>) &#8211; The item to add to the end of the container.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>object</em>) – The item to add to the end of the container.</td>
 </tr>
 </tbody>
 </table>
@@ -243,7 +246,7 @@ in cython. These are mainly intended for use by developers.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iterable</strong> (<em>object</em>) &#8211; Iterable object such as a list or ndarray with
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iterable</strong> (<em>object</em>) – Iterable object such as a list or ndarray with
 which to extend this container.</td>
 </tr>
 </tbody>
@@ -258,7 +261,7 @@ which to extend this container.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) &#8211; requested item index</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) – requested item index</td>
 </tr>
 </tbody>
 </table>
@@ -273,8 +276,8 @@ which to extend this container.</td>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>value</strong> (<em>object</em>) &#8211; item to insert</li>
-<li><strong>index</strong> (<em>int</em>) &#8211; index at which to insert this item</li>
+<li><strong>value</strong> (<em>object</em>) – item to insert</li>
+<li><strong>index</strong> (<em>int</em>) – index at which to insert this item</li>
 </ul>
 </td>
 </tr>
@@ -296,7 +299,7 @@ which to extend this container.</td>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) &#8211; Index at which an item will be removed.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) – Index at which an item will be removed.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The object at the specified index position.</td>
 </tr>
@@ -334,7 +337,7 @@ Inherits attributes and methods from LinkedList.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>object</em>) &#8211; Object that will be pushed to top of the stack</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>object</em>) – Object that will be pushed to top of the stack</td>
 </tr>
 </tbody>
 </table>
@@ -411,17 +414,17 @@ Inherits attributes and methods from LinkedList.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

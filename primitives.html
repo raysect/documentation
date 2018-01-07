@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Primitives &mdash; Raysect Documentation</title>
+  <title>7. Primitives &mdash; Raysect Documentation</title>
   
 
   
@@ -36,9 +36,12 @@
   
 
   
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Raysect Documentation" href="index.html"/>
-        <link rel="next" title="6. Materials" href="materials.html"/>
-        <link rel="prev" title="4. Quickstart Guide" href="quickstart_guide.html"/> 
+        <link rel="next" title="8. Materials" href="materials.html"/>
+        <link rel="prev" title="6. Sampling and Observers" href="observers.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -70,7 +73,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -97,27 +100,27 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">2. Downloading and Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="how_it_works.html">3. How it works</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart_guide.html">4. Quickstart Guide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Primitives</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#geometric-primitives">5.1. Geometric Primitives</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#sphere">5.1.1. Sphere</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#box">5.1.2. Box</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cylinder">5.1.3. Cylinder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cone">5.1.4. Cone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">2. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">3. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_it_works.html">4. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart_guide.html">5. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Primitives</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#geometric-primitives">7.1. Geometric Primitives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sphere">7.1.1. Sphere</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#box">7.1.2. Box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cylinder">7.1.3. Cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cone">7.1.4. Cone</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#csg-operations">5.2. CSG Operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#meshes">5.3. Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#csg-operations">7.2. CSG Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#meshes">7.3. Meshes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="observers.html">7. Sampling and Observers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="conventions.html">8. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="references.html">9. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="license.html">10. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help.html">11. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="materials.html">8. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conventions.html">9. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">10. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">11. Glossary</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -173,13 +176,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>5. Primitives</li>
+      <li>7. Primitives</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/primitives.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/primitives.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -193,13 +196,13 @@
            <div itemprop="articleBody">
             
   <div class="section" id="primitives">
-<h1>5. Primitives<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h1>
+<h1>7. Primitives<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h1>
 <p>The raysect primitives: sphere; box; cylinder; and cone.</p>
 <img alt="_images/raysect_primitives.png" class="align-center" src="_images/raysect_primitives.png" />
 <div class="section" id="geometric-primitives">
-<h2>5.1. Geometric Primitives<a class="headerlink" href="#geometric-primitives" title="Permalink to this headline">¶</a></h2>
+<h2>7.1. Geometric Primitives<a class="headerlink" href="#geometric-primitives" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="sphere">
-<h3>5.1.1. Sphere<a class="headerlink" href="#sphere" title="Permalink to this headline">¶</a></h3>
+<h3>7.1.1. Sphere<a class="headerlink" href="#sphere" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="raysect.primitive.Sphere">
 <em class="property">class </em><code class="descclassname">raysect.primitive.</code><code class="descname">Sphere</code><a class="headerlink" href="#raysect.primitive.Sphere" title="Permalink to this definition">¶</a></dt>
@@ -210,11 +213,11 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>radius</strong> (<em>float</em>) &#8211; Radius of the sphere in meters (default = 0.5).</li>
-<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; A Material object defining the sphere&#8217;s material (default = None).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the sphere (default = &#8220;&#8221;).</li>
+<li><strong>radius</strong> (<em>float</em>) – Radius of the sphere in meters (default = 0.5).</li>
+<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
+<li><strong>material</strong> (<a class="reference internal" href="api_reference/core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) – A Material object defining the sphere’s material (default = None).</li>
+<li><strong>name</strong> (<em>str</em>) – A string specifying a user-friendly name for the sphere (default = “”).</li>
 </ul>
 </td>
 </tr>
@@ -230,7 +233,7 @@
 
 </div>
 <div class="section" id="box">
-<h3>5.1.2. Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h3>
+<h3>7.1.2. Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="raysect.primitive.Box">
 <em class="property">class </em><code class="descclassname">raysect.primitive.</code><code class="descname">Box</code><a class="headerlink" href="#raysect.primitive.Box" title="Permalink to this definition">¶</a></dt>
@@ -242,12 +245,12 @@ system.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>lower</strong> (<a class="reference internal" href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Lower point of the box (default = Point3D(-0.5, -0.5, -0.5)).</li>
-<li><strong>upper</strong> (<a class="reference internal" href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Upper point of the box (default = Point3D(0.5, 0.5, 0.5)).</li>
-<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; A Material object defining the box&#8217;s material (default = None).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the box (default = &#8220;&#8221;).</li>
+<li><strong>lower</strong> (<a class="reference internal" href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Lower point of the box (default = Point3D(-0.5, -0.5, -0.5)).</li>
+<li><strong>upper</strong> (<a class="reference internal" href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Upper point of the box (default = Point3D(0.5, 0.5, 0.5)).</li>
+<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
+<li><strong>material</strong> (<a class="reference internal" href="api_reference/core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) – A Material object defining the box’s material (default = None).</li>
+<li><strong>name</strong> (<em>str</em>) – A string specifying a user-friendly name for the box (default = “”).</li>
 </ul>
 </td>
 </tr>
@@ -263,7 +266,7 @@ system.</p>
 
 </div>
 <div class="section" id="cylinder">
-<h3>5.1.3. Cylinder<a class="headerlink" href="#cylinder" title="Permalink to this headline">¶</a></h3>
+<h3>7.1.3. Cylinder<a class="headerlink" href="#cylinder" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="raysect.primitive.Cylinder">
 <em class="property">class </em><code class="descclassname">raysect.primitive.</code><code class="descname">Cylinder</code><a class="headerlink" href="#raysect.primitive.Cylinder" title="Permalink to this definition">¶</a></dt>
@@ -276,13 +279,13 @@ capped with disks forming a closed surface.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>radius</strong> (<em>float</em>) &#8211; Radius of the cylinder in meters (default = 0.5).</li>
-<li><strong>height</strong> (<em>float</em>) &#8211; Height of the cylinder in meters (default = 1.0).</li>
-<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
+<li><strong>radius</strong> (<em>float</em>) – Radius of the cylinder in meters (default = 0.5).</li>
+<li><strong>height</strong> (<em>float</em>) – Height of the cylinder in meters (default = 1.0).</li>
+<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; A Material object defining the cylinder&#8217;s material (default = None).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the cylinder (default = &#8220;&#8221;).</li>
+<li><strong>material</strong> (<a class="reference internal" href="api_reference/core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) – A Material object defining the cylinder’s material (default = None).</li>
+<li><strong>name</strong> (<em>str</em>) – A string specifying a user-friendly name for the cylinder (default = “”).</li>
 </ul>
 </td>
 </tr>
@@ -298,7 +301,7 @@ system relative to the scene-graph parent (default = identity matrix).</li>
 
 </div>
 <div class="section" id="cone">
-<h3>5.1.4. Cone<a class="headerlink" href="#cone" title="Permalink to this headline">¶</a></h3>
+<h3>7.1.4. Cone<a class="headerlink" href="#cone" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
 <dt id="raysect.primitive.Cone">
 <em class="property">class </em><code class="descclassname">raysect.primitive.</code><code class="descname">Cone</code><a class="headerlink" href="#raysect.primitive.Cone" title="Permalink to this definition">¶</a></dt>
@@ -312,13 +315,13 @@ with a disk, forming a closed surface.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>radius</strong> (<em>float</em>) &#8211; Radius of the cone in meters in x-y plane (default = 0.5).</li>
-<li><strong>height</strong> (<em>float</em>) &#8211; Height of the cone in meters (default = 1.0).</li>
-<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
+<li><strong>radius</strong> (<em>float</em>) – Radius of the cone in meters in x-y plane (default = 0.5).</li>
+<li><strong>height</strong> (<em>float</em>) – Height of the cone in meters (default = 1.0).</li>
+<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) &#8211; A Material object defining the cone&#8217;s material (default = None).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the cone (default = &#8220;&#8221;).</li>
+<li><strong>material</strong> (<a class="reference internal" href="api_reference/core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) – A Material object defining the cone’s material (default = None).</li>
+<li><strong>name</strong> (<em>str</em>) – A string specifying a user-friendly name for the cone (default = “”).</li>
 </ul>
 </td>
 </tr>
@@ -335,7 +338,7 @@ system relative to the scene-graph parent (default = identity matrix).</li>
 </div>
 </div>
 <div class="section" id="csg-operations">
-<h2>5.2. CSG Operations<a class="headerlink" href="#csg-operations" title="Permalink to this headline">¶</a></h2>
+<h2>7.2. CSG Operations<a class="headerlink" href="#csg-operations" title="Permalink to this headline">¶</a></h2>
 <p>Operations such as union, substract, intersect on some basic glass primitives:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Making the lense in the centre</span>
 <span class="n">s1</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">-</span><span class="mf">0.01</span><span class="p">))</span>
@@ -355,11 +358,11 @@ system relative to the scene-graph parent (default = identity matrix).</li>
 <img alt="_images/csg_glass.png" class="align-center" src="_images/csg_glass.png" />
 </div>
 <div class="section" id="meshes">
-<h2>5.3. Meshes<a class="headerlink" href="#meshes" title="Permalink to this headline">¶</a></h2>
+<h2>7.3. Meshes<a class="headerlink" href="#meshes" title="Permalink to this headline">¶</a></h2>
 <p>It is easiest to import meshes from existing CAD files in either obj or stl with the helper methods.</p>
 <dl class="function">
 <dt id="raysect.primitive.mesh.obj.import_obj">
-<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">import_obj</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">import_obj</code><span class="sig-paren">(</span><em>filename</em>, <em>scaling=1.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a Wavefront OBJ mesh file (.obj).</p>
 <p>Some engineering meshes are exported in different units (mm for example)
 whereas Raysect units are in m. Applying a scale factor of 0.001 would
@@ -369,9 +372,9 @@ convert the mesh into m for use in Raysect.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>filename</strong> (<em>str</em>) &#8211; Mesh file path.</li>
-<li><strong>scaling</strong> (<em>double</em>) &#8211; Scale the mesh by this factor (default=1.0).</li>
-<li><strong>**kwargs</strong> &#8211; <p>Accepts optional keyword arguments from the Mesh class.</p>
+<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
+<li><strong>scaling</strong> (<em>double</em>) – Scale the mesh by this factor (default=1.0).</li>
+<li><strong>**kwargs</strong> – <p>Accepts optional keyword arguments from the Mesh class.</p>
 </li>
 </ul>
 </td>
@@ -385,7 +388,7 @@ convert the mesh into m for use in Raysect.</p>
 
 <dl class="function">
 <dt id="raysect.primitive.mesh.stl.import_stl">
-<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">import_stl</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>mode=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">import_stl</code><span class="sig-paren">(</span><em>filename</em>, <em>scaling=1.0</em>, <em>mode=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a STereoLithography (STL) mesh file (.stl).</p>
 <p>Some engineering meshes are exported in different units (mm for example)
 whereas Raysect units are in m. Applying a scale factor of 0.001 would
@@ -395,9 +398,9 @@ convert the mesh into m for use in Raysect.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>filename</strong> (<em>str</em>) &#8211; Mesh file path.</li>
-<li><strong>scaling</strong> (<em>double</em>) &#8211; Scale the mesh by this factor (default=1.0).</li>
-<li><strong>**kwargs</strong> &#8211; <p>Accepts optional keyword arguments from the Mesh class.</p>
+<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
+<li><strong>scaling</strong> (<em>double</em>) – Scale the mesh by this factor (default=1.0).</li>
+<li><strong>**kwargs</strong> – <p>Accepts optional keyword arguments from the Mesh class.</p>
 </li>
 </ul>
 </td>
@@ -429,10 +432,10 @@ convert the mesh into m for use in Raysect.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="materials.html" class="btn btn-neutral float-right" title="6. Materials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="materials.html" class="btn btn-neutral float-right" title="8. Materials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="quickstart_guide.html" class="btn btn-neutral" title="4. Quickstart Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="observers.html" class="btn btn-neutral" title="6. Sampling and Observers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -463,17 +466,17 @@ convert the mesh into m for use in Raysect.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

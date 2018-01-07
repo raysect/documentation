@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="1.2. Math Module" href="math.html"/>
         <link rel="next" title="1.2.5. Statistics Arrays" href="statistics_arrays.html"/>
@@ -71,7 +74,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -98,16 +101,16 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">3. How it works</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">4. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../observers.html">7. Sampling and Observers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">8. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../references.html">9. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../license.html">10. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../help.html">11. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">2. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">3. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">4. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">5. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materials.html">8. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">9. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -194,7 +197,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api_reference/core/random.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api_reference/core/random.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -221,7 +224,7 @@ system cryptographic random number generator (urandom).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d</strong> &#8211; Integer seed.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>d</strong> – Integer seed.</td>
 </tr>
 </tbody>
 </table>
@@ -252,8 +255,8 @@ system cryptographic random number generator (urandom).</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>mean</strong> (<em>float</em>) &#8211; The distribution mean.</li>
-<li><strong>stddev</strong> (<em>float</em>) &#8211; The distribution standard deviation.</li>
+<li><strong>mean</strong> (<em>float</em>) – The distribution mean.</li>
+<li><strong>stddev</strong> (<em>float</em>) – The distribution standard deviation.</li>
 </ul>
 </td>
 </tr>
@@ -276,7 +279,7 @@ the nearest end of the range [0, 1].</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>prob</strong> (<em>double</em>) &#8211; A probability from [0, 1].</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>prob</strong> (<em>double</em>) – A probability from [0, 1].</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True or False.</td>
 </tr>
@@ -306,8 +309,8 @@ with its associated pdf value as the second element.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>samples</strong> (<em>int</em>) &#8211; Number of points to generate (default=None).</li>
-<li><strong>pdf</strong> (<em>bool</em>) &#8211; Toggle for returning associated sample pdfs (default=False).</li>
+<li><strong>samples</strong> (<em>int</em>) – Number of points to generate (default=None).</li>
+<li><strong>pdf</strong> (<em>bool</em>) – Toggle for returning associated sample pdfs (default=False).</li>
 </ul>
 </td>
 </tr>
@@ -329,7 +332,7 @@ with its associated pdf value as the second element.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>radius</strong> (<em>double</em>) &#8211; The radius of the disk in metres (default=1).</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>radius</strong> (<em>double</em>) – The radius of the disk in metres (default=1).</td>
 </tr>
 </tbody>
 </table>
@@ -345,8 +348,8 @@ with its associated pdf value as the second element.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>width</strong> (<em>double</em>) &#8211; The width of the rectangle.</li>
-<li><strong>height</strong> (<em>double</em>) &#8211; The height of the rectangle.</li>
+<li><strong>width</strong> (<em>double</em>) – The width of the rectangle.</li>
+<li><strong>height</strong> (<em>double</em>) – The height of the rectangle.</li>
 </ul>
 </td>
 </tr>
@@ -364,9 +367,9 @@ with its associated pdf value as the second element.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>v1</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Triangle vertex 1.</li>
-<li><strong>v2</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Triangle vertex 2.</li>
-<li><strong>v3</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Triangle vertex 3.</li>
+<li><strong>v1</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Triangle vertex 1.</li>
+<li><strong>v2</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Triangle vertex 2.</li>
+<li><strong>v3</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Triangle vertex 3.</li>
 </ul>
 </td>
 </tr>
@@ -394,8 +397,8 @@ with its associated pdf value as the second element.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>samples</strong> (<em>int</em>) &#8211; Number of points to generate (default=None).</li>
-<li><strong>pdf</strong> (<em>bool</em>) &#8211; Toggle for returning associated sample pdfs (default=False).</li>
+<li><strong>samples</strong> (<em>int</em>) – Number of points to generate (default=None).</li>
+<li><strong>pdf</strong> (<em>bool</em>) – Toggle for returning associated sample pdfs (default=False).</li>
 </ul>
 </td>
 </tr>
@@ -415,7 +418,7 @@ with its associated pdf value as the second element.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sample</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The sample point at which to get the pdf.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sample</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The sample point at which to get the pdf.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
@@ -460,7 +463,7 @@ hemisphere base lies in the x-y plane.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> &#8211; Angle of the cone in degrees (default=45).</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> – Angle of the cone in degrees (default=45).</td>
 </tr>
 </tbody>
 </table>
@@ -513,17 +516,17 @@ hemisphere base lies in the x-y plane.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

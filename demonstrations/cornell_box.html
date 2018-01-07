@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../index.html"/> 
 
   
@@ -68,7 +71,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -95,16 +98,16 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">2. Downloading and Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../how_it_works.html">3. How it works</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../quickstart_guide.html">4. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../primitives.html">5. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../observers.html">7. Sampling and Observers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../conventions.html">8. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../references.html">9. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../license.html">10. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../help.html">11. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">2. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">3. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_it_works.html">4. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart_guide.html">5. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../materials.html">8. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conventions.html">9. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">10. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. Glossary</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -166,7 +169,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/demonstrations/cornell_box.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/demonstrations/cornell_box.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -187,12 +190,17 @@
 <div><a class="reference external" href="http://www.graphics.cornell.edu/online/box/data.html">http://www.graphics.cornell.edu/online/box/data.html</a></div></blockquote>
 <p>The wall colours and light spectrum used in this demo are the values measured
 for the physical Cornell Box.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">d65_white</span><span class="p">,</span> <span class="n">ConstantSF</span><span class="p">,</span> <span class="n">InterpolatedSF</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Box</span>
+<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="k">import</span> <span class="n">Lambert</span><span class="p">,</span> <span class="n">UniformSurfaceEmitter</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Box</span>
-<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="k">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">RGBPipeline2D</span><span class="p">,</span> <span class="n">BayerPipeline2D</span><span class="p">,</span> <span class="n">PowerPipeline2D</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">RGBAdaptiveSampler2D</span>
+
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Cornell Box Demo</span>
@@ -294,24 +302,14 @@ for the physical Cornell Box.</p>
 <span class="c1"># objects in enclosure</span>
 <span class="n">box</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span>
           <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
-          <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-          <span class="c1"># material=RoughTungsten(0.5))</span>
-          <span class="c1"># material=Lambert())</span>
+          <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
           <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;N-BK7&quot;</span><span class="p">))</span>
 
 <span class="n">sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span>
-    <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
-    <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span> <span class="o">+</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-    <span class="c1"># material=RoughGold(0.1))</span>
-    <span class="c1"># material=Lambert())</span>
-    <span class="c1"># material=Titanium())</span>
-    <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;N-BK7&quot;</span><span class="p">))</span>
+                <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+                <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span> <span class="o">+</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;N-BK7&quot;</span><span class="p">))</span>
 
-
-<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span><span class="p">,</span> <span class="n">CCDArray</span>
-<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">RGBPipeline2D</span><span class="p">,</span> <span class="n">BayerPipeline2D</span><span class="p">,</span> <span class="n">SpectralPipeline2D</span><span class="p">,</span> <span class="n">PowerPipeline2D</span>
-<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PowerAdaptiveSampler2D</span><span class="p">,</span> <span class="n">RGBAdaptiveSampler2D</span>
-<span class="kn">from</span> <span class="nn">raysect.core.workflow</span> <span class="k">import</span> <span class="n">SerialEngine</span>
 
 <span class="n">filter_red</span> <span class="o">=</span> <span class="n">InterpolatedSF</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">650</span><span class="p">,</span> <span class="mi">660</span><span class="p">,</span> <span class="mi">670</span><span class="p">,</span> <span class="mi">680</span><span class="p">,</span> <span class="mi">800</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="n">filter_green</span> <span class="o">=</span> <span class="n">InterpolatedSF</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">530</span><span class="p">,</span> <span class="mi">540</span><span class="p">,</span> <span class="mi">550</span><span class="p">,</span> <span class="mi">560</span><span class="p">,</span> <span class="mi">800</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
@@ -332,17 +330,11 @@ for the physical Cornell Box.</p>
 <span class="n">bayer</span> <span class="o">=</span> <span class="n">BayerPipeline2D</span><span class="p">(</span><span class="n">filter_red</span><span class="p">,</span> <span class="n">filter_green</span><span class="p">,</span> <span class="n">filter_blue</span><span class="p">,</span> <span class="n">display_unsaturated_fraction</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bayer Filter&quot;</span><span class="p">)</span>
 <span class="n">bayer</span><span class="o">.</span><span class="n">display_update_time</span> <span class="o">=</span> <span class="mi">15</span>
 
-<span class="n">spectral</span> <span class="o">=</span> <span class="n">SpectralPipeline2D</span><span class="p">()</span>
+<span class="n">pipelines</span> <span class="o">=</span> <span class="p">[</span><span class="n">rgb</span><span class="p">,</span> <span class="n">power_unfiltered</span><span class="p">,</span> <span class="n">power_green</span><span class="p">,</span> <span class="n">power_red</span><span class="p">,</span> <span class="n">bayer</span><span class="p">]</span>
 
-<span class="c1"># pipelines = [power, rgb, bayer, spectral]</span>
-<span class="c1"># pipelines = [power_unfiltered] #, power_green, power_red, bayer]#, spectral]</span>
-<span class="n">pipelines</span> <span class="o">=</span> <span class="p">[</span><span class="n">rgb</span><span class="p">,</span> <span class="n">power_unfiltered</span><span class="p">]</span>
-<span class="c1"># sampler = PowerAdaptiveSampler2D(power_unfiltered, ratio=10, fraction=0.2, min_samples=500, cutoff=0.05)</span>
 <span class="n">sampler</span> <span class="o">=</span> <span class="n">RGBAdaptiveSampler2D</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 
-<span class="c1"># camera = PinholeCamera((128, 128), parent=world, transform=translate(0, 0, -3.3) * rotate(0, 0, 0), pipelines=pipelines)</span>
 <span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">((</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.3</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pipelines</span><span class="o">=</span><span class="n">pipelines</span><span class="p">)</span>
-<span class="c1"># camera = CCDArray((64, 64), parent=world, transform=translate(0, 0, -3.3) * rotate(0, 0, 0), pipelines=pipelines)</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">frame_sampler</span> <span class="o">=</span> <span class="n">sampler</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">250</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">spectral_bins</span> <span class="o">=</span> <span class="mi">15</span>
@@ -352,7 +344,6 @@ for the physical Cornell Box.</p>
 <span class="n">camera</span><span class="o">.</span><span class="n">ray_max_depth</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">ray_extinction_min_depth</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">ray_extinction_prob</span> <span class="o">=</span> <span class="mf">0.01</span>
-<span class="c1"># camera.render_engine = SerialEngine()</span>
 
 <span class="c1"># start ray tracing</span>
 <span class="n">ion</span><span class="p">()</span>
@@ -369,9 +360,6 @@ for the physical Cornell Box.</p>
     <span class="c1"># power_green.save(&#39;cornell_box_green_filter_pass_{:04d}.png&#39;.format(p))</span>
     <span class="c1"># bayer.save(&#39;cornell_box_bayer_pass_{:04d}.png&#39;.format(p))</span>
 
-    <span class="c1"># spectral.display_pixel(28, 70)</span>
-
-    <span class="c1">#print(&quot;total power:&quot;, power_unfiltered.frame.mean.sum(), &quot;+/-&quot;, np.sqrt(np.sum(power_unfiltered.frame.variance**2)))</span>
     <span class="nb">print</span><span class="p">()</span>
     <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>
 
@@ -417,17 +405,17 @@ for the physical Cornell Box.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

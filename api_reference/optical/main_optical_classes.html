@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="3. Optical Module" href="optical.html"/>
         <link rel="next" title="3.2. Observers" href="observers.html"/>
@@ -71,7 +74,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -98,16 +101,16 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">3. How it works</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">4. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../observers.html">7. Sampling and Observers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">8. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../references.html">9. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../license.html">10. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../help.html">11. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">2. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">3. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">4. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">5. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materials.html">8. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">9. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -185,7 +188,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api_reference/optical/main_optical_classes.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api_reference/optical/main_optical_classes.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -213,22 +216,22 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Point defining ray’s origin (default=Point3D(0, 0, 0))</li>
-<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; Vector defining ray’s direction (default=Vector3D(0, 0, 1))</li>
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; Lower wavelength bound for observed spectrum</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; Upper wavelength bound for observed spectrum</li>
-<li><strong>bins</strong> (<em>int</em>) &#8211; Number of samples to use over the spectral range</li>
-<li><strong>max_distance</strong> (<em>float</em>) &#8211; The terminating distance of the ray</li>
-<li><strong>extinction_prob</strong> (<em>float</em>) &#8211; Probability of path extinction at every
+<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Point defining ray’s origin (default=Point3D(0, 0, 0))</li>
+<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – Vector defining ray’s direction (default=Vector3D(0, 0, 1))</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – Lower wavelength bound for observed spectrum</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – Upper wavelength bound for observed spectrum</li>
+<li><strong>bins</strong> (<em>int</em>) – Number of samples to use over the spectral range</li>
+<li><strong>max_distance</strong> (<em>float</em>) – The terminating distance of the ray</li>
+<li><strong>extinction_prob</strong> (<em>float</em>) – Probability of path extinction at every
 material surface interaction (default=0.1)</li>
-<li><strong>extinction_min_depth</strong> (<em>int</em>) &#8211; Minimum number of paths before triggering
+<li><strong>extinction_min_depth</strong> (<em>int</em>) – Minimum number of paths before triggering
 extinction probability (default=3)</li>
-<li><strong>max_depth</strong> (<em>int</em>) &#8211; Maximum number of material interactions before
+<li><strong>max_depth</strong> (<em>int</em>) – Maximum number of material interactions before
 terminating ray trajectory.</li>
-<li><strong>importance_sampling</strong> (<em>bool</em>) &#8211; Toggles use of importance sampling for
+<li><strong>importance_sampling</strong> (<em>bool</em>) – Toggles use of importance sampling for
 important primitives. See help documentation on importance sampling,
 (default=True).</li>
-<li><strong>important_path_weight</strong> (<em>float</em>) &#8211; Weight to use for important paths when
+<li><strong>important_path_weight</strong> (<em>float</em>) – Weight to use for important paths when
 using importance sampling.</li>
 </ul>
 </td>
@@ -258,8 +261,8 @@ using importance sampling.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; New Ray&#8217;s origin position.</li>
-<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; New Ray&#8217;s direction.</li>
+<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – New Ray’s origin position.</li>
+<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – New Ray’s direction.</li>
 </ul>
 </td>
 </tr>
@@ -381,8 +384,8 @@ accumulated from these samples is returned.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>world</strong> (<a class="reference internal" href="#raysect.optical.scenegraph.world.World" title="raysect.optical.scenegraph.world.World"><em>World</em></a>) &#8211; World object defining the scene.</li>
-<li><strong>count</strong> (<em>int</em>) &#8211; Number of samples to take.</li>
+<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – World object defining the scene.</li>
+<li><strong>count</strong> (<em>int</em>) – Number of samples to take.</li>
 </ul>
 </td>
 </tr>
@@ -407,8 +410,8 @@ however the ray depth is increased by 1.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; A Point3D defining the ray origin.</li>
-<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; A vector defining the ray direction.</li>
+<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – A Point3D defining the ray origin.</li>
+<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – A vector defining the ray direction.</li>
 </ul>
 </td>
 </tr>
@@ -431,8 +434,8 @@ however the ray depth is increased by 1.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>world</strong> (<a class="reference internal" href="#raysect.optical.scenegraph.world.World" title="raysect.optical.scenegraph.world.World"><em>World</em></a>) &#8211; World object defining the scene.</li>
-<li><strong>keep_alive</strong> (<em>bool</em>) &#8211; If true, disables Russian roulette termination of the ray.</li>
+<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – World object defining the scene.</li>
+<li><strong>keep_alive</strong> (<em>bool</em>) – If true, disables Russian roulette termination of the ray.</li>
 </ul>
 </td>
 </tr>
@@ -491,8 +494,8 @@ development.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; lower wavelength for calculation</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; upper wavelength for calculation</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – lower wavelength for calculation</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – upper wavelength for calculation</li>
 </ul>
 </td>
 </tr>
@@ -512,9 +515,9 @@ development.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; lower wavelength for calculation</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; upper wavelength for calculation</li>
-<li><strong>bins</strong> (<em>int</em>) &#8211; The number of spectral bins</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – lower wavelength for calculation</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – upper wavelength for calculation</li>
+<li><strong>bins</strong> (<em>int</em>) – The number of spectral bins</li>
 </ul>
 </td>
 </tr>
@@ -540,9 +543,9 @@ the wavelength bins.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; Lower wavelength bound for this spectrum</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; Upper wavelength bound for this spectrum</li>
-<li><strong>bins</strong> (<em>int</em>) &#8211; Number of samples to use over the spectral range</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – Lower wavelength bound for this spectrum</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – Upper wavelength bound for this spectrum</li>
+<li><strong>bins</strong> (<em>int</em>) – Number of samples to use over the spectral range</li>
 </ul>
 </td>
 </tr>
@@ -557,8 +560,8 @@ the wavelength bins.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; The minimum wavelength in nanometers</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; The maximum wavelength in nanometers</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in nanometers</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in nanometers</li>
 </ul>
 </td>
 </tr>
@@ -601,8 +604,8 @@ the wavelength bins.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; The minimum wavelength in nanometers</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; The maximum wavelength in nanometers</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in nanometers</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in nanometers</li>
 </ul>
 </td>
 </tr>
@@ -626,9 +629,9 @@ wavelength range and sample size.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; The minimum wavelength in nanometers</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; The maximum wavelength in nanometers</li>
-<li><strong>bins</strong> (<em>int</em>) &#8211; The number of bins.</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in nanometers</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in nanometers</li>
+<li><strong>bins</strong> (<em>int</em>) – The number of bins.</li>
 </ul>
 </td>
 </tr>
@@ -680,9 +683,9 @@ wavelength range and sample size.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; The minimum wavelength in nanometers</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; The maximum wavelength in nanometers</li>
-<li><strong>bins</strong> (<em>int</em>) &#8211; The number of spectral bins.</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in nanometers</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in nanometers</li>
+<li><strong>bins</strong> (<em>int</em>) – The number of spectral bins.</li>
 </ul>
 </td>
 </tr>
@@ -754,7 +757,7 @@ resolution may be specified in the class constructor (default: 1 sample/nm).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sample_resolution</strong> (<em>double</em>) &#8211; The numerical sampling resolution in nanometers.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sample_resolution</strong> (<em>double</em>) – The numerical sampling resolution in nanometers.</td>
 </tr>
 </tbody>
 </table>
@@ -767,7 +770,7 @@ resolution may be specified in the class constructor (default: 1 sample/nm).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wavelength</strong> (<em>double</em>) &#8211; Wavelength in nanometers.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wavelength</strong> (<em>double</em>) – Wavelength in nanometers.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Function value at the specified wavelength.</td>
 </tr>
@@ -784,8 +787,8 @@ resolution may be specified in the class constructor (default: 1 sample/nm).</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; The minimum wavelength in nanometers</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; The maximum wavelength in nanometers</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in nanometers</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in nanometers</li>
 </ul>
 </td>
 </tr>
@@ -818,9 +821,9 @@ normalised to 1.0.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>wavelengths</strong> (<em>object</em>) &#8211; 1D array of wavelengths in nanometers.</li>
-<li><strong>samples</strong> (<em>object</em>) &#8211; 1D array of spectral samples.</li>
-<li><strong>normalise</strong> (<em>bool</em>) &#8211; True/false toggle for whether to normalise the
+<li><strong>wavelengths</strong> (<em>object</em>) – 1D array of wavelengths in nanometers.</li>
+<li><strong>samples</strong> (<em>object</em>) – 1D array of spectral samples.</li>
+<li><strong>normalise</strong> (<em>bool</em>) – True/false toggle for whether to normalise the
 spectral function so its integral equals 1.</li>
 </ul>
 </td>
@@ -836,8 +839,8 @@ spectral function so its integral equals 1.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; The minimum wavelength in nanometers</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; The maximum wavelength in nanometers</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in nanometers</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in nanometers</li>
 </ul>
 </td>
 </tr>
@@ -862,7 +865,7 @@ spectral function so its integral equals 1.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>float</em>) &#8211; Constant radiance value</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>float</em>) – Constant radiance value</td>
 </tr>
 </tbody>
 </table>
@@ -875,8 +878,8 @@ spectral function so its integral equals 1.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; lower wavelength for calculation</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; upper wavelength for calculation</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – lower wavelength for calculation</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – upper wavelength for calculation</li>
 </ul>
 </td>
 </tr>
@@ -896,8 +899,8 @@ spectral function so its integral equals 1.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; The minimum wavelength in nanometers</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; The maximum wavelength in nanometers</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in nanometers</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in nanometers</li>
 </ul>
 </td>
 </tr>
@@ -920,9 +923,9 @@ spectral function so its integral equals 1.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; lower wavelength for calculation</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; upper wavelength for calculation</li>
-<li><strong>bins</strong> (<em>int</em>) &#8211; The number of spectral bins</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – lower wavelength for calculation</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – upper wavelength for calculation</li>
+<li><strong>bins</strong> (<em>int</em>) – The number of spectral bins</li>
 </ul>
 </td>
 </tr>
@@ -943,7 +946,7 @@ spectral function so its integral equals 1.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wavelength</strong> (<em>float</em>) &#8211; Photon wavelength in nanometers.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wavelength</strong> (<em>float</em>) – Photon wavelength in nanometers.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Photon energy in Joules.</td>
 </tr>
@@ -997,9 +1000,9 @@ to (X, Y, Z).</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) &#8211; Lower wavelength bound on spectrum</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) &#8211; Upper wavelength bound on spectrum</li>
-<li><strong>bins</strong> (<em>int</em>) &#8211; Number of spectral bins in spectrum</li>
+<li><strong>min_wavelength</strong> (<em>float</em>) – Lower wavelength bound on spectrum</li>
+<li><strong>max_wavelength</strong> (<em>float</em>) – Upper wavelength bound on spectrum</li>
+<li><strong>bins</strong> (<em>int</em>) – Number of spectral bins in spectrum</li>
 </ul>
 </td>
 </tr>
@@ -1019,8 +1022,8 @@ to (X, Y, Z).</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>spectrum</strong> (<a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) &#8211; Spectrum to process</li>
-<li><strong>resampled_xyz</strong> (<em>ndarray</em>) &#8211; Pre-calculated XYZ sensitivity curves optimised
+<li><strong>spectrum</strong> (<a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum to process</li>
+<li><strong>resampled_xyz</strong> (<em>ndarray</em>) – Pre-calculated XYZ sensitivity curves optimised
 for this spectral range (default=None).</li>
 </ul>
 </td>
@@ -1042,9 +1045,9 @@ for this spectral range (default=None).</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>cx</strong> (<em>float</em>) &#8211; chromaticity x</li>
-<li><strong>cy</strong> (<em>float</em>) &#8211; chromaticity y</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; tristimulus Y</li>
+<li><strong>cx</strong> (<em>float</em>) – chromaticity x</li>
+<li><strong>cy</strong> (<em>float</em>) – chromaticity y</li>
+<li><strong>y</strong> (<em>float</em>) – tristimulus Y</li>
 </ul>
 </td>
 </tr>
@@ -1065,9 +1068,9 @@ for this spectral range (default=None).</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; tristimulus X</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; tristimulus y</li>
-<li><strong>z</strong> (<em>float</em>) &#8211; tristimulus Z</li>
+<li><strong>x</strong> (<em>float</em>) – tristimulus X</li>
+<li><strong>y</strong> (<em>float</em>) – tristimulus y</li>
+<li><strong>z</strong> (<em>float</em>) – tristimulus Z</li>
 </ul>
 </td>
 </tr>
@@ -1092,9 +1095,9 @@ r, g, b in range [0, 1]</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; tristimulus X</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; tristimulus y</li>
-<li><strong>z</strong> (<em>float</em>) &#8211; tristimulus Z</li>
+<li><strong>x</strong> (<em>float</em>) – tristimulus X</li>
+<li><strong>y</strong> (<em>float</em>) – tristimulus y</li>
+<li><strong>z</strong> (<em>float</em>) – tristimulus Z</li>
 </ul>
 </td>
 </tr>
@@ -1116,9 +1119,9 @@ x, y, z in range [0, 1]</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>r</strong> (<em>float</em>) &#8211; Red value</li>
-<li><strong>g</strong> (<em>float</em>) &#8211; Green value</li>
-<li><strong>b</strong> (<em>float</em>) &#8211; Blue value</li>
+<li><strong>r</strong> (<em>float</em>) – Red value</li>
+<li><strong>g</strong> (<em>float</em>) – Green value</li>
+<li><strong>b</strong> (<em>float</em>) – Blue value</li>
 </ul>
 </td>
 </tr>
@@ -1143,7 +1146,7 @@ structure is a kd-tree.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> &#8211; A string defining the node name.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – A string defining the node name.</td>
 </tr>
 </tbody>
 </table>
@@ -1157,7 +1160,7 @@ will do nothing unless the force keyword option is set to True.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force</strong> (<em>bint</em>) &#8211; If set to True, forces rebuilding of acceleration structure.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force</strong> (<em>bint</em>) – If set to True, forces rebuilding of acceleration structure.</td>
 </tr>
 </tbody>
 </table>
@@ -1186,8 +1189,8 @@ will do nothing unless the force keyword option is set to True.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The point from which to sample.</li>
-<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The sample direction.</li>
+<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point from which to sample.</li>
+<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The sample direction.</li>
 </ul>
 </td>
 </tr>
@@ -1206,7 +1209,7 @@ will do nothing unless the force keyword option is set to True.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The point from which to sample.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point from which to sample.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The vector along which to sample.</td>
 </tr>
@@ -1245,8 +1248,8 @@ will do nothing unless the force keyword option is set to True.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The point from which to sample.</li>
-<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The sample direction.</li>
+<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point from which to sample.</li>
+<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The sample direction.</li>
 </ul>
 </td>
 </tr>
@@ -1265,7 +1268,7 @@ will do nothing unless the force keyword option is set to True.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The point from which to sample.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point from which to sample.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The vector along which to sample.</td>
 </tr>
@@ -1324,17 +1327,17 @@ will do nothing unless the force keyword option is set to True.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

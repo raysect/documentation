@@ -36,6 +36,9 @@
   
 
   
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
     <link rel="top" title="Raysect Documentation" href="../../index.html"/>
         <link rel="up" title="3. Optical Module" href="optical.html"/>
         <link rel="next" title="3.6. Optical Volume Materials" href="optical_volumes.html"/>
@@ -71,7 +74,7 @@
             
             
               <div class="version">
-                0.3
+                0.4
               </div>
             
           
@@ -98,16 +101,16 @@
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../installation.html">2. Downloading and Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">3. How it works</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">4. Quickstart Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">5. Primitives</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../materials.html">6. Materials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../observers.html">7. Sampling and Observers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">8. Conventions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../references.html">9. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../license.html">10. License</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../help.html">11. Need Help?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">2. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">3. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">4. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">5. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materials.html">8. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">9. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
@@ -188,7 +191,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api_reference/optical/optical_surfaces.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api_reference/optical/optical_surfaces.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -220,7 +223,7 @@
 <em class="property">class </em><code class="descclassname">raysect.optical.material.emitter.</code><code class="descname">UnitySurfaceEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UnitySurfaceEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
 <p>Uniform and isotropic surface emitter with emission 1W/str/m^2/ x nm,
-where x is the spectrum&#8217;s wavelength interval.</p>
+where x is the spectrum’s wavelength interval.</p>
 <p>This material is useful for general purpose debugging and testing energy
 conservation.</p>
 </dd></dl>
@@ -237,8 +240,8 @@ emission scale.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>emission_spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; The surface&#8217;s emission function.</li>
-<li><strong>scale</strong> (<em>float</em>) &#8211; Scale of the emission function (default = 1 W/m^2/str/nm).</li>
+<li><strong>emission_spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – The surface’s emission function.</li>
+<li><strong>scale</strong> (<em>float</em>) – Scale of the emission function (default = 1 W/m^2/str/nm).</li>
 </ul>
 </td>
 </tr>
@@ -260,7 +263,7 @@ all directions. It is a good approximation to many real world surfaces.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reflectivity</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; Reflectance function which defines the
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reflectivity</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Reflectance function which defines the
 fraction of light scattered at each wavelength.</td>
 </tr>
 </tbody>
@@ -285,9 +288,9 @@ supplied.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; Real component of the refractive
+<li><strong>index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Real component of the refractive
 index - <span class="math">\(n(\lambda)\)</span>.</li>
-<li><strong>extinction</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; Imaginary component of the
+<li><strong>extinction</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Imaginary component of the
 refractive index (extinction) - <span class="math">\(k(\lambda)\)</span>.</li>
 </ul>
 </td>
@@ -307,11 +310,11 @@ refractive index (extinction) - <span class="math">\(k(\lambda)\)</span>.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; Real component of the refractive
+<li><strong>index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Real component of the refractive
 index - <span class="math">\(n(\lambda)\)</span>.</li>
-<li><strong>extinction</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; Imaginary component of the
+<li><strong>extinction</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Imaginary component of the
 refractive index (extinction) - <span class="math">\(k(\lambda)\)</span>.</li>
-<li><strong>roughness</strong> (<em>float</em>) &#8211; The roughness parameter in range (0, 1]. 0 is
+<li><strong>roughness</strong> (<em>float</em>) – The roughness parameter in range (0, 1]. 0 is
 perfectly specular, 1 is perfectly rough.</li>
 </ul>
 </td>
@@ -333,13 +336,13 @@ perfectly specular, 1 is perfectly rough.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>b1</strong> (<em>float</em>) &#8211; Sellmeier <span class="math">\(B_1\)</span> coefficient.</li>
-<li><strong>b2</strong> (<em>float</em>) &#8211; Sellmeier <span class="math">\(B_2\)</span> coefficient.</li>
-<li><strong>b3</strong> (<em>float</em>) &#8211; Sellmeier <span class="math">\(B_3\)</span> coefficient.</li>
-<li><strong>c1</strong> (<em>float</em>) &#8211; Sellmeier <span class="math">\(C_1\)</span> coefficient.</li>
-<li><strong>c2</strong> (<em>float</em>) &#8211; Sellmeier <span class="math">\(C_2\)</span> coefficient.</li>
-<li><strong>c3</strong> (<em>float</em>) &#8211; Sellmeier <span class="math">\(B_1\)</span> coefficient.</li>
-<li><strong>sample_resolution</strong> (<em>float</em>) &#8211; The numerical sampling resolution in nanometers.</li>
+<li><strong>b1</strong> (<em>float</em>) – Sellmeier <span class="math">\(B_1\)</span> coefficient.</li>
+<li><strong>b2</strong> (<em>float</em>) – Sellmeier <span class="math">\(B_2\)</span> coefficient.</li>
+<li><strong>b3</strong> (<em>float</em>) – Sellmeier <span class="math">\(B_3\)</span> coefficient.</li>
+<li><strong>c1</strong> (<em>float</em>) – Sellmeier <span class="math">\(C_1\)</span> coefficient.</li>
+<li><strong>c2</strong> (<em>float</em>) – Sellmeier <span class="math">\(C_2\)</span> coefficient.</li>
+<li><strong>c3</strong> (<em>float</em>) – Sellmeier <span class="math">\(B_1\)</span> coefficient.</li>
+<li><strong>sample_resolution</strong> (<em>float</em>) – The numerical sampling resolution in nanometers.</li>
 </ul>
 </td>
 </tr>
@@ -354,7 +357,7 @@ wavelength.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wavelength</strong> (<em>float</em>) &#8211; Wavelength in nm.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wavelength</strong> (<em>float</em>) – Wavelength in nm.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Refractive index sample.</td>
 </tr>
@@ -376,11 +379,11 @@ wavelength.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; Refractive index as a function of wavelength.</li>
-<li><strong>transmission</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; Transmission per metre as a function of wavelength.</li>
-<li><strong>external_index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; Refractive index of the external material at the interface,
+<li><strong>index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Refractive index as a function of wavelength.</li>
+<li><strong>transmission</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Transmission per metre as a function of wavelength.</li>
+<li><strong>external_index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Refractive index of the external material at the interface,
 defaults to a vacuum (n=1).</li>
-<li><strong>transmission_only</strong> (<em>bool</em>) &#8211; toggles transmission only, no reflection (default=False).</li>
+<li><strong>transmission_only</strong> (<em>bool</em>) – toggles transmission only, no reflection (default=False).</li>
 </ul>
 </td>
 </tr>
@@ -419,8 +422,8 @@ untainted surface.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>material</strong> &#8211; The base material.</li>
-<li><strong>roughness</strong> &#8211; A double value in the range [0, 1].</li>
+<li><strong>material</strong> – The base material.</li>
+<li><strong>roughness</strong> – A double value in the range [0, 1].</li>
 </ul>
 </td>
 </tr>
@@ -444,11 +447,11 @@ pattern. Useful in debugging and as a light source in test scenes.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>width</strong> (<em>float</em>) &#8211; The width of the squares in metres.</li>
-<li><strong>emission_spectrum1</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; Emission spectrum for square one.</li>
-<li><strong>emission_spectrum2</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; Emission spectrum for square two.</li>
-<li><strong>scale1</strong> (<em>float</em>) &#8211; Intensity of square one emission.</li>
-<li><strong>scale2</strong> (<em>float</em>) &#8211; Intensity of square two emission.</li>
+<li><strong>width</strong> (<em>float</em>) – The width of the squares in metres.</li>
+<li><strong>emission_spectrum1</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Emission spectrum for square one.</li>
+<li><strong>emission_spectrum2</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Emission spectrum for square two.</li>
+<li><strong>scale1</strong> (<em>float</em>) – Intensity of square one emission.</li>
+<li><strong>scale2</strong> (<em>float</em>) – Intensity of square two emission.</li>
 </ul>
 </td>
 </tr>
@@ -484,9 +487,9 @@ D65 white point spectrum.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>light_direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; A world space Vector3D defining the light direction.</li>
-<li><strong>intensity</strong> (<em>float</em>) &#8211; The light intensity in units of radiance (default is 1.0).</li>
-<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; A SpectralFunction defining the light&#8217;s
+<li><strong>light_direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – A world space Vector3D defining the light direction.</li>
+<li><strong>intensity</strong> (<em>float</em>) – The light intensity in units of radiance (default is 1.0).</li>
+<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – A SpectralFunction defining the light’s
 emission spectrum (default is D65 white).</li>
 </ul>
 </td>
@@ -542,17 +545,17 @@ emission spectrum (default is D65 white).</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.3.1',
+            VERSION:'0.4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: ''
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
