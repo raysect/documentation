@@ -73,7 +73,7 @@
             
             
               <div class="version">
-                0.4
+                0.3
               </div>
             
           
@@ -201,7 +201,7 @@
 <em class="property">class </em><code class="descclassname">raysect.optical.material.emitter.</code><code class="descname">UnityVolumeEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UnityVolumeEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">raysect.optical.material.emitter.homogeneous.HomogeneousVolumeEmitter</span></code></p>
 <p>Uniform, isotropic volume emitter with emission 1W/str/m^3/ x nm,
-where x is the spectrum’s wavelength interval.</p>
+where x is the spectrum&#8217;s wavelength interval.</p>
 <p>This material is useful for general purpose debugging and evaluating the coupling
 coefficients between cameras and emitting volumes.</p>
 </dd></dl>
@@ -218,8 +218,8 @@ emission scale in radiance.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>emission_spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – The volume’s emission function.</li>
-<li><strong>scale</strong> (<em>float</em>) – Scale of the emission function (default = 1 W/m^3/str/nm).</li>
+<li><strong>emission_spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) &#8211; The volume&#8217;s emission function.</li>
+<li><strong>scale</strong> (<em>float</em>) &#8211; Scale of the emission function (default = 1 W/m^3/str/nm).</li>
 </ul>
 </td>
 </tr>
@@ -245,14 +245,14 @@ but not necessarily isotropic.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The emission direction vector in local coordinates.</li>
-<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum measured so far along ray path. Add your emission</li>
+<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The emission direction vector in local coordinates.</li>
+<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) &#8211; Spectrum measured so far along ray path. Add your emission</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>to this spectrum, don’t override it.
+<p>to this spectrum, don&#8217;t override it.
 :param World world: The world scene-graph.
 :param Ray ray: The ray being traced.
 :param Primitive primitive: The geometric primitive to which this material belongs</p>
@@ -263,10 +263,10 @@ but not necessarily isotropic.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from world space to the primitive’s local space.</li>
-<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from the primitive’s local space to world space.</li>
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining the coordinate
+transform from world space to the primitive&#8217;s local space.</li>
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining the coordinate
+transform from the primitive&#8217;s local space to world space.</li>
 </ul>
 </td>
 </tr>
@@ -288,7 +288,7 @@ a basic numerical integration scheme.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>integrator</strong> (<a class="reference internal" href="#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator" title="raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator"><em>VolumeIntegrator</em></a>) – Integration object, defaults to
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>integrator</strong> (<a class="reference internal" href="#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator" title="raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator"><em>VolumeIntegrator</em></a>) &#8211; Integration object, defaults to
 NumericalIntegrator(step=0.01, min_samples=5).</td>
 </tr>
 </tbody>
@@ -303,15 +303,15 @@ NumericalIntegrator(step=0.01, min_samples=5).</td>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Requested sample point in local coordinates.</li>
-<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The emission direction in local coordinates.</li>
-<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum measured so far along ray path. Add your emission</li>
+<li><strong>point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Requested sample point in local coordinates.</li>
+<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The emission direction in local coordinates.</li>
+<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) &#8211; Spectrum measured so far along ray path. Add your emission</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<p>to this spectrum, don’t override it.
+<p>to this spectrum, don&#8217;t override it.
 :param World world: The world scene-graph.
 :param Ray ray: The ray being traced.
 :param Primitive primitive: The geometric primitive to which this material belongs</p>
@@ -322,10 +322,10 @@ NumericalIntegrator(step=0.01, min_samples=5).</td>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from world space to the primitive’s local space.</li>
-<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from the primitive’s local space to world space.</li>
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining the coordinate
+transform from world space to the primitive&#8217;s local space.</li>
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining the coordinate
+transform from the primitive&#8217;s local space to world space.</li>
 </ul>
 </td>
 </tr>
@@ -350,11 +350,11 @@ transform from the primitive’s local space to world space.</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum measured so far along ray path. Add your emission</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) &#8211; Spectrum measured so far along ray path. Add your emission</td>
 </tr>
 </tbody>
 </table>
-<p>to this spectrum, don’t override it.
+<p>to this spectrum, don&#8217;t override it.
 :param World world: The world scene-graph.
 :param Ray ray: The ray being traced.
 :param Primitive primitive: The geometric primitive to which this material belongs</p>
@@ -365,14 +365,14 @@ transform from the primitive’s local space to world space.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>material</strong> (<a class="reference internal" href="#raysect.optical.material.emitter.InhomogeneousVolumeEmitter" title="raysect.optical.material.emitter.InhomogeneousVolumeEmitter"><em>InhomogeneousVolumeEmitter</em></a>) – The material whose emission needs to be
+<li><strong>material</strong> (<a class="reference internal" href="#raysect.optical.material.emitter.InhomogeneousVolumeEmitter" title="raysect.optical.material.emitter.InhomogeneousVolumeEmitter"><em>InhomogeneousVolumeEmitter</em></a>) &#8211; The material whose emission needs to be
 integrated.</li>
-<li><strong>start_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The start point for integration in world space.</li>
-<li><strong>end_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The end point for integration in world space.</li>
-<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from world space to the primitive’s local space.</li>
-<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from the primitive’s local space to world space.</li>
+<li><strong>start_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The start point for integration in world space.</li>
+<li><strong>end_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The end point for integration in world space.</li>
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining the coordinate
+transform from world space to the primitive&#8217;s local space.</li>
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining the coordinate
+transform from the primitive&#8217;s local space to world space.</li>
 </ul>
 </td>
 </tr>
@@ -392,8 +392,8 @@ transform from the primitive’s local space to world space.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>step</strong> (<em>float</em>) – The step size for numerical integration in metres.</li>
-<li><strong>min_samples</strong> (<em>int</em>) – The minimum number of samples to use over integration
+<li><strong>step</strong> (<em>float</em>) &#8211; The step size for numerical integration in metres.</li>
+<li><strong>min_samples</strong> (<em>int</em>) &#8211; The minimum number of samples to use over integration
 range (default=5).</li>
 </ul>
 </td>
@@ -446,7 +446,7 @@ range (default=5).</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -456,7 +456,7 @@ range (default=5).</li>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

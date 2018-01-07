@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.4
+                0.3
               </div>
             
           
@@ -236,8 +236,8 @@ into space B, <span class="math">\(\vec{x_b}\)</span>. The same applies to <span
 the  <span class="math">\(\vec{y}_a\)</span> and <span class="math">\(\vec{z}_a\)</span> unit vectors respectively. Together the new basis
 vectors describe a rotation of the original coordinate system.</p>
 <p>The vector <span class="math">\(\vec{t}\)</span> in the last column corresponds to a translation vector between the
-origin’s of space A and space B.</p>
-<p>Strictly speaking, the new rotation vectors don’t have to be normalised which
+origin&#8217;s of space A and space B.</p>
+<p>Strictly speaking, the new rotation vectors don&#8217;t have to be normalised which
 corresponds to a scaling in addition to the rotation. For example, a scaling matrix
 would look like the following.</p>
 <div class="math">
@@ -249,7 +249,7 @@ would look like the following.</p>
 matrices together, the resulting matrix will encode the full transformation.
 The order in which transformations are applied is very important. The operation
 <span class="math">\(\mathbf{M_{translate}} \times \mathbf{M_{rotate}}\)</span> is different to
-<span class="math">\(\mathbf{M_{rotate}} \times \mathbf{M_{translate}}\)</span> because matrices don’t
+<span class="math">\(\mathbf{M_{rotate}} \times \mathbf{M_{translate}}\)</span> because matrices don&#8217;t
 commute, and physically these are different operations.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
@@ -271,7 +271,7 @@ of operations would be equivalent to:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<em>object</em>) – Any 4 x 4 indexable or 16 element object can be used to
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<em>object</em>) &#8211; Any 4 x 4 indexable or 16 element object can be used to
 initialise the matrix. 16 element objects must be specified in
 row-major format.</td>
 </tr>
@@ -304,9 +304,9 @@ is the vector from the origin of space A to space B.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) – x-coordinate</li>
-<li><strong>y</strong> (<em>float</em>) – y-coordinate</li>
-<li><strong>z</strong> (<em>float</em>) – z-coordinate</li>
+<li><strong>x</strong> (<em>float</em>) &#8211; x-coordinate</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; y-coordinate</li>
+<li><strong>z</strong> (<em>float</em>) &#8211; z-coordinate</li>
 </ul>
 </td>
 </tr>
@@ -332,7 +332,7 @@ about the X axis by the supplied angle.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<em>float</em>) – The angle <span class="math">\(\theta\)</span> specified in degrees.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<em>float</em>) &#8211; The angle <span class="math">\(\theta\)</span> specified in degrees.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D">AffineMatrix3D</a></td>
 </tr>
@@ -355,7 +355,7 @@ about the Y axis by the supplied angle.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<em>float</em>) – The angle <span class="math">\(\theta\)</span> specified in degrees.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<em>float</em>) &#8211; The angle <span class="math">\(\theta\)</span> specified in degrees.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D">AffineMatrix3D</a></td>
 </tr>
@@ -378,7 +378,7 @@ about the Z axis by the supplied angle.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<em>float</em>) – The angle <span class="math">\(\theta\)</span> specified in degrees.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<em>float</em>) &#8211; The angle <span class="math">\(\theta\)</span> specified in degrees.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D">AffineMatrix3D</a></td>
 </tr>
@@ -390,7 +390,7 @@ about the Z axis by the supplied angle.</p>
 <dt id="raysect.core.math.transform.rotate">
 <code class="descclassname">raysect.core.math.transform.</code><code class="descname">rotate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.rotate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an affine transform matrix representing an intrinsic rotation with
-an axis order (-Y)(-X)’Z’‘.</p>
+an axis order (-Y)(-X)&#8217;Z&#8217;&#8216;.</p>
 <p>For an object aligned such that forward is the +ve Z-axis, left is the +ve
 X-axis and up is the +ve Y-axis then this rotation operation corresponds to
 the yaw, pitch and roll of the object.</p>
@@ -399,9 +399,9 @@ the yaw, pitch and roll of the object.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>yaw</strong> (<em>float</em>) – Yaw angle in degrees.</li>
-<li><strong>pitch</strong> (<em>float</em>) – Pitch angle in degrees.</li>
-<li><strong>roll</strong> (<em>float</em>) – Roll angle in degrees.</li>
+<li><strong>yaw</strong> (<em>float</em>) &#8211; Yaw angle in degrees.</li>
+<li><strong>pitch</strong> (<em>float</em>) &#8211; Pitch angle in degrees.</li>
+<li><strong>roll</strong> (<em>float</em>) &#8211; Roll angle in degrees.</li>
 </ul>
 </td>
 </tr>
@@ -422,8 +422,8 @@ about the supplied vector by the specified angle.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>angle</strong> (<em>float</em>) – The angle specified in degrees.</li>
-<li><strong>v</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The vector about which to rotate.</li>
+<li><strong>angle</strong> (<em>float</em>) &#8211; The angle specified in degrees.</li>
+<li><strong>v</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The vector about which to rotate.</li>
 </ul>
 </td>
 </tr>
@@ -450,8 +450,8 @@ be rotated in the plane defined by the two vectors until it is orthogonal.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>forward</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – A Vector3D object defining the forward direction.</li>
-<li><strong>up</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – A Vector3D object defining the up direction.</li>
+<li><strong>forward</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; A Vector3D object defining the forward direction.</li>
+<li><strong>up</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; A Vector3D object defining the up direction.</li>
 </ul>
 </td>
 </tr>
@@ -508,7 +508,7 @@ be rotated in the plane defined by the two vectors until it is orthogonal.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -518,7 +518,7 @@ be rotated in the plane defined by the two vectors until it is orthogonal.</p>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

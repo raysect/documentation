@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.4
+                0.3
               </div>
             
           
@@ -206,17 +206,17 @@ provided.</p>
 <p>The mesh vertices are supplied as an Nx3 list/array of floating point
 values. For each Vertex, x, y and z coordinates must be supplied. e.g.</p>
 <blockquote>
-<div>vertices = [[0.0, 0.0, 1.0], [1.0, 0.0, 0.0], …]</div></blockquote>
+<div>vertices = [[0.0, 0.0, 1.0], [1.0, 0.0, 0.0], ...]</div></blockquote>
 <p>Vertex normals are similarly defined. Note that vertex normals must be
 correctly normalised.</p>
 <p>The triangle array is either Mx3 or Mx6 - Mx3 if only vertices are defined
 or Mx6 if both vertices and vertex normals are defined. Triangles are
 defined by indexing into the vertex and vertex normal arrays. i.e:</p>
 <blockquote>
-<div>triangles = [[v1, v2, v3, n1, n2, n3], …]</div></blockquote>
-<p>where v1, v2, v3 are the vertex array indices specifying the triangle’s
+<div>triangles = [[v1, v2, v3, n1, n2, n3], ...]</div></blockquote>
+<p>where v1, v2, v3 are the vertex array indices specifying the triangle&#8217;s
 vertices and n1, n2, n3 are the normal array indices specifying the
-triangle’s surface normals at each vertex location. Where normals are
+triangle&#8217;s surface normals at each vertex location. Where normals are
 not defined, n1, n2 and n3 are omitted.</p>
 <p>The mesh may be an open surface (which does not enclose a volume) or a
 closed surface (which defines a volume). The nature of the mesh must be
@@ -231,7 +231,7 @@ this will result in a (suitably defined) mesh appearing smooth rather than
 faceted. If the triangles do not have vertex normals defined, the smoothing
 argument is ignored.</p>
 <p>An alternate option for creating a new mesh is to create an instance of an
-existing mesh. An instance is a “clone” of the original mesh. Mesh instances
+existing mesh. An instance is a &#8220;clone&#8221; of the original mesh. Mesh instances
 hold references to the internal data of the target mesh, they are therefore
 very memory efficient (particularly for detailed meshes) compared to
 creating a new mesh from scratch. A new instance of a mesh can be created
@@ -241,11 +241,11 @@ CAD models), enable tolerant mode to automatically remove them during mesh
 initialisation. A degenerate triangle is one where two or more vertices are
 coincident or all the vertices lie on the same line. Degenerate triangles
 will produce rendering error if encountered even though they are
-“infinitesimally” thin. A ray can still intersect them if they perfectly
+&#8220;infinitesimally&#8221; thin. A ray can still intersect them if they perfectly
 align as the triangle edges are treated as part of the triangle surface).</p>
 <p>The kdtree_* arguments are tuning parameters for the kd-tree construction.
 For more information see the documentation of KDTree3D. The default values
-should result in efficient construction of the mesh’s internal kd-tree.
+should result in efficient construction of the mesh&#8217;s internal kd-tree.
 Generally there is no need to modify these parameters unless the memory
 used by the kd-tree must be controlled. This may occur if very large meshes
 are used.</p>
@@ -254,29 +254,29 @@ are used.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>vertices</strong> (<em>object</em>) – An N x 3 list of vertices.</li>
-<li><strong>triangles</strong> (<em>object</em>) – An M x 3 or N x 6 list of vertex/normal indices
+<li><strong>vertices</strong> (<em>object</em>) &#8211; An N x 3 list of vertices.</li>
+<li><strong>triangles</strong> (<em>object</em>) &#8211; An M x 3 or N x 6 list of vertex/normal indices
 defining the mesh triangles.</li>
-<li><strong>normals</strong> (<em>object</em>) – An K x 3 list of vertex normals or None (default=None).</li>
-<li><strong>smoothing</strong> (<em>bool</em>) – True to enable normal interpolation (default=True).</li>
-<li><strong>closed</strong> (<em>bool</em>) – True is the mesh defines a closed volume (default=True).</li>
-<li><strong>tolerant</strong> (<em>bool</em>) – Mesh will automatically correct meshes with degenerate
+<li><strong>normals</strong> (<em>object</em>) &#8211; An K x 3 list of vertex normals or None (default=None).</li>
+<li><strong>smoothing</strong> (<em>bool</em>) &#8211; True to enable normal interpolation (default=True).</li>
+<li><strong>closed</strong> (<em>bool</em>) &#8211; True is the mesh defines a closed volume (default=True).</li>
+<li><strong>tolerant</strong> (<em>bool</em>) &#8211; Mesh will automatically correct meshes with degenerate
 triangles if set to True (default=True).</li>
-<li><strong>kdtree_max_depth</strong> (<em>int</em>) – The maximum tree depth (automatic if set to 0, default=0).</li>
-<li><strong>kdtree_min_items</strong> (<em>int</em>) – The item count threshold for forcing creation of
+<li><strong>kdtree_max_depth</strong> (<em>int</em>) &#8211; The maximum tree depth (automatic if set to 0, default=0).</li>
+<li><strong>kdtree_min_items</strong> (<em>int</em>) &#8211; The item count threshold for forcing creation of
 a new leaf node (default=1).</li>
-<li><strong>kdtree_hit_cost</strong> (<em>double</em>) – The relative computational cost of item hit
+<li><strong>kdtree_hit_cost</strong> (<em>double</em>) &#8211; The relative computational cost of item hit
 evaluations vs kd-tree traversal (default=20.0).</li>
-<li><strong>kdtree_empty_bonus</strong> (<em>double</em>) – The bonus applied to node splits that
+<li><strong>kdtree_empty_bonus</strong> (<em>double</em>) &#8211; The bonus applied to node splits that
 generate empty leaves (default=0.2).</li>
-<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Attaches the mesh to the specified scene-graph
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Attaches the mesh to the specified scene-graph
 node (default=None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – The co-ordinate transform between
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The co-ordinate transform between
 the mesh and its parent (default=unity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) – The surface/volume material
+<li><strong>material</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; The surface/volume material
 (default=Material() instance).</li>
-<li><strong>name</strong> (<em>str</em>) – A human friendly name to identity the mesh in the
-scene-graph (default=”“).</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; A human friendly name to identity the mesh in the
+scene-graph (default=&#8221;&#8221;).</li>
 </ul>
 </td>
 </tr>
@@ -310,7 +310,7 @@ oriented to be pointing out of the volume surface.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> – The point to test.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> &#8211; The point to test.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the point lies in the volume, False otherwise.</td>
 </tr>
@@ -329,11 +329,11 @@ are created with the Mesh save() method.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>file</strong> (<em>object</em>) – File object or string path.</li>
-<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Attaches the mesh to the specified scene-graph node.</li>
-<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – The co-ordinate transform between the mesh and its parent.</li>
-<li><strong>material</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) – The surface/volume material.</li>
-<li><strong>name</strong> (<em>str</em>) – A human friendly name to identity the mesh in the scene-graph.</li>
+<li><strong>file</strong> (<em>object</em>) &#8211; File object or string path.</li>
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Attaches the mesh to the specified scene-graph node.</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The co-ordinate transform between the mesh and its parent.</li>
+<li><strong>material</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; The surface/volume material.</li>
+<li><strong>name</strong> (<em>str</em>) &#8211; A human friendly name to identity the mesh in the scene-graph.</li>
 </ul>
 </td>
 </tr>
@@ -354,7 +354,7 @@ point.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ray</strong> – A world-space ray.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ray</strong> &#8211; A world-space ray.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An Intersection or None.</td>
 </tr>
@@ -372,7 +372,7 @@ are created with the Mesh save() method.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> – File object or string path.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> &#8211; File object or string path.</td>
 </tr>
 </tbody>
 </table>
@@ -387,7 +387,7 @@ path.</p>
 has further intersections with the mesh, these may be obtained by
 repeatedly calling the next_intersection() method. Each call to
 next_intersection() will return the next ray-mesh intersection
-along the ray’s path. If no further intersections are found or
+along the ray&#8217;s path. If no further intersections are found or
 intersections lie outside the ray parameters then next_intersection()
 will return None.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -410,7 +410,7 @@ contains the mesh geometry and the mesh acceleration structures.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> – File object or string path.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> &#8211; File object or string path.</td>
 </tr>
 </tbody>
 </table>
@@ -420,7 +420,7 @@ contains the mesh geometry and the mesh acceleration structures.</p>
 
 <dl class="function">
 <dt id="raysect.primitive.mesh.obj.import_obj">
-<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">import_obj</code><span class="sig-paren">(</span><em>filename</em>, <em>scaling=1.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">import_obj</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a Wavefront OBJ mesh file (.obj).</p>
 <p>Some engineering meshes are exported in different units (mm for example)
 whereas Raysect units are in m. Applying a scale factor of 0.001 would
@@ -430,9 +430,9 @@ convert the mesh into m for use in Raysect.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
-<li><strong>scaling</strong> (<em>double</em>) – Scale the mesh by this factor (default=1.0).</li>
-<li><strong>**kwargs</strong> – <p>Accepts optional keyword arguments from the Mesh class.</p>
+<li><strong>filename</strong> (<em>str</em>) &#8211; Mesh file path.</li>
+<li><strong>scaling</strong> (<em>double</em>) &#8211; Scale the mesh by this factor (default=1.0).</li>
+<li><strong>**kwargs</strong> &#8211; <p>Accepts optional keyword arguments from the Mesh class.</p>
 </li>
 </ul>
 </td>
@@ -446,7 +446,7 @@ convert the mesh into m for use in Raysect.</p>
 
 <dl class="function">
 <dt id="raysect.primitive.mesh.stl.import_stl">
-<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">import_stl</code><span class="sig-paren">(</span><em>filename</em>, <em>scaling=1.0</em>, <em>mode=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">import_stl</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>mode=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a STereoLithography (STL) mesh file (.stl).</p>
 <p>Some engineering meshes are exported in different units (mm for example)
 whereas Raysect units are in m. Applying a scale factor of 0.001 would
@@ -456,9 +456,9 @@ convert the mesh into m for use in Raysect.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
-<li><strong>scaling</strong> (<em>double</em>) – Scale the mesh by this factor (default=1.0).</li>
-<li><strong>**kwargs</strong> – <p>Accepts optional keyword arguments from the Mesh class.</p>
+<li><strong>filename</strong> (<em>str</em>) &#8211; Mesh file path.</li>
+<li><strong>scaling</strong> (<em>double</em>) &#8211; Scale the mesh by this factor (default=1.0).</li>
+<li><strong>**kwargs</strong> &#8211; <p>Accepts optional keyword arguments from the Mesh class.</p>
 </li>
 </ul>
 </td>
@@ -516,7 +516,7 @@ convert the mesh into m for use in Raysect.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -526,7 +526,7 @@ convert the mesh into m for use in Raysect.</p>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

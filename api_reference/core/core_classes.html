@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.4
+                0.3
               </div>
             
           
@@ -206,9 +206,9 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>origin</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Point defining ray’s origin (default is Point3D(0, 0, 0)).</li>
-<li><strong>direction</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – Vector defining ray’s direction (default is Vector3D(0, 0, 1)).</li>
-<li><strong>max_distance</strong> (<em>double</em>) – The terminating distance of the ray.</li>
+<li><strong>origin</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Point defining ray&#8217;s origin (default is Point3D(0, 0, 0)).</li>
+<li><strong>direction</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; Vector defining ray&#8217;s direction (default is Vector3D(0, 0, 1)).</li>
+<li><strong>max_distance</strong> (<em>double</em>) &#8211; The terminating distance of the ray.</li>
 </ul>
 </td>
 </tr>
@@ -223,15 +223,15 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>origin</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Point defining origin (default is Point3D(0, 0, 0)).</li>
-<li><strong>direction</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – Vector defining direction (default is Vector3D(0, 0, 1)).</li>
+<li><strong>origin</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Point defining origin (default is Point3D(0, 0, 0)).</li>
+<li><strong>direction</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; Vector defining direction (default is Vector3D(0, 0, 1)).</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A new Ray instance.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.core.ray.Ray" title="raysect.core.ray.Ray">Ray</a></p>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../optical/main_optical_classes.html#raysect.optical.ray.Ray" title="raysect.optical.ray.Ray">Ray</a></p>
 </td>
 </tr>
 </tbody>
@@ -247,7 +247,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> (<em>double</em>) – The distance along the ray.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> (<em>double</em>) &#8211; The distance along the ray.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A point at distance t along the ray direction measured from its origin.</td>
 </tr>
@@ -274,16 +274,16 @@ normal.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ray</strong> (<a class="reference internal" href="#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The incident ray object (world space).</li>
-<li><strong>ray_distance</strong> (<em>double</em>) – The distance of the intersection along the ray path.</li>
-<li><strong>primitive</strong> (<a class="reference internal" href="raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The intersected primitive object.</li>
-<li><strong>hit_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point of intersection between the ray and the primitive (primitive local space).</li>
-<li><strong>inside_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The interior ray launch point (primitive local space).</li>
-<li><strong>outside_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The exterior ray launch point (primitive local space).</li>
-<li><strong>normal</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D"><em>Normal3D</em></a>) – The surface normal (primitive local space)</li>
-<li><strong>exiting</strong> (<em>bool</em>) – True if the ray is exiting the surface, False otherwise.</li>
-<li><strong>world_to_primitive</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – A world to primitive local transform matrix.</li>
-<li><strong>primitive_to_world</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – A primitive local to world transform matrix.</li>
+<li><strong>ray</strong> (<a class="reference internal" href="../optical/main_optical_classes.html#raysect.optical.ray.Ray" title="raysect.optical.ray.Ray"><em>Ray</em></a>) &#8211; The incident ray object (world space).</li>
+<li><strong>ray_distance</strong> (<em>double</em>) &#8211; The distance of the intersection along the ray path.</li>
+<li><strong>primitive</strong> (<a class="reference internal" href="raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; The intersected primitive object.</li>
+<li><strong>hit_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The point of intersection between the ray and the primitive (primitive local space).</li>
+<li><strong>inside_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The interior ray launch point (primitive local space).</li>
+<li><strong>outside_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The exterior ray launch point (primitive local space).</li>
+<li><strong>normal</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D"><em>Normal3D</em></a>) &#8211; The surface normal (primitive local space)</li>
+<li><strong>exiting</strong> (<em>bool</em>) &#8211; True if the ray is exiting the surface, False otherwise.</li>
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; A world to primitive local transform matrix.</li>
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; A primitive local to world transform matrix.</li>
 </ul>
 </td>
 </tr>
@@ -352,7 +352,7 @@ must be recalculated, taking the new material properties into account.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -362,7 +362,7 @@ must be recalculated, taking the new material properties into account.</p>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

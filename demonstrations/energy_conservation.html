@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                0.4
+                0.3
               </div>
             
           
@@ -198,7 +198,7 @@ The principle can be extended to test cases with more complicated emission sourc
 </div>
 <p>The emitting source will be a sphere at the origin, surrounded by an observing box. The number of samples
 requested will be relatively large so we can ensure good accuracy in the calculations. Note that this calculation
-isn’t spectrally resolved so we only need a narrow spectral range with a single wavelength bin. Initialise the
+isn&#8217;t spectrally resolved so we only need a narrow spectral range with a single wavelength bin. Initialise the
 constants and place the sphere in the scene.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="mi">100000</span>
 
@@ -213,7 +213,7 @@ constants and place the sphere in the scene.</p>
 <span class="n">emitter</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="n">sphere_radius</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that due to symmetry we don’t need to observe each face of the cube. We only need to observe 1 side and
+<p>Note that due to symmetry we don&#8217;t need to observe each face of the cube. We only need to observe 1 side and
 multiply by 6. You could also model it with 6 individual pixel faces.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">power</span> <span class="o">=</span> <span class="n">PowerPipeline0D</span><span class="p">(</span><span class="n">accumulate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">observing_plane</span> <span class="o">=</span> <span class="n">Pixel</span><span class="p">([</span><span class="n">power</span><span class="p">],</span> <span class="n">x_width</span><span class="o">=</span><span class="n">cube_size</span><span class="p">,</span> <span class="n">y_width</span><span class="o">=</span><span class="n">cube_size</span><span class="p">,</span>
@@ -222,7 +222,7 @@ multiply by 6. You could also model it with 6 individual pixel faces.</p>
                         <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">cube_size</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>First, let’s consider the case where the sphere is a uniform volume emitter with emission of 1W/m^3/str/nm).
+<p>First, let&#8217;s consider the case where the sphere is a uniform volume emitter with emission of 1W/m^3/str/nm).
 The theoretical total emitted power would be given by 1W x the volume of the sphere x 4Pi steradians x
 the wavelength range sampled. Lets implement the calculation and compare it to the measured value.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting observations with volume emitter...&quot;</span><span class="p">)</span>
@@ -275,7 +275,7 @@ the wavelength range sampled. Lets implement the calculation and compare it to t
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.4.0',
+            VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -285,7 +285,7 @@ the wavelength range sampled. Lets implement the calculation and compare it to t
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

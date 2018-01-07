@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.4
+                0.3
               </div>
             
           
@@ -226,7 +226,7 @@ that accepts a function object.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>float</em>) – function parameter x</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>float</em>) &#8211; function parameter x</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
@@ -256,7 +256,7 @@ Function1D object it should be wrapped using this class for internal use.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> (<em>object</em>) – the python function to wrap, __call__() function must be</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> (<em>object</em>) &#8211; the python function to wrap, __call__() function must be</td>
 </tr>
 </tbody>
 </table>
@@ -283,8 +283,8 @@ that accepts a function object.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) – function parameter x</li>
-<li><strong>y</strong> (<em>float</em>) – function parameter y</li>
+<li><strong>x</strong> (<em>float</em>) &#8211; function parameter x</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; function parameter y</li>
 </ul>
 </td>
 </tr>
@@ -317,7 +317,7 @@ Function2D object it should be wrapped using this class for internal use.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> (<em>object</em>) – the python function to wrap, __call__() function must</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> (<em>object</em>) &#8211; the python function to wrap, __call__() function must</td>
 </tr>
 </tbody>
 </table>
@@ -344,9 +344,9 @@ that accepts a function object.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) – function parameter x</li>
-<li><strong>y</strong> (<em>float</em>) – function parameter y</li>
-<li><strong>y</strong> – function parameter z</li>
+<li><strong>x</strong> (<em>float</em>) &#8211; function parameter x</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; function parameter y</li>
+<li><strong>y</strong> &#8211; function parameter z</li>
 </ul>
 </td>
 </tr>
@@ -412,11 +412,11 @@ acceleration structure.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>vertex_coords</strong> (<em>ndarray</em>) – An array of vertex coordinates (x, y) with shape Nx2.</li>
-<li><strong>triangles</strong> (<em>ndarray</em>) – An array of vertex indices defining the mesh triangles, with shape Mx3.</li>
-<li><strong>triangle_data</strong> (<em>ndarray</em>) – An array containing data for each triangle of shape Mx1.</li>
-<li><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False.</li>
-<li><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False.</li>
+<li><strong>vertex_coords</strong> (<em>ndarray</em>) &#8211; An array of vertex coordinates (x, y) with shape Nx2.</li>
+<li><strong>triangles</strong> (<em>ndarray</em>) &#8211; An array of vertex indices defining the mesh triangles, with shape Mx3.</li>
+<li><strong>triangle_data</strong> (<em>ndarray</em>) &#8211; An array containing data for each triangle of shape Mx1.</li>
+<li><strong>limit</strong> (<em>bool</em>) &#8211; Raise an exception outside mesh limits - True (default) or False.</li>
+<li><strong>default_value</strong> (<em>float</em>) &#8211; The value to return outside the mesh limits if limit is set to False.</li>
 </ul>
 </td>
 </tr>
@@ -440,10 +440,10 @@ geometry data between multiple interpolator objects.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh"><em>Discrete2DMesh</em></a>) – Discrete2DMesh object.</li>
-<li><strong>triangle_data</strong> (<em>ndarray</em>) – An array containing data for each triangle of shape Mx1 (default None).</li>
-<li><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False (default None).</li>
-<li><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False (default None).</li>
+<li><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh"><em>Discrete2DMesh</em></a>) &#8211; Discrete2DMesh object.</li>
+<li><strong>triangle_data</strong> (<em>ndarray</em>) &#8211; An array containing data for each triangle of shape Mx1 (default None).</li>
+<li><strong>limit</strong> (<em>bool</em>) &#8211; Raise an exception outside mesh limits - True (default) or False (default None).</li>
+<li><strong>default_value</strong> (<em>float</em>) &#8211; The value to return outside the mesh limits if limit is set to False (default None).</li>
 </ul>
 </td>
 </tr>
@@ -494,11 +494,11 @@ acceleration structure.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>vertex_coords</strong> (<em>ndarray</em>) – An array of vertex coordinates (x, y) with shape Nx2.</li>
-<li><strong>vertex_data</strong> (<em>ndarray</em>) – An array containing data for each vertex of shape Nx1.</li>
-<li><strong>triangles</strong> (<em>ndarray</em>) – An array of vertex indices defining the mesh triangles, with shape Mx3.</li>
-<li><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False.</li>
-<li><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False.</li>
+<li><strong>vertex_coords</strong> (<em>ndarray</em>) &#8211; An array of vertex coordinates (x, y) with shape Nx2.</li>
+<li><strong>vertex_data</strong> (<em>ndarray</em>) &#8211; An array containing data for each vertex of shape Nx1.</li>
+<li><strong>triangles</strong> (<em>ndarray</em>) &#8211; An array of vertex indices defining the mesh triangles, with shape Mx3.</li>
+<li><strong>limit</strong> (<em>bool</em>) &#8211; Raise an exception outside mesh limits - True (default) or False.</li>
+<li><strong>default_value</strong> (<em>float</em>) &#8211; The value to return outside the mesh limits if limit is set to False.</li>
 </ul>
 </td>
 </tr>
@@ -522,10 +522,10 @@ geometry data between multiple interpolator objects.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh"><em>Interpolator2DMesh</em></a>) – Interpolator2DMesh object.</li>
-<li><strong>vertex_data</strong> (<em>ndarray</em>) – An array containing data for each vertex of shape Nx1 (default None).</li>
-<li><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False (default None).</li>
-<li><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False (default None).</li>
+<li><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh"><em>Interpolator2DMesh</em></a>) &#8211; Interpolator2DMesh object.</li>
+<li><strong>vertex_data</strong> (<em>ndarray</em>) &#8211; An array containing data for each vertex of shape Nx1 (default None).</li>
+<li><strong>limit</strong> (<em>bool</em>) &#8211; Raise an exception outside mesh limits - True (default) or False (default None).</li>
+<li><strong>default_value</strong> (<em>float</em>) &#8211; The value to return outside the mesh limits if limit is set to False (default None).</li>
 </ul>
 </td>
 </tr>
@@ -587,7 +587,7 @@ geometry data between multiple interpolator objects.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -597,7 +597,7 @@ geometry data between multiple interpolator objects.</p>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

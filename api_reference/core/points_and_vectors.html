@@ -74,7 +74,7 @@
             
             
               <div class="version">
-                0.4
+                0.3
               </div>
             
           
@@ -226,14 +226,14 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) – initial x coordinate, defaults to x = 0.0.</li>
-<li><strong>y</strong> (<em>float</em>) – initial y coordinate, defaults to y = 0.0.</li>
+<li><strong>x</strong> (<em>float</em>) &#8211; initial x coordinate, defaults to x = 0.0.</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; initial y coordinate, defaults to y = 0.0.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>float</em>) – x-coordinate</li>
-<li><strong>y</strong> (<em>float</em>) – y-coordinate</li>
+<li><strong>x</strong> (<em>float</em>) &#8211; x-coordinate</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; y-coordinate</li>
 </ul>
 </td>
 </tr>
@@ -322,7 +322,7 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D"><em>Point2D</em></a>) – the point to which the distance will be calculated</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D"><em>Point2D</em></a>) &#8211; the point to which the distance will be calculated</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
@@ -338,7 +338,7 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D"><em>Point2D</em></a>) – point to which a vector will be calculated</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D"><em>Point2D</em></a>) &#8211; point to which a vector will be calculated</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector2D" title="raysect.core.math.vector.Vector2D">Vector2D</a></td>
 </tr>
@@ -361,14 +361,14 @@ aligned with the x-axis: Vector2D(1.0, 0.0)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) – initial x coordinate, defaults to x = 0.0.</li>
-<li><strong>y</strong> (<em>float</em>) – initial y coordinate, defaults to y = 0.0.</li>
+<li><strong>x</strong> (<em>float</em>) &#8211; initial x coordinate, defaults to x = 0.0.</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; initial y coordinate, defaults to y = 0.0.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>float</em>) – x-coordinate</li>
-<li><strong>y</strong> (<em>float</em>) – y-coordinate</li>
+<li><strong>x</strong> (<em>float</em>) &#8211; x-coordinate</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; y-coordinate</li>
 </ul>
 </td>
 </tr>
@@ -399,7 +399,7 @@ aligned with the x-axis: Vector2D(1.0, 0.0)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector2D" title="raysect.core.math.vector.Vector2D"><em>Vector2D</em></a>) – An input vector with which to calculate the cross product.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector2D" title="raysect.core.math.vector.Vector2D"><em>Vector2D</em></a>) &#8211; An input vector with which to calculate the cross product.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
@@ -417,7 +417,7 @@ aligned with the x-axis: Vector2D(1.0, 0.0)</p>
 <dl class="attribute">
 <dt id="raysect.core.math.vector.Vector2D.length">
 <code class="descname">length</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D.length" title="Permalink to this definition">¶</a></dt>
-<dd><p>The vector’s length.</p>
+<dd><p>The vector&#8217;s length.</p>
 <p>Raises a ZeroDivisionError if an attempt is made to change the length of
 a zero length vector. The direction of a zero length vector is
 undefined hence it can not be lengthened.</p>
@@ -471,16 +471,16 @@ Point3D(0.0, 0.0, 0.0)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) – initial x coordinate, defaults to x = 0.0.</li>
-<li><strong>y</strong> (<em>float</em>) – initial y coordinate, defaults to y = 0.0.</li>
-<li><strong>z</strong> (<em>float</em>) – initial z coordinate, defaults to z = 0.0.</li>
+<li><strong>x</strong> (<em>float</em>) &#8211; initial x coordinate, defaults to x = 0.0.</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; initial y coordinate, defaults to y = 0.0.</li>
+<li><strong>z</strong> (<em>float</em>) &#8211; initial z coordinate, defaults to z = 0.0.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>float</em>) – x-coordinate</li>
-<li><strong>y</strong> (<em>float</em>) – y-coordinate</li>
-<li><strong>z</strong> (<em>float</em>) – z-coordinate</li>
+<li><strong>x</strong> (<em>float</em>) &#8211; x-coordinate</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; y-coordinate</li>
+<li><strong>z</strong> (<em>float</em>) &#8211; z-coordinate</li>
 </ul>
 </td>
 </tr>
@@ -528,8 +528,8 @@ Point3D(0.0, 0.0, 0.0)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – transformation matrix x</li>
-<li><strong>y</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – point to transform</li>
+<li><strong>x</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; transformation matrix x</li>
+<li><strong>y</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; point to transform</li>
 </ul>
 </td>
 </tr>
@@ -593,7 +593,7 @@ Point3D(0.0, 0.0, 0.0)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – the point to which the distance will be calculated</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; the point to which the distance will be calculated</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
@@ -615,7 +615,7 @@ checks are performed on the matrix.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – The affine matrix describing the required coordinate transformation.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The affine matrix describing the required coordinate transformation.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new instance of this point that has been transformed with the supplied Affine Matrix.</td>
 </tr>
@@ -633,7 +633,7 @@ checks are performed on the matrix.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – the point to which a vector will be calculated.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; the point to which a vector will be calculated.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
 </tr>
@@ -657,16 +657,16 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) – initial x coordinate, defaults to x = 0.0.</li>
-<li><strong>y</strong> (<em>float</em>) – initial y coordinate, defaults to y = 0.0.</li>
-<li><strong>z</strong> (<em>float</em>) – initial z coordinate, defaults to z = 0.0.</li>
+<li><strong>x</strong> (<em>float</em>) &#8211; initial x coordinate, defaults to x = 0.0.</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; initial y coordinate, defaults to y = 0.0.</li>
+<li><strong>z</strong> (<em>float</em>) &#8211; initial z coordinate, defaults to z = 0.0.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>float</em>) – x-coordinate</li>
-<li><strong>y</strong> (<em>float</em>) – y-coordinate</li>
-<li><strong>z</strong> (<em>float</em>) – z-coordinate</li>
+<li><strong>x</strong> (<em>float</em>) &#8211; x-coordinate</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; y-coordinate</li>
+<li><strong>z</strong> (<em>float</em>) &#8211; z-coordinate</li>
 </ul>
 </td>
 </tr>
@@ -785,7 +785,7 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – An input vector with which to calculate the cross product.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; An input vector with which to calculate the cross product.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
 </tr>
@@ -803,7 +803,7 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 <dl class="attribute">
 <dt id="raysect.core.math.vector.Vector3D.length">
 <code class="descname">length</code><a class="headerlink" href="#raysect.core.math.vector.Vector3D.length" title="Permalink to this definition">¶</a></dt>
-<dd><p>The vector’s length.</p>
+<dd><p>The vector&#8217;s length.</p>
 <p>Raises a ZeroDivisionError if an attempt is made to change the length of
 a zero length vector. The direction of a zero length vector is
 undefined hence it can not be lengthened.</p>
@@ -820,8 +820,8 @@ undefined hence it can not be lengthened.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>b</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The other vector that bounds the interpolation.</li>
-<li><strong>t</strong> (<em>double</em>) – The parametric interpolation point t in (0, 1).</li>
+<li><strong>b</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The other vector that bounds the interpolation.</li>
+<li><strong>t</strong> (<em>double</em>) &#8211; The parametric interpolation point t in (0, 1).</li>
 </ul>
 </td>
 </tr>
@@ -891,8 +891,8 @@ vector magnitudes.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>b</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The other vector that bounds the interpolation.</li>
-<li><strong>t</strong> (<em>double</em>) – The parametric interpolation point t in (0, 1).</li>
+<li><strong>b</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The other vector that bounds the interpolation.</li>
+<li><strong>t</strong> (<em>double</em>) &#8211; The parametric interpolation point t in (0, 1).</li>
 </ul>
 </td>
 </tr>
@@ -914,7 +914,7 @@ operator of AffineMatrix3D when called from cython code.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – The affine matrix describing the required coordinate transformation.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The affine matrix describing the required coordinate transformation.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new instance of this vector that has been transformed with the supplied Affine Matrix.</td>
 </tr>
@@ -940,9 +940,9 @@ aligned with the z-axis: Normal3D(0.0, 0.0, 1.0)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>float</em>) – initial x coordinate, defaults to x = 0.0.</li>
-<li><strong>y</strong> (<em>float</em>) – initial y coordinate, defaults to y = 0.0.</li>
-<li><strong>z</strong> (<em>float</em>) – initial z coordinate, defaults to z = 0.0.</li>
+<li><strong>x</strong> (<em>float</em>) &#8211; initial x coordinate, defaults to x = 0.0.</li>
+<li><strong>y</strong> (<em>float</em>) &#8211; initial y coordinate, defaults to y = 0.0.</li>
+<li><strong>z</strong> (<em>float</em>) &#8211; initial z coordinate, defaults to z = 0.0.</li>
 </ul>
 </td>
 </tr>
@@ -1045,7 +1045,7 @@ aligned with the z-axis: Normal3D(0.0, 0.0, 1.0)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – An input vector with which to calculate the cross product.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; An input vector with which to calculate the cross product.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
 </tr>
@@ -1063,7 +1063,7 @@ aligned with the z-axis: Normal3D(0.0, 0.0, 1.0)</p>
 <dl class="attribute">
 <dt id="raysect.core.math.normal.Normal3D.length">
 <code class="descname">length</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.length" title="Permalink to this definition">¶</a></dt>
-<dd><p>The vector’s length.</p>
+<dd><p>The vector&#8217;s length.</p>
 <p>Raises a ZeroDivisionError if an attempt is made to change the length of
 a zero length vector. The direction of a zero length vector is
 undefined hence it can not be lengthened.</p>
@@ -1114,7 +1114,7 @@ multiplication operator of the affine matrix.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – The affine matrix describing the required coordinate transformation.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The affine matrix describing the required coordinate transformation.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new instance of this normal vector that has been transformed with the supplied Affine Matrix.</td>
 </tr>
@@ -1138,7 +1138,7 @@ multiplication operator of the affine matrix.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An inverse affine matrix of the required coordinate transformation.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An inverse affine matrix of the required coordinate transformation.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new instance of this normal vector that has been transformed.</td>
 </tr>
@@ -1197,7 +1197,7 @@ multiplication operator of the affine matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.3.1',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -1207,7 +1207,7 @@ multiplication operator of the affine matrix.</p>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
