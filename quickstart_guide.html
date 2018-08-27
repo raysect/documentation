@@ -26,29 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Raysect Documentation" href="index.html"/>
-        <link rel="next" title="6. Sampling and Observers" href="observers.html"/>
-        <link rel="prev" title="4. How it works" href="how_it_works.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Sampling and Observers" href="observers.html" />
+    <link rel="prev" title="4. How it works" href="how_it_works.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -65,7 +56,7 @@
 
           
             
-            <img src="_static/RaysectLogo_web.png" class="logo" />
+            <img src="_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -73,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5
               </div>
             
           
@@ -121,7 +112,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#examples-gallery">4. Examples Gallery</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -139,7 +132,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Raysect</a>
@@ -147,9 +140,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -198,7 +192,7 @@ raysect.</p>
 <div class="section" id="create-primitives">
 <h2>5.1. Create Primitives<a class="headerlink" href="#create-primitives" title="Permalink to this headline">¶</a></h2>
 <p>Set-up your primitives by defining materials, meshes, etc:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Box defining the ground plane</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Box defining the ground plane</span>
 <span class="n">ground</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.51</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">),</span> <span class="n">upper</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">())</span>
 
 <span class="c1"># checker board wall that acts as emitter</span>
@@ -216,7 +210,7 @@ raysect.</p>
 <h2>5.2. Add Observer<a class="headerlink" href="#add-observer" title="Permalink to this headline">¶</a></h2>
 <p>Add an observer and configure its sampling settings. All of these camera settings have sensible defaults, The camera
 settings will be explained in detail in another section:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># processing pipeline (human vision like camera response)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># processing pipeline (human vision like camera response)</span>
 <span class="n">rgb</span> <span class="o">=</span> <span class="n">RGBPipeline2D</span><span class="p">()</span>
 
 <span class="c1"># camera</span>
@@ -234,7 +228,7 @@ settings will be explained in detail in another section:</p>
 <div class="section" id="build-scenegraph">
 <h2>5.3. Build Scenegraph<a class="headerlink" href="#build-scenegraph" title="Permalink to this headline">¶</a></h2>
 <p>Assemble the scene-graph by linking primitives and observers to the World. Set their transforms:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
 
 <span class="n">sphere</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">world</span>
 <span class="n">ground</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">world</span>
@@ -246,7 +240,7 @@ settings will be explained in detail in another section:</p>
 <div class="section" id="observe">
 <h2>5.4. Observe()<a class="headerlink" href="#observe" title="Permalink to this headline">¶</a></h2>
 <p>Call observe() on an Observer or trace a ray manually:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">observe</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">ioff</span><span class="p">()</span>
@@ -260,7 +254,7 @@ settings will be explained in detail in another section:</p>
 <div class="section" id="simulated-spectrum">
 <h2>5.5. Simulated Spectrum<a class="headerlink" href="#simulated-spectrum" title="Permalink to this headline">¶</a></h2>
 <p>Lets simulate measuring a spectrum by launching a single ray:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ray</span> <span class="o">=</span> <span class="n">Ray</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">),</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ray</span> <span class="o">=</span> <span class="n">Ray</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">),</span>
           <span class="n">direction</span><span class="o">=</span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
           <span class="n">min_wavelength</span><span class="o">=</span><span class="mi">375</span><span class="p">,</span>
           <span class="n">max_wavelength</span><span class="o">=</span><span class="mi">785</span><span class="p">,</span>
@@ -273,7 +267,7 @@ settings will be explained in detail in another section:</p>
 <img alt="_images/example_spectra.png" class="align-center" src="_images/example_spectra.png" />
 <p>Due to the statistical nature of the path tracer, you may need to run the trace command more than once until you find a path that intersects with the light source.</p>
 <p>You can ask the ray to trace repeatedly using the sample method instead. This will combine the results of multiple paths:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ray</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ray</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">world</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -281,9 +275,7 @@ settings will be explained in detail in another section:</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -305,7 +297,7 @@ settings will be explained in detail in another section:</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -323,7 +315,8 @@ settings will be explained in detail in another section:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.4.0',
+            VERSION:'0.5.2',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -333,23 +326,17 @@ settings will be explained in detail in another section:</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

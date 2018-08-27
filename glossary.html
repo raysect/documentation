@@ -26,29 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Raysect Documentation" href="index.html"/>
-        <link rel="next" title="1. Core Functionality" href="demonstrations/demonstrations.html"/>
-        <link rel="prev" title="10. References" href="references.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Core Functionality" href="demonstrations/demonstrations.html" />
+    <link rel="prev" title="10. References" href="references.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -65,7 +56,7 @@
 
           
             
-            <img src="_static/RaysectLogo_web.png" class="logo" />
+            <img src="_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -73,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5
               </div>
             
           
@@ -114,7 +105,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#examples-gallery">4. Examples Gallery</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -132,7 +125,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Raysect</a>
@@ -140,9 +133,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -190,7 +184,7 @@
 <dl class="docutils">
 <dt>Affine Matrix</dt>
 <dd>A 4x4 matrix which defines a transformation between two coordinate
-systems. See <a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><code class="xref py py-class docutils literal"><span class="pre">AffineMatrix3D</span></code></a>.</dd>
+systems. See <a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">AffineMatrix3D</span></code></a>.</dd>
 <dt>Flux</dt>
 <dd>See radiant flux.</dd>
 <dt>Intensity</dt>
@@ -200,17 +194,17 @@ point sources.</dd>
 <dt>Intersection</dt>
 <dd>A ray-primitive intersection that describes the point of intersection
 between the given ray object and a piece of geometry (a primitive) in
-the scene <a class="reference internal" href="api_reference/core/core_classes.html#raysect.core.intersection.Intersection" title="raysect.core.intersection.Intersection"><code class="xref py py-class docutils literal"><span class="pre">Intersection</span></code></a>.</dd>
+the scene <a class="reference internal" href="api_reference/core/core_classes.html#raysect.core.intersection.Intersection" title="raysect.core.intersection.Intersection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Intersection</span></code></a>.</dd>
 <dt>Irradiance</dt>
 <dd>The area density of radiant flux passing through a surface, symbol
-<span class="math">\(E\)</span>, with units W/m^2.</dd>
+<span class="math notranslate nohighlight">\(E\)</span>, with units W/m^2.</dd>
 <dt>Material</dt>
 <dd>A material object provides an associated primitive with physical
-surface and volume properties. e.g. <a class="reference internal" href="api_reference/core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><code class="xref py py-class docutils literal"><span class="pre">core.material.Material</span></code></a>
-and <code class="xref py py-class docutils literal"><span class="pre">optical.material.Material</span></code></dd>
+surface and volume properties. e.g. <code class="xref py py-class docutils literal notranslate"><span class="pre">core.material.Material</span></code>
+and <code class="xref py py-class docutils literal notranslate"><span class="pre">optical.material.Material</span></code></dd>
 <dt>Node</dt>
 <dd>A fundamental element of the scene-graph with its own local coordinate
-system <a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><code class="xref py py-class docutils literal"><span class="pre">Node</span></code></a>.</dd>
+system <a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">Node</span></code></a>.</dd>
 <dt>Observer</dt>
 <dd>An observing node of the the scene-graph that generates rays to sample
 the scene. Observers can be 0D (Pixel, FibreOptic) or 2D
@@ -236,16 +230,16 @@ as structured meshes. All primitives have a material applied to their
 surface and volume. See the <a class="reference internal" href="api_reference/primitives/primitives.html#primitives-module"><span class="std std-ref">Primitives Module</span></a>.</dd>
 <dt>Radiance</dt>
 <dd>Radiance is the flux density per unit area per steradian, W/m^2/str, given
-the symbol <span class="math">\(L\)</span>. Radiance is the most fundamental radiometric quantity
+the symbol <span class="math notranslate nohighlight">\(L\)</span>. Radiance is the most fundamental radiometric quantity
 since all other quantities can be calculated as integrals of radiance over
 areas and solid angles. Radiance is the natural quantity for ray-tracing
 because it remains constant along rays in empty space.</dd>
 <dt>Radiant Flux</dt>
 <dd>Also known as power, the total amount of energy passing through a surface
-in one second, i.e. units of watts (W) with the symbol (<span class="math">\(\Phi\)</span>).</dd>
+in one second, i.e. units of watts (W) with the symbol (<span class="math notranslate nohighlight">\(\Phi\)</span>).</dd>
 <dt>Ray</dt>
-<dd>Describes a line in space with an origin and direction. Ray&#8217;s are used to
-trace() the world (e.g. <a class="reference internal" href="api_reference/core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><code class="xref py py-class docutils literal"><span class="pre">core.ray.Ray</span></code></a> and <a class="reference internal" href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray" title="raysect.optical.ray.Ray"><code class="xref py py-class docutils literal"><span class="pre">optical.ray.Ray</span></code></a>).</dd>
+<dd>Describes a line in space with an origin and direction. Ray’s are used to
+trace() the world (e.g. <a class="reference internal" href="api_reference/core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.ray.Ray</span></code></a> and <a class="reference internal" href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray" title="raysect.optical.ray.Ray"><code class="xref py py-class docutils literal notranslate"><span class="pre">optical.ray.Ray</span></code></a>).</dd>
 <dt>Scene</dt>
 <dd>A particular scene-graph instance consisting of geometry and cameras that
 correspond to a physical scene.</dd>
@@ -264,23 +258,21 @@ compare the results.</dd>
 <dt>Solid Angle</dt>
 <dd>The two dimensional angle in three dimensional space that an object subtends
 at a point. It represents how large an object appears to an observer at that
-point. Measured in units of steradian (str). There are <span class="math">\(4\pi\)</span> steradians
+point. Measured in units of steradian (str). There are <span class="math notranslate nohighlight">\(4\pi\)</span> steradians
 in a sphere.</dd>
 <dt>Transform</dt>
 <dd>A 4x4 affine matrix which defines a transformation between two coordinate
-systems. See <a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><code class="xref py py-class docutils literal"><span class="pre">AffineMatrix3D</span></code></a>.</dd>
+systems. See <a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">AffineMatrix3D</span></code></a>.</dd>
 <dt>World</dt>
 <dd>The root node of the scene-graph on which ray-tracing is performed, it also
 holds the acceleration structures used by the ray-tracer. See
-<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><code class="xref py py-class docutils literal"><span class="pre">core.scenegraph.world.World</span></code></a> and <a class="reference internal" href="api_reference/optical/main_optical_classes.html#raysect.optical.scenegraph.world.World" title="raysect.optical.scenegraph.world.World"><code class="xref py py-class docutils literal"><span class="pre">optical.scenegraph.world.World</span></code></a>.</dd>
+<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><code class="xref py py-class docutils literal notranslate"><span class="pre">core.scenegraph.world.World</span></code></a> and <a class="reference internal" href="api_reference/optical/main_optical_classes.html#raysect.optical.scenegraph.world.World" title="raysect.optical.scenegraph.world.World"><code class="xref py py-class docutils literal notranslate"><span class="pre">optical.scenegraph.world.World</span></code></a>.</dd>
 </dl>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -302,7 +294,7 @@ holds the acceleration structures used by the ray-tracer. See
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -320,7 +312,8 @@ holds the acceleration structures used by the ray-tracer. See
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.4.0',
+            VERSION:'0.5.2',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -330,23 +323,17 @@ holds the acceleration structures used by the ray-tracer. See
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

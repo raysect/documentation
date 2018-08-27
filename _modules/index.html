@@ -26,27 +26,18 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Raysect Documentation" href="../index.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -63,7 +54,7 @@
 
           
             
-            <img src="../_static/RaysectLogo_web.png" class="logo" />
+            <img src="../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -71,7 +62,7 @@
             
             
               <div class="version">
-                0.4
+                0.5
               </div>
             
           
@@ -112,7 +103,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demonstrations/demonstrations.html#examples-gallery">4. Examples Gallery</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -130,7 +123,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Raysect</a>
@@ -138,9 +131,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -168,8 +162,6 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
-        
       </li>
     
   </ul>
@@ -182,9 +174,9 @@
             
   <h1>All modules for which code is available</h1>
 <ul><li><a href="raysect/core/boundingbox.html">raysect.core.boundingbox</a></li>
+<li><a href="raysect/core/boundingsphere.html">raysect.core.boundingsphere</a></li>
 <li><a href="raysect/core/containers.html">raysect.core.containers</a></li>
 <li><a href="raysect/core/intersection.html">raysect.core.intersection</a></li>
-<li><a href="raysect/core/material.html">raysect.core.material</a></li>
 <li><a href="raysect/core/math/affinematrix.html">raysect.core.math.affinematrix</a></li>
 <li><a href="raysect/core/math/function/function1d.html">raysect.core.math.function.function1d</a></li>
 <li><a href="raysect/core/math/function/function2d.html">raysect.core.math.function.function2d</a></li>
@@ -196,6 +188,7 @@
 <li><a href="raysect/core/math/random.html">raysect.core.math.random</a></li>
 <li><a href="raysect/core/math/sampler/solidangle.html">raysect.core.math.sampler.solidangle</a></li>
 <li><a href="raysect/core/math/sampler/surface3d.html">raysect.core.math.sampler.surface3d</a></li>
+<li><a href="raysect/core/math/statsarray.html">raysect.core.math.statsarray</a></li>
 <li><a href="raysect/core/math/transform.html">raysect.core.math.transform</a></li>
 <li><a href="raysect/core/math/units.html">raysect.core.math.units</a></li>
 <li><a href="raysect/core/math/vector.html">raysect.core.math.vector</a></li>
@@ -218,10 +211,9 @@
 <li><a href="raysect/optical/material/emitter/unity.html">raysect.optical.material.emitter.unity</a></li>
 <li><a href="raysect/optical/material/lambert.html">raysect.optical.material.lambert</a></li>
 <li><a href="raysect/optical/material/material.html">raysect.optical.material.material</a></li>
-<li><a href="raysect/optical/material/modifiers.html">raysect.optical.material.modifiers</a></li>
+<li><a href="raysect/optical/material/modifiers/roughen.html">raysect.optical.material.modifiers.roughen</a></li>
 <li><a href="raysect/optical/observer/base/observer.html">raysect.optical.observer.base.observer</a></li>
 <li><a href="raysect/optical/observer/base/pipeline.html">raysect.optical.observer.base.pipeline</a></li>
-<li><a href="raysect/optical/observer/base/processor.html">raysect.optical.observer.base.processor</a></li>
 <li><a href="raysect/optical/observer/base/sampler.html">raysect.optical.observer.base.sampler</a></li>
 <li><a href="raysect/optical/observer/imaging/ccd.html">raysect.optical.observer.imaging.ccd</a></li>
 <li><a href="raysect/optical/observer/imaging/orthographic.html">raysect.optical.observer.imaging.orthographic</a></li>
@@ -230,6 +222,7 @@
 <li><a href="raysect/optical/observer/nonimaging/fibreoptic.html">raysect.optical.observer.nonimaging.fibreoptic</a></li>
 <li><a href="raysect/optical/observer/nonimaging/pixel.html">raysect.optical.observer.nonimaging.pixel</a></li>
 <li><a href="raysect/optical/observer/nonimaging/sightline.html">raysect.optical.observer.nonimaging.sightline</a></li>
+<li><a href="raysect/optical/observer/nonimaging/targetted_pixel.html">raysect.optical.observer.nonimaging.targetted_pixel</a></li>
 <li><a href="raysect/optical/observer/pipeline/bayer.html">raysect.optical.observer.pipeline.bayer</a></li>
 <li><a href="raysect/optical/observer/pipeline/mono/power.html">raysect.optical.observer.pipeline.mono.power</a></li>
 <li><a href="raysect/optical/observer/pipeline/mono/radiance.html">raysect.optical.observer.pipeline.mono.radiance</a></li>
@@ -248,15 +241,15 @@
 <li><a href="raysect/primitive/lens/spherical.html">raysect.primitive.lens.spherical</a></li>
 <li><a href="raysect/primitive/mesh/mesh.html">raysect.primitive.mesh.mesh</a></li>
 <li><a href="raysect/primitive/mesh/obj.html">raysect.primitive.mesh.obj</a></li>
+<li><a href="raysect/primitive/mesh/ply.html">raysect.primitive.mesh.ply</a></li>
 <li><a href="raysect/primitive/mesh/stl.html">raysect.primitive.mesh.stl</a></li>
+<li><a href="raysect/primitive/mesh/vtk.html">raysect.primitive.mesh.vtk</a></li>
 <li><a href="raysect/primitive/parabola.html">raysect.primitive.parabola</a></li>
 <li><a href="raysect/primitive/sphere.html">raysect.primitive.sphere</a></li>
 </ul>
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -269,7 +262,7 @@
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -287,7 +280,8 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.4.0',
+            VERSION:'0.5.2',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -297,23 +291,17 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

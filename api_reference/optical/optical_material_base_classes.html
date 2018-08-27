@@ -26,30 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Raysect Documentation" href="../../index.html"/>
-        <link rel="up" title="3. Optical Module" href="optical.html"/>
-        <link rel="next" title="3.5. Optical Surface Materials" href="optical_surfaces.html"/>
-        <link rel="prev" title="3.3. Frame Samples and Pipelines" href="pipelines.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.5. Optical Surface Materials" href="optical_surfaces.html" />
+    <link rel="prev" title="3.3. Frame Samples and Pipelines" href="pipelines.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -66,7 +56,7 @@
 
           
             
-            <img src="../../_static/RaysectLogo_web.png" class="logo" />
+            <img src="../../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -74,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5
               </div>
             
           
@@ -115,7 +105,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">4. Examples Gallery</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -141,7 +133,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Raysect</a>
@@ -149,9 +141,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -205,7 +198,7 @@ BTDF) components. See
 <dl class="class">
 <dt id="raysect.optical.material.material.Material">
 <em class="property">class </em><code class="descclassname">raysect.optical.material.material.</code><code class="descname">Material</code><a class="headerlink" href="#raysect.optical.material.material.Material" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.material.Material</span></code></a></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.material.Material</span></code></p>
 <p>Base class for optical material classes.</p>
 <p>Derived classes must implement the evaluate_surface() and evaluate_volume() methods.</p>
 <dl class="method">
@@ -217,20 +210,20 @@ BTDF) components. See
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) &#8211; The world scenegraph belonging to this material.</li>
-<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) &#8211; The ray incident at the material surface.</li>
-<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; The geometric shape the holds this material
+<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scenegraph belonging to this material.</li>
+<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray incident at the material surface.</li>
+<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric shape the holds this material
 (i.e. mesh, cylinder, etc.).</li>
-<li><strong>hit_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The point where the ray is incident on the
+<li><strong>hit_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point where the ray is incident on the
 primitive surface.</li>
-<li><strong>exiting</strong> (<em>bool</em>) &#8211; Boolean toggle indicating if this ray is exiting or
+<li><strong>exiting</strong> (<em>bool</em>) – Boolean toggle indicating if this ray is exiting or
 entering the material surface (True means ray is exiting).</li>
-<li><strong>inside_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; </li>
-<li><strong>outside_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; </li>
-<li><strong>normal</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D"><em>Normal3D</em></a>) &#8211; The surface normal vector at location of hit_point.</li>
-<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining transformation
+<li><strong>inside_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – </li>
+<li><strong>outside_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – </li>
+<li><strong>normal</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D"><em>Normal3D</em></a>) – The surface normal vector at location of hit_point.</li>
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining transformation
 from world space to local primitive space.</li>
-<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining transformation
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining transformation
 from local primitive space to world space.</li>
 </ul>
 </td>
@@ -249,20 +242,20 @@ through a material surface.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) &#8211; The spectrum already accumulated along the ray path.
-Don&#8217;t overwrite this array, add the materials emission/absorption to the existing
+<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – The spectrum already accumulated along the ray path.
+Don’t overwrite this array, add the materials emission/absorption to the existing
 spectrum.</li>
-<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) &#8211; The world scenegraph belonging to this material.</li>
-<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) &#8211; The ray incident at the material surface.</li>
-<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; The geometric shape the holds this material
+<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scenegraph belonging to this material.</li>
+<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray incident at the material surface.</li>
+<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric shape the holds this material
 (i.e. mesh, cylinder, etc.).</li>
-<li><strong>start_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The starting point of the ray&#8217;s trajectory
+<li><strong>start_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The starting point of the ray’s trajectory
 through the material.</li>
-<li><strong>end_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The end point of the ray&#8217;s trajectory through
+<li><strong>end_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The end point of the ray’s trajectory through
 the material.</li>
-<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining transformation
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining transformation
 from world space to local primitive space.</li>
-<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; Affine matrix defining transformation
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining transformation
 from local primitive space to world space.</li>
 </ul>
 </td>
@@ -291,43 +284,166 @@ from local primitive space to world space.</li>
 <dl class="class">
 <dt id="raysect.optical.material.material.NullSurface">
 <em class="property">class </em><code class="descclassname">raysect.optical.material.material.</code><code class="descname">NullSurface</code><a class="headerlink" href="#raysect.optical.material.material.NullSurface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>A base class for materials that have volume properties such as emission/absorption
 but no surface properties (e.g. a plasma). This material will launch a new ray after
-the initial ray has transited the material primitive&#8217;s volume. evaluate_volume() must be
+the initial ray has transited the material primitive’s volume. evaluate_volume() must be
 implemented by the deriving class.</p>
+<dl class="method">
+<dt id="raysect.optical.material.material.NullSurface.evaluate_surface">
+<code class="descname">evaluate_surface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.NullSurface.evaluate_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Virtual method for evaluating the spectrum at a material surface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scenegraph belonging to this material.</li>
+<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray incident at the material surface.</li>
+<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric shape the holds this material
+(i.e. mesh, cylinder, etc.).</li>
+<li><strong>hit_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point where the ray is incident on the
+primitive surface.</li>
+<li><strong>exiting</strong> (<em>bool</em>) – Boolean toggle indicating if this ray is exiting or
+entering the material surface (True means ray is exiting).</li>
+<li><strong>inside_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – </li>
+<li><strong>outside_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – </li>
+<li><strong>normal</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D"><em>Normal3D</em></a>) – The surface normal vector at location of hit_point.</li>
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining transformation
+from world space to local primitive space.</li>
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining transformation
+from local primitive space to world space.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="raysect.optical.material.material.NullVolume">
 <em class="property">class </em><code class="descclassname">raysect.optical.material.material.</code><code class="descname">NullVolume</code><a class="headerlink" href="#raysect.optical.material.material.NullVolume" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>A base class for materials that have surface properties such as reflection
 but no volume properties (e.g. a metallic mirror). evaluate_surface() must be
 implemented by the deriving class.</p>
+<dl class="method">
+<dt id="raysect.optical.material.material.NullVolume.evaluate_volume">
+<code class="descname">evaluate_volume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.NullVolume.evaluate_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Virtual method for evaluating the spectrum emitted/absorbed along the rays trajectory
+through a material surface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – The spectrum already accumulated along the ray path.
+Don’t overwrite this array, add the materials emission/absorption to the existing
+spectrum.</li>
+<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scenegraph belonging to this material.</li>
+<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray incident at the material surface.</li>
+<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric shape the holds this material
+(i.e. mesh, cylinder, etc.).</li>
+<li><strong>start_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The starting point of the ray’s trajectory
+through the material.</li>
+<li><strong>end_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The end point of the ray’s trajectory through
+the material.</li>
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining transformation
+from world space to local primitive space.</li>
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining transformation
+from local primitive space to world space.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="raysect.optical.material.material.DiscreteBSDF">
 <em class="property">class </em><code class="descclassname">raysect.optical.material.material.</code><code class="descname">DiscreteBSDF</code><a class="headerlink" href="#raysect.optical.material.material.DiscreteBSDF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>A base class for materials implementing a discrete BSDF.</p>
+<dl class="method">
+<dt id="raysect.optical.material.material.DiscreteBSDF.evaluate_surface">
+<code class="descname">evaluate_surface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.DiscreteBSDF.evaluate_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Virtual method for evaluating the spectrum at a material surface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scenegraph belonging to this material.</li>
+<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray incident at the material surface.</li>
+<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric shape the holds this material
+(i.e. mesh, cylinder, etc.).</li>
+<li><strong>hit_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point where the ray is incident on the
+primitive surface.</li>
+<li><strong>exiting</strong> (<em>bool</em>) – Boolean toggle indicating if this ray is exiting or
+entering the material surface (True means ray is exiting).</li>
+<li><strong>inside_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – </li>
+<li><strong>outside_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – </li>
+<li><strong>normal</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D"><em>Normal3D</em></a>) – The surface normal vector at location of hit_point.</li>
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining transformation
+from world space to local primitive space.</li>
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining transformation
+from local primitive space to world space.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
 <dt id="raysect.optical.material.material.ContinuousBSDF">
 <em class="property">class </em><code class="descclassname">raysect.optical.material.material.</code><code class="descname">ContinuousBSDF</code><a class="headerlink" href="#raysect.optical.material.material.ContinuousBSDF" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>A base class for materials implementing a continuous BSDF.</p>
+<dl class="method">
+<dt id="raysect.optical.material.material.ContinuousBSDF.evaluate_surface">
+<code class="descname">evaluate_surface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.ContinuousBSDF.evaluate_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Virtual method for evaluating the spectrum at a material surface.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scenegraph belonging to this material.</li>
+<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray incident at the material surface.</li>
+<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric shape the holds this material
+(i.e. mesh, cylinder, etc.).</li>
+<li><strong>hit_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point where the ray is incident on the
+primitive surface.</li>
+<li><strong>exiting</strong> (<em>bool</em>) – Boolean toggle indicating if this ray is exiting or
+entering the material surface (True means ray is exiting).</li>
+<li><strong>inside_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – </li>
+<li><strong>outside_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – </li>
+<li><strong>normal</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D"><em>Normal3D</em></a>) – The surface normal vector at location of hit_point.</li>
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining transformation
+from world space to local primitive space.</li>
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining transformation
+from local primitive space to world space.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -349,7 +465,7 @@ implemented by the deriving class.</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -367,7 +483,8 @@ implemented by the deriving class.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.5.2',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -377,23 +494,17 @@ implemented by the deriving class.</p>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

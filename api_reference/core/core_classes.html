@@ -26,30 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Raysect Documentation" href="../../index.html"/>
-        <link rel="up" title="1. Raysect Core" href="core.html"/>
-        <link rel="next" title="1.2. Math Module" href="math.html"/>
-        <link rel="prev" title="1. Raysect Core" href="core.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.2. Math Module" href="math.html" />
+    <link rel="prev" title="1. Raysect Core" href="core.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -66,7 +56,7 @@
 
           
             
-            <img src="../../_static/RaysectLogo_web.png" class="logo" />
+            <img src="../../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -74,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5
               </div>
             
           
@@ -115,7 +105,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">4. Examples Gallery</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -141,7 +133,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Raysect</a>
@@ -149,9 +141,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -201,19 +194,37 @@
 <dt id="raysect.core.ray.Ray">
 <em class="property">class </em><code class="descclassname">raysect.core.ray.</code><code class="descname">Ray</code><a class="headerlink" href="#raysect.core.ray.Ray" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describes a line in space with an origin and direction.</p>
+<p>Note that the core Ray class only implements the geometry calculations needed for
+intersections and is not capable of any optical simulations. For that you would
+need the derived optical Ray class (<a class="reference internal" href="../optical/main_optical_classes.html#raysect.optical.ray.Ray" title="raysect.optical.ray.Ray"><code class="xref py py-meth docutils literal notranslate"><span class="pre">raysect.optical.ray.Ray</span></code></a>).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>origin</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Point defining ray&#8217;s origin (default is Point3D(0, 0, 0)).</li>
-<li><strong>direction</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; Vector defining ray&#8217;s direction (default is Vector3D(0, 0, 1)).</li>
-<li><strong>max_distance</strong> (<em>double</em>) &#8211; The terminating distance of the ray.</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>origin</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Point defining ray’s origin (default is Point3D(0, 0, 0)).</li>
+<li><strong>direction</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – Vector defining ray’s direction (default is Vector3D(0, 0, 1)).</li>
+<li><strong>max_distance</strong> (<em>double</em>) – The terminating distance of the ray.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>origin</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The Ray’s origin point.</li>
+<li><strong>direction</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The Ray’s direction.</li>
+<li><strong>max_distance</strong> (<em>float</em>) – The terminating distance of the ray.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">Vector3D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.ray</span> <span class="kn">import</span> <span class="n">Ray</span> <span class="k">as</span> <span class="n">CoreRay</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">intersection</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">hit</span><span class="p">(</span><span class="n">CoreRay</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,),</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">intersection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c1"># do something with the intersection results</span>
+</pre></div>
+</div>
 <dl class="method">
 <dt id="raysect.core.ray.Ray.copy">
 <code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.ray.Ray.copy" title="Permalink to this definition">¶</a></dt>
@@ -223,8 +234,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>origin</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Point defining origin (default is Point3D(0, 0, 0)).</li>
-<li><strong>direction</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; Vector defining direction (default is Vector3D(0, 0, 1)).</li>
+<li><strong>origin</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Point defining origin (default is Point3D(0, 0, 0)).</li>
+<li><strong>direction</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – Vector defining direction (default is Vector3D(0, 0, 1)).</li>
 </ul>
 </td>
 </tr>
@@ -236,6 +247,14 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">Vector3D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.ray</span> <span class="kn">import</span> <span class="n">Ray</span> <span class="k">as</span> <span class="n">CoreRay</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">CoreRay</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,),</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="go">Ray(Point3D(0.0, 0.0, 0.0), Vector3D(1.0, 0.0, 0.0), inf)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -247,7 +266,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> (<em>double</em>) &#8211; The distance along the ray.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t</strong> (<em>double</em>) – The distance along the ray.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A point at distance t along the ray direction measured from its origin.</td>
 </tr>
@@ -255,6 +274,14 @@
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">Vector3D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.ray</span> <span class="kn">import</span> <span class="n">Ray</span> <span class="k">as</span> <span class="n">CoreRay</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">CoreRay</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,),</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">point_on</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">Point3D(2.0, 0.0, 0.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -263,6 +290,10 @@
 <dt id="raysect.core.intersection.Intersection">
 <em class="property">class </em><code class="descclassname">raysect.core.intersection.</code><code class="descname">Intersection</code><a class="headerlink" href="#raysect.core.intersection.Intersection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describes the result of a ray-primitive intersection.</p>
+<p>Users are unlikely to instance this class themselves, in most cases they will
+need to inspect this object as the result of a Ray-Primitive intersection
+encountered in the world.hit() method
+(<a class="reference internal" href="raysect_core_scenegraph.html#raysect.core.scenegraph.world.World.hit" title="raysect.core.scenegraph.world.World.hit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">raysect.core.scenegraph.world.World.hit</span></code></a>).</p>
 <p>The inside and outside points are launch points for rays emitted from the hit point on the surface. Rays cannot be
 launched from the hit point directly as they risk re-intersecting the same surface due to numerical accuracy. The
 inside and outside points are slightly displaced from the primitive surface at a sufficient distance to prevent
@@ -273,46 +304,53 @@ normal.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ray</strong> (<a class="reference internal" href="#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) &#8211; The incident ray object (world space).</li>
-<li><strong>ray_distance</strong> (<em>double</em>) &#8211; The distance of the intersection along the ray path.</li>
-<li><strong>primitive</strong> (<a class="reference internal" href="raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; The intersected primitive object.</li>
-<li><strong>hit_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The point of intersection between the ray and the primitive (primitive local space).</li>
-<li><strong>inside_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The interior ray launch point (primitive local space).</li>
-<li><strong>outside_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; The exterior ray launch point (primitive local space).</li>
-<li><strong>normal</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D"><em>Normal3D</em></a>) &#8211; The surface normal (primitive local space)</li>
-<li><strong>exiting</strong> (<em>bool</em>) &#8211; True if the ray is exiting the surface, False otherwise.</li>
-<li><strong>world_to_primitive</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; A world to primitive local transform matrix.</li>
-<li><strong>primitive_to_world</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; A primitive local to world transform matrix.</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ray</strong> (<a class="reference internal" href="#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The incident ray object (world space).</li>
+<li><strong>ray_distance</strong> (<em>double</em>) – The distance of the intersection along the ray path.</li>
+<li><strong>primitive</strong> (<a class="reference internal" href="raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The intersected primitive object.</li>
+<li><strong>hit_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point of intersection between the ray and the primitive (primitive local space).</li>
+<li><strong>inside_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The interior ray launch point (primitive local space).</li>
+<li><strong>outside_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The exterior ray launch point (primitive local space).</li>
+<li><strong>normal</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D"><em>Normal3D</em></a>) – The surface normal (primitive local space)</li>
+<li><strong>exiting</strong> (<em>bool</em>) – True if the ray is exiting the surface, False otherwise.</li>
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – A world to primitive local transform matrix.</li>
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – A primitive local to world transform matrix.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>exiting</strong> (<em>bool</em>) – True if the ray is exiting the surface, False otherwise.</li>
+<li><strong>hit_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point of intersection between the ray and the primitive
+(primitive local space).</li>
+<li><strong>inside_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The interior ray launch point (primitive local space).</li>
+<li><a class="reference internal" href="random.html#raysect.core.math.random.normal" title="raysect.core.math.random.normal"><strong>normal</strong></a> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D"><em>Normal3D</em></a>) – The surface normal (primitive local space).</li>
+<li><strong>outside_point</strong> (<a class="reference internal" href="points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The exterior ray launch point (primitive local space).</li>
+<li><a class="reference internal" href="raysect_core_scenegraph.html#module-raysect.core.scenegraph.primitive" title="raysect.core.scenegraph.primitive"><strong>primitive</strong></a> (<a class="reference internal" href="raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The primitive object that was intersected by the Ray.</li>
+<li><strong>primitive_to_world</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – The primitive’s local to world transform matrix.</li>
+<li><a class="reference internal" href="#module-raysect.core.ray" title="raysect.core.ray"><strong>ray</strong></a> (<a class="reference internal" href="#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The incident ray object (world space).</li>
+<li><strong>ray_distance</strong> (<em>double</em>) – The distance of the intersection along the ray path.</li>
+<li><strong>world_to_primitive</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – A world to primitive local transform matrix.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<span class="target" id="module-raysect.core.material"></span><dl class="class">
-<dt id="raysect.core.material.Material">
-<em class="property">class </em><code class="descclassname">raysect.core.material.</code><code class="descname">Material</code><a class="headerlink" href="#raysect.core.material.Material" title="Permalink to this definition">¶</a></dt>
-<dd><p>A base class for all Material classes.</p>
-<dl class="method">
-<dt id="raysect.core.material.Material.notify_material_change">
-<code class="descname">notify_material_change</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.material.Material.notify_material_change" title="Permalink to this definition">¶</a></dt>
-<dd><p>Notifies any connected scene-graph root of a change to the material.</p>
-<p>The notification informs the root node that any caching structures used
-to accelerate ray-tracing calculations are now potentially invalid and
-must be recalculated, taking the new material properties into account.</p>
-</dd></dl>
-
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">Vector3D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.ray</span> <span class="kn">import</span> <span class="n">Ray</span> <span class="k">as</span> <span class="n">CoreRay</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">intersection</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">hit</span><span class="p">(</span><span class="n">CoreRay</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,),</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">intersection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">hit_point</span> <span class="o">=</span> <span class="n">intersection</span><span class="o">.</span><span class="n">hit_point</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">intersection</span><span class="o">.</span><span class="n">primitive_to_world</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="c1"># do something with the hit point...</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -334,7 +372,7 @@ must be recalculated, taking the new material properties into account.</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -352,7 +390,8 @@ must be recalculated, taking the new material properties into account.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.5.2',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -362,23 +401,17 @@ must be recalculated, taking the new material properties into account.</p>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

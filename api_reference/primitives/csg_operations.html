@@ -26,30 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Raysect Documentation" href="../../index.html"/>
-        <link rel="up" title="2. Primitives Module" href="primitives.html"/>
-        <link rel="next" title="2.4. Optical Elements" href="optical_elements.html"/>
-        <link rel="prev" title="2.2. Meshes" href="meshes.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.4. Optical Elements" href="optical_elements.html" />
+    <link rel="prev" title="2.2. Meshes" href="meshes.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -66,7 +56,7 @@
 
           
             
-            <img src="../../_static/RaysectLogo_web.png" class="logo" />
+            <img src="../../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -74,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5
               </div>
             
           
@@ -115,7 +105,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">4. Examples Gallery</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -139,7 +131,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Raysect</a>
@@ -147,9 +139,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -198,24 +191,24 @@
 <dl class="class">
 <dt id="raysect.primitive.csg.CSGPrimitive">
 <em class="property">class </em><code class="descclassname">raysect.primitive.csg.</code><code class="descname">CSGPrimitive</code><a class="headerlink" href="#raysect.primitive.csg.CSGPrimitive" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
 <p>Constructive Solid Geometry (CSG) Primitive base class.</p>
 <p>This is an abstract base class and can not be used directly.</p>
 <p>CSG is a modeling technique that uses Boolean operations like union
 and intersection to combine 3D solids. For example, the volumes of a
-sphere and box could be unified with the &#8216;union&#8217; operation to create a
+sphere and box could be unified with the ‘union’ operation to create a
 primitive with the combined volume of the underlying primitives.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>primitive_a</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; Component primitive A of the compound primitive.</li>
-<li><strong>primitive_b</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; Component primitive B of the compound primitive.</li>
-<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
+<li><strong>primitive_a</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – Component primitive A of the compound primitive.</li>
+<li><strong>primitive_b</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – Component primitive B of the compound primitive.</li>
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; A Material object defining the CSG primitive&#8217;s
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – A Material object defining the CSG primitive’s
 material (default = None).</li>
 </ul>
 </td>
@@ -255,7 +248,7 @@ material (default = None).</li>
 <dl class="class">
 <dt id="raysect.primitive.csg.Union">
 <em class="property">class </em><code class="descclassname">raysect.primitive.csg.</code><code class="descname">Union</code><a class="headerlink" href="#raysect.primitive.csg.Union" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.primitive.csg.CSGPrimitive" title="raysect.primitive.csg.CSGPrimitive"><code class="xref py py-class docutils literal"><span class="pre">raysect.primitive.csg.CSGPrimitive</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.primitive.csg.CSGPrimitive" title="raysect.primitive.csg.CSGPrimitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.primitive.csg.CSGPrimitive</span></code></a></p>
 <p>CSGPrimitive that is the volumetric union of primitives A and B.</p>
 <p>All of the original volume from A and B will be in the new primitive.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -263,24 +256,39 @@ material (default = None).</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>primitive_a</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; Component primitive A of the union operation.</li>
-<li><strong>primitive_b</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; Component primitive B of the union operation.</li>
-<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
+<li><strong>primitive_a</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – Component primitive A of the union operation.</li>
+<li><strong>primitive_b</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – Component primitive B of the union operation.</li>
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; A Material object defining the new CSG primitive&#8217;s
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – A Material object defining the new CSG primitive’s
 material (default = None).</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Some example code for creating the union between two cylinders.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">translate</span>
+<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Cylinder</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">AbsorbingSurface</span>
+
+<span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+
+<span class="n">cyl_x</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.1</span><span class="p">))</span>
+<span class="n">cyl_y</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.1</span><span class="p">))</span>
+
+<span class="n">csg_union</span> <span class="o">=</span> <span class="n">Union</span><span class="p">(</span><span class="n">cyl_x</span><span class="p">,</span> <span class="n">cyl_y</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="n">AbsorbingSurface</span><span class="p">(),</span>
+                  <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="raysect.primitive.csg.Intersect">
 <em class="property">class </em><code class="descclassname">raysect.primitive.csg.</code><code class="descname">Intersect</code><a class="headerlink" href="#raysect.primitive.csg.Intersect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.primitive.csg.CSGPrimitive" title="raysect.primitive.csg.CSGPrimitive"><code class="xref py py-class docutils literal"><span class="pre">raysect.primitive.csg.CSGPrimitive</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.primitive.csg.CSGPrimitive" title="raysect.primitive.csg.CSGPrimitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.primitive.csg.CSGPrimitive</span></code></a></p>
 <p>CSGPrimitive that is the volumetric intersection of primitives A and B.</p>
 <p>Only volumes that are present in both primtives will be present in the new
 CSG primitive.</p>
@@ -289,53 +297,80 @@ CSG primitive.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>primitive_a</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; Component primitive A of the intersection operation.</li>
-<li><strong>primitive_b</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; Component primitive B of the intersection operation.</li>
-<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
+<li><strong>primitive_a</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – Component primitive A of the intersection operation.</li>
+<li><strong>primitive_b</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – Component primitive B of the intersection operation.</li>
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; A Material object defining the new CSG primitive&#8217;s
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – A Material object defining the new CSG primitive’s
 material (default = None).</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<p>Some example code for creating the intersection between two cylinders.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">translate</span>
+<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Cylinder</span><span class="p">,</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Intersect</span>
+<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">AbsorbingSurface</span>
+
+<span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+
+<span class="n">cyl_x</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.1</span><span class="p">))</span>
+<span class="n">sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+
+<span class="n">csg_intersection</span> <span class="o">=</span> <span class="n">Intersect</span><span class="p">(</span><span class="n">cyl_x</span><span class="p">,</span> <span class="n">sphere</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="n">AbsorbingSurface</span><span class="p">(),</span>
+                             <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="raysect.primitive.csg.Subtract">
 <em class="property">class </em><code class="descclassname">raysect.primitive.csg.</code><code class="descname">Subtract</code><a class="headerlink" href="#raysect.primitive.csg.Subtract" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.primitive.csg.CSGPrimitive" title="raysect.primitive.csg.CSGPrimitive"><code class="xref py py-class docutils literal"><span class="pre">raysect.primitive.csg.CSGPrimitive</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.primitive.csg.CSGPrimitive" title="raysect.primitive.csg.CSGPrimitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.primitive.csg.CSGPrimitive</span></code></a></p>
 <p>CSGPrimitive that is the remaining volume of primitive A minus volume B.</p>
-<p>Only volumes that are unique to primitive A and don&#8217;t overlap with primitive
+<p>Only volumes that are unique to primitive A and don’t overlap with primitive
 B will be in the new CSG primitive.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>primitive_a</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; Component primitive A of the intersection operation.</li>
-<li><strong>primitive_b</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) &#8211; Component primitive B of the intersection operation.</li>
-<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
+<li><strong>primitive_a</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – Component primitive A of the intersection operation.</li>
+<li><strong>primitive_b</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – Component primitive B of the intersection operation.</li>
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; A Material object defining the new CSG primitive&#8217;s
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – A Material object defining the new CSG primitive’s
 material (default = None).</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">Point3D</span>
+<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Subtract</span>
+<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">AbsorbingSurface</span>
+
+<span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+
+<span class="n">cube</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">))</span>
+<span class="n">sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">1.75</span><span class="p">)</span>
+
+<span class="n">csg_subtraction</span> <span class="o">=</span> <span class="n">Subtract</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">sphere</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="n">AbsorbingSurface</span><span class="p">(),</span>
+                           <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -357,7 +392,7 @@ material (default = None).</li>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -375,7 +410,8 @@ material (default = None).</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.5.2',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -385,23 +421,17 @@ material (default = None).</li>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

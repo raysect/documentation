@@ -26,30 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Raysect Documentation" href="../../index.html"/>
-        <link rel="up" title="1.2. Math Module" href="math.html"/>
-        <link rel="next" title="1.2.4. Random" href="random.html"/>
-        <link rel="prev" title="1.2.2. Affine Matricies" href="affinematrix.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.2.4. Random" href="random.html" />
+    <link rel="prev" title="1.2.2. Affine Matricies" href="affinematrix.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -66,7 +56,7 @@
 
           
             
-            <img src="../../_static/RaysectLogo_web.png" class="logo" />
+            <img src="../../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -74,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5
               </div>
             
           
@@ -115,7 +105,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">4. Examples Gallery</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -149,7 +141,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Raysect</a>
@@ -157,9 +149,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -226,7 +219,7 @@ that accepts a function object.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>float</em>) &#8211; function parameter x</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>float</em>) – function parameter x</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
@@ -239,7 +232,7 @@ that accepts a function object.</p>
 <dl class="class">
 <dt id="raysect.core.math.function.function1d.PythonFunction1D">
 <em class="property">class </em><code class="descclassname">raysect.core.math.function.function1d.</code><code class="descname">PythonFunction1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.PythonFunction1D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.Function1D" title="raysect.core.math.function.function1d.Function1D"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.function.function1d.Function1D</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.Function1D" title="raysect.core.math.function.function1d.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function1d.Function1D</span></code></a></p>
 <p>Wraps a python callable object with a Function1D object.</p>
 <p>This class allows a python object to interact with cython code that requires
 a Function1D object. The python object must implement __call__() expecting
@@ -256,7 +249,7 @@ Function1D object it should be wrapped using this class for internal use.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> (<em>object</em>) &#8211; the python function to wrap, __call__() function must be</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> (<em>object</em>) – the python function to wrap, __call__() function must be</td>
 </tr>
 </tbody>
 </table>
@@ -283,8 +276,8 @@ that accepts a function object.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; function parameter x</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; function parameter y</li>
+<li><strong>x</strong> (<em>float</em>) – function parameter x</li>
+<li><strong>y</strong> (<em>float</em>) – function parameter y</li>
 </ul>
 </td>
 </tr>
@@ -300,7 +293,7 @@ that accepts a function object.</p>
 <dl class="class">
 <dt id="raysect.core.math.function.function2d.PythonFunction2D">
 <em class="property">class </em><code class="descclassname">raysect.core.math.function.function2d.</code><code class="descname">PythonFunction2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.PythonFunction2D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.Function2D" title="raysect.core.math.function.function2d.Function2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.function.function2d.Function2D</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.Function2D" title="raysect.core.math.function.function2d.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.Function2D</span></code></a></p>
 <p>Wraps a python callable object with a Function2D object.</p>
 <p>This class allows a python object to interact with cython code that requires
 a Function2D object. The python object must implement __call__() expecting
@@ -317,7 +310,7 @@ Function2D object it should be wrapped using this class for internal use.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> (<em>object</em>) &#8211; the python function to wrap, __call__() function must</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> (<em>object</em>) – the python function to wrap, __call__() function must</td>
 </tr>
 </tbody>
 </table>
@@ -344,9 +337,9 @@ that accepts a function object.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; function parameter x</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; function parameter y</li>
-<li><strong>y</strong> &#8211; function parameter z</li>
+<li><strong>x</strong> (<em>float</em>) – function parameter x</li>
+<li><strong>y</strong> (<em>float</em>) – function parameter y</li>
+<li><strong>y</strong> – function parameter z</li>
 </ul>
 </td>
 </tr>
@@ -362,7 +355,7 @@ that accepts a function object.</p>
 <dl class="class">
 <dt id="raysect.core.math.function.function3d.PythonFunction3D">
 <em class="property">class </em><code class="descclassname">raysect.core.math.function.function3d.</code><code class="descname">PythonFunction3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.PythonFunction3D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.Function3D" title="raysect.core.math.function.function3d.Function3D"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.function.function3d.Function3D</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.Function3D" title="raysect.core.math.function.function3d.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function3d.Function3D</span></code></a></p>
 <p>Wraps a python callable object with a Function3D object.</p>
 <p>This class allows a python object to interact with cython code that requires
 a Function3D object. The python object must implement __call__() expecting
@@ -380,7 +373,7 @@ Function3D object it should be wrapped using this class for internal use.</p>
 <span class="target" id="module-raysect.core.math.interpolators.discrete2dmesh"></span><dl class="class">
 <dt id="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh">
 <em class="property">class </em><code class="descclassname">raysect.core.math.interpolators.discrete2dmesh.</code><code class="descname">Discrete2DMesh</code><a class="headerlink" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.Function2D" title="raysect.core.math.function.function2d.Function2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.function.function2d.Function2D</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.Function2D" title="raysect.core.math.function.function2d.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.Function2D</span></code></a></p>
 <p>Discrete interpolator for data on a 2d ungridded tri-poly mesh.</p>
 <p>The mesh is specified as a set of 2D vertices supplied as an Nx2 numpy
 array or a suitably sized sequence that can be converted to a numpy array.</p>
@@ -412,11 +405,11 @@ acceleration structure.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>vertex_coords</strong> (<em>ndarray</em>) &#8211; An array of vertex coordinates (x, y) with shape Nx2.</li>
-<li><strong>triangles</strong> (<em>ndarray</em>) &#8211; An array of vertex indices defining the mesh triangles, with shape Mx3.</li>
-<li><strong>triangle_data</strong> (<em>ndarray</em>) &#8211; An array containing data for each triangle of shape Mx1.</li>
-<li><strong>limit</strong> (<em>bool</em>) &#8211; Raise an exception outside mesh limits - True (default) or False.</li>
-<li><strong>default_value</strong> (<em>float</em>) &#8211; The value to return outside the mesh limits if limit is set to False.</li>
+<li><strong>vertex_coords</strong> (<em>ndarray</em>) – An array of vertex coordinates (x, y) with shape Nx2.</li>
+<li><strong>triangles</strong> (<em>ndarray</em>) – An array of vertex indices defining the mesh triangles, with shape Mx3.</li>
+<li><strong>triangle_data</strong> (<em>ndarray</em>) – An array containing data for each triangle of shape Mx1.</li>
+<li><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False.</li>
+<li><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False.</li>
 </ul>
 </td>
 </tr>
@@ -440,10 +433,10 @@ geometry data between multiple interpolator objects.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh"><em>Discrete2DMesh</em></a>) &#8211; Discrete2DMesh object.</li>
-<li><strong>triangle_data</strong> (<em>ndarray</em>) &#8211; An array containing data for each triangle of shape Mx1 (default None).</li>
-<li><strong>limit</strong> (<em>bool</em>) &#8211; Raise an exception outside mesh limits - True (default) or False (default None).</li>
-<li><strong>default_value</strong> (<em>float</em>) &#8211; The value to return outside the mesh limits if limit is set to False (default None).</li>
+<li><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh"><em>Discrete2DMesh</em></a>) – Discrete2DMesh object.</li>
+<li><strong>triangle_data</strong> (<em>ndarray</em>) – An array containing data for each triangle of shape Mx1 (default None).</li>
+<li><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False (default None).</li>
+<li><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False (default None).</li>
 </ul>
 </td>
 </tr>
@@ -462,7 +455,7 @@ geometry data between multiple interpolator objects.</p>
 <span class="target" id="module-raysect.core.math.interpolators.interpolator2dmesh"></span><dl class="class">
 <dt id="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh">
 <em class="property">class </em><code class="descclassname">raysect.core.math.interpolators.interpolator2dmesh.</code><code class="descname">Interpolator2DMesh</code><a class="headerlink" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.Function2D" title="raysect.core.math.function.function2d.Function2D"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.math.function.function2d.Function2D</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.Function2D" title="raysect.core.math.function.function2d.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.Function2D</span></code></a></p>
 <p>Linear interpolator for data on a 2d ungridded tri-poly mesh.</p>
 <p>The mesh is specified as a set of 2D vertices supplied as an Nx2 numpy
 array or a suitably sized sequence that can be converted to a numpy array.</p>
@@ -494,11 +487,11 @@ acceleration structure.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>vertex_coords</strong> (<em>ndarray</em>) &#8211; An array of vertex coordinates (x, y) with shape Nx2.</li>
-<li><strong>vertex_data</strong> (<em>ndarray</em>) &#8211; An array containing data for each vertex of shape Nx1.</li>
-<li><strong>triangles</strong> (<em>ndarray</em>) &#8211; An array of vertex indices defining the mesh triangles, with shape Mx3.</li>
-<li><strong>limit</strong> (<em>bool</em>) &#8211; Raise an exception outside mesh limits - True (default) or False.</li>
-<li><strong>default_value</strong> (<em>float</em>) &#8211; The value to return outside the mesh limits if limit is set to False.</li>
+<li><strong>vertex_coords</strong> (<em>ndarray</em>) – An array of vertex coordinates (x, y) with shape Nx2.</li>
+<li><strong>vertex_data</strong> (<em>ndarray</em>) – An array containing data for each vertex of shape Nx1.</li>
+<li><strong>triangles</strong> (<em>ndarray</em>) – An array of vertex indices defining the mesh triangles, with shape Mx3.</li>
+<li><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False.</li>
+<li><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False.</li>
 </ul>
 </td>
 </tr>
@@ -522,10 +515,10 @@ geometry data between multiple interpolator objects.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh"><em>Interpolator2DMesh</em></a>) &#8211; Interpolator2DMesh object.</li>
-<li><strong>vertex_data</strong> (<em>ndarray</em>) &#8211; An array containing data for each vertex of shape Nx1 (default None).</li>
-<li><strong>limit</strong> (<em>bool</em>) &#8211; Raise an exception outside mesh limits - True (default) or False (default None).</li>
-<li><strong>default_value</strong> (<em>float</em>) &#8211; The value to return outside the mesh limits if limit is set to False (default None).</li>
+<li><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh"><em>Interpolator2DMesh</em></a>) – Interpolator2DMesh object.</li>
+<li><strong>vertex_data</strong> (<em>ndarray</em>) – An array containing data for each vertex of shape Nx1 (default None).</li>
+<li><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False (default None).</li>
+<li><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False (default None).</li>
 </ul>
 </td>
 </tr>
@@ -545,9 +538,7 @@ geometry data between multiple interpolator objects.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -569,7 +560,7 @@ geometry data between multiple interpolator objects.</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -587,7 +578,8 @@ geometry data between multiple interpolator objects.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.5.2',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -597,23 +589,17 @@ geometry data between multiple interpolator objects.</p>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

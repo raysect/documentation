@@ -26,30 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Raysect Documentation" href="../../index.html"/>
-        <link rel="up" title="1. Raysect Core" href="core.html"/>
-        <link rel="next" title="1.6. Utilities" href="utilities.html"/>
-        <link rel="prev" title="1.4. Spatial Acceleration" href="spatial_acceleration.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.6. Utilities" href="utilities.html" />
+    <link rel="prev" title="1.4. Spatial Acceleration" href="spatial_acceleration.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -66,7 +56,7 @@
 
           
             
-            <img src="../../_static/RaysectLogo_web.png" class="logo" />
+            <img src="../../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -74,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5
               </div>
             
           
@@ -115,7 +105,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">4. Examples Gallery</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -141,7 +133,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Raysect</a>
@@ -149,9 +141,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -206,23 +199,23 @@
 system performing the work. It is intended that render engines may be built
 that provide rendering on single cores, multi-cores (SMP) and clusters.</p>
 <p>The basic workflow is as follows. The render task is split into small,
-self-contained chunks of work - &#8216;tasks&#8217;. These tasks are passed to the
+self-contained chunks of work - ‘tasks’. These tasks are passed to the
 render engine which distributes the work to the available computing
-resources. These discrete computing resources are know as &#8220;workers&#8221;.
+resources. These discrete computing resources are know as “workers”.
 Workers process one task at a time and return their result to the render
 engine. When results are received the render engine assembles them into
 the final result.</p>
 <p>This workflow is implemented by supplying a set of tasks and two methods to
-the render engines&#8217; run() method which processes those tasks. The functions
+the render engines’ run() method which processes those tasks. The functions
 supplied to the run() method may be given additional args and kwargs.</p>
 <p>A worker calls render for each task object received. render has the following signature:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="o">*</span><span class="n">render_args</span><span class="p">,</span> <span class="o">**</span><span class="n">render_kwargs</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="o">*</span><span class="n">render_args</span><span class="p">,</span> <span class="o">**</span><span class="n">render_kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>where args and kwargs are additional arguments supplied by the user.</p>
 <p>Similarly, the worker calls update() for the results generated by a call to
 render(). Update() has the following signature:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="o">*</span><span class="n">update_args</span><span class="p">,</span> <span class="o">**</span><span class="n">update_kwargs</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="o">*</span><span class="n">update_args</span><span class="p">,</span> <span class="o">**</span><span class="n">update_kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>where args and kwargs are additional arguments supplied by the user.</p>
@@ -237,14 +230,14 @@ this must be a picklable python object.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>tasks</strong> (<em>list</em>) &#8211; List of user defined tuples that describe the task to execute.</li>
-<li><strong>render</strong> (<em>object</em>) &#8211; Callable python object that executes the tasks.</li>
-<li><strong>update</strong> (<em>object</em>) &#8211; Callable python object that is called following a render task and must be
+<li><strong>tasks</strong> (<em>list</em>) – List of user defined tuples that describe the task to execute.</li>
+<li><strong>render</strong> (<em>object</em>) – Callable python object that executes the tasks.</li>
+<li><strong>update</strong> (<em>object</em>) – Callable python object that is called following a render task and must be
 used to update the internal state of the object requesting work.</li>
-<li><strong>render_args</strong> (<em>tuple</em>) &#8211; Additional arguments to pass to user defined render function.</li>
-<li><strong>render_kwargs</strong> (<em>tuple</em>) &#8211; Additional keyword arguments to pass to user defined render function.</li>
-<li><strong>update_args</strong> (<em>tuple</em>) &#8211; Additional arguments to pass to user defined update function.</li>
-<li><strong>update_kwargs</strong> (<em>tuple</em>) &#8211; Additional keyword arguments to pass to user defined update function.</li>
+<li><strong>render_args</strong> (<em>tuple</em>) – Additional arguments to pass to user defined render function.</li>
+<li><strong>render_kwargs</strong> (<em>tuple</em>) – Additional keyword arguments to pass to user defined render function.</li>
+<li><strong>update_args</strong> (<em>tuple</em>) – Additional arguments to pass to user defined update function.</li>
+<li><strong>update_kwargs</strong> (<em>tuple</em>) – Additional keyword arguments to pass to user defined update function.</li>
 </ul>
 </td>
 </tr>
@@ -263,15 +256,22 @@ used to update the internal state of the object requesting work.</li>
 <dl class="class">
 <dt id="raysect.core.workflow.SerialEngine">
 <em class="property">class </em><code class="descclassname">raysect.core.workflow.</code><code class="descname">SerialEngine</code><a class="reference internal" href="../../_modules/raysect/core/workflow.html#SerialEngine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.SerialEngine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.workflow.RenderEngine" title="raysect.core.workflow.RenderEngine"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.workflow.RenderEngine</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.workflow.RenderEngine" title="raysect.core.workflow.RenderEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.workflow.RenderEngine</span></code></a></p>
 <p>Render engine for running on a single CPU processor.</p>
 <p>This engine is useful for debugging.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="k">import</span> <span class="n">SerialEngine</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">((</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">camera</span><span class="o">.</span><span class="n">render_engine</span> <span class="o">=</span> <span class="n">SerialEngine</span><span class="p">()</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="class">
 <dt id="raysect.core.workflow.MulticoreEngine">
 <em class="property">class </em><code class="descclassname">raysect.core.workflow.</code><code class="descname">MulticoreEngine</code><span class="sig-paren">(</span><em>processes=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/raysect/core/workflow.html#MulticoreEngine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.MulticoreEngine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.workflow.RenderEngine" title="raysect.core.workflow.RenderEngine"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.workflow.RenderEngine</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.workflow.RenderEngine" title="raysect.core.workflow.RenderEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.workflow.RenderEngine</span></code></a></p>
 <p>A render engine for distributing work across multiple CPU cores.</p>
 <p>The number of processes spawned by this render engine is controlled via
 the processes attribute. This can also be set at object initialisation.</p>
@@ -282,19 +282,29 @@ of CPU cores detected on the machine.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>processes</strong> &#8211; The number of worker processes, or None to use all available cores (default).</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>processes</strong> – The number of worker processes, or None to use all available cores (default).</td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">MulticoreEngine</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="kn">import</span> <span class="n">PinholeCamera</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">((</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">))</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># allowing the camera to use all available CPU cores.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">camera</span><span class="o">.</span><span class="n">render_engine</span> <span class="o">=</span> <span class="n">MulticoreEngine</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># or forcing the render engine to use a specific number of CPU processes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">camera</span><span class="o">.</span><span class="n">render_engine</span> <span class="o">=</span> <span class="n">MulticoreEngine</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -316,7 +326,7 @@ of CPU cores detected on the machine.</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -334,7 +344,8 @@ of CPU cores detected on the machine.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.5.2',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -344,23 +355,17 @@ of CPU cores detected on the machine.</p>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

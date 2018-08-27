@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Multiple Importance Sampling &mdash; Raysect Documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/RaysectLogo_web.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Raysect
+          
+
+          
+            
+            <img src="../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">2. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">3. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_it_works.html">4. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart_guide.html">5. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../materials.html">8. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conventions.html">9. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">10. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">11. Glossary</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demonstrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations.html">1. Core Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations.html#examples-gallery">4. Examples Gallery</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference/core/core.html">1. Raysect Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference/primitives/primitives.html">2. Primitives Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference/optical/optical.html">3. Optical Module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Raysect</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Multiple Importance Sampling</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/demonstrations/multiple_importance_sampling.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="multiple-importance-sampling">
+<span id="demo-multiple-importance-sampling"></span><h1>Multiple Importance Sampling<a class="headerlink" href="#multiple-importance-sampling" title="Permalink to this headline">¶</a></h1>
+<p>A re-implementation of the classic multiple importance sampling demo from E. Veach’s PhD thesis.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Box</span>
+<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">d65_white</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span><span class="p">,</span> <span class="n">RGBPipeline2D</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="k">import</span> <span class="n">UniformSurfaceEmitter</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="o">*</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Multiple Importance Sampling Demo</span>
+<span class="sd">=================================</span>
+
+<span class="sd">Raysect recreates of the results of Veach&#39;s thesis on multiple importance sampling.</span>
+
+<span class="sd">Veach, E., 1997. Robust Monte Carlo methods for lighting simulation</span>
+<span class="sd">(Doctoral dissertation, Ph. D. thesis, Stanford University).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">pixels</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">)</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># set-up scenegraph</span>
+<span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+
+<span class="c1"># background</span>
+<span class="n">wall</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">UniformSurfaceEmitter</span><span class="p">(</span><span class="n">d65_white</span><span class="p">,</span> <span class="mf">0.00005</span><span class="p">))</span>
+<span class="n">wall</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">importance</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># emitting spheres</span>
+<span class="n">Sphere</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">UniformSurfaceEmitter</span><span class="p">(</span><span class="n">light_blue</span><span class="p">))</span>
+<span class="n">Sphere</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mf">0.667</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">UniformSurfaceEmitter</span><span class="p">(</span><span class="n">green</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mf">0.2</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">Sphere</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mf">0.667</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">UniformSurfaceEmitter</span><span class="p">(</span><span class="n">orange</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mf">0.05</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">Sphere</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.008</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">UniformSurfaceEmitter</span><span class="p">(</span><span class="n">red</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mf">0.008</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># reflecting plates</span>
+<span class="n">Box</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">upper</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">45.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">RoughAluminium</span><span class="p">(</span><span class="mf">0.0003</span><span class="p">))</span>
+
+<span class="n">Box</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">upper</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">RoughAluminium</span><span class="p">(</span><span class="mf">0.005</span><span class="p">))</span>
+
+<span class="n">Box</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">upper</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">24.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">RoughAluminium</span><span class="p">(</span><span class="mf">0.03</span><span class="p">))</span>
+
+<span class="n">Box</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">upper</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">RoughAluminium</span><span class="p">(</span><span class="mf">0.1</span><span class="p">))</span>
+
+<span class="n">ion</span><span class="p">()</span>
+
+<span class="c1"># Light sampling</span>
+<span class="n">light_sampling</span> <span class="o">=</span> <span class="n">RGBPipeline2D</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Light Sampling&quot;</span><span class="p">)</span>
+<span class="n">light_sampling</span><span class="o">.</span><span class="n">display_sensitivity</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">light_sampling</span><span class="o">.</span><span class="n">accumulate</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">(</span><span class="n">pixels</span><span class="p">,</span> <span class="n">fov</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pipelines</span><span class="o">=</span><span class="p">[</span><span class="n">light_sampling</span><span class="p">])</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="n">samples</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">ray_importance_sampling</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">ray_important_path_weight</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">observe</span><span class="p">()</span>
+
+<span class="c1"># BRDF sampling</span>
+<span class="n">brdf_sampling</span> <span class="o">=</span> <span class="n">RGBPipeline2D</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;BRDF Sampling&quot;</span><span class="p">)</span>
+<span class="n">brdf_sampling</span><span class="o">.</span><span class="n">display_sensitivity</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">brdf_sampling</span><span class="o">.</span><span class="n">accumulate</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">(</span><span class="n">pixels</span><span class="p">,</span> <span class="n">fov</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pipelines</span><span class="o">=</span><span class="p">[</span><span class="n">brdf_sampling</span><span class="p">])</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="n">samples</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">ray_importance_sampling</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">observe</span><span class="p">()</span>
+
+<span class="c1"># MIS sampling</span>
+<span class="n">mis_sampling</span> <span class="o">=</span> <span class="n">RGBPipeline2D</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;MIS Sampling&quot;</span><span class="p">)</span>
+<span class="n">mis_sampling</span><span class="o">.</span><span class="n">display_sensitivity</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">mis_sampling</span><span class="o">.</span><span class="n">accumulate</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">(</span><span class="n">pixels</span><span class="p">,</span> <span class="n">fov</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pipelines</span><span class="o">=</span><span class="p">[</span><span class="n">mis_sampling</span><span class="p">])</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="n">samples</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">ray_importance_sampling</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">ray_important_path_weight</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">observe</span><span class="p">()</span>
+
+<span class="c1"># save results</span>
+<span class="n">light_sampling</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;mis_light_sampling.png&#39;</span><span class="p">)</span>
+<span class="n">brdf_sampling</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;mis_brdf_sampling.png&#39;</span><span class="p">)</span>
+<span class="n">mis_sampling</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;mis_combined_sampling.png&#39;</span><span class="p">)</span>
+
+<span class="c1"># final display</span>
+<span class="n">light_sampling</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<span class="n">brdf_sampling</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<span class="n">mis_sampling</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+
+<span class="n">ioff</span><span class="p">()</span>
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="../_images/multiple_importance_sampling.jpg" class="align-center" src="../_images/multiple_importance_sampling.jpg" />
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2017, Dr Alex Meakins.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.5.2',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

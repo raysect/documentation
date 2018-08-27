@@ -26,29 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Raysect Documentation" href="index.html"/>
-        <link rel="next" title="7. Primitives" href="primitives.html"/>
-        <link rel="prev" title="5. Quickstart Guide" href="quickstart_guide.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Primitives" href="primitives.html" />
+    <link rel="prev" title="5. Quickstart Guide" href="quickstart_guide.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -65,7 +56,7 @@
 
           
             
-            <img src="_static/RaysectLogo_web.png" class="logo" />
+            <img src="_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -73,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5
               </div>
             
           
@@ -134,7 +125,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#examples-gallery">4. Examples Gallery</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -152,7 +145,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Raysect</a>
@@ -160,9 +153,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -216,42 +210,42 @@ technique for approximating the value of an integral by simulating a random proc
 with random numbers.</p>
 <p>The simplest form of Monte-Carlo integration is the average value method, which starts by
 considering the integral</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[I = \int_{a}^{b} f(x) dx\]</div>
-<p>The average value of the function <span class="math">\(f(x)\)</span> over the domain can be expressed in terms
+<p>The average value of the function <span class="math notranslate nohighlight">\(f(x)\)</span> over the domain can be expressed in terms
 of the integral over the same domain.</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[&lt;f&gt; = \frac{1}{b-a} \int_{a}^{b} f(x) dx = \frac{I}{b-a}\]</div>
 <p>Therefore, through manipulation we can express our integral in terms of the average of
-<span class="math">\(f(x)\)</span>. We can measure <span class="math">\(&lt;f(x)&gt;\)</span> by sampling <span class="math">\(f(x)\)</span> at <span class="math">\(N\)</span> points
-<span class="math">\(x_1\)</span>, <span class="math">\(x_2\)</span>, ..., <span class="math">\(x_N\)</span> chosen randomly between <span class="math">\(a\)</span> and
-<span class="math">\(b\)</span>.</p>
-<div class="math">
+<span class="math notranslate nohighlight">\(f(x)\)</span>. We can measure <span class="math notranslate nohighlight">\(&lt;f(x)&gt;\)</span> by sampling <span class="math notranslate nohighlight">\(f(x)\)</span> at <span class="math notranslate nohighlight">\(N\)</span> points
+<span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, …, <span class="math notranslate nohighlight">\(x_N\)</span> chosen randomly between <span class="math notranslate nohighlight">\(a\)</span> and
+<span class="math notranslate nohighlight">\(b\)</span>.</p>
+<div class="math notranslate nohighlight">
 \[I \approx \frac{b-a}{N} \sum_{i=1}^{N} f(x_i) = \frac{1}{N} \sum_{i=1}^{N} \frac{f(x_i)}{p(x_i)}\]</div>
-<p><span class="math">\(p(x_i) = 1/(a-b)\)</span> is the uniform distribution we are sampling from. For a rectangular
+<p><span class="math notranslate nohighlight">\(p(x_i) = 1/(a-b)\)</span> is the uniform distribution we are sampling from. For a rectangular
 pixel in a camera the sampling distributions would be uniformly distributed 2D points in the
-square area <span class="math">\(A\)</span> and 3D vectors in the hemisphere <span class="math">\(\Omega\)</span>.</p>
-<p>In general, the standard error on the approximation scales as <span class="math">\(1/\sqrt{N}\)</span> with
-<span class="math">\(N\)</span> samples.</p>
+square area <span class="math notranslate nohighlight">\(A\)</span> and 3D vectors in the hemisphere <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
+<p>In general, the standard error on the approximation scales as <span class="math notranslate nohighlight">\(1/\sqrt{N}\)</span> with
+<span class="math notranslate nohighlight">\(N\)</span> samples.</p>
 </div>
 <div class="section" id="importance-sampling">
 <h3>6.1.2. Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h3>
 <p>The average value formula works well for smoothly varying functions but becomes inefficient when
 the integral contains steep gradients or a divergence, for example, a bright point light source.
 The standard error on the integral estimator can become large in such circumstances.</p>
-<p>We can get around these problems by drawing the sample points <span class="math">\(x_i\)</span> from a non-uniform
-probability density function (i.e. higher density for regions with stronger emission). Formally, <span class="math">\(p(x_i)\)</span>
+<p>We can get around these problems by drawing the sample points <span class="math notranslate nohighlight">\(x_i\)</span> from a non-uniform
+probability density function (i.e. higher density for regions with stronger emission). Formally, <span class="math notranslate nohighlight">\(p(x_i)\)</span>
 is defined as</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[p(x_i) = \frac{w(x_i)}{\int_{a}^{b} w(x) dx}\]</div>
-<p>where <span class="math">\(w(x)\)</span> is the weight function describing the distribution of sampling points. <span class="math">\(p(x)\)</span> has
-the same functional shape as <span class="math">\(w(x)\)</span> but has been normalised so that its integral is 1. For uniform
-sampling, <span class="math">\(w(x) = 1\)</span> and <span class="math">\(p(x_i) = 1/(b-a)\)</span> recovering the average value formula.</p>
-<p>For the general case function <span class="math">\(w(x)\)</span> the estimator for the integral is now</p>
-<div class="math">
+<p>where <span class="math notranslate nohighlight">\(w(x)\)</span> is the weight function describing the distribution of sampling points. <span class="math notranslate nohighlight">\(p(x)\)</span> has
+the same functional shape as <span class="math notranslate nohighlight">\(w(x)\)</span> but has been normalised so that its integral is 1. For uniform
+sampling, <span class="math notranslate nohighlight">\(w(x) = 1\)</span> and <span class="math notranslate nohighlight">\(p(x_i) = 1/(b-a)\)</span> recovering the average value formula.</p>
+<p>For the general case function <span class="math notranslate nohighlight">\(w(x)\)</span> the estimator for the integral is now</p>
+<div class="math notranslate nohighlight">
 \[I \approx \frac{1}{N} \sum_{i=1}^{N} \frac{f(x_i)}{w(x_i)} \int_{a}^{b} w(x) dx\]</div>
 <p>This is the fundamental formula of importance sampling and a generalisation of the average
-value method. It allows estimation of the integral <span class="math">\(I\)</span> by performing
+value method. It allows estimation of the integral <span class="math notranslate nohighlight">\(I\)</span> by performing
 a weighted sum, which can be weighted to have higher density in regions of interest. The price we
 pay is that the random samples are being drawn from a more complicated distribution.</p>
 <p>Importance sampling exploits the fact that the Monte-Carlo estimator converges fastest when samples
@@ -266,49 +260,49 @@ underlying features in a scene, such as individual light sources and geometry fa
 sample all candidate distributions in a physical scene.</p>
 <p>Suppose the complicated integrand in our scene can approximated by a set operations on a number of simpler
 underlying distributions. e.g.</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[f(x) = (f_1(x) + f_2(x)) \times f_3(x)\]</div>
 <p>Multiple importance sampling is a generalisation of the importance sampling equation which allows us to
 evaluate complicated integrands by simultaneously sampling multiple underlying important distributions
 (see Veach, E. 1998). Without going into the derivation, the integrand becomes</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[I \approx \sum_{i=1}^{N} \sum_{j=1}^{n_i} \frac{w_i(x_{i,j}) f(x_{i,j})}{p(x_{i,j})}\]</div>
 <p>with sample weights given by</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[w_i(x) = \frac{n_i p_i(x)}{\sum_j n_j p_j(x)}\]</div>
 </div>
 </div>
 <div class="section" id="observing-surfaces">
 <h2>6.2. Observing Surfaces<a class="headerlink" href="#observing-surfaces" title="Permalink to this headline">¶</a></h2>
 <p>The total power (radiant flux) measured by an observing surface is given be the integral
-of the incident radiance over the collecting solid angle <span class="math">\(\Omega\)</span> and surface
-area <span class="math">\(A\)</span>. Therefore the observer equation is</p>
-<div class="math">
+of the incident radiance over the collecting solid angle <span class="math notranslate nohighlight">\(\Omega\)</span> and surface
+area <span class="math notranslate nohighlight">\(A\)</span>. Therefore the observer equation is</p>
+<div class="math notranslate nohighlight">
 \[\Phi = \int_{A} \int_{\Omega} L_{i}(x_j, \omega_j) \times \cos (\theta_j) d\omega dA\]</div>
-<p>Here, <span class="math">\(L_{i}(x_j, \omega_j)\)</span> is the incident radiance at a given point <span class="math">\(x_j\)</span>
-and incident angle <span class="math">\(\omega_j\)</span> on the observing surface. <span class="math">\(\cos (\theta_j)\)</span>
+<p>Here, <span class="math notranslate nohighlight">\(L_{i}(x_j, \omega_j)\)</span> is the incident radiance at a given point <span class="math notranslate nohighlight">\(x_j\)</span>
+and incident angle <span class="math notranslate nohighlight">\(\omega_j\)</span> on the observing surface. <span class="math notranslate nohighlight">\(\cos (\theta_j)\)</span>
 is a geometry factor describing the increase in effective observing area as the incident
 rays become increasingly parallel to the surface.</p>
 <p>The mean radiance measured by an observing surface is simply</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[L = \frac{\Phi}{A \Omega}.\]</div>
-<p>All raysect observers measure the mean spectral radiance <span class="math">\(L\)</span> as their base quantity.
+<p>All raysect observers measure the mean spectral radiance <span class="math notranslate nohighlight">\(L\)</span> as their base quantity.
 All other quantities of interest can be evaluated through integration over areas, solid
 angles and nm.</p>
 <p>Let us now re-express this equation in terms of a general Monte Carlo estimator. The
 samples will be drawn from two different distributions, 2D points on the observing
-surface and 3D Vectors over the <span class="math">\(2/pi\)</span> solid angle hemisphere. Therefore, the
+surface and 3D Vectors over the <span class="math notranslate nohighlight">\(2/pi\)</span> solid angle hemisphere. Therefore, the
 average value estimator would become</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[L = \frac{1}{N} \sum_{j=1}^{N} \frac{L_i(x_j, \omega_j) \cos(\theta_j)}{p_A(x_j) p_\Omega(\omega_j) A \Omega}\]</div>
-<p>where <span class="math">\(p_A(x_j)\)</span> is the probability of drawing sample point <span class="math">\(x_j\)</span> from
-area <span class="math">\(A\)</span> and <span class="math">\(p_\Omega(\omega_j)\)</span> is the probability of drawing sample
-vector <span class="math">\(\omega_j\)</span> from solid angle <span class="math">\(\Omega\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(p_A(x_j)\)</span> is the probability of drawing sample point <span class="math notranslate nohighlight">\(x_j\)</span> from
+area <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(p_\Omega(\omega_j)\)</span> is the probability of drawing sample
+vector <span class="math notranslate nohighlight">\(\omega_j\)</span> from solid angle <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
 <p>This is the root equation being evaluated in all Raysect observers. In most cases
-the detector area is sampled with uniform sampling and hence <span class="math">\(p_A(x_j) = 1/A\)</span>
-ends up cancelling <span class="math">\(A\)</span> out of the equation. It is far more common to use a variety
-of sampling strategies for the sample directions, <span class="math">\(\omega_j\)</span>, and hence
-<span class="math">\(p_\Omega(\omega_j)\)</span> is typically more important.</p>
+the detector area is sampled with uniform sampling and hence <span class="math notranslate nohighlight">\(p_A(x_j) = 1/A\)</span>
+ends up cancelling <span class="math notranslate nohighlight">\(A\)</span> out of the equation. It is far more common to use a variety
+of sampling strategies for the sample directions, <span class="math notranslate nohighlight">\(\omega_j\)</span>, and hence
+<span class="math notranslate nohighlight">\(p_\Omega(\omega_j)\)</span> is typically more important.</p>
 <p>Let us now consider some more specialised cases.</p>
 <div class="figure align-center" id="id1">
 <img alt="_images/pixel_sampling.png" src="_images/pixel_sampling.png" />
@@ -319,20 +313,20 @@ Meakins, A., et. al. (2017))</span></p>
 <h3>6.2.1. CCD Pixel with Uniform Hemisphere Sampling<a class="headerlink" href="#ccd-pixel-with-uniform-hemisphere-sampling" title="Permalink to this headline">¶</a></h3>
 <p>Let us consider one of the most common cases for an observing surface, a rectangular
 pixel surface with a hemisphere of solid angle over which incident light can be collected.
-To calculate the Monte Carlo estimator we need <span class="math">\(N\)</span> sample points and vectors. The simplest
-vector distribution would be the uniform distribution where all angles over <span class="math">\(2 \pi\)</span> have equal
+To calculate the Monte Carlo estimator we need <span class="math notranslate nohighlight">\(N\)</span> sample points and vectors. The simplest
+vector distribution would be the uniform distribution where all angles over <span class="math notranslate nohighlight">\(2 \pi\)</span> have equal
 probability of being sampled. The weighting distribution is</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[w(\omega) = 1.\]</div>
 <p>Thus the distributions normalisation constant evaluates to the area of solid angle being sampled, similar to
-the <span class="math">\(b-a\)</span> length scale for the 1D cartesian case.</p>
-<div class="math">
+the <span class="math notranslate nohighlight">\(b-a\)</span> length scale for the 1D cartesian case.</p>
+<div class="math notranslate nohighlight">
 \[c = \int_{0}^{2\pi} \int_{0}^{\frac{\pi}{2}} \sin(\theta) d\theta d\phi = 2 \pi\]</div>
-<p>Therefore <span class="math">\(p(\omega)\)</span> for uniformly distributed vectors is</p>
-<div class="math">
+<p>Therefore <span class="math notranslate nohighlight">\(p(\omega)\)</span> for uniformly distributed vectors is</p>
+<div class="math notranslate nohighlight">
 \[p_\Omega(\omega_j) = \frac{w(\omega_j)}{\int_{a}^{b} w(\omega) d\omega} = \frac{1}{2 \pi}.\]</div>
 <p>The estimator for the mean radiance becomes</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[L = \frac{1}{N} \sum_{j=1}^{N} L_i(x_j, \omega_j) \cos(\theta_j)\]</div>
 </div>
 <div class="section" id="ccd-pixel-with-a-cosine-distribution">
@@ -341,39 +335,39 @@ the <span class="math">\(b-a\)</span> length scale for the 1D cartesian case.</p
 to the function being integrated. The observer equation is weighted with a cosine theta term meaning
 that vector samples near the top of the hemisphere are weighted much more than samples near the edge.
 Hence it is useful to generate vector samples proportional to the cosine distribution.</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[w(\omega_j) = \cos(\theta_j)\]</div>
-<p>The normalisation constant, <span class="math">\(c\)</span>, can be evaluated by integrating <span class="math">\(w(\omega)\)</span> over the domain.</p>
-<div class="math">
+<p>The normalisation constant, <span class="math notranslate nohighlight">\(c\)</span>, can be evaluated by integrating <span class="math notranslate nohighlight">\(w(\omega)\)</span> over the domain.</p>
+<div class="math notranslate nohighlight">
 \[c = \int_{0}^{2\pi} \int_{0}^{\frac{\pi}{2}} w(\omega) \sin(\theta) d\theta d\phi = \pi\]</div>
-<p>Therefore <span class="math">\(p(\omega_j)\)</span> for a cosine distribution would be</p>
-<div class="math">
+<p>Therefore <span class="math notranslate nohighlight">\(p(\omega_j)\)</span> for a cosine distribution would be</p>
+<div class="math notranslate nohighlight">
 \[p_\Omega(\omega_j) = \frac{w(\omega_j)}{\int_{a}^{b} w(\omega) d\omega} = \frac{\cos(\theta)}{\pi}\]</div>
 <p>and the estimator becomes</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[L = \frac{1}{N} \sum_{j=1}^{N} L_i(x_j, \omega_j) \cos(\theta_j) \frac{\pi}{\cos(\theta_j) \Omega} = \frac{1}{2N} \sum_{j=1}^{N} L_i(x_j, \omega_j)\]</div>
 <p>Note that the cosine factors have cancelled, which makes sense since we are treating
-the <span class="math">\(\cos(\theta)\)</span> term as the important distribution.</p>
+the <span class="math notranslate nohighlight">\(\cos(\theta)\)</span> term as the important distribution.</p>
 </div>
 <div class="section" id="optical-fibre">
 <h3>6.2.3. Optical Fibre<a class="headerlink" href="#optical-fibre" title="Permalink to this headline">¶</a></h3>
-<p>Consider an optical fibre with circular area <span class="math">\(A_f\)</span> and radius <span class="math">\(r_f\)</span>. The area of solid angle
-over which light can be collected is a cone with half angle <span class="math">\(\theta_{max}\)</span>. The circular area can
-be sampled with uniformly distributed points, meaning <span class="math">\(p_A(x_j)\)</span> would cancel out again. An
+<p>Consider an optical fibre with circular area <span class="math notranslate nohighlight">\(A_f\)</span> and radius <span class="math notranslate nohighlight">\(r_f\)</span>. The area of solid angle
+over which light can be collected is a cone with half angle <span class="math notranslate nohighlight">\(\theta_{max}\)</span>. The circular area can
+be sampled with uniformly distributed points, meaning <span class="math notranslate nohighlight">\(p_A(x_j)\)</span> would cancel out again. An
 appropriate vector sampling distribution is the uniform cone, where vectors are sampled uniformly
-over the circular solid angle centred around the z-axis with angle to z <span class="math">\(\theta_{max}\)</span>. Samples
+over the circular solid angle centred around the z-axis with angle to z <span class="math notranslate nohighlight">\(\theta_{max}\)</span>. Samples
 around the z-axis can be transformed by rotation without effecting the sample density. The weighting
 function is uniform and hence</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[w(\omega) = 1.\]</div>
 <p>The normalisation constant for the distribution is now the fractional solid angle area,</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[c = \int_{0}^{2\pi} \int_{0}^{\theta_{max}} \sin(\theta) d\theta d\phi = 2\pi (1-\cos(\theta_{max})) = \Omega_{\theta_{max}},\]</div>
 <p>with corresponding pdf equal to</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[p_\Omega(\omega_i) = \frac{1}{\Omega_{\theta_m}}.\]</div>
 <p>The estimator is</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[L = \frac{(1-\cos(\theta_{max}))}{N} \sum_{i=1}^{N} L_i(x_i, \omega_i) \cos(\theta_i).\]</div>
 </div>
 <div class="section" id="sampling-the-lights">
@@ -393,17 +387,17 @@ inside the bounding sphere that defines the effective solid angle to be sampled.
 <h2>6.3. Material Surfaces<a class="headerlink" href="#material-surfaces" title="Permalink to this headline">¶</a></h2>
 <p>The amount of light that reaches a camera from a point on an object surface is
 given by the sum of light emitted and reflected from other sources.</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[L_{O}(p, \omega_O) = \int_{\Omega} L_{i}(p, \omega_i) \times f(\omega_i, \omega_o) \times \cos (\theta_i) d\omega_i\]</div>
 <p>This equation is the same as the observer equation with the addition of the
-bidirectional reflectance distribution function (BRDF) term <span class="math">\(f(\omega_i , \omega_o )\)</span>.
+bidirectional reflectance distribution function (BRDF) term <span class="math notranslate nohighlight">\(f(\omega_i , \omega_o )\)</span>.
 The BRDF is a weighting function that describes the redistribution of incident light
 into outgoing reflections and transmission/absorption. It is commonly approximated in
 terms of two ideal material components, specular and diffuse reflections. Ideal specular
 reflection behaves like a mirror where the incoming light is perfectly reflected into
-one angle, <span class="math">\(f_s (\omega_i, \omega_o ) = \rho_s(\omega_i )\delta(\omega_i ,\omega_o )\)</span>.
+one angle, <span class="math notranslate nohighlight">\(f_s (\omega_i, \omega_o ) = \rho_s(\omega_i )\delta(\omega_i ,\omega_o )\)</span>.
 An ideal diffuse surface (matte paper) will evenly redistribute incident light across all
-directions and hence has no angular dependance, <span class="math">\(f_d (\omega_i , \omega_o ) = \rho_d /\pi\)</span>.
+directions and hence has no angular dependance, <span class="math notranslate nohighlight">\(f_d (\omega_i , \omega_o ) = \rho_d /\pi\)</span>.
 Real physical materials exhibit a complex combination of both behaviours in addition to
 transmission and absorption.</p>
 <div class="figure align-center" id="id3">
@@ -423,9 +417,7 @@ Meakins, A., et. al. (2017))</span></p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -447,7 +439,7 @@ Meakins, A., et. al. (2017))</span></p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -465,7 +457,8 @@ Meakins, A., et. al. (2017))</span></p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.4.0',
+            VERSION:'0.5.2',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -475,23 +468,17 @@ Meakins, A., et. al. (2017))</span></p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

@@ -26,30 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Raysect Documentation" href="../../index.html"/>
-        <link rel="up" title="2. Primitives Module" href="primitives.html"/>
-        <link rel="next" title="3. Optical Module" href="../optical/optical.html"/>
-        <link rel="prev" title="2.3. CSG Operations" href="csg_operations.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3. Optical Module" href="../optical/optical.html" />
+    <link rel="prev" title="2.3. CSG Operations" href="csg_operations.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -66,7 +56,7 @@
 
           
             
-            <img src="../../_static/RaysectLogo_web.png" class="logo" />
+            <img src="../../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -74,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5
               </div>
             
           
@@ -115,7 +105,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">4. Examples Gallery</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -142,7 +134,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Raysect</a>
@@ -150,9 +142,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -217,19 +210,42 @@ surface lies on z=0 and with the lens extending along the +ve z direction.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>diameter</strong> &#8211; The diameter of the lens body.</li>
-<li><strong>center_thickness</strong> &#8211; The thickness of the lens measured along the lens axis.</li>
-<li><strong>front_curvature</strong> &#8211; The radius of curvature of the front surface.</li>
-<li><strong>back_curvature</strong> &#8211; The radius of curvature of the back surface.</li>
-<li><strong>parent</strong> &#8211; Assigns the Node&#8217;s parent to the specified scene-graph object.</li>
-<li><strong>transform</strong> &#8211; Sets the affine transform associated with the Node.</li>
-<li><strong>material</strong> &#8211; An object representing the material properties of the primitive.</li>
-<li><strong>name</strong> &#8211; A string defining the node name.</li>
+<li><strong>diameter</strong> – The diameter of the lens body.</li>
+<li><strong>center_thickness</strong> – The thickness of the lens measured along the lens axis.</li>
+<li><strong>front_curvature</strong> – The radius of curvature of the front surface.</li>
+<li><strong>back_curvature</strong> – The radius of curvature of the back surface.</li>
+<li><strong>parent</strong> – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> – A string defining the node name.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="raysect.primitive.lens.spherical.BiConvex.instance">
+<code class="descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.lens.spherical.BiConvex.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new instance of the primitive with the same geometry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> (<em>str</em>) – A string defining the node name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -248,19 +264,42 @@ surface lies on z=0 and with the lens extending along the +ve z direction.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>diameter</strong> &#8211; The diameter of the lens body.</li>
-<li><strong>center_thickness</strong> &#8211; The thickness of the lens measured along the lens axis.</li>
-<li><strong>front_curvature</strong> &#8211; The radius of curvature of the front surface.</li>
-<li><strong>back_curvature</strong> &#8211; The radius of curvature of the back surface.</li>
-<li><strong>parent</strong> &#8211; Assigns the Node&#8217;s parent to the specified scene-graph object.</li>
-<li><strong>transform</strong> &#8211; Sets the affine transform associated with the Node.</li>
-<li><strong>material</strong> &#8211; An object representing the material properties of the primitive.</li>
-<li><strong>name</strong> &#8211; A string defining the node name.</li>
+<li><strong>diameter</strong> – The diameter of the lens body.</li>
+<li><strong>center_thickness</strong> – The thickness of the lens measured along the lens axis.</li>
+<li><strong>front_curvature</strong> – The radius of curvature of the front surface.</li>
+<li><strong>back_curvature</strong> – The radius of curvature of the back surface.</li>
+<li><strong>parent</strong> – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> – A string defining the node name.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="raysect.primitive.lens.spherical.BiConcave.instance">
+<code class="descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.lens.spherical.BiConcave.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new instance of the primitive with the same geometry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> (<em>str</em>) – A string defining the node name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -280,13 +319,13 @@ extending along the +ve z direction.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>diameter</strong> &#8211; The diameter of the lens body.</li>
-<li><strong>center_thickness</strong> &#8211; The thickness of the lens measured along the lens axis.</li>
-<li><strong>curvature</strong> &#8211; The radius of curvature of the spherical front surface.</li>
-<li><strong>parent</strong> &#8211; Assigns the Node&#8217;s parent to the specified scene-graph object.</li>
-<li><strong>transform</strong> &#8211; Sets the affine transform associated with the Node.</li>
-<li><strong>material</strong> &#8211; An object representing the material properties of the primitive.</li>
-<li><strong>name</strong> &#8211; A string defining the node name.</li>
+<li><strong>diameter</strong> – The diameter of the lens body.</li>
+<li><strong>center_thickness</strong> – The thickness of the lens measured along the lens axis.</li>
+<li><strong>curvature</strong> – The radius of curvature of the spherical front surface.</li>
+<li><strong>parent</strong> – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> – A string defining the node name.</li>
 </ul>
 </td>
 </tr>
@@ -295,6 +334,29 @@ extending along the +ve z direction.</p>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="raysect.primitive.lens.spherical.PlanoConvex.instance">
+<code class="descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.lens.spherical.PlanoConvex.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new instance of the primitive with the same geometry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> (<em>str</em>) – A string defining the node name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -314,13 +376,13 @@ extending along the +ve z direction.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>diameter</strong> &#8211; The diameter of the lens body.</li>
-<li><strong>center_thickness</strong> &#8211; The thickness of the lens measured along the lens axis.</li>
-<li><strong>curvature</strong> &#8211; The radius of curvature of the spherical front surface.</li>
-<li><strong>parent</strong> &#8211; Assigns the Node&#8217;s parent to the specified scene-graph object.</li>
-<li><strong>transform</strong> &#8211; Sets the affine transform associated with the Node.</li>
-<li><strong>material</strong> &#8211; An object representing the material properties of the primitive.</li>
-<li><strong>name</strong> &#8211; A string defining the node name.</li>
+<li><strong>diameter</strong> – The diameter of the lens body.</li>
+<li><strong>center_thickness</strong> – The thickness of the lens measured along the lens axis.</li>
+<li><strong>curvature</strong> – The radius of curvature of the spherical front surface.</li>
+<li><strong>parent</strong> – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> – A string defining the node name.</li>
 </ul>
 </td>
 </tr>
@@ -329,6 +391,29 @@ extending along the +ve z direction.</p>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="raysect.primitive.lens.spherical.PlanoConcave.instance">
+<code class="descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.lens.spherical.PlanoConcave.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new instance of the primitive with the same geometry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> (<em>str</em>) – A string defining the node name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -348,19 +433,42 @@ the +ve z direction.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>diameter</strong> &#8211; The diameter of the lens body.</li>
-<li><strong>center_thickness</strong> &#8211; The thickness of the lens measured along the lens axis.</li>
-<li><strong>front_curvature</strong> &#8211; The radius of curvature of the front (convex) surface.</li>
-<li><strong>back_curvature</strong> &#8211; The radius of curvature of the back (concave) surface.</li>
-<li><strong>parent</strong> &#8211; Assigns the Node&#8217;s parent to the specified scene-graph object.</li>
-<li><strong>transform</strong> &#8211; Sets the affine transform associated with the Node.</li>
-<li><strong>material</strong> &#8211; An object representing the material properties of the primitive.</li>
-<li><strong>name</strong> &#8211; A string defining the node name.</li>
+<li><strong>diameter</strong> – The diameter of the lens body.</li>
+<li><strong>center_thickness</strong> – The thickness of the lens measured along the lens axis.</li>
+<li><strong>front_curvature</strong> – The radius of curvature of the front (convex) surface.</li>
+<li><strong>back_curvature</strong> – The radius of curvature of the back (concave) surface.</li>
+<li><strong>parent</strong> – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> – A string defining the node name.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="raysect.primitive.lens.spherical.Meniscus.instance">
+<code class="descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.lens.spherical.Meniscus.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new instance of the primitive with the same geometry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Assigns the Node’s parent to the specified scene-graph object.</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Sets the affine transform associated with the Node.</li>
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – An object representing the material properties of the primitive.</li>
+<li><strong>name</strong> (<em>str</em>) – A string defining the node name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -368,9 +476,7 @@ the +ve z direction.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -392,7 +498,7 @@ the +ve z direction.</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -410,7 +516,8 @@ the +ve z direction.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.5.2',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -420,23 +527,17 @@ the +ve z direction.</p>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
