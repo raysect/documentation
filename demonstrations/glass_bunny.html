@@ -194,7 +194,7 @@ refractive index data.</p>
 <span class="kn">from</span> <span class="nn">raysect.optical.material.emitter</span> <span class="k">import</span> <span class="n">UniformVolumeEmitter</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="k">import</span> <span class="n">Lambert</span>
 <span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Subtract</span>
-<span class="kn">from</span> <span class="nn">raysect.primitive.mesh</span> <span class="k">import</span> <span class="n">Mesh</span>
+<span class="kn">from</span> <span class="nn">raysect.primitive.mesh</span> <span class="k">import</span> <span class="n">Mesh</span><span class="p">,</span> <span class="n">import_obj</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="n">schott</span>
 
 
@@ -213,7 +213,7 @@ refractive index data.</p>
 <span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
 
 <span class="c1">#  BUNNY</span>
-<span class="n">mesh</span> <span class="o">=</span> <span class="n">Mesh</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="s2">&quot;resources/stanford_bunny.rsm&quot;</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">import_obj</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="s2">&quot;../resources/stanford_bunny.obj&quot;</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
                       <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;N-BK7&quot;</span><span class="p">))</span>
 
 
