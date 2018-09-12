@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.5
+                0.5.4
               </div>
             
           
@@ -107,7 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">4. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#optics">4. Optics</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -946,7 +946,7 @@ to (X, Y, Z).</p>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">memoryview</p>
 </td>
 </tr>
 </tbody>
@@ -963,7 +963,7 @@ to (X, Y, Z).</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>spectrum</strong> (<a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum to process</li>
-<li><strong>resampled_xyz</strong> (<em>ndarray</em>) – Pre-calculated XYZ sensitivity curves optimised
+<li><strong>resampled_xyz</strong> (<em>memoryview</em>) – Pre-calculated XYZ sensitivity curves optimised
 for this spectral range (default=None).</li>
 </ul>
 </td>
@@ -1186,7 +1186,7 @@ will do nothing unless the force keyword option is set to True.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2017, Dr Alex Meakins.
+        &copy; Copyright 2014-2018, Dr Alex Meakins.
 
     </p>
   </div>
@@ -1208,7 +1208,7 @@ will do nothing unless the force keyword option is set to True.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.5.2',
+            VERSION:'0.5.4',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

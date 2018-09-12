@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                0.5
+                0.5.4
               </div>
             
           
@@ -107,7 +107,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Core Functionality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#materials">2. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#observers">3. Observers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#examples-gallery">4. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#optics">4. Optics</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -207,6 +207,11 @@
 <tr class="row-even"><td><a class="reference internal" href="energy_conservation.html#demo-energy-conservation"><span class="std std-ref">Energy conservation</span></a></td>
 <td>Checking all emitted light is collected correctly on a 3D enclosing surface.</td>
 <td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="multiple_importance_sampling.html#demo-multiple-importance-sampling"><span class="std std-ref">Multiple Importance Sampling</span></a></td>
+<td>The classic multiple importance sampling demo re-implemented from E. Veach’s PhD thesis.</td>
+<td><a class="first last reference internal image-reference" href="../_images/multiple_importance_sampling.jpg"><img alt="../_images/multiple_importance_sampling.jpg" src="../_images/multiple_importance_sampling.jpg" style="width: 150px; height: 150px;" /></a>
+</td>
 </tr>
 </tbody>
 </table>
@@ -318,11 +323,16 @@ camera in Raysect.</td>
 <td><a class="first last reference internal image-reference" href="../_images/metal_balls_with_lens.png"><img alt="../_images/metal_balls_with_lens.png" src="../_images/metal_balls_with_lens.png" style="width: 150px; height: 150px;" /></a>
 </td>
 </tr>
+<tr class="row-even"><td><a class="reference internal" href="animations.html#demo-making-animations"><span class="std std-ref">Making animations</span></a></td>
+<td>Looping over the observe loop whilst changing the position of primitives generates an animation.</td>
+<td><a class="first last reference internal image-reference" href="../_images/animation_preview.jpg"><img alt="../_images/animation_preview.jpg" src="../_images/animation_preview.jpg" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="examples-gallery">
-<h1>4. Examples Gallery<a class="headerlink" href="#examples-gallery" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="optics">
+<h1>4. Optics<a class="headerlink" href="#optics" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="colwidths-given docutils" id="id4">
 <caption><span class="caption-text">Example scenes</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -342,14 +352,9 @@ camera in Raysect.</td>
 <td><a class="first last reference internal image-reference" href="../_images/prism_720x360.jpg"><img alt="../_images/prism_720x360.jpg" src="../_images/prism_720x360.jpg" style="width: 150px; height: 150px;" /></a>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="multiple_importance_sampling.html#demo-multiple-importance-sampling"><span class="std std-ref">Multiple Importance Sampling</span></a></td>
-<td>The classic multiple importance sampling demo re-implemented from E. Veach’s PhD thesis.</td>
-<td><a class="first last reference internal image-reference" href="../_images/multiple_importance_sampling.jpg"><img alt="../_images/multiple_importance_sampling.jpg" src="../_images/multiple_importance_sampling.jpg" style="width: 150px; height: 150px;" /></a>
-</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="animations.html#demo-making-animations"><span class="std std-ref">Making animations</span></a></td>
-<td>Looping over the observe loop whilst changing the position of primitives generates an animation.</td>
-<td><a class="first last reference internal image-reference" href="../_images/animation_preview.jpg"><img alt="../_images/animation_preview.jpg" src="../_images/animation_preview.jpg" style="width: 150px; height: 150px;" /></a>
+<tr class="row-odd"><td><a class="reference internal" href="etendue_of_pinhole.html#demo-etendue-of-pinhole"><span class="std std-ref">Etendue</span></a></td>
+<td>Calculating the etendue of a pinhole with ray-tracing.</td>
+<td><a class="first last reference internal image-reference" href="../_images/etendue_of_pinhole.png"><img alt="../_images/etendue_of_pinhole.png" src="../_images/etendue_of_pinhole.png" style="width: 150px; height: 150px;" /></a>
 </td>
 </tr>
 </tbody>
@@ -376,7 +381,7 @@ camera in Raysect.</td>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2017, Dr Alex Meakins.
+        &copy; Copyright 2014-2018, Dr Alex Meakins.
 
     </p>
   </div>
@@ -398,7 +403,7 @@ camera in Raysect.</td>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.5.2',
+            VERSION:'0.5.4',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
