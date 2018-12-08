@@ -26,29 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Raysect Documentation" href="index.html"/>
-        <link rel="next" title="4. How it works" href="how_it_works.html"/>
-        <link rel="prev" title="2. License" href="license.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. How it works" href="how_it_works.html" />
+    <link rel="prev" title="2. License" href="license.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -65,7 +56,7 @@
 
           
             
-            <img src="_static/RaysectLogo_web.png" class="logo" />
+            <img src="_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -73,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5.4
               </div>
             
           
@@ -119,7 +110,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#optics">4. Optics</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -137,7 +130,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Raysect</a>
@@ -145,9 +138,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -200,11 +194,11 @@ higher is recommended. Raysect has not been tested on Python 2, currently suppor
 <div class="section" id="installation">
 <h2>3.2. Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Raysect is available from the python package repository <a class="reference external" href="https://pypi.python.org/pypi/raysect">pypi</a>. The easiest way to install Raysect is using <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">raysect</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">raysect</span>
 </pre></div>
 </div>
 <p>If pip is not available, the source files can be downloaded from <a class="reference external" href="https://pypi.python.org/pypi/raysect">pypi</a> or from our <a class="reference external" href="https://github.com/raysect/source">development repository</a>. Once you have the source files, locate the folder containing setup.py and run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
 </pre></div>
 </div>
 <p>If all the required dependencies are present (cython, numpy, scipy and matplotlib), this should start the Raysect compilation and installation process.</p>
@@ -213,18 +207,16 @@ higher is recommended. Raysect has not been tested on Python 2, currently suppor
 <div class="section" id="testing">
 <h2>3.3. Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
 <p>A selection of test scripts can be run with the <cite>nose</cite> testing framework. These are routinely
-run on the development version.  Running <code class="docutils literal"><span class="pre">nosetests</span></code> at the terminal in the source directory
+run on the development version.  Running <code class="docutils literal notranslate"><span class="pre">nosetests</span></code> at the terminal in the source directory
 should run all of these tests to completion without errors or failures.</p>
 <p>Many of the demos used throughout the Raysect documentation are distributed with the source code in
-the <code class="docutils literal"><span class="pre">demo</span></code> folder.</p>
+the <code class="docutils literal notranslate"><span class="pre">demo</span></code> folder.</p>
 </div>
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -242,11 +234,11 @@ the <code class="docutils literal"><span class="pre">demo</span></code> folder.<
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2017, Dr Alex Meakins.
+        &copy; Copyright 2014-2018, Dr Alex Meakins.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -264,7 +256,8 @@ the <code class="docutils literal"><span class="pre">demo</span></code> folder.<
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.4.0',
+            VERSION:'0.5.4',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -274,23 +267,17 @@ the <code class="docutils literal"><span class="pre">demo</span></code> folder.<
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

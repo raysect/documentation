@@ -26,30 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Raysect Documentation" href="../../index.html"/>
-        <link rel="up" title="1.2. Math Module" href="math.html"/>
-        <link rel="next" title="1.2.6. Unit Conversions" href="units.html"/>
-        <link rel="prev" title="1.2.4. Random" href="random.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.2.6. Unit Conversions" href="units.html" />
+    <link rel="prev" title="1.2.4. Random" href="random.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -66,7 +56,7 @@
 
           
             
-            <img src="../../_static/RaysectLogo_web.png" class="logo" />
+            <img src="../../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -74,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5.4
               </div>
             
           
@@ -115,7 +105,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#optics">4. Optics</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -149,7 +141,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Raysect</a>
@@ -157,9 +149,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -207,13 +200,442 @@
             
   <div class="section" id="statistics-arrays">
 <h1>1.2.5. Statistics Arrays<a class="headerlink" href="#statistics-arrays" title="Permalink to this headline">¶</a></h1>
+<p>StatsArrays are objects used in Raysect to store arrays of statistical
+results with appropriate dimension. Consider for example a 2D pixel
+array at a camera’s image plane. For each pixel in the camera, Raysect
+will trace a large number of rays, perhaps many 1000s of individual Ray
+samples. A StatsArray therefore stores the overall statistical results
+at each pixel index location. Note that these objects never store the
+complete set of samples taken by Raysect, as the dataset would be too
+large for suitable storage. Instead, Raysect stores the mean and variance
+of all samples collected at each array index location.</p>
+<p>Users are unlikely to ever instantiate these classes directly, it is more
+likely users will encounter these objects in the pipeline results of their
+observations.</p>
+<dl class="class">
+<dt id="raysect.core.math.statsarray.StatsBin">
+<em class="property">class </em><code class="descclassname">raysect.core.math.statsarray.</code><code class="descname">StatsBin</code><a class="headerlink" href="#raysect.core.math.statsarray.StatsBin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for storing a single numerical sampling result and its associated statistics.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mean</strong> (<em>float</em>) – The mean value of the samples.</li>
+<li><strong>variance</strong> (<em>float</em>) – The variance of the collected samples.</li>
+<li><strong>samples</strong> (<em>int</em>) – The total number of samples in the set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsBin.add_sample">
+<code class="descname">add_sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsBin.add_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a single sample to this StatsBin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sample</strong> (<em>float</em>) – The sample value to be added.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsBin.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsBin.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erase the current statistics stored in this StatsBin.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsBin.combine_samples">
+<code class="descname">combine_samples</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsBin.combine_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine the statistics from another set of samples with the results already stored in this StatsBin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mean</strong> (<em>float</em>) – The mean of the new samples</li>
+<li><strong>variance</strong> (<em>float</em>) – The variance of the new samples</li>
+<li><strong>sample_count</strong> (<em>int</em>) – The number of new samples that were taken.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsBin.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsBin.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate a new StatsBin object with the same statistical results.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsBin.error">
+<code class="descname">error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsBin.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the standard error of this sample distribution.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.statsarray.StatsArray1D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.statsarray.</code><code class="descname">StatsArray1D</code><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for storing a 1D array of sampling results and their associated statistics.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>length</strong> (<em>int</em>) – The length of the 1D samples array.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mean</strong> (<em>ndarray</em>) – The mean value of the samples.</li>
+<li><strong>variance</strong> (<em>ndarray</em>) – The variance of the collected samples.</li>
+<li><strong>samples</strong> (<em>ndarray</em>) – The total number of samples in the set.</li>
+<li><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector2D.length" title="raysect.core.math.vector.Vector2D.length"><strong>length</strong></a> (<em>int</em>) – The length of the 1D samples array.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray1D.add_sample">
+<code class="descname">add_sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray1D.add_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a single sample to the StatsArray1D element x.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>int</em>) – The position index where the sample should be added.</li>
+<li><strong>sample</strong> (<em>float</em>) – The sample value to be added.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray1D.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray1D.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erase the current statistics stored in this StatsArray.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray1D.combine_samples">
+<code class="descname">combine_samples</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray1D.combine_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine the statistics from a given set of samples with the results already stored in
+this StatsArray at index position x.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>int</em>) – The index position where these results are to be added.</li>
+<li><strong>mean</strong> (<em>float</em>) – The mean of the new samples</li>
+<li><strong>variance</strong> (<em>float</em>) – The variance of the new samples</li>
+<li><strong>sample_count</strong> (<em>int</em>) – The number of new samples that were taken.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray1D.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray1D.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate a new StatsArray1D object with the same statistical results.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray1D.error">
+<code class="descname">error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray1D.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the standard error of the results at index position x.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>int</em>) – The index position at which to compute the standard error.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray1D.errors">
+<code class="descname">errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray1D.errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the standard errors of all the results stored in this StatsArray.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.statsarray.StatsArray1D.shape">
+<code class="descname">shape</code><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray1D.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>The numpy style array shape of the underlying StatsArray.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.statsarray.StatsArray2D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.statsarray.</code><code class="descname">StatsArray2D</code><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for storing a 2D array of sampling results and their associated statistics.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>nx</strong> (<em>int</em>) – The number of array samples along the x direction.</li>
+<li><strong>ny</strong> (<em>int</em>) – The number of array samples along the y direction.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mean</strong> (<em>ndarray</em>) – The mean value of the samples.</li>
+<li><strong>variance</strong> (<em>ndarray</em>) – The variance of the collected samples.</li>
+<li><strong>samples</strong> (<em>ndarray</em>) – The total number of samples in the set.</li>
+<li><strong>nx</strong> (<em>int</em>) – The number of array samples along the x direction.</li>
+<li><strong>ny</strong> (<em>int</em>) – The number of array samples along the y direction.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray2D.add_sample">
+<code class="descname">add_sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray2D.add_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a single sample to the StatsArray2D results stored at element x, y.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>int</em>) – The x position index where the sample should be added.</li>
+<li><strong>y</strong> (<em>int</em>) – The y position index where the sample should be added.</li>
+<li><strong>sample</strong> (<em>float</em>) – The sample value to be added.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray2D.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray2D.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erase the current statistics stored in this StatsArray.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray2D.combine_samples">
+<code class="descname">combine_samples</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray2D.combine_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine the statistics from a given set of samples with the results already stored in
+this StatsArray at index position x, y.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>int</em>) – The x index position where these results are to be added.</li>
+<li><strong>y</strong> (<em>int</em>) – The y index position where these results are to be added.</li>
+<li><strong>mean</strong> (<em>float</em>) – The mean of the new samples</li>
+<li><strong>variance</strong> (<em>float</em>) – The variance of the new samples</li>
+<li><strong>sample_count</strong> (<em>int</em>) – The number of new samples that were taken.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray2D.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray2D.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate a new StatsArray2D object with the same statistical results.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray2D.error">
+<code class="descname">error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray2D.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the standard error of the results at index position x, y.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>int</em>) – The x index position at which to compute the standard error.</li>
+<li><strong>y</strong> (<em>int</em>) – The y index position at which to compute the standard error.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray2D.errors">
+<code class="descname">errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray2D.errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the standard errors of all the results stored in this StatsArray.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.statsarray.StatsArray2D.shape">
+<code class="descname">shape</code><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray2D.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>The numpy style array shape of the underlying StatsArray.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.statsarray.StatsArray3D">
+<em class="property">class </em><code class="descclassname">raysect.core.math.statsarray.</code><code class="descname">StatsArray3D</code><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for storing a 3D array of sampling results and their associated statistics.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>nx</strong> (<em>int</em>) – The number of array samples along the x direction.</li>
+<li><strong>ny</strong> (<em>int</em>) – The number of array samples along the y direction.</li>
+<li><strong>nz</strong> (<em>int</em>) – The number of array samples along the z direction.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mean</strong> (<em>ndarray</em>) – The mean value of the samples.</li>
+<li><strong>variance</strong> (<em>ndarray</em>) – The variance of the collected samples.</li>
+<li><strong>samples</strong> (<em>ndarray</em>) – The total number of samples in the set.</li>
+<li><strong>nx</strong> (<em>int</em>) – The number of array samples along the x direction.</li>
+<li><strong>ny</strong> (<em>int</em>) – The number of array samples along the y direction.</li>
+<li><strong>nz</strong> (<em>int</em>) – The number of array samples along the z direction.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray3D.add_sample">
+<code class="descname">add_sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray3D.add_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a single sample to the StatsArray3D results stored at element x, y, z.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>int</em>) – The x position index where the sample should be added.</li>
+<li><strong>y</strong> (<em>int</em>) – The y position index where the sample should be added.</li>
+<li><strong>z</strong> (<em>int</em>) – The z position index where the sample should be added.</li>
+<li><strong>sample</strong> (<em>float</em>) – The sample value to be added.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray3D.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray3D.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Erase the current statistics stored in this StatsArray.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray3D.combine_samples">
+<code class="descname">combine_samples</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray3D.combine_samples" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine the statistics from a given set of samples with the results already stored in
+this StatsArray at index position x, y, z.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>int</em>) – The x index position where these results are to be added.</li>
+<li><strong>y</strong> (<em>int</em>) – The y index position where these results are to be added.</li>
+<li><strong>z</strong> (<em>int</em>) – The z index position where these results are to be added.</li>
+<li><strong>mean</strong> (<em>float</em>) – The mean of the new samples</li>
+<li><strong>variance</strong> (<em>float</em>) – The variance of the new samples</li>
+<li><strong>sample_count</strong> (<em>int</em>) – The number of new samples that were taken.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray3D.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray3D.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate a new StatsArray3D object with the same statistical results.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray3D.error">
+<code class="descname">error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray3D.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the standard error of the results at index position x, y, z.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>int</em>) – The x index position at which to compute the standard error.</li>
+<li><strong>y</strong> (<em>int</em>) – The y index position at which to compute the standard error.</li>
+<li><strong>z</strong> (<em>int</em>) – The z index position at which to compute the standard error.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.statsarray.StatsArray3D.errors">
+<code class="descname">errors</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray3D.errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the standard errors of all the results stored in this StatsArray.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.statsarray.StatsArray3D.shape">
+<code class="descname">shape</code><a class="headerlink" href="#raysect.core.math.statsarray.StatsArray3D.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>The numpy style array shape of the underlying StatsArray.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -231,11 +653,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2017, Dr Alex Meakins.
+        &copy; Copyright 2014-2018, Dr Alex Meakins.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -253,7 +675,8 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.5.4',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -263,23 +686,17 @@
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

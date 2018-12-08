@@ -26,27 +26,18 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Raysect Documentation" href="../index.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -63,7 +54,7 @@
 
           
             
-            <img src="../_static/RaysectLogo_web.png" class="logo" />
+            <img src="../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -71,7 +62,7 @@
             
             
               <div class="version">
-                0.4
+                0.5.4
               </div>
             
           
@@ -112,7 +103,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations.html#optics">4. Optics</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -130,7 +123,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Raysect</a>
@@ -138,9 +131,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -188,7 +182,7 @@
 that the total power collected on the boundary equals to total power radiated from a simple emitting source.
 The principle can be extended to test cases with more complicated emission sources and boundaries.</p>
 <p>As usual, we start by importing everything we need.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">pi</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">pi</span>
 <span class="kn">from</span> <span class="nn">raysect.core</span> <span class="k">import</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span>
 <span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span>
 <span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">ConstantSF</span>
@@ -198,9 +192,9 @@ The principle can be extended to test cases with more complicated emission sourc
 </div>
 <p>The emitting source will be a sphere at the origin, surrounded by an observing box. The number of samples
 requested will be relatively large so we can ensure good accuracy in the calculations. Note that this calculation
-isn&#8217;t spectrally resolved so we only need a narrow spectral range with a single wavelength bin. Initialise the
+isn’t spectrally resolved so we only need a narrow spectral range with a single wavelength bin. Initialise the
 constants and place the sphere in the scene.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="mi">100000</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">samples</span> <span class="o">=</span> <span class="mi">100000</span>
 
 <span class="n">sphere_radius</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">cube_size</span> <span class="o">=</span> <span class="mi">2</span>
@@ -213,19 +207,19 @@ constants and place the sphere in the scene.</p>
 <span class="n">emitter</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="n">sphere_radius</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that due to symmetry we don&#8217;t need to observe each face of the cube. We only need to observe 1 side and
+<p>Note that due to symmetry we don’t need to observe each face of the cube. We only need to observe 1 side and
 multiply by 6. You could also model it with 6 individual pixel faces.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">power</span> <span class="o">=</span> <span class="n">PowerPipeline0D</span><span class="p">(</span><span class="n">accumulate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">power</span> <span class="o">=</span> <span class="n">PowerPipeline0D</span><span class="p">(</span><span class="n">accumulate</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">observing_plane</span> <span class="o">=</span> <span class="n">Pixel</span><span class="p">([</span><span class="n">power</span><span class="p">],</span> <span class="n">x_width</span><span class="o">=</span><span class="n">cube_size</span><span class="p">,</span> <span class="n">y_width</span><span class="o">=</span><span class="n">cube_size</span><span class="p">,</span>
                         <span class="n">min_wavelength</span><span class="o">=</span><span class="n">min_wl</span><span class="p">,</span> <span class="n">max_wavelength</span><span class="o">=</span><span class="n">max_wl</span><span class="p">,</span>
                         <span class="n">spectral_bins</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pixel_samples</span><span class="o">=</span><span class="n">samples</span><span class="p">,</span>
                         <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">cube_size</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>First, let&#8217;s consider the case where the sphere is a uniform volume emitter with emission of 1W/m^3/str/nm).
+<p>First, let’s consider the case where the sphere is a uniform volume emitter with emission of 1W/m^3/str/nm).
 The theoretical total emitted power would be given by 1W x the volume of the sphere x 4Pi steradians x
 the wavelength range sampled. Lets implement the calculation and compare it to the measured value.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting observations with volume emitter...&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting observations with volume emitter...&quot;</span><span class="p">)</span>
 <span class="n">calculated_volume_emission</span> <span class="o">=</span> <span class="mi">16</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">pi</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sphere_radius</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="p">(</span><span class="n">max_wl</span> <span class="o">-</span> <span class="n">min_wl</span><span class="p">)</span>
 
 <span class="n">emitter</span><span class="o">.</span><span class="n">material</span> <span class="o">=</span> <span class="n">UnityVolumeEmitter</span><span class="p">()</span>
@@ -242,9 +236,7 @@ the wavelength range sampled. Lets implement the calculation and compare it to t
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -253,11 +245,11 @@ the wavelength range sampled. Lets implement the calculation and compare it to t
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2017, Dr Alex Meakins.
+        &copy; Copyright 2014-2018, Dr Alex Meakins.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -275,7 +267,8 @@ the wavelength range sampled. Lets implement the calculation and compare it to t
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.4.0',
+            VERSION:'0.5.4',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -285,23 +278,17 @@ the wavelength range sampled. Lets implement the calculation and compare it to t
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

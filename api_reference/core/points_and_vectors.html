@@ -26,30 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Raysect Documentation" href="../../index.html"/>
-        <link rel="up" title="1.2. Math Module" href="math.html"/>
-        <link rel="next" title="1.2.2. Affine Matricies" href="affinematrix.html"/>
-        <link rel="prev" title="1.2. Math Module" href="math.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.2.2. Affine Matricies" href="affinematrix.html" />
+    <link rel="prev" title="1.2. Math Module" href="math.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -66,7 +56,7 @@
 
           
             
-            <img src="../../_static/RaysectLogo_web.png" class="logo" />
+            <img src="../../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -74,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5.4
               </div>
             
           
@@ -115,7 +105,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#optics">4. Optics</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -153,7 +145,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Raysect</a>
@@ -161,9 +153,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -226,24 +219,29 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; initial x coordinate, defaults to x = 0.0.</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; initial y coordinate, defaults to y = 0.0.</li>
+<li><strong>x</strong> (<em>float</em>) – initial x coordinate, defaults to x = 0.0.</li>
+<li><strong>y</strong> (<em>float</em>) – initial y coordinate, defaults to y = 0.0.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; x-coordinate</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; y-coordinate</li>
+<li><strong>x</strong> (<em>float</em>) – x-coordinate</li>
+<li><strong>y</strong> (<em>float</em>) – y-coordinate</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Point2D</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="attribute">
 <dt id="raysect.core.math.point.Point2D.__add__">
 <code class="descname">__add__</code><a class="headerlink" href="#raysect.core.math.point.Point2D.__add__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Addition operator.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point32D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">Point2D(1.0, 1.0)</span>
 </pre></div>
 </div>
@@ -253,30 +251,30 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 <dt id="raysect.core.math.point.Point2D.__getitem__">
 <code class="descname">__getitem__</code><a class="headerlink" href="#raysect.core.math.point.Point2D.__getitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the point coordinates by index ([0,1] -&gt; [x,y]).</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">1</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
-<dt id="raysect.core.math.point.Point2D.__getstate__">
-<code class="descname">__getstate__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point2D.__getstate__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encodes state for pickling.</p>
-</dd></dl>
-
 <dl class="attribute">
 <dt id="raysect.core.math.point.Point2D.__iter__">
 <code class="descname">__iter__</code><a class="headerlink" href="#raysect.core.math.point.Point2D.__iter__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterates over the coordinates (x, y)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="go">(1.0, 1.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="raysect.core.math.point.Point2D.__setitem__">
 <code class="descname">__setitem__</code><a class="headerlink" href="#raysect.core.math.point.Point2D.__setitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the point coordinates by index ([0,1] -&gt; [x,y]).</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">Point2D(1.0, 2.0)</span>
@@ -284,17 +282,11 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 </div>
 </dd></dl>
 
-<dl class="method">
-<dt id="raysect.core.math.point.Point2D.__setstate__">
-<code class="descname">__setstate__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point2D.__setstate__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decodes state for pickling.</p>
-</dd></dl>
-
 <dl class="attribute">
 <dt id="raysect.core.math.point.Point2D.__sub__">
 <code class="descname">__sub__</code><a class="headerlink" href="#raysect.core.math.point.Point2D.__sub__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subtraction operator.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">Point2D(1.0, -1.0)</span>
 </pre></div>
 </div>
@@ -312,6 +304,11 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="go">Point2D(1.0, 1.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -322,12 +319,18 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D"><em>Point2D</em></a>) &#8211; the point to which the distance will be calculated</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D"><em>Point2D</em></a>) – the point to which the distance will be calculated</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">distance_to</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -338,12 +341,18 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D"><em>Point2D</em></a>) &#8211; point to which a vector will be calculated</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point2D" title="raysect.core.math.point.Point2D"><em>Point2D</em></a>) – point to which a vector will be calculated</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector2D" title="raysect.core.math.vector.Vector2D">Vector2D</a></td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">vector_to</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">Vector2D(0.0, 1.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -361,19 +370,109 @@ aligned with the x-axis: Vector2D(1.0, 0.0)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; initial x coordinate, defaults to x = 0.0.</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; initial y coordinate, defaults to y = 0.0.</li>
+<li><strong>x</strong> (<em>float</em>) – initial x coordinate, defaults to x = 0.0.</li>
+<li><strong>y</strong> (<em>float</em>) – initial y coordinate, defaults to y = 0.0.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; x-coordinate</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; y-coordinate</li>
+<li><strong>x</strong> (<em>float</em>) – x-coordinate</li>
+<li><strong>y</strong> (<em>float</em>) – y-coordinate</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Vector2D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="attribute">
+<dt id="raysect.core.math.vector.Vector2D.__add__">
+<code class="descname">__add__</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__add__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Addition operator.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">Vector2D(1.0, 1.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.vector.Vector2D.__getitem__">
+<code class="descname">__getitem__</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the vector coordinates by index ([0,1] -&gt; [x,y]).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.vector.Vector2D.__iter__">
+<code class="descname">__iter__</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterates over the vector coordinates (x, y)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+<span class="go">(1.0, 0.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.vector.Vector2D.__mul__">
+<code class="descname">__mul__</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__mul__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiplication operator.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">Vector2D(2.0, 4.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.vector.Vector2D.__neg__">
+<code class="descname">__neg__</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__neg__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a vector with the reverse orientation (negation operator).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="n">a</span>
+<span class="go">Vector2D(-1.0, -0.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.vector.Vector2D.__setitem__">
+<code class="descname">__setitem__</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the vector coordinates by index ([0,1] -&gt; [x,y]).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">Vector2D(1.0, 2.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.vector.Vector2D.__sub__">
+<code class="descname">__sub__</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__sub__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subtraction operator.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">Vector2D(1.0, -1.0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="raysect.core.math.vector.Vector2D.__truediv__">
+<code class="descname">__truediv__</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__truediv__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Division operator.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="go">Vector2D(0.5, 0.5)</span>
+</pre></div>
+</div>
+</dd></dl>
+
 <dl class="method">
 <dt id="raysect.core.math.vector.Vector2D.copy">
 <code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.copy" title="Permalink to this definition">¶</a></dt>
@@ -386,6 +485,11 @@ aligned with the x-axis: Vector2D(1.0, 0.0)</p>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="go">Vector2D(1.0, 1.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -399,28 +503,52 @@ aligned with the x-axis: Vector2D(1.0, 0.0)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector2D" title="raysect.core.math.vector.Vector2D"><em>Vector2D</em></a>) &#8211; An input vector with which to calculate the cross product.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector2D" title="raysect.core.math.vector.Vector2D"><em>Vector2D</em></a>) – An input vector with which to calculate the cross product.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">1.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.core.math.vector.Vector2D.dot">
 <code class="descname">dot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.dot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the dot product between this vector and the supplied vector.</p>
-<p>Returns a scalar.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="raysect.core.math.vector.Vector2D.length">
 <code class="descname">length</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D.length" title="Permalink to this definition">¶</a></dt>
-<dd><p>The vector&#8217;s length.</p>
+<dd><p>The vector’s length.</p>
 <p>Raises a ZeroDivisionError if an attempt is made to change the length of
 a zero length vector. The direction of a zero length vector is
 undefined hence it can not be lengthened.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">length</span>
+<span class="go">1.4142135623730951</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -436,6 +564,11 @@ undefined hence it can not be lengthened.</p>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">normalise</span><span class="p">()</span>
+<span class="go">Vector2D(0.7071067811865475, 0.7071067811865475)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -450,6 +583,11 @@ undefined hence it can not be lengthened.</p>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">orthogonal</span><span class="p">()</span>
+<span class="go">Vector2D(-0.7071067811865475, 0.7071067811865475</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -471,26 +609,30 @@ Point3D(0.0, 0.0, 0.0)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; initial x coordinate, defaults to x = 0.0.</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; initial y coordinate, defaults to y = 0.0.</li>
-<li><strong>z</strong> (<em>float</em>) &#8211; initial z coordinate, defaults to z = 0.0.</li>
+<li><strong>x</strong> (<em>float</em>) – initial x coordinate, defaults to x = 0.0.</li>
+<li><strong>y</strong> (<em>float</em>) – initial y coordinate, defaults to y = 0.0.</li>
+<li><strong>z</strong> (<em>float</em>) – initial z coordinate, defaults to z = 0.0.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; x-coordinate</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; y-coordinate</li>
-<li><strong>z</strong> (<em>float</em>) &#8211; z-coordinate</li>
+<li><strong>x</strong> (<em>float</em>) – x-coordinate</li>
+<li><strong>y</strong> (<em>float</em>) – y-coordinate</li>
+<li><strong>z</strong> (<em>float</em>) – z-coordinate</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Point3D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="attribute">
 <dt id="raysect.core.math.point.Point3D.__add__">
 <code class="descname">__add__</code><a class="headerlink" href="#raysect.core.math.point.Point3D.__add__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Addition operator.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="go">Point3D(1.0, 1.0, 0.0)</span>
 </pre></div>
 </div>
@@ -500,23 +642,23 @@ Point3D(0.0, 0.0, 0.0)</p>
 <dt id="raysect.core.math.point.Point3D.__getitem__">
 <code class="descname">__getitem__</code><a class="headerlink" href="#raysect.core.math.point.Point3D.__getitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the point coordinates by index ([0,1,2] -&gt; [x,y,z]).</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">1</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
-<dt id="raysect.core.math.point.Point3D.__getstate__">
-<code class="descname">__getstate__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.__getstate__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encodes state for pickling.</p>
-</dd></dl>
-
 <dl class="attribute">
 <dt id="raysect.core.math.point.Point3D.__iter__">
 <code class="descname">__iter__</code><a class="headerlink" href="#raysect.core.math.point.Point3D.__iter__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterates over the coordinates (x, y, z)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+<span class="go">(0.0, 1.0, 2.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="attribute">
@@ -528,8 +670,8 @@ Point3D(0.0, 0.0, 0.0)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; transformation matrix x</li>
-<li><strong>y</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; point to transform</li>
+<li><strong>x</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – transformation matrix x</li>
+<li><strong>y</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – point to transform</li>
 </ul>
 </td>
 </tr>
@@ -547,7 +689,7 @@ Point3D(0.0, 0.0, 0.0)</p>
 <dt id="raysect.core.math.point.Point3D.__setitem__">
 <code class="descname">__setitem__</code><a class="headerlink" href="#raysect.core.math.point.Point3D.__setitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the point coordinates by index ([0,1,2] -&gt; [x,y,z]).</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">Point3D(1.0, 2.0, 0.0)</span>
@@ -555,17 +697,11 @@ Point3D(0.0, 0.0, 0.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
-<dt id="raysect.core.math.point.Point3D.__setstate__">
-<code class="descname">__setstate__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.__setstate__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decodes state for pickling.</p>
-</dd></dl>
-
 <dl class="attribute">
 <dt id="raysect.core.math.point.Point3D.__sub__">
 <code class="descname">__sub__</code><a class="headerlink" href="#raysect.core.math.point.Point3D.__sub__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subtraction operator.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="go">Point3D(1.0, -1.0, 0.0)</span>
 </pre></div>
 </div>
@@ -583,6 +719,11 @@ Point3D(0.0, 0.0, 0.0)</p>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="go">Point3D(0.0, 1.0, 2.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -593,12 +734,18 @@ Point3D(0.0, 0.0, 0.0)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; the point to which the distance will be calculated</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – the point to which the distance will be calculated</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">distance_to</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">1.4142135623730951</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -615,7 +762,7 @@ checks are performed on the matrix.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The affine matrix describing the required coordinate transformation.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – The affine matrix describing the required coordinate transformation.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new instance of this point that has been transformed with the supplied Affine Matrix.</td>
 </tr>
@@ -633,12 +780,18 @@ checks are performed on the matrix.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; the point to which a vector will be calculated.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> (<a class="reference internal" href="#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – the point to which a vector will be calculated.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">vector_to</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">Vector3D(1.0, 0.0, -1.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -657,26 +810,30 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; initial x coordinate, defaults to x = 0.0.</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; initial y coordinate, defaults to y = 0.0.</li>
-<li><strong>z</strong> (<em>float</em>) &#8211; initial z coordinate, defaults to z = 0.0.</li>
+<li><strong>x</strong> (<em>float</em>) – initial x coordinate, defaults to x = 0.0.</li>
+<li><strong>y</strong> (<em>float</em>) – initial y coordinate, defaults to y = 0.0.</li>
+<li><strong>z</strong> (<em>float</em>) – initial z coordinate, defaults to z = 0.0.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; x-coordinate</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; y-coordinate</li>
-<li><strong>z</strong> (<em>float</em>) &#8211; z-coordinate</li>
+<li><strong>x</strong> (<em>float</em>) – x-coordinate</li>
+<li><strong>y</strong> (<em>float</em>) – y-coordinate</li>
+<li><strong>z</strong> (<em>float</em>) – z-coordinate</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Vector3D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="attribute">
 <dt id="raysect.core.math.vector.Vector3D.__add__">
 <code class="descname">__add__</code><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__add__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Addition operator.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="go">Vector3D(1.0, 1.0, 0.0)</span>
 </pre></div>
 </div>
@@ -686,23 +843,23 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 <dt id="raysect.core.math.vector.Vector3D.__getitem__">
 <code class="descname">__getitem__</code><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__getitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the vector coordinates by index ([0,1,2] -&gt; [x,y,z]).</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">1</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
-<dt id="raysect.core.math.vector.Vector3D.__getstate__">
-<code class="descname">__getstate__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__getstate__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encodes state for pickling.</p>
-</dd></dl>
-
 <dl class="attribute">
 <dt id="raysect.core.math.vector.Vector3D.__iter__">
 <code class="descname">__iter__</code><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__iter__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterates over the vector coordinates (x, y, z)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
+<span class="go">(0.0, 1.0, 2.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="attribute">
@@ -710,7 +867,8 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 <code class="descname">__mul__</code><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__mul__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Multiplication operator.</p>
 <p>3D vectors can be multiplied with both scalars and transformation matrices.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="k">import</span> <span class="n">Vector3D</span><span class="p">,</span> <span class="n">rotate_x</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="go">Vector3D(2.0, 4.0, 6.0)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rotate_x</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">*</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">Vector3D(0.0, -1.0, 0.0)</span>
@@ -722,13 +880,18 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 <dt id="raysect.core.math.vector.Vector3D.__neg__">
 <code class="descname">__neg__</code><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__neg__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a vector with the reverse orientation (negation operator).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="n">a</span>
+<span class="go">Vector3D(-1.0, -0.0, -0.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="raysect.core.math.vector.Vector3D.__setitem__">
 <code class="descname">__setitem__</code><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__setitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the vector coordinates by index ([0,1,2] -&gt; [x,y,z]).</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">Vector3D(1.0, 2.0, 0.0)</span>
@@ -736,17 +899,11 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
-<dt id="raysect.core.math.vector.Vector3D.__setstate__">
-<code class="descname">__setstate__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__setstate__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decodes state for pickling.</p>
-</dd></dl>
-
 <dl class="attribute">
 <dt id="raysect.core.math.vector.Vector3D.__sub__">
 <code class="descname">__sub__</code><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__sub__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subtraction operator.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="go">Vector3D(1.0, -1.0, 0.0)</span>
 </pre></div>
 </div>
@@ -756,8 +913,21 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 <dt id="raysect.core.math.vector.Vector3D.__truediv__">
 <code class="descname">__truediv__</code><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__truediv__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Division operator.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="go">Vector3D(0.5, 0.5, 0.5)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="raysect.core.math.vector.Vector3D.angle">
+<code class="descname">angle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the angle between this vector and the supplied vector.</p>
+<p>Returns the angle in degrees.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">54.735610317245346</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -774,59 +944,94 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="go">Vector3D(1.0, 1.0, 1.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.core.math.vector.Vector3D.cross">
 <code class="descname">cross</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.cross" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the cross product between this vector and the supplied vector</p>
-<p>C = A.cross(B) &lt;=&gt; <span class="math">\(\vec{C} = \vec{A} \times \vec{B}\)</span></p>
+<p>C = A.cross(B) &lt;=&gt; <span class="math notranslate nohighlight">\(\vec{C} = \vec{A} \times \vec{B}\)</span></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; An input vector with which to calculate the cross product.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – An input vector with which to calculate the cross product.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">Vector3D(0.0, 0.0, 1.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.core.math.vector.Vector3D.dot">
 <code class="descname">dot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.dot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the dot product between this vector and the supplied vector.</p>
-<p>Returns a scalar.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="raysect.core.math.vector.Vector3D.length">
 <code class="descname">length</code><a class="headerlink" href="#raysect.core.math.vector.Vector3D.length" title="Permalink to this definition">¶</a></dt>
-<dd><p>The vector&#8217;s length.</p>
+<dd><p>The vector’s length.</p>
 <p>Raises a ZeroDivisionError if an attempt is made to change the length of
 a zero length vector. The direction of a zero length vector is
 undefined hence it can not be lengthened.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">length</span>
+<span class="go">1.7320508075688772</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.core.math.vector.Vector3D.lerp">
 <code class="descname">lerp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.lerp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the linear interpolation between this vector and the supplied vector.</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[v = t \times \vec{a} + (1-t) \times \vec{b}\]</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>b</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The other vector that bounds the interpolation.</li>
-<li><strong>t</strong> (<em>double</em>) &#8211; The parametric interpolation point t in (0, 1).</li>
+<li><strong>b</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The other vector that bounds the interpolation.</li>
+<li><strong>t</strong> (<em>double</em>) – The parametric interpolation point t in (0, 1).</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">lerp</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="go">Vector3D(0.5, 0.5, 0.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -842,6 +1047,11 @@ undefined hence it can not be lengthened.</p>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">normalise</span><span class="p">()</span>
+<span class="go">Vector3D(0.5773502691896258, 0.5773502691896258, 0.5773502691896258)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -856,6 +1066,11 @@ undefined hence it can not be lengthened.</p>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">orthogonal</span><span class="p">()</span>
+<span class="go">Vector3D(0.0, 1.0, 0.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -865,39 +1080,45 @@ undefined hence it can not be lengthened.</p>
 <p>The difference between this function and lerp (linear interpolation) is that the
 vectors are treated as directions and their angles and magnitudes are interpolated
 separately.</p>
-<p>Let <span class="math">\(\theta_0\)</span> be the angle between two arbitrary vectors <span class="math">\(\vec{a}\)</span>
-and <span class="math">\(\vec{b}\)</span>. <span class="math">\(\theta_0\)</span> can be calculated through the dot product
+<p>Let <span class="math notranslate nohighlight">\(\theta_0\)</span> be the angle between two arbitrary vectors <span class="math notranslate nohighlight">\(\vec{a}\)</span>
+and <span class="math notranslate nohighlight">\(\vec{b}\)</span>. <span class="math notranslate nohighlight">\(\theta_0\)</span> can be calculated through the dot product
 relationship.</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\theta_0 = \cos{^{-1}(\vec{a} \cdot \vec{b})}\]</div>
-<p>The interpolated vector, <span class="math">\(\vec{v}\)</span>, has angle <span class="math">\(\theta\)</span> measured from
-<span class="math">\(\vec{a}\)</span>.</p>
-<div class="math">
+<p>The interpolated vector, <span class="math notranslate nohighlight">\(\vec{v}\)</span>, has angle <span class="math notranslate nohighlight">\(\theta\)</span> measured from
+<span class="math notranslate nohighlight">\(\vec{a}\)</span>.</p>
+<div class="math notranslate nohighlight">
 \[\theta = t \times \theta_0\]</div>
-<p>Next we need to find the basis vector <span class="math">\(\hat{e}\)</span> such that {<span class="math">\(\hat{a}\)</span>,
-<span class="math">\(\hat{e}\)</span>} form an orthonormal basis in the same plane as {<span class="math">\(\vec{a}\)</span>,
-<span class="math">\(\vec{b}\)</span>}.</p>
-<div class="math">
+<p>Next we need to find the basis vector <span class="math notranslate nohighlight">\(\hat{e}\)</span> such that {<span class="math notranslate nohighlight">\(\hat{a}\)</span>,
+<span class="math notranslate nohighlight">\(\hat{e}\)</span>} form an orthonormal basis in the same plane as {<span class="math notranslate nohighlight">\(\vec{a}\)</span>,
+<span class="math notranslate nohighlight">\(\vec{b}\)</span>}.</p>
+<div class="math notranslate nohighlight">
 \[\hat{e} = \frac{\vec{b} - \vec{a} \times (\vec{a} \cdot \vec{b})}{|\vec{b} - \vec{a} \times (\vec{a} \cdot \vec{b})|}\]</div>
 <p>The resulting interpolated direction vector can now be defined as</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\hat{v} = \hat{a} \times \cos{\theta} + \hat{e} \times \sin{\theta}.\]</div>
 <p>Finally, the magnitude can be interpolated separately by linearly interpolating the original
 vector magnitudes.</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\vec{v} = \hat{v} \times (t \times |\vec{a}| + (1-t) \times |\vec{b}|)\]</div>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>b</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; The other vector that bounds the interpolation.</li>
-<li><strong>t</strong> (<em>double</em>) &#8211; The parametric interpolation point t in (0, 1).</li>
+<li><strong>b</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The other vector that bounds the interpolation.</li>
+<li><strong>t</strong> (<em>double</em>) – The parametric interpolation point t in (0, 1).</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">slerp</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="go">Vector3D(0.8838834764831844, 0.8838834764831843, 0.0)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -906,7 +1127,7 @@ vector magnitudes.</p>
 <dd><p>Transforms the vector with the supplied AffineMatrix3D.</p>
 <p>The vector is transformed by pre-multiplying the vector by the affine
 matrix.</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\vec{C} = \textbf{A} \times \vec{B}\]</div>
 <p>This method is substantially faster than using the multiplication
 operator of AffineMatrix3D when called from cython code.</p>
@@ -914,7 +1135,7 @@ operator of AffineMatrix3D when called from cython code.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The affine matrix describing the required coordinate transformation.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – The affine matrix describing the required coordinate transformation.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new instance of this vector that has been transformed with the supplied Affine Matrix.</td>
 </tr>
@@ -922,6 +1143,12 @@ operator of AffineMatrix3D when called from cython code.</p>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">rotate_x</span><span class="p">(</span><span class="mi">90</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">Vector3D(0.0, -1.0, 6.123233995736766e-17)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -939,75 +1166,26 @@ aligned with the z-axis: Normal3D(0.0, 0.0, 1.0)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>float</em>) &#8211; initial x coordinate, defaults to x = 0.0.</li>
-<li><strong>y</strong> (<em>float</em>) &#8211; initial y coordinate, defaults to y = 0.0.</li>
-<li><strong>z</strong> (<em>float</em>) &#8211; initial z coordinate, defaults to z = 0.0.</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>float</em>) – initial x coordinate, defaults to x = 0.0.</li>
+<li><strong>y</strong> (<em>float</em>) – initial y coordinate, defaults to y = 0.0.</li>
+<li><strong>z</strong> (<em>float</em>) – initial z coordinate, defaults to z = 0.0.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>float</em>) – x-coordinate</li>
+<li><strong>y</strong> (<em>float</em>) – y-coordinate</li>
+<li><strong>z</strong> (<em>float</em>) – z-coordinate</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="raysect.core.math.normal.Normal3D.__add__">
-<code class="descname">__add__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__add__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Addition operator.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="raysect.core.math.normal.Normal3D.__getitem__">
-<code class="descname">__getitem__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__getitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the vector coordinates by index ([0,1,2] -&gt; [x,y,z]).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.math.normal.Normal3D.__getstate__">
-<code class="descname">__getstate__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__getstate__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encodes state for pickling.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="raysect.core.math.normal.Normal3D.__iter__">
-<code class="descname">__iter__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__iter__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implement iter(self).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="raysect.core.math.normal.Normal3D.__mul__">
-<code class="descname">__mul__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__mul__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Multiply operator.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="raysect.core.math.normal.Normal3D.__neg__">
-<code class="descname">__neg__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__neg__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a normal with the reverse orientation.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="raysect.core.math.normal.Normal3D.__setitem__">
-<code class="descname">__setitem__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__setitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sets the vector coordinates by index ([0,1,2] -&gt; [x,y,z]).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.math.normal.Normal3D.__setstate__">
-<code class="descname">__setstate__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__setstate__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decodes state for pickling.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="raysect.core.math.normal.Normal3D.__sub__">
-<code class="descname">__sub__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__sub__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Subtract operator.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="raysect.core.math.normal.Normal3D.__truediv__">
-<code class="descname">__truediv__</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.__truediv__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Division operator.</p>
-</dd></dl>
-
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Normal3D</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Normal3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="method">
 <dt id="raysect.core.math.normal.Normal3D.as_vector">
 <code class="descname">as_vector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.as_vector" title="Permalink to this definition">¶</a></dt>
@@ -1017,108 +1195,6 @@ aligned with the z-axis: Normal3D(0.0, 0.0, 1.0)</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.math.normal.Normal3D.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.copy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a copy of the normal.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D">Normal3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.math.normal.Normal3D.cross">
-<code class="descname">cross</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.cross" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the cross product between this vector and the supplied vector</p>
-<p>C = A.cross(B) &lt;=&gt; C = A x B</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>v</strong> (<a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) &#8211; An input vector with which to calculate the cross product.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.math.normal.Normal3D.dot">
-<code class="descname">dot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.dot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the dot product between this vector and the supplied vector.</p>
-<p>Returns a scalar.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="raysect.core.math.normal.Normal3D.length">
-<code class="descname">length</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D.length" title="Permalink to this definition">¶</a></dt>
-<dd><p>The vector&#8217;s length.</p>
-<p>Raises a ZeroDivisionError if an attempt is made to change the length of
-a zero length vector. The direction of a zero length vector is
-undefined hence it can not be lengthened.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.math.normal.Normal3D.normalise">
-<code class="descname">normalise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.normalise" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a normalised copy of the normal vector.</p>
-<p>The returned normal is normalised to length 1.0 - a unit vector.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D">Normal3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.math.normal.Normal3D.orthogonal">
-<code class="descname">orthogonal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.orthogonal" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a unit vector that is guaranteed to be orthogonal to the normal.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.core.math.normal.Normal3D.transform">
-<code class="descname">transform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transforms the normal with the supplied Affine Matrix.</p>
-<p>The normal is multiplied by the inverse transpose of the transform
-matrix. This resulting normal remains perpendicular to its surface post
-transform.</p>
-<p>Warning: this method performs a costly inversion of the supplied matrix.
-If an inverse matrix is already available in scope, use the
-transform_with_inverse() method as it is considerably faster.</p>
-<p>For cython code this method is substantially faster than using the
-multiplication operator of the affine matrix.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The affine matrix describing the required coordinate transformation.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new instance of this normal vector that has been transformed with the supplied Affine Matrix.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.core.math.normal.Normal3D" title="raysect.core.math.normal.Normal3D">Normal3D</a></td>
 </tr>
 </tbody>
 </table>
@@ -1138,7 +1214,7 @@ multiplication operator of the affine matrix.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An inverse affine matrix of the required coordinate transformation.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>m</strong> (<a class="reference internal" href="affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An inverse affine matrix of the required coordinate transformation.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A new instance of this normal vector that has been transformed.</td>
 </tr>
@@ -1155,9 +1231,7 @@ multiplication operator of the affine matrix.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -1175,11 +1249,11 @@ multiplication operator of the affine matrix.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2017, Dr Alex Meakins.
+        &copy; Copyright 2014-2018, Dr Alex Meakins.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1197,7 +1271,8 @@ multiplication operator of the affine matrix.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.5.4',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -1207,23 +1282,17 @@ multiplication operator of the affine matrix.</p>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

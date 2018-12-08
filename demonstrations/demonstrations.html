@@ -26,29 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../genindex.html"/>
-        <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Raysect Documentation" href="../index.html"/>
-        <link rel="next" title="1. Raysect Core" href="../api_reference/core/core.html"/>
-        <link rel="prev" title="11. Glossary" href="../glossary.html"/> 
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Raysect Core" href="../api_reference/core/core.html" />
+    <link rel="prev" title="11. Glossary" href="../glossary.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -65,7 +56,7 @@
 
           
             
-            <img src="../_static/RaysectLogo_web.png" class="logo" />
+            <img src="../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -73,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5.4
               </div>
             
           
@@ -114,7 +105,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#optics">4. Optics</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -132,7 +125,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Raysect</a>
@@ -140,9 +133,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -187,7 +181,7 @@
   <div class="section" id="core-functionality">
 <h1>1. Core Functionality<a class="headerlink" href="#core-functionality" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="colwidths-given docutils" id="id1">
-<caption><span class="caption-text">Core API examples</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-text">Core functionality examples</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="28%" />
 <col width="50%" />
@@ -210,13 +204,81 @@
 <td><a class="first last reference internal image-reference" href="../_images/test_point_inside_material.png"><img alt="../_images/test_point_inside_material.png" src="../_images/test_point_inside_material.png" style="width: 150px; height: 150px;" /></a>
 </td>
 </tr>
+<tr class="row-even"><td><a class="reference internal" href="energy_conservation.html#demo-energy-conservation"><span class="std std-ref">Energy conservation</span></a></td>
+<td>Checking all emitted light is collected correctly on a 3D enclosing surface.</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="multiple_importance_sampling.html#demo-multiple-importance-sampling"><span class="std std-ref">Multiple Importance Sampling</span></a></td>
+<td>The classic multiple importance sampling demo re-implemented from E. Veach’s PhD thesis.</td>
+<td><a class="first last reference internal image-reference" href="../_images/multiple_importance_sampling.jpg"><img alt="../_images/multiple_importance_sampling.jpg" src="../_images/multiple_importance_sampling.jpg" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="examples-gallery">
-<h1>2. Examples Gallery<a class="headerlink" href="#examples-gallery" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="materials">
+<h1>2. Materials<a class="headerlink" href="#materials" title="Permalink to this headline">¶</a></h1>
 <table border="1" class="colwidths-given docutils" id="id2">
-<caption><span class="caption-text">Example scenes</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-text">Examples of the different material properties available</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="28%" />
+<col width="50%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Description</th>
+<th class="head">Preview</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="emissive_colours.html#demo-emissive-colours"><span class="std std-ref">Emissive colours</span></a></td>
+<td>Simple coloured emissive materials.</td>
+<td><a class="first last reference internal image-reference" href="../_images/emissive_colours.png"><img alt="../_images/emissive_colours.png" src="../_images/emissive_colours.png" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="diffuse_colours.html#demo-diffuse-colours"><span class="std std-ref">Diffuse colours</span></a></td>
+<td>Simple diffuse coloured materials.</td>
+<td><a class="first last reference internal image-reference" href="../_images/diffuse_colours.png"><img alt="../_images/diffuse_colours.png" src="../_images/diffuse_colours.png" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="metal_materials.html#demo-metal-materials"><span class="std std-ref">Metals</span></a></td>
+<td>Loading metal materials from the library.</td>
+<td><a class="first last reference internal image-reference" href="../_images/metal_balls.png"><img alt="../_images/metal_balls.png" src="../_images/metal_balls.png" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="glass_bunny.html#demo-glass-bunny"><span class="std std-ref">Glass</span></a></td>
+<td>Loading glass materials from the library.</td>
+<td><a class="first last reference internal image-reference" href="../_images/glass_bunny.jpg"><img alt="../_images/glass_bunny.jpg" src="../_images/glass_bunny.jpg" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="diamond.html#demo-diamond-material"><span class="std std-ref">Diamond</span></a></td>
+<td>Making a diamond material.</td>
+<td><a class="first last reference internal image-reference" href="../_images/diamond.jpg"><img alt="../_images/diamond.jpg" src="../_images/diamond.jpg" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="surface_roughness.html#demo-surface-roughness-scan"><span class="std std-ref">Surface roughness</span></a></td>
+<td>Material properties can be varied from smooth to rough with a material roughness modifier.</td>
+<td><a class="first last reference internal image-reference" href="../_images/surface_roughness.jpg"><img alt="../_images/surface_roughness.jpg" src="../_images/surface_roughness.jpg" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="anisotropic_emitters.html#demo-anisotropic-emitters"><span class="std std-ref">Anisotropic surface emitters</span></a></td>
+<td>Make an anisotropic material with a custom emission function.</td>
+<td><a class="first last reference internal image-reference" href="../_images/anisotropic_emitters_preview.png"><img alt="../_images/anisotropic_emitters_preview.png" src="../_images/anisotropic_emitters_preview.png" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="volume_inhomogeneous.html#demo-custom-volume-emitters"><span class="std std-ref">Custom volume emitters</span></a></td>
+<td>Make a custom volume emitter with your own 3D function.</td>
+<td><a class="first last reference internal image-reference" href="../_images/volume_inhomogeneous.png"><img alt="../_images/volume_inhomogeneous.png" src="../_images/volume_inhomogeneous.png" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="observers">
+<h1>3. Observers<a class="headerlink" href="#observers" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="colwidths-given docutils" id="id3">
+<caption><span class="caption-text">Examples of the different types of observers</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="28%" />
 <col width="50%" />
@@ -230,13 +292,35 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference internal" href="cornell_box.html#demo-cornell-box"><span class="std std-ref">Cornell Box</span></a></td>
-<td>An industry standard test scene for benchmarking rat-tracers.</td>
+<td>An industry standard test scene for benchmarking ray-tracers.
+Also demonstrates how to setup and configure a basic pinhole
+camera in Raysect.</td>
 <td><a class="first last reference internal image-reference" href="../_images/cornell_box_mis_1550_samples.png"><img alt="../_images/cornell_box_mis_1550_samples.png" src="../_images/cornell_box_mis_1550_samples.png" style="width: 150px; height: 150px;" /></a>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="prism.html#demo-prism-dispersion"><span class="std std-ref">Prism dispersion</span></a></td>
-<td>White light is split into its component colours as it passes through a glass prism.</td>
-<td><a class="first last reference internal image-reference" href="../_images/prism_720x360.jpg"><img alt="../_images/prism_720x360.jpg" src="../_images/prism_720x360.jpg" style="width: 150px; height: 150px;" /></a>
+<tr class="row-odd"><td><a class="reference internal" href="orthographic_camera.html#demo-orthographic-camera"><span class="std std-ref">Orthographic camera</span></a></td>
+<td>Using the orthographic camera.</td>
+<td><a class="first last reference internal image-reference" href="../_images/orthographic_camera.png"><img alt="../_images/orthographic_camera.png" src="../_images/orthographic_camera.png" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="optical_fibre.html#demo-optical-fibre"><span class="std std-ref">Optical fibre</span></a></td>
+<td>Spectral observations from an optical fibre.</td>
+<td><a class="first last reference internal image-reference" href="../_images/optical_fibre_power.png"><img alt="../_images/optical_fibre_power.png" src="../_images/optical_fibre_power.png" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="mesh_observers.html#demo-mesh-observers"><span class="std std-ref">Mesh Observers</span></a></td>
+<td>Making observations on a mesh surface.</td>
+<td><a class="first last reference internal image-reference" href="../_images/mesh_observers.jpg"><img alt="../_images/mesh_observers.jpg" src="../_images/mesh_observers.jpg" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="cornell_box_with_camera.html#demo-cornell-box-with-camera"><span class="std std-ref">Making a camera 1</span></a></td>
+<td>Making a camera from components.</td>
+<td><a class="first last reference internal image-reference" href="../_images/cornell_box_real_lens.png"><img alt="../_images/cornell_box_real_lens.png" src="../_images/cornell_box_real_lens.png" style="width: 150px; height: 150px;" /></a>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="metal_balls_with_lens.html#demo-metal-ball-with-lens"><span class="std std-ref">Making a camera 2</span></a></td>
+<td>Another example of making a camera from components.</td>
+<td><a class="first last reference internal image-reference" href="../_images/metal_balls_with_lens.png"><img alt="../_images/metal_balls_with_lens.png" src="../_images/metal_balls_with_lens.png" style="width: 150px; height: 150px;" /></a>
 </td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="animations.html#demo-making-animations"><span class="std std-ref">Making animations</span></a></td>
@@ -244,14 +328,34 @@
 <td><a class="first last reference internal image-reference" href="../_images/animation_preview.jpg"><img alt="../_images/animation_preview.jpg" src="../_images/animation_preview.jpg" style="width: 150px; height: 150px;" /></a>
 </td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="surface_roughness.html#demo-surface-roughness-scan"><span class="std std-ref">Surface roughness</span></a></td>
-<td>Material properties can be varied from smooth to rough with a material roughness modifier.</td>
-<td><a class="first last reference internal image-reference" href="../_images/surface_roughness.jpg"><img alt="../_images/surface_roughness.jpg" src="../_images/surface_roughness.jpg" style="width: 150px; height: 150px;" /></a>
+</tbody>
+</table>
+</div>
+<div class="section" id="optics">
+<h1>4. Optics<a class="headerlink" href="#optics" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="colwidths-given docutils" id="id4">
+<caption><span class="caption-text">Example scenes</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="28%" />
+<col width="50%" />
+<col width="22%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Description</th>
+<th class="head">Preview</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="prism.html#demo-prism-dispersion"><span class="std std-ref">Prism dispersion</span></a></td>
+<td>White light is split into its component colours as it passes through a glass prism.</td>
+<td><a class="first last reference internal image-reference" href="../_images/prism_720x360.jpg"><img alt="../_images/prism_720x360.jpg" src="../_images/prism_720x360.jpg" style="width: 150px; height: 150px;" /></a>
 </td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="energy_conservation.html#demo-energy-conservation"><span class="std std-ref">Energy conservation</span></a></td>
-<td>Checking all emitted light is collected correctly on a 3D enclosing surface.</td>
-<td>&#160;</td>
+<tr class="row-odd"><td><a class="reference internal" href="etendue_of_pinhole.html#demo-etendue-of-pinhole"><span class="std std-ref">Etendue</span></a></td>
+<td>Calculating the etendue of a pinhole with ray-tracing.</td>
+<td><a class="first last reference internal image-reference" href="../_images/etendue_of_pinhole.png"><img alt="../_images/etendue_of_pinhole.png" src="../_images/etendue_of_pinhole.png" style="width: 150px; height: 150px;" /></a>
+</td>
 </tr>
 </tbody>
 </table>
@@ -259,9 +363,7 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -279,11 +381,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2017, Dr Alex Meakins.
+        &copy; Copyright 2014-2018, Dr Alex Meakins.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -301,7 +403,8 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.4.0',
+            VERSION:'0.5.4',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -311,23 +414,17 @@
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

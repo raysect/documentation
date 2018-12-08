@@ -26,30 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Raysect Documentation" href="../../index.html"/>
-        <link rel="up" title="2. Primitives Module" href="primitives.html"/>
-        <link rel="next" title="2.3. CSG Operations" href="csg_operations.html"/>
-        <link rel="prev" title="2.1. Geometric Primitives" href="geometric_primitives.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.3. CSG Operations" href="csg_operations.html" />
+    <link rel="prev" title="2.1. Geometric Primitives" href="geometric_primitives.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -66,7 +56,7 @@
 
           
             
-            <img src="../../_static/RaysectLogo_web.png" class="logo" />
+            <img src="../../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -74,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5.4
               </div>
             
           
@@ -115,7 +105,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#optics">4. Optics</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -139,7 +131,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Raysect</a>
@@ -147,9 +139,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -198,7 +191,7 @@
 <dl class="class">
 <dt id="raysect.primitive.mesh.mesh.Mesh">
 <em class="property">class </em><code class="descclassname">raysect.primitive.mesh.mesh.</code><code class="descname">Mesh</code><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
 <p>This primitive defines a polyhedral surface with triangular faces.</p>
 <p>To define a new mesh, a list of vertices and triangles must be supplied.
 A set of vertex normals, used for smoothing calculations may also be
@@ -206,17 +199,17 @@ provided.</p>
 <p>The mesh vertices are supplied as an Nx3 list/array of floating point
 values. For each Vertex, x, y and z coordinates must be supplied. e.g.</p>
 <blockquote>
-<div>vertices = [[0.0, 0.0, 1.0], [1.0, 0.0, 0.0], ...]</div></blockquote>
+<div>vertices = [[0.0, 0.0, 1.0], [1.0, 0.0, 0.0], …]</div></blockquote>
 <p>Vertex normals are similarly defined. Note that vertex normals must be
 correctly normalised.</p>
 <p>The triangle array is either Mx3 or Mx6 - Mx3 if only vertices are defined
 or Mx6 if both vertices and vertex normals are defined. Triangles are
 defined by indexing into the vertex and vertex normal arrays. i.e:</p>
 <blockquote>
-<div>triangles = [[v1, v2, v3, n1, n2, n3], ...]</div></blockquote>
-<p>where v1, v2, v3 are the vertex array indices specifying the triangle&#8217;s
+<div>triangles = [[v1, v2, v3, n1, n2, n3], …]</div></blockquote>
+<p>where v1, v2, v3 are the vertex array indices specifying the triangle’s
 vertices and n1, n2, n3 are the normal array indices specifying the
-triangle&#8217;s surface normals at each vertex location. Where normals are
+triangle’s surface normals at each vertex location. Where normals are
 not defined, n1, n2 and n3 are omitted.</p>
 <p>The mesh may be an open surface (which does not enclose a volume) or a
 closed surface (which defines a volume). The nature of the mesh must be
@@ -231,7 +224,7 @@ this will result in a (suitably defined) mesh appearing smooth rather than
 faceted. If the triangles do not have vertex normals defined, the smoothing
 argument is ignored.</p>
 <p>An alternate option for creating a new mesh is to create an instance of an
-existing mesh. An instance is a &#8220;clone&#8221; of the original mesh. Mesh instances
+existing mesh. An instance is a “clone” of the original mesh. Mesh instances
 hold references to the internal data of the target mesh, they are therefore
 very memory efficient (particularly for detailed meshes) compared to
 creating a new mesh from scratch. A new instance of a mesh can be created
@@ -241,11 +234,11 @@ CAD models), enable tolerant mode to automatically remove them during mesh
 initialisation. A degenerate triangle is one where two or more vertices are
 coincident or all the vertices lie on the same line. Degenerate triangles
 will produce rendering error if encountered even though they are
-&#8220;infinitesimally&#8221; thin. A ray can still intersect them if they perfectly
+“infinitesimally” thin. A ray can still intersect them if they perfectly
 align as the triangle edges are treated as part of the triangle surface).</p>
 <p>The kdtree_* arguments are tuning parameters for the kd-tree construction.
 For more information see the documentation of KDTree3D. The default values
-should result in efficient construction of the mesh&#8217;s internal kd-tree.
+should result in efficient construction of the mesh’s internal kd-tree.
 Generally there is no need to modify these parameters unless the memory
 used by the kd-tree must be controlled. This may occur if very large meshes
 are used.</p>
@@ -253,71 +246,39 @@ are used.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>vertices</strong> (<em>object</em>) &#8211; An N x 3 list of vertices.</li>
-<li><strong>triangles</strong> (<em>object</em>) &#8211; An M x 3 or N x 6 list of vertex/normal indices
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>vertices</strong> (<em>object</em>) – An N x 3 list of vertices.</li>
+<li><strong>triangles</strong> (<em>object</em>) – An M x 3 or N x 6 list of vertex/normal indices
 defining the mesh triangles.</li>
-<li><strong>normals</strong> (<em>object</em>) &#8211; An K x 3 list of vertex normals or None (default=None).</li>
-<li><strong>smoothing</strong> (<em>bool</em>) &#8211; True to enable normal interpolation (default=True).</li>
-<li><strong>closed</strong> (<em>bool</em>) &#8211; True is the mesh defines a closed volume (default=True).</li>
-<li><strong>tolerant</strong> (<em>bool</em>) &#8211; Mesh will automatically correct meshes with degenerate
+<li><strong>normals</strong> (<em>object</em>) – An K x 3 list of vertex normals or None (default=None).</li>
+<li><strong>smoothing</strong> (<em>bool</em>) – True to enable normal interpolation (default=True).</li>
+<li><strong>closed</strong> (<em>bool</em>) – True is the mesh defines a closed volume (default=True).</li>
+<li><strong>tolerant</strong> (<em>bool</em>) – Mesh will automatically correct meshes with degenerate
 triangles if set to True (default=True).</li>
-<li><strong>kdtree_max_depth</strong> (<em>int</em>) &#8211; The maximum tree depth (automatic if set to 0, default=0).</li>
-<li><strong>kdtree_min_items</strong> (<em>int</em>) &#8211; The item count threshold for forcing creation of
+<li><strong>flip_normals</strong> (<em>bool</em>) – Inverts the direction of the surface normals (default=False).</li>
+<li><strong>kdtree_max_depth</strong> (<em>int</em>) – The maximum tree depth (automatic if set to 0, default=0).</li>
+<li><strong>kdtree_min_items</strong> (<em>int</em>) – The item count threshold for forcing creation of
 a new leaf node (default=1).</li>
-<li><strong>kdtree_hit_cost</strong> (<em>double</em>) &#8211; The relative computational cost of item hit
+<li><strong>kdtree_hit_cost</strong> (<em>double</em>) – The relative computational cost of item hit
 evaluations vs kd-tree traversal (default=20.0).</li>
-<li><strong>kdtree_empty_bonus</strong> (<em>double</em>) &#8211; The bonus applied to node splits that
+<li><strong>kdtree_empty_bonus</strong> (<em>double</em>) – The bonus applied to node splits that
 generate empty leaves (default=0.2).</li>
-<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Attaches the mesh to the specified scene-graph
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Attaches the mesh to the specified scene-graph
 node (default=None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The co-ordinate transform between
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – The co-ordinate transform between
 the mesh and its parent (default=unity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; The surface/volume material
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – The surface/volume material
 (default=Material() instance).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; A human friendly name to identity the mesh in the
-scene-graph (default=&#8221;&#8221;).</li>
+<li><strong>name</strong> (<em>str</em>) – A human friendly name to identity the mesh in the
+scene-graph (default=”“).</li>
 </ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><p class="first last"><strong>data</strong> (<em>MeshData</em>) – A class instance containing all the mesh data.</p>
 </td>
 </tr>
 </tbody>
 </table>
-<dl class="method">
-<dt id="raysect.primitive.mesh.mesh.Mesh.bounding_box">
-<code class="descname">bounding_box</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.bounding_box" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a world space bounding box that encloses the mesh.</p>
-<p>The box is padded by a small margin to reduce the risk of numerical
-accuracy problems between the mesh and box representations following
-coordinate transforms.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A BoundingBox3D object.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.primitive.mesh.mesh.Mesh.contains">
-<code class="descname">contains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.contains" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifies if the point lies in the volume defined by the mesh.</p>
-<p>If a mesh is open, this method will always return False.</p>
-<p>This method will fail if the face normals of the mesh triangles are not
-oriented to be pointing out of the volume surface.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>p</strong> &#8211; The point to test.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">True if the point lies in the volume, False otherwise.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <dl class="method">
 <dt id="raysect.primitive.mesh.mesh.Mesh.from_file">
 <code class="descname">from_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.from_file" title="Permalink to this definition">¶</a></dt>
@@ -329,37 +290,27 @@ are created with the Mesh save() method.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>file</strong> (<em>object</em>) &#8211; File object or string path.</li>
-<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Attaches the mesh to the specified scene-graph node.</li>
-<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; The co-ordinate transform between the mesh and its parent.</li>
-<li><strong>material</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; The surface/volume material.</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; A human friendly name to identity the mesh in the scene-graph.</li>
+<li><strong>file</strong> (<em>object</em>) – File object or string path.</li>
+<li><strong>parent</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Attaches the mesh to the specified scene-graph node.</li>
+<li><strong>transform</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – The co-ordinate transform between the mesh and its parent.</li>
+<li><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – The surface/volume material.</li>
+<li><strong>name</strong> (<em>str</em>) – A human friendly name to identity the mesh in the scene-graph.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.primitive.mesh.mesh.Mesh.hit">
-<code class="descname">hit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.hit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the first intersection with the mesh surface.</p>
-<p>If an intersection occurs this method will return an Intersection
-object. The Intersection object will contain the details of the
-ray-surface intersection, such as the surface normal and intersection
-point.</p>
-<p>If no intersection occurs None is returned.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ray</strong> &#8211; A world-space ray.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">An Intersection or None.</td>
-</tr>
-</tbody>
-</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">ConstantSF</span><span class="p">,</span> <span class="n">Sellmeier</span><span class="p">,</span> <span class="n">Dielectric</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Mesh</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">diamond</span> <span class="o">=</span> <span class="n">Dielectric</span><span class="p">(</span><span class="n">Sellmeier</span><span class="p">(</span><span class="mf">0.3306</span><span class="p">,</span> <span class="mf">4.3356</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1750</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1060</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">ConstantSF</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">Mesh</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s2">&quot;my_mesh.rsm&quot;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="n">diamond</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                      <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -372,29 +323,7 @@ are created with the Mesh save() method.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> &#8211; File object or string path.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="raysect.primitive.mesh.mesh.Mesh.next_intersection">
-<code class="descname">next_intersection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.next_intersection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the next intersection of the ray with the mesh along the ray
-path.</p>
-<p>This method may only be called following a call to hit(). If the ray
-has further intersections with the mesh, these may be obtained by
-repeatedly calling the next_intersection() method. Each call to
-next_intersection() will return the next ray-mesh intersection
-along the ray&#8217;s path. If no further intersections are found or
-intersections lie outside the ray parameters then next_intersection()
-will return None.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">An Intersection or None.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> – File object or string path.</td>
 </tr>
 </tbody>
 </table>
@@ -410,30 +339,40 @@ contains the mesh geometry and the mesh acceleration structures.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> &#8211; File object or string path.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file</strong> – File object or string path.</td>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span>
+<span class="go">&lt;raysect.primitive.mesh.mesh.Mesh at 0x7f2c09eac2e8&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;my_mesh.rsm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
 
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Some engineering meshes are exported in different units (mm for example)
+whereas Raysect units are in m. Therefore, all import functions have an
+optional scaling factor argument that allows you to convert the mesh
+units on import. For example, if a given engineering mesh was in mm,
+applying a scale factor of 0.001 would convert the mesh into m for
+use in Raysect.</p>
+</div>
 <dl class="function">
 <dt id="raysect.primitive.mesh.obj.import_obj">
-<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">import_obj</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">import_obj</code><span class="sig-paren">(</span><em>filename</em>, <em>scaling=1.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a Wavefront OBJ mesh file (.obj).</p>
-<p>Some engineering meshes are exported in different units (mm for example)
-whereas Raysect units are in m. Applying a scale factor of 0.001 would
-convert the mesh into m for use in Raysect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>filename</strong> (<em>str</em>) &#8211; Mesh file path.</li>
-<li><strong>scaling</strong> (<em>double</em>) &#8211; Scale the mesh by this factor (default=1.0).</li>
-<li><strong>**kwargs</strong> &#8211; <p>Accepts optional keyword arguments from the Mesh class.</p>
-</li>
+<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
+<li><strong>scaling</strong> (<em>double</em>) – Scale the mesh by this factor (default=1.0).</li>
+<li><strong>kwargs</strong> – Accepts optional keyword arguments from the Mesh class.</li>
 </ul>
 </td>
 </tr>
@@ -442,11 +381,47 @@ convert the mesh into m for use in Raysect.</p>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">ConstantSF</span><span class="p">,</span> <span class="n">Sellmeier</span><span class="p">,</span> <span class="n">Dielectric</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">import_obj</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">diamond</span> <span class="o">=</span> <span class="n">Dielectric</span><span class="p">(</span><span class="n">Sellmeier</span><span class="p">(</span><span class="mf">0.3306</span><span class="p">,</span> <span class="mf">4.3356</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1750</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1060</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>                     <span class="n">ConstantSF</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bunny_mesh</span> <span class="o">=</span> <span class="n">import_obj</span><span class="p">(</span><span class="s2">&quot;resources/stanford_bunny.obj&quot;</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                        <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">diamond</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.primitive.mesh.obj.export_obj">
+<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">export_obj</code><span class="sig-paren">(</span><em>mesh</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.export_obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a mesh instance to a Wavefront OBJ (.obj) mesh file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mesh</strong> (<a class="reference internal" href="#raysect.primitive.mesh.mesh.Mesh" title="raysect.primitive.mesh.mesh.Mesh"><em>Mesh</em></a>) – The Raysect mesh instance to write to OBJ.</li>
+<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bunny_mesh</span>
+<span class="go">&lt;raysect.primitive.mesh.mesh.Mesh at 0x7f2c09eac2e8&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">export_obj</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">export_obj</span><span class="p">(</span><span class="n">bunny_mesh</span><span class="p">,</span> <span class="s1">&#39;my_mesh.obj&#39;</span><span class="p">)</span>        
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="raysect.primitive.mesh.stl.import_stl">
-<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">import_stl</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>mode=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">import_stl</code><span class="sig-paren">(</span><em>filename</em>, <em>scaling=1.0</em>, <em>mode='auto'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a STereoLithography (STL) mesh file (.stl).</p>
 <p>Some engineering meshes are exported in different units (mm for example)
 whereas Raysect units are in m. Applying a scale factor of 0.001 would
@@ -456,14 +431,171 @@ convert the mesh into m for use in Raysect.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>filename</strong> (<em>str</em>) &#8211; Mesh file path.</li>
-<li><strong>scaling</strong> (<em>double</em>) &#8211; Scale the mesh by this factor (default=1.0).</li>
-<li><strong>**kwargs</strong> &#8211; <p>Accepts optional keyword arguments from the Mesh class.</p>
-</li>
+<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
+<li><strong>scaling</strong> (<em>double</em>) – Scale the mesh by this factor (default=1.0).</li>
+<li><strong>mode</strong> (<em>str</em>) – The file format to load: ‘ascii’, ‘binary’, ‘auto’ (default=’auto’).</li>
+<li><strong>kwargs</strong> – Accepts optional keyword arguments from the Mesh class.</li>
 </ul>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.primitive.mesh.mesh.Mesh" title="raysect.primitive.mesh.mesh.Mesh">Mesh</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">ConstantSF</span><span class="p">,</span> <span class="n">Sellmeier</span><span class="p">,</span> <span class="n">Dielectric</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">import_stl</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">diamond</span> <span class="o">=</span> <span class="n">Dielectric</span><span class="p">(</span><span class="n">Sellmeier</span><span class="p">(</span><span class="mf">0.3306</span><span class="p">,</span> <span class="mf">4.3356</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1750</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1060</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>                     <span class="n">ConstantSF</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">import_stl</span><span class="p">(</span><span class="s2">&quot;my_mesh.stl&quot;</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                  <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">diamond</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.primitive.mesh.stl.export_stl">
+<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">export_stl</code><span class="sig-paren">(</span><em>mesh</em>, <em>filename</em>, <em>mode='binary'</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.export_stl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a mesh instance to a STereoLithography (STL) mesh file (.stl).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mesh</strong> (<a class="reference internal" href="#raysect.primitive.mesh.mesh.Mesh" title="raysect.primitive.mesh.mesh.Mesh"><em>Mesh</em></a>) – The Raysect mesh instance to write to STL.</li>
+<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
+<li><strong>mode</strong> (<em>str</em>) – The file format to write: ‘ascii’ or ‘binary’ (default=’ascii’).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span>
+<span class="go">&lt;raysect.primitive.mesh.mesh.Mesh at 0x7f2c09eac2e8&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">export_stl</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">export_stl</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="s1">&#39;my_mesh.stl&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.primitive.mesh.ply.import_ply">
+<code class="descclassname">raysect.primitive.mesh.ply.</code><code class="descname">import_ply</code><span class="sig-paren">(</span><em>filename</em>, <em>scaling=1.0</em>, <em>mode='auto'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.ply.import_ply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mesh instance from a Polygon File Format (PLY) mesh file (.ply).
+Note PLY is also known as the Stanford Triangle Format.</p>
+<p>Some engineering meshes are exported in different units (mm for example)
+whereas Raysect units are in m. Applying a scale factor of 0.001 would
+convert the mesh into m for use in Raysect.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
+<li><strong>scaling</strong> (<em>double</em>) – Scale the mesh by this factor (default=1.0).</li>
+<li><strong>mode</strong> (<em>str</em>) – The file format to load: ‘ascii’, ‘binary’, ‘auto’ (default=’auto’).</li>
+<li><strong>kwargs</strong> – Accepts optional keyword arguments from the Mesh class.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.primitive.mesh.mesh.Mesh" title="raysect.primitive.mesh.mesh.Mesh">Mesh</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">ConstantSF</span><span class="p">,</span> <span class="n">Sellmeier</span><span class="p">,</span> <span class="n">Dielectric</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">import_ply</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">diamond</span> <span class="o">=</span> <span class="n">Dielectric</span><span class="p">(</span><span class="n">Sellmeier</span><span class="p">(</span><span class="mf">0.3306</span><span class="p">,</span> <span class="mf">4.3356</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1750</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1060</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>                     <span class="n">ConstantSF</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">import_ply</span><span class="p">(</span><span class="s2">&quot;your_mesh.ply&quot;</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                  <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">diamond</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.primitive.mesh.ply.export_ply">
+<code class="descclassname">raysect.primitive.mesh.ply.</code><code class="descname">export_ply</code><span class="sig-paren">(</span><em>mesh</em>, <em>filename</em>, <em>mode='binary'</em>, <em>comment='Generated by Raysect'</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.ply.export_ply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a mesh instance to a Polygon File Format (PLY) mesh file (.ply).
+Note PLY is also known as the Stanford Triangle Format.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mesh</strong> (<a class="reference internal" href="#raysect.primitive.mesh.mesh.Mesh" title="raysect.primitive.mesh.mesh.Mesh"><em>Mesh</em></a>) – The Raysect mesh instance to write as PLY.</li>
+<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
+<li><strong>mode</strong> (<em>str</em>) – The file format to write: ‘ascii’, ‘binary’ (default=’ascii’).</li>
+<li><strong>comment</strong> (<em>str</em>) – An optional string comment to include in the output file,
+can be multiple lines.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span>
+<span class="go">&lt;raysect.primitive.mesh.mesh.Mesh at 0x7f2c09eac2e8&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">export_ply</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">export_ply</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="s1">&#39;my_mesh.ply&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;My mesh&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.primitive.mesh.vtk.import_vtk">
+<code class="descclassname">raysect.primitive.mesh.vtk.</code><code class="descname">import_vtk</code><span class="sig-paren">(</span><em>filename</em>, <em>scaling=1.0</em>, <em>mode='auto'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.vtk.import_vtk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a mesh instance from a VTK mesh data file (.vtk).</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Currently only supports VTK DataFile v2.0 and unstructured grid data with
+3 element (triangular) cells.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
+<li><strong>scaling</strong> (<em>double</em>) – Scale the mesh by this factor (default=1.0).</li>
+<li><strong>mode</strong> (<em>str</em>) – The file format to load: ‘ascii’, ‘binary’, ‘auto’ (default=’auto’).</li>
+<li><strong>kwargs</strong> – Accepts optional keyword arguments from the Mesh class.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.primitive.mesh.mesh.Mesh" title="raysect.primitive.mesh.mesh.Mesh">Mesh</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="raysect.primitive.mesh.vtk.export_vtk">
+<code class="descclassname">raysect.primitive.mesh.vtk.</code><code class="descname">export_vtk</code><span class="sig-paren">(</span><em>mesh</em>, <em>filename</em>, <em>triangle_data=None</em>, <em>vertex_data=None</em>, <em>mode='ascii'</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.vtk.export_vtk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a mesh instance to a vtk mesh file (.vtk) with optional cell and point data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mesh</strong> (<a class="reference internal" href="#raysect.primitive.mesh.mesh.Mesh" title="raysect.primitive.mesh.mesh.Mesh"><em>Mesh</em></a>) – The Raysect mesh instance to write as VTK.</li>
+<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
+<li><strong>triangle_data</strong> (<em>dict</em>) – A dictionary of triangle face datasets to be saved along with the
+mesh. The dictionary keys will be the variable names. Each array must be 1D with length
+equal to the number of triangles in the mesh.</li>
+<li><strong>vertex_data</strong> (<em>dict</em>) – A dictionary of vertex datasets to be saved along with the
+mesh. The dictionary keys will be the variable names. Each array must be 1D with length
+equal to the number of vertices in the mesh.</li>
+<li><strong>mode</strong> (<em>str</em>) – The file format to write: ‘ascii’ or ‘binary’ (default=’ascii’).</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -474,9 +606,7 @@ convert the mesh into m for use in Raysect.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -494,11 +624,11 @@ convert the mesh into m for use in Raysect.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2017, Dr Alex Meakins.
+        &copy; Copyright 2014-2018, Dr Alex Meakins.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -516,7 +646,8 @@ convert the mesh into m for use in Raysect.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'0.4.0',
+            VERSION:'0.5.4',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -526,23 +657,17 @@ convert the mesh into m for use in Raysect.</p>
       <script type="text/javascript" src="../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

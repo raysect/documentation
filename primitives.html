@@ -26,29 +26,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Raysect Documentation" href="index.html"/>
-        <link rel="next" title="8. Materials" href="materials.html"/>
-        <link rel="prev" title="6. Sampling and Observers" href="observers.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="8. Materials" href="materials.html" />
+    <link rel="prev" title="6. Sampling and Observers" href="observers.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -65,7 +56,7 @@
 
           
             
-            <img src="_static/RaysectLogo_web.png" class="logo" />
+            <img src="_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -73,7 +64,7 @@
             
             
               <div class="version">
-                0.4
+                0.5.4
               </div>
             
           
@@ -125,7 +116,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#optics">4. Optics</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -143,7 +136,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Raysect</a>
@@ -151,9 +144,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -212,23 +206,32 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>radius</strong> (<em>float</em>) &#8211; Radius of the sphere in meters (default = 0.5).</li>
-<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="api_reference/core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; A Material object defining the sphere&#8217;s material (default = None).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the sphere (default = &#8220;&#8221;).</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>radius</strong> (<em>float</em>) – Radius of the sphere in meters (default = 0.5).</li>
+<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
+<li><strong>material</strong> (<a class="reference internal" href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – A Material object defining the sphere’s material (default = None).</li>
+<li><strong>name</strong> (<em>str</em>) – A string specifying a user-friendly name for the sphere (default = “”).</li>
 </ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><p class="first last"><a class="reference internal" href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.radius" title="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.radius"><strong>radius</strong></a> (<em>float</em>) – The radius of the sphere in meters.</p>
 </td>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="raysect.primitive.Sphere.__init__">
-<code class="descname">__init__</code><a class="headerlink" href="#raysect.primitive.Sphere.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
-
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">translate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Sphere</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">UniformSurfaceEmitter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.library.spectra.colours</span> <span class="kn">import</span> <span class="n">orange</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+<span class="go">                    material=UniformSurfaceEmitter(orange), name=&quot;orange sphere&quot;)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -245,23 +248,29 @@ system.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>lower</strong> (<a class="reference internal" href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Lower point of the box (default = Point3D(-0.5, -0.5, -0.5)).</li>
-<li><strong>upper</strong> (<a class="reference internal" href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) &#8211; Upper point of the box (default = Point3D(0.5, 0.5, 0.5)).</li>
-<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="api_reference/core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; A Material object defining the box&#8217;s material (default = None).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the box (default = &#8220;&#8221;).</li>
+<li><strong>lower</strong> (<a class="reference internal" href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Lower point of the box (default = Point3D(-0.5, -0.5, -0.5)).</li>
+<li><strong>upper</strong> (<a class="reference internal" href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Upper point of the box (default = Point3D(0.5, 0.5, 0.5)).</li>
+<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An AffineMatrix3D defining the local co-ordinate system relative to the scene-graph parent (default = identity matrix).</li>
+<li><strong>material</strong> (<a class="reference internal" href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – A Material object defining the box’s material (default = None).</li>
+<li><strong>name</strong> (<em>str</em>) – A string specifying a user-friendly name for the box (default = “”).</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="raysect.primitive.Box.__init__">
-<code class="descname">__init__</code><a class="headerlink" href="#raysect.primitive.Box.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
-
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">translate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Box</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">UniformSurfaceEmitter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.library.spectra.colours</span> <span class="kn">import</span> <span class="n">red</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+<span class="go">               material=UniformSurfaceEmitter(red), name=&quot;red cube&quot;)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -279,24 +288,30 @@ capped with disks forming a closed surface.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>radius</strong> (<em>float</em>) &#8211; Radius of the cylinder in meters (default = 0.5).</li>
-<li><strong>height</strong> (<em>float</em>) &#8211; Height of the cylinder in meters (default = 1.0).</li>
-<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
+<li><strong>radius</strong> (<em>float</em>) – Radius of the cylinder in meters (default = 0.5).</li>
+<li><strong>height</strong> (<em>float</em>) – Height of the cylinder in meters (default = 1.0).</li>
+<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="api_reference/core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; A Material object defining the cylinder&#8217;s material (default = None).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the cylinder (default = &#8220;&#8221;).</li>
+<li><strong>material</strong> (<a class="reference internal" href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – A Material object defining the cylinder’s material (default = None).</li>
+<li><strong>name</strong> (<em>str</em>) – A string specifying a user-friendly name for the cylinder (default = “”).</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="raysect.primitive.Cylinder.__init__">
-<code class="descname">__init__</code><a class="headerlink" href="#raysect.primitive.Cylinder.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
-
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">translate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Cylinder</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">UniformSurfaceEmitter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.library.spectra.colours</span> <span class="kn">import</span> <span class="n">blue</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cylinder</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="go">                        material=UniformSurfaceEmitter(blue), name=&quot;blue cylinder&quot;)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -315,24 +330,30 @@ with a disk, forming a closed surface.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>radius</strong> (<em>float</em>) &#8211; Radius of the cone in meters in x-y plane (default = 0.5).</li>
-<li><strong>height</strong> (<em>float</em>) &#8211; Height of the cone in meters (default = 1.0).</li>
-<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) &#8211; Scene-graph parent node or None (default = None).</li>
-<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) &#8211; An AffineMatrix3D defining the local co-ordinate
+<li><strong>radius</strong> (<em>float</em>) – Radius of the cone in meters in x-y plane (default = 0.5).</li>
+<li><strong>height</strong> (<em>float</em>) – Height of the cone in meters (default = 1.0).</li>
+<li><strong>parent</strong> (<a class="reference internal" href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><em>Node</em></a>) – Scene-graph parent node or None (default = None).</li>
+<li><strong>transform</strong> (<a class="reference internal" href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – An AffineMatrix3D defining the local co-ordinate
 system relative to the scene-graph parent (default = identity matrix).</li>
-<li><strong>material</strong> (<a class="reference internal" href="api_reference/core/core_classes.html#raysect.core.material.Material" title="raysect.core.material.Material"><em>Material</em></a>) &#8211; A Material object defining the cone&#8217;s material (default = None).</li>
-<li><strong>name</strong> (<em>str</em>) &#8211; A string specifying a user-friendly name for the cone (default = &#8220;&#8221;).</li>
+<li><strong>material</strong> (<a class="reference internal" href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – A Material object defining the cone’s material (default = None).</li>
+<li><strong>name</strong> (<em>str</em>) – A string specifying a user-friendly name for the cone (default = “”).</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
-<dt id="raysect.primitive.Cone.__init__">
-<code class="descname">__init__</code><a class="headerlink" href="#raysect.primitive.Cone.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
-
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">translate</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Box</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">UniformSurfaceEmitter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.library.spectra.colours</span> <span class="kn">import</span> <span class="n">green</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cone</span> <span class="o">=</span> <span class="n">Cone</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="go">                material=UniformSurfaceEmitter(green), name=&quot;green cone&quot;)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -340,7 +361,7 @@ system relative to the scene-graph parent (default = identity matrix).</li>
 <div class="section" id="csg-operations">
 <h2>7.2. CSG Operations<a class="headerlink" href="#csg-operations" title="Permalink to this headline">¶</a></h2>
 <p>Operations such as union, substract, intersect on some basic glass primitives:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Making the lense in the centre</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Making the lense in the centre</span>
 <span class="n">s1</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">-</span><span class="mf">0.01</span><span class="p">))</span>
 <span class="n">s2</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="o">+</span><span class="mf">0.01</span><span class="p">))</span>
 <span class="n">Intersect</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">world</span><span class="p">,</span> <span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">3.6</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">glass</span><span class="p">)</span>
@@ -362,20 +383,16 @@ system relative to the scene-graph parent (default = identity matrix).</li>
 <p>It is easiest to import meshes from existing CAD files in either obj or stl with the helper methods.</p>
 <dl class="function">
 <dt id="raysect.primitive.mesh.obj.import_obj">
-<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">import_obj</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">import_obj</code><span class="sig-paren">(</span><em>filename</em>, <em>scaling=1.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a Wavefront OBJ mesh file (.obj).</p>
-<p>Some engineering meshes are exported in different units (mm for example)
-whereas Raysect units are in m. Applying a scale factor of 0.001 would
-convert the mesh into m for use in Raysect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>filename</strong> (<em>str</em>) &#8211; Mesh file path.</li>
-<li><strong>scaling</strong> (<em>double</em>) &#8211; Scale the mesh by this factor (default=1.0).</li>
-<li><strong>**kwargs</strong> &#8211; <p>Accepts optional keyword arguments from the Mesh class.</p>
-</li>
+<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
+<li><strong>scaling</strong> (<em>double</em>) – Scale the mesh by this factor (default=1.0).</li>
+<li><strong>kwargs</strong> – Accepts optional keyword arguments from the Mesh class.</li>
 </ul>
 </td>
 </tr>
@@ -384,11 +401,23 @@ convert the mesh into m for use in Raysect.</p>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">ConstantSF</span><span class="p">,</span> <span class="n">Sellmeier</span><span class="p">,</span> <span class="n">Dielectric</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">import_obj</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">diamond</span> <span class="o">=</span> <span class="n">Dielectric</span><span class="p">(</span><span class="n">Sellmeier</span><span class="p">(</span><span class="mf">0.3306</span><span class="p">,</span> <span class="mf">4.3356</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1750</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1060</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>                     <span class="n">ConstantSF</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bunny_mesh</span> <span class="o">=</span> <span class="n">import_obj</span><span class="p">(</span><span class="s2">&quot;resources/stanford_bunny.obj&quot;</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                        <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">diamond</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="function">
 <dt id="raysect.primitive.mesh.stl.import_stl">
-<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">import_stl</code><span class="sig-paren">(</span><em>cls</em>, <em>filename</em>, <em>scaling=1.0</em>, <em>mode=0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">import_stl</code><span class="sig-paren">(</span><em>filename</em>, <em>scaling=1.0</em>, <em>mode='auto'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a STereoLithography (STL) mesh file (.stl).</p>
 <p>Some engineering meshes are exported in different units (mm for example)
 whereas Raysect units are in m. Applying a scale factor of 0.001 would
@@ -398,10 +427,10 @@ convert the mesh into m for use in Raysect.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>filename</strong> (<em>str</em>) &#8211; Mesh file path.</li>
-<li><strong>scaling</strong> (<em>double</em>) &#8211; Scale the mesh by this factor (default=1.0).</li>
-<li><strong>**kwargs</strong> &#8211; <p>Accepts optional keyword arguments from the Mesh class.</p>
-</li>
+<li><strong>filename</strong> (<em>str</em>) – Mesh file path.</li>
+<li><strong>scaling</strong> (<em>double</em>) – Scale the mesh by this factor (default=1.0).</li>
+<li><strong>mode</strong> (<em>str</em>) – The file format to load: ‘ascii’, ‘binary’, ‘auto’ (default=’auto’).</li>
+<li><strong>kwargs</strong> – Accepts optional keyword arguments from the Mesh class.</li>
 </ul>
 </td>
 </tr>
@@ -410,10 +439,22 @@ convert the mesh into m for use in Raysect.</p>
 </tr>
 </tbody>
 </table>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">ConstantSF</span><span class="p">,</span> <span class="n">Sellmeier</span><span class="p">,</span> <span class="n">Dielectric</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">import_stl</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">diamond</span> <span class="o">=</span> <span class="n">Dielectric</span><span class="p">(</span><span class="n">Sellmeier</span><span class="p">(</span><span class="mf">0.3306</span><span class="p">,</span> <span class="mf">4.3356</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1750</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1060</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="gp">&gt;&gt;&gt; </span>                     <span class="n">ConstantSF</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">import_stl</span><span class="p">(</span><span class="s2">&quot;my_mesh.stl&quot;</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                  <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">diamond</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <p>An example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">raysect.primitive.mesh</span> <span class="k">import</span> <span class="n">import_obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">raysect.primitive.mesh</span> <span class="k">import</span> <span class="n">import_obj</span>
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">import_obj</span><span class="p">(</span><span class="s2">&quot;./resources/stanford_bunny.obj&quot;</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
                   <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">gold</span><span class="p">)</span>
 </pre></div>
@@ -424,9 +465,7 @@ convert the mesh into m for use in Raysect.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -444,11 +483,11 @@ convert the mesh into m for use in Raysect.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2017, Dr Alex Meakins.
+        &copy; Copyright 2014-2018, Dr Alex Meakins.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -466,7 +505,8 @@ convert the mesh into m for use in Raysect.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.4.0',
+            VERSION:'0.5.4',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -476,23 +516,17 @@ convert the mesh into m for use in Raysect.</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

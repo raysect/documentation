@@ -27,27 +27,18 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="_static/theme.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="#"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Raysect Documentation" href="index.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -64,7 +55,7 @@
 
           
             
-            <img src="_static/RaysectLogo_web.png" class="logo" />
+            <img src="_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -72,7 +63,7 @@
             
             
               <div class="version">
-                0.4
+                0.5.4
               </div>
             
           
@@ -113,7 +104,9 @@
 <p class="caption"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html">1. Core Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#examples-gallery">2. Examples Gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demonstrations/demonstrations.html#optics">4. Optics</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -131,7 +124,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Raysect</a>
@@ -139,9 +132,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -215,12 +209,12 @@
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.__add__">__add__ (raysect.core.math.normal.Normal3D attribute)</a>
+      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D.__add__">__add__ (raysect.core.math.point.Point2D attribute)</a>
 
       <ul>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D.__add__">(raysect.core.math.point.Point2D attribute)</a>
-</li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.__add__">(raysect.core.math.point.Point3D attribute)</a>
+</li>
+        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.__add__">(raysect.core.math.vector.Vector2D attribute)</a>
 </li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.__add__">(raysect.core.math.vector.Vector3D attribute)</a>
 </li>
@@ -237,93 +231,69 @@
         <li><a href="api_reference/core/random.html#raysect.core.math.sampler.surface3d.SurfaceSampler3D.__call__">(raysect.core.math.sampler.surface3d.SurfaceSampler3D attribute)</a>
 </li>
       </ul></li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.__getitem__">__getitem__ (raysect.core.math.normal.Normal3D attribute)</a>
+      <li><a href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D.__getitem__">__getitem__ (raysect.core.math.affinematrix.AffineMatrix3D attribute)</a>
 
       <ul>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D.__getitem__">(raysect.core.math.point.Point2D attribute)</a>
 </li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.__getitem__">(raysect.core.math.point.Point3D attribute)</a>
 </li>
+        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.__getitem__">(raysect.core.math.vector.Vector2D attribute)</a>
+</li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.__getitem__">(raysect.core.math.vector.Vector3D attribute)</a>
 </li>
       </ul></li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.__getstate__">__getstate__() (raysect.core.math.normal.Normal3D method)</a>
+      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D.__iter__">__iter__ (raysect.core.math.point.Point2D attribute)</a>
 
       <ul>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D.__getstate__">(raysect.core.math.point.Point2D method)</a>
-</li>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.__getstate__">(raysect.core.math.point.Point3D method)</a>
-</li>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.__getstate__">(raysect.core.math.vector.Vector3D method)</a>
-</li>
-      </ul></li>
-      <li><a href="primitives.html#raysect.primitive.Box.__init__">__init__ (raysect.primitive.Box attribute)</a>
-
-      <ul>
-        <li><a href="primitives.html#raysect.primitive.Cone.__init__">(raysect.primitive.Cone attribute)</a>
-</li>
-        <li><a href="primitives.html#raysect.primitive.Cylinder.__init__">(raysect.primitive.Cylinder attribute)</a>
-</li>
-        <li><a href="primitives.html#raysect.primitive.Sphere.__init__">(raysect.primitive.Sphere attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.__iter__">__iter__ (raysect.core.math.normal.Normal3D attribute)</a>
-
-      <ul>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D.__iter__">(raysect.core.math.point.Point2D attribute)</a>
-</li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.__iter__">(raysect.core.math.point.Point3D attribute)</a>
+</li>
+        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.__iter__">(raysect.core.math.vector.Vector2D attribute)</a>
 </li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.__iter__">(raysect.core.math.vector.Vector3D attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.__mul__">__mul__ (raysect.core.math.normal.Normal3D attribute)</a>
+      <li><a href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D.__mul__">__mul__ (raysect.core.math.affinematrix.AffineMatrix3D attribute)</a>
 
       <ul>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.__mul__">(raysect.core.math.point.Point3D attribute)</a>
 </li>
+        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.__mul__">(raysect.core.math.vector.Vector2D attribute)</a>
+</li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.__mul__">(raysect.core.math.vector.Vector3D attribute)</a>
 </li>
       </ul></li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.__neg__">__neg__ (raysect.core.math.normal.Normal3D attribute)</a>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.__neg__">__neg__ (raysect.core.math.vector.Vector2D attribute)</a>
 
       <ul>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.__neg__">(raysect.core.math.vector.Vector3D attribute)</a>
 </li>
       </ul></li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.__setitem__">__setitem__ (raysect.core.math.normal.Normal3D attribute)</a>
+      <li><a href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D.__setitem__">__setitem__ (raysect.core.math.affinematrix.AffineMatrix3D attribute)</a>
 
       <ul>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D.__setitem__">(raysect.core.math.point.Point2D attribute)</a>
 </li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.__setitem__">(raysect.core.math.point.Point3D attribute)</a>
 </li>
+        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.__setitem__">(raysect.core.math.vector.Vector2D attribute)</a>
+</li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.__setitem__">(raysect.core.math.vector.Vector3D attribute)</a>
 </li>
       </ul></li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.__setstate__">__setstate__() (raysect.core.math.normal.Normal3D method)</a>
+      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D.__sub__">__sub__ (raysect.core.math.point.Point2D attribute)</a>
 
       <ul>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D.__setstate__">(raysect.core.math.point.Point2D method)</a>
-</li>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.__setstate__">(raysect.core.math.point.Point3D method)</a>
-</li>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.__setstate__">(raysect.core.math.vector.Vector3D method)</a>
-</li>
-      </ul></li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.__sub__">__sub__ (raysect.core.math.normal.Normal3D attribute)</a>
-
-      <ul>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D.__sub__">(raysect.core.math.point.Point2D attribute)</a>
-</li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.__sub__">(raysect.core.math.point.Point3D attribute)</a>
+</li>
+        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.__sub__">(raysect.core.math.vector.Vector2D attribute)</a>
 </li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.__sub__">(raysect.core.math.vector.Vector3D attribute)</a>
 </li>
       </ul></li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.__truediv__">__truediv__ (raysect.core.math.normal.Normal3D attribute)</a>
+      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.__truediv__">__truediv__ (raysect.core.math.vector.Vector2D attribute)</a>
 
       <ul>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.__truediv__">(raysect.core.math.vector.Vector3D attribute)</a>
@@ -332,6 +302,8 @@
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer0D._generate_rays">_generate_rays() (raysect.optical.observer.base.observer.Observer0D method)</a>
 
       <ul>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer1D._generate_rays">(raysect.optical.observer.base.observer.Observer1D method)</a>
+</li>
         <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer2D._generate_rays">(raysect.optical.observer.base.observer.Observer2D method)</a>
 </li>
       </ul></li>
@@ -353,22 +325,26 @@
 </li>
       <li><a href="api_reference/core/utilities.html#raysect.core.containers.LinkedList.add_items">add_items() (raysect.core.containers.LinkedList method)</a>
 </li>
+      <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray1D.add_sample">add_sample() (raysect.core.math.statsarray.StatsArray1D method)</a>
+
+      <ul>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray2D.add_sample">(raysect.core.math.statsarray.StatsArray2D method)</a>
+</li>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray3D.add_sample">(raysect.core.math.statsarray.StatsArray3D method)</a>
+</li>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsBin.add_sample">(raysect.core.math.statsarray.StatsBin method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.base.processor.PixelProcessor.add_sample">add_sample() (raysect.optical.observer.base.processor.PixelProcessor method)</a>
-</li>
       <li><a href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D">AffineMatrix3D (class in raysect.core.math.affinematrix)</a>
+</li>
+      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.angle">angle() (raysect.core.math.vector.Vector3D method)</a>
 </li>
       <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.as_vector">as_vector() (raysect.core.math.normal.Normal3D method)</a>
 </li>
-      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.ConstantSF.average">average() (raysect.optical.spectralfunction.ConstantSF method)</a>
-
-      <ul>
-        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction.average">(raysect.optical.spectralfunction.SpectralFunction method)</a>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction.average">average() (raysect.optical.spectralfunction.SpectralFunction method)</a>
 </li>
-        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.average">(raysect.optical.spectrum.Spectrum method)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -384,18 +360,16 @@
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.bins">bins (raysect.optical.ray.Ray attribute)</a>
 </li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive.bounding_box">bounding_box() (raysect.core.scenegraph.primitive.Primitive method)</a>
-
-      <ul>
-        <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.mesh.Mesh.bounding_box">(raysect.primitive.mesh.mesh.Mesh method)</a>
 </li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive.bounding_sphere">bounding_sphere() (raysect.core.scenegraph.primitive.Primitive method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox2D">BoundingBox2D (class in raysect.core.boundingbox)</a>
 </li>
       <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D">BoundingBox3D (class in raysect.core.boundingbox)</a>
+</li>
+      <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingsphere.BoundingSphere3D">BoundingSphere3D (class in raysect.core.boundingsphere)</a>
 </li>
       <li><a href="api_reference/primitives/geometric_primitives.html#raysect.primitive.Box">Box (class in raysect.primitive)</a>, <a href="primitives.html#raysect.primitive.Box">[1]</a>
 </li>
@@ -412,7 +386,11 @@
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.ccd.CCDArray">CCDArray (class in raysect.optical.observer.imaging.ccd)</a>
 </li>
       <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D.centre">centre (raysect.core.boundingbox.BoundingBox3D attribute)</a>
+
+      <ul>
+        <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingsphere.BoundingSphere3D.centre">(raysect.core.boundingsphere.BoundingSphere3D attribute)</a>
 </li>
+      </ul></li>
       <li><a href="api_reference/optical/optical_surfaces.html#raysect.optical.material.emitter.Checkerboard">Checkerboard (class in raysect.optical.material.emitter)</a>
 </li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.ciexyy_to_ciexyz">ciexyy_to_ciexyz() (in module raysect.optical.colour)</a>
@@ -421,18 +399,46 @@
 </li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.colour.ciexyz_to_srgb">ciexyz_to_srgb() (in module raysect.optical.colour)</a>
 </li>
-      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.clear">clear() (raysect.optical.spectrum.Spectrum method)</a>
+      <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray1D.clear">clear() (raysect.core.math.statsarray.StatsArray1D method)</a>
+
+      <ul>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray2D.clear">(raysect.core.math.statsarray.StatsArray2D method)</a>
 </li>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray3D.clear">(raysect.core.math.statsarray.StatsArray3D method)</a>
+</li>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsBin.clear">(raysect.core.math.statsarray.StatsBin method)</a>
+</li>
+        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.clear">(raysect.optical.spectrum.Spectrum method)</a>
+</li>
+      </ul></li>
       <li><a href="api_reference/core/units.html#raysect.core.math.units.cm">cm() (in module raysect.core.math.units)</a>
 </li>
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.collection_area">collection_area (raysect.optical.observer.nonimaging.fibreoptic.FibreOptic attribute)</a>
 
       <ul>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.collection_area">(raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel attribute)</a>
+</li>
         <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.pixel.Pixel.collection_area">(raysect.optical.observer.nonimaging.pixel.Pixel attribute)</a>
+</li>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.collection_area">(raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.collection_area">collection_area() (raysect.optical.observer.nonimaging.mesh_camera.MeshCamera method)</a>
+</li>
+      <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray1D.combine_samples">combine_samples() (raysect.core.math.statsarray.StatsArray1D method)</a>
+
+      <ul>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray2D.combine_samples">(raysect.core.math.statsarray.StatsArray2D method)</a>
+</li>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray3D.combine_samples">(raysect.core.math.statsarray.StatsArray3D method)</a>
+</li>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsBin.combine_samples">(raysect.core.math.statsarray.StatsBin method)</a>
 </li>
       </ul></li>
       <li><a href="api_reference/optical/optical_surfaces.html#raysect.optical.material.conductor.Conductor">Conductor (class in raysect.optical.material.conductor)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/primitives/geometric_primitives.html#raysect.primitive.Cone">Cone (class in raysect.primitive)</a>, <a href="primitives.html#raysect.primitive.Cone">[1]</a>
 </li>
       <li><a href="api_reference/core/random.html#raysect.core.math.sampler.solidangle.ConeUniformSampler">ConeUniformSampler (class in raysect.core.math.sampler.solidangle)</a>
@@ -444,23 +450,27 @@
       <ul>
         <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D.contains">(raysect.core.boundingbox.BoundingBox3D method)</a>
 </li>
+        <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingsphere.BoundingSphere3D.contains">(raysect.core.boundingsphere.BoundingSphere3D method)</a>
+</li>
         <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive.contains">(raysect.core.scenegraph.primitive.Primitive method)</a>
 </li>
         <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World.contains">(raysect.core.scenegraph.world.World method)</a>
 </li>
-        <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.mesh.Mesh.contains">(raysect.primitive.mesh.mesh.Mesh method)</a>
-</li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.ContinuousBSDF">ContinuousBSDF (class in raysect.optical.material.material)</a>
 </li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.copy">copy() (raysect.core.math.normal.Normal3D method)</a>
+      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D.copy">copy() (raysect.core.math.point.Point2D method)</a>
 
       <ul>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point2D.copy">(raysect.core.math.point.Point2D method)</a>
-</li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.copy">(raysect.core.math.point.Point3D method)</a>
+</li>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray1D.copy">(raysect.core.math.statsarray.StatsArray1D method)</a>
+</li>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray2D.copy">(raysect.core.math.statsarray.StatsArray2D method)</a>
+</li>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray3D.copy">(raysect.core.math.statsarray.StatsArray3D method)</a>
+</li>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsBin.copy">(raysect.core.math.statsarray.StatsBin method)</a>
 </li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.copy">(raysect.core.math.vector.Vector2D method)</a>
 </li>
@@ -473,11 +483,9 @@
         <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.copy">(raysect.optical.spectrum.Spectrum method)</a>
 </li>
       </ul></li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.cross">cross() (raysect.core.math.normal.Normal3D method)</a>
+      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.cross">cross() (raysect.core.math.vector.Vector2D method)</a>
 
       <ul>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.cross">(raysect.core.math.vector.Vector2D method)</a>
-</li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.cross">(raysect.core.math.vector.Vector3D method)</a>
 </li>
       </ul></li>
@@ -517,10 +525,10 @@
 </li>
       <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_gamma">display_gamma (raysect.optical.observer.pipeline.bayer.BayerPipeline2D attribute)</a>
 </li>
-      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.rgb.RGBPipeline2D.display_sensitivity">display_sensitivity (raysect.optical.observer.pipeline.rgb.RGBPipeline2D attribute)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.rgb.RGBPipeline2D.display_sensitivity">display_sensitivity (raysect.optical.observer.pipeline.rgb.RGBPipeline2D attribute)</a>
+</li>
       <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_unsaturated_fraction">display_unsaturated_fraction (raysect.optical.observer.pipeline.bayer.BayerPipeline2D attribute)</a>
 
       <ul>
@@ -545,11 +553,9 @@
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.distance_to">(raysect.core.math.point.Point3D method)</a>
 </li>
       </ul></li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.dot">dot() (raysect.core.math.normal.Normal3D method)</a>
+      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.dot">dot() (raysect.core.math.vector.Vector2D method)</a>
 
       <ul>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.dot">(raysect.core.math.vector.Vector2D method)</a>
-</li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.dot">(raysect.core.math.vector.Vector3D method)</a>
 </li>
       </ul></li>
@@ -567,30 +573,56 @@
       </ul></li>
       <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D.enclosing_sphere">enclosing_sphere() (raysect.core.boundingbox.BoundingBox3D method)</a>
 </li>
-      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.orthographic.OrthographicCamera.etendue">etendue (raysect.optical.observer.imaging.orthographic.OrthographicCamera attribute)</a>
+      <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray1D.error">error() (raysect.core.math.statsarray.StatsArray1D method)</a>
 
       <ul>
-        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.pinhole.PinholeCamera.etendue">(raysect.optical.observer.imaging.pinhole.PinholeCamera attribute)</a>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray2D.error">(raysect.core.math.statsarray.StatsArray2D method)</a>
 </li>
-        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.vector.VectorCamera.etendue">(raysect.optical.observer.imaging.vector.VectorCamera attribute)</a>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray3D.error">(raysect.core.math.statsarray.StatsArray3D method)</a>
 </li>
-        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.etendue">(raysect.optical.observer.nonimaging.fibreoptic.FibreOptic attribute)</a>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsBin.error">(raysect.core.math.statsarray.StatsBin method)</a>
 </li>
-        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.pixel.Pixel.etendue">(raysect.optical.observer.nonimaging.pixel.Pixel attribute)</a>
+      </ul></li>
+      <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray1D.errors">errors() (raysect.core.math.statsarray.StatsArray1D method)</a>
+
+      <ul>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray2D.errors">(raysect.core.math.statsarray.StatsArray2D method)</a>
 </li>
-        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.sightline.SightLine.etendue">(raysect.optical.observer.nonimaging.sightline.SightLine attribute)</a>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray3D.errors">(raysect.core.math.statsarray.StatsArray3D method)</a>
+</li>
+      </ul></li>
+      <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.ContinuousBSDF.evaluate_surface">evaluate_surface() (raysect.optical.material.material.ContinuousBSDF method)</a>
+
+      <ul>
+        <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.DiscreteBSDF.evaluate_surface">(raysect.optical.material.material.DiscreteBSDF method)</a>
+</li>
+        <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material.evaluate_surface">(raysect.optical.material.material.Material method)</a>
+</li>
+        <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.NullSurface.evaluate_surface">(raysect.optical.material.material.NullSurface method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material.evaluate_surface">evaluate_surface() (raysect.optical.material.material.Material method)</a>
-</li>
       <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material.evaluate_volume">evaluate_volume() (raysect.optical.material.material.Material method)</a>
+
+      <ul>
+        <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.NullVolume.evaluate_volume">(raysect.optical.material.material.NullVolume method)</a>
+</li>
+      </ul></li>
+      <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.obj.export_obj">export_obj() (in module raysect.primitive.mesh.obj)</a>
+</li>
+      <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.ply.export_ply">export_ply() (in module raysect.primitive.mesh.ply)</a>
+</li>
+      <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.stl.export_stl">export_stl() (in module raysect.primitive.mesh.stl)</a>
+</li>
+      <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.vtk.export_vtk">export_vtk() (in module raysect.primitive.mesh.vtk)</a>
 </li>
       <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox2D.extend">extend() (raysect.core.boundingbox.BoundingBox2D method)</a>
 
       <ul>
         <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D.extend">(raysect.core.boundingbox.BoundingBox3D method)</a>
+</li>
+        <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingsphere.BoundingSphere3D.extend">(raysect.core.boundingsphere.BoundingSphere3D method)</a>
 </li>
       </ul></li>
       <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox2D.extent">extent() (raysect.core.boundingbox.BoundingBox2D method)</a>
@@ -623,26 +655,28 @@
 </li>
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.pinhole.PinholeCamera.fov">fov (raysect.optical.observer.imaging.pinhole.PinholeCamera attribute)</a>
 </li>
-      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer2D.frame_sampler">frame_sampler (raysect.optical.observer.base.observer.Observer2D attribute)</a>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer1D.frame_sampler">frame_sampler (raysect.optical.observer.base.observer.Observer1D attribute)</a>
+
+      <ul>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer2D.frame_sampler">(raysect.optical.observer.base.observer.Observer2D attribute)</a>
 </li>
-      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.base.sampler.FrameSampler1D">FrameSampler1D (class in raysect.optical.observer.base.sampler)</a>
-</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.base.sampler.FrameSampler1D">FrameSampler1D (class in raysect.optical.observer.base.sampler)</a>
+</li>
       <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.base.sampler.FrameSampler2D">FrameSampler2D (class in raysect.optical.observer.base.sampler)</a>
 </li>
       <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.mesh.Mesh.from_file">from_file() (raysect.primitive.mesh.mesh.Mesh method)</a>
 </li>
       <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D.full_intersection">full_intersection() (raysect.core.boundingbox.BoundingBox3D method)</a>
-</li>
-      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.sampler2d.FullFrameSampler2D">FullFrameSampler2D (class in raysect.optical.observer.sampler2d)</a>
-</li>
-      <li><a href="api_reference/optical/optical_surfaces.html#raysect.optical.material.dielectric.Sellmeier.function">function() (raysect.optical.material.dielectric.Sellmeier method)</a>
 
       <ul>
-        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.NumericallyIntegratedSF.function">(raysect.optical.spectralfunction.NumericallyIntegratedSF method)</a>
+        <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingsphere.BoundingSphere3D.full_intersection">(raysect.core.boundingsphere.BoundingSphere3D method)</a>
 </li>
       </ul></li>
+      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.sampler2d.FullFrameSampler2D">FullFrameSampler2D (class in raysect.optical.observer.sampler2d)</a>
+</li>
       <li><a href="api_reference/core/functions.html#raysect.core.math.function.function1d.Function1D">Function1D (class in raysect.core.math.function.function1d)</a>
 </li>
       <li><a href="api_reference/core/functions.html#raysect.core.math.function.function2d.Function2D">Function2D (class in raysect.core.math.function.function2d)</a>
@@ -673,8 +707,6 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.scenegraph.world.World.has_important_primitives">has_important_primitives() (raysect.optical.scenegraph.world.World method)</a>
 </li>
-      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.scenegraph.world.ImportanceManager.has_primitives">has_primitives() (raysect.optical.scenegraph.world.ImportanceManager method)</a>
-</li>
       <li><a href="api_reference/primitives/geometric_primitives.html#raysect.primitive.Cone.height">height (raysect.primitive.Cone attribute)</a>
 
       <ul>
@@ -692,11 +724,11 @@
       <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D.hit">hit() (raysect.core.boundingbox.BoundingBox3D method)</a>
 
       <ul>
+        <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingsphere.BoundingSphere3D.hit">(raysect.core.boundingsphere.BoundingSphere3D method)</a>
+</li>
         <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive.hit">(raysect.core.scenegraph.primitive.Primitive method)</a>
 </li>
         <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World.hit">(raysect.core.scenegraph.world.World method)</a>
-</li>
-        <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.mesh.Mesh.hit">(raysect.primitive.mesh.mesh.Mesh method)</a>
 </li>
       </ul></li>
       <li><a href="api_reference/optical/optical_volumes.html#raysect.optical.material.emitter.HomogeneousVolumeEmitter">HomogeneousVolumeEmitter (class in raysect.optical.material.emitter)</a>
@@ -709,11 +741,13 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.obj.import_obj">import_obj() (in module raysect.primitive.mesh.obj)</a>, <a href="primitives.html#raysect.primitive.mesh.obj.import_obj">[1]</a>
 </li>
+      <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.ply.import_ply">import_ply() (in module raysect.primitive.mesh.ply)</a>
+</li>
       <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.stl.import_stl">import_stl() (in module raysect.primitive.mesh.stl)</a>, <a href="primitives.html#raysect.primitive.mesh.stl.import_stl">[1]</a>
 </li>
-      <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material.importance">importance (raysect.optical.material.material.Material attribute)</a>
+      <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.vtk.import_vtk">import_vtk() (in module raysect.primitive.mesh.vtk)</a>
 </li>
-      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.scenegraph.world.ImportanceManager">ImportanceManager (class in raysect.optical.scenegraph.world)</a>
+      <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material.importance">importance (raysect.optical.material.material.Material attribute)</a>
 </li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.scenegraph.world.World.important_direction_pdf">important_direction_pdf() (raysect.optical.scenegraph.world.World method)</a>
 </li>
@@ -742,19 +776,25 @@
 </li>
         <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive.instance">(raysect.core.scenegraph.primitive.Primitive method)</a>
 </li>
+        <li><a href="api_reference/primitives/optical_elements.html#raysect.primitive.lens.spherical.BiConcave.instance">(raysect.primitive.lens.spherical.BiConcave method)</a>
+</li>
+        <li><a href="api_reference/primitives/optical_elements.html#raysect.primitive.lens.spherical.BiConvex.instance">(raysect.primitive.lens.spherical.BiConvex method)</a>
+</li>
+        <li><a href="api_reference/primitives/optical_elements.html#raysect.primitive.lens.spherical.Meniscus.instance">(raysect.primitive.lens.spherical.Meniscus method)</a>
+</li>
+        <li><a href="api_reference/primitives/optical_elements.html#raysect.primitive.lens.spherical.PlanoConcave.instance">(raysect.primitive.lens.spherical.PlanoConcave method)</a>
+</li>
+        <li><a href="api_reference/primitives/optical_elements.html#raysect.primitive.lens.spherical.PlanoConvex.instance">(raysect.primitive.lens.spherical.PlanoConvex method)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api_reference/optical/optical_volumes.html#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator.integrate">integrate() (raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator method)</a>
+      <li><a href="api_reference/optical/optical_volumes.html#raysect.optical.material.emitter.inhomogeneous.NumericalIntegrator.integrate">integrate() (raysect.optical.material.emitter.inhomogeneous.NumericalIntegrator method)</a>
 
       <ul>
-        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.ConstantSF.integrate">(raysect.optical.spectralfunction.ConstantSF method)</a>
+        <li><a href="api_reference/optical/optical_volumes.html#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator.integrate">(raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator method)</a>
 </li>
-        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.InterpolatedSF.integrate">(raysect.optical.spectralfunction.InterpolatedSF method)</a>
-</li>
-        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.NumericallyIntegratedSF.integrate">(raysect.optical.spectralfunction.NumericallyIntegratedSF method)</a>
-</li>
-        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.integrate">(raysect.optical.spectrum.Spectrum method)</a>
+        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction.integrate">(raysect.optical.spectralfunction.SpectralFunction method)</a>
 </li>
       </ul></li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.InterpolatedSF">InterpolatedSF (class in raysect.optical.spectralfunction)</a>
@@ -767,9 +807,13 @@
 </li>
       <li><a href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D.inverse">inverse() (raysect.core.math.affinematrix.AffineMatrix3D method)</a>
 </li>
+      <li><a href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D.is_close">is_close() (raysect.core.math.affinematrix.AffineMatrix3D method)</a>
+</li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.is_compatible">is_compatible() (raysect.optical.spectrum.Spectrum method)</a>
 </li>
       <li><a href="api_reference/core/utilities.html#raysect.core.containers.LinkedList.is_empty">is_empty() (raysect.core.containers.LinkedList method)</a>
+</li>
+      <li><a href="api_reference/core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D.is_identity">is_identity() (raysect.core.math.affinematrix.AffineMatrix3D method)</a>
 </li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.is_zero">is_zero() (raysect.optical.spectrum.Spectrum method)</a>
 </li>
@@ -801,11 +845,9 @@
         <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D.largest_extent">(raysect.core.boundingbox.BoundingBox3D method)</a>
 </li>
       </ul></li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.length">length (raysect.core.math.normal.Normal3D attribute)</a>
+      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.length">length (raysect.core.math.vector.Vector2D attribute)</a>
 
       <ul>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.length">(raysect.core.math.vector.Vector2D attribute)</a>
-</li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.length">(raysect.core.math.vector.Vector3D attribute)</a>
 </li>
       </ul></li>
@@ -833,12 +875,8 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api_reference/core/core_classes.html#raysect.core.material.Material">Material (class in raysect.core.material)</a>
-
-      <ul>
-        <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material">(class in raysect.optical.material.material)</a>
+      <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.Material">Material (class in raysect.optical.material.material)</a>
 </li>
-      </ul></li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive.material">material (raysect.core.scenegraph.primitive.Primitive attribute)</a>
 </li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.max_depth">max_depth (raysect.optical.ray.Ray attribute)</a>
@@ -851,9 +889,13 @@
       </ul></li>
       <li><a href="api_reference/primitives/optical_elements.html#raysect.primitive.lens.spherical.Meniscus">Meniscus (class in raysect.primitive.lens.spherical)</a>
 </li>
+      <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.mesh.Mesh">Mesh (class in raysect.primitive.mesh.mesh)</a>
+</li>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.mesh_camera.MeshCamera">MeshCamera (class in raysect.optical.observer.nonimaging.mesh_camera)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.mesh.Mesh">Mesh (class in raysect.primitive.mesh.mesh)</a>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel">MeshPixel (class in raysect.optical.observer.nonimaging.mesh_pixel)</a>
 </li>
       <li><a href="api_reference/core/units.html#raysect.core.math.units.mil">mil() (in module raysect.core.math.units)</a>
 </li>
@@ -892,11 +934,7 @@
       <li><a href="api_reference/core/utilities.html#raysect.core.containers.Queue.next_in_queue">next_in_queue() (raysect.core.containers.Queue method)</a>
 </li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive.next_intersection">next_intersection() (raysect.core.scenegraph.primitive.Primitive method)</a>
-
-      <ul>
-        <li><a href="api_reference/primitives/meshes.html#raysect.primitive.mesh.mesh.Mesh.next_intersection">(raysect.primitive.mesh.mesh.Mesh method)</a>
 </li>
-      </ul></li>
       <li><a href="api_reference/core/units.html#raysect.core.math.units.nm">nm() (in module raysect.core.math.units)</a>
 </li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node">Node (class in raysect.core.scenegraph.node)</a>
@@ -907,22 +945,16 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D">Normal3D (class in raysect.core.math.normal)</a>
 </li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.normalise">normalise() (raysect.core.math.normal.Normal3D method)</a>
+      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.normalise">normalise() (raysect.core.math.vector.Vector2D method)</a>
 
       <ul>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.normalise">(raysect.core.math.vector.Vector2D method)</a>
-</li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.normalise">(raysect.core.math.vector.Vector3D method)</a>
 </li>
       </ul></li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive.notify_geometry_change">notify_geometry_change() (raysect.core.scenegraph.primitive.Primitive method)</a>
 </li>
-      <li><a href="api_reference/core/core_classes.html#raysect.core.material.Material.notify_material_change">notify_material_change() (raysect.core.material.Material method)</a>
-
-      <ul>
-        <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive.notify_material_change">(raysect.core.scenegraph.primitive.Primitive method)</a>
+      <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive.notify_material_change">notify_material_change() (raysect.core.scenegraph.primitive.Primitive method)</a>
 </li>
-      </ul></li>
       <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.NullSurface">NullSurface (class in raysect.optical.material.material)</a>
 </li>
       <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.NullVolume">NullVolume (class in raysect.optical.material.material)</a>
@@ -947,17 +979,17 @@
 </li>
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer0D">Observer0D (class in raysect.optical.observer.base.observer)</a>
 </li>
-      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer2D">Observer2D (class in raysect.optical.observer.base.observer)</a>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer1D">Observer1D (class in raysect.optical.observer.base.observer)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer2D">Observer2D (class in raysect.optical.observer.base.observer)</a>
+</li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World.observers">observers (raysect.core.scenegraph.world.World attribute)</a>
 </li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.orthogonal">orthogonal() (raysect.core.math.normal.Normal3D method)</a>
+      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.orthogonal">orthogonal() (raysect.core.math.vector.Vector2D method)</a>
 
       <ul>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector2D.orthogonal">(raysect.core.math.vector.Vector2D method)</a>
-</li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.orthogonal">(raysect.core.math.vector.Vector3D method)</a>
 </li>
       </ul></li>
@@ -969,12 +1001,18 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.base.processor.PixelProcessor.pack_results">pack_results() (raysect.optical.observer.base.processor.PixelProcessor method)</a>
-</li>
       <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox2D.pad">pad() (raysect.core.boundingbox.BoundingBox2D method)</a>
 
       <ul>
         <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D.pad">(raysect.core.boundingbox.BoundingBox3D method)</a>
+</li>
+        <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingsphere.BoundingSphere3D.pad">(raysect.core.boundingsphere.BoundingSphere3D method)</a>
+</li>
+      </ul></li>
+      <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox2D.pad_axis">pad_axis() (raysect.core.boundingbox.BoundingBox2D method)</a>
+
+      <ul>
+        <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D.pad_axis">(raysect.core.boundingbox.BoundingBox3D method)</a>
 </li>
       </ul></li>
       <li><a href="api_reference/primitives/geometric_primitives.html#raysect.primitive.Parabola">Parabola (class in raysect.primitive)</a>
@@ -982,11 +1020,7 @@
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node.parent">parent (raysect.core.scenegraph.node.Node attribute)</a>
 </li>
       <li><a href="api_reference/core/random.html#raysect.core.math.sampler.solidangle.SolidAngleSampler.pdf">pdf() (raysect.core.math.sampler.solidangle.SolidAngleSampler method)</a>
-
-      <ul>
-        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.scenegraph.world.ImportanceManager.pdf">(raysect.optical.scenegraph.world.ImportanceManager method)</a>
 </li>
-      </ul></li>
       <li><a href="api_reference/optical/optical_surfaces.html#raysect.optical.material.debug.PerfectReflectingSurface">PerfectReflectingSurface (class in raysect.optical.material.debug)</a>
 </li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.photon_energy">photon_energy() (in module raysect.optical.spectrum)</a>
@@ -1002,6 +1036,8 @@
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer0D.pipelines">pipelines (raysect.optical.observer.base.observer.Observer0D attribute)</a>
 
       <ul>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer1D.pipelines">(raysect.optical.observer.base.observer.Observer1D attribute)</a>
+</li>
         <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer2D.pipelines">(raysect.optical.observer.base.observer.Observer2D attribute)</a>
 </li>
       </ul></li>
@@ -1018,15 +1054,21 @@
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer0D.pixel_samples">pixel_samples (raysect.optical.observer.base.observer.Observer0D attribute)</a>
 
       <ul>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer1D.pixel_samples">(raysect.optical.observer.base.observer.Observer1D attribute)</a>
+</li>
         <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer2D.pixel_samples">(raysect.optical.observer.base.observer.Observer2D attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.base.processor.PixelProcessor">PixelProcessor (class in raysect.optical.observer.base.processor)</a>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer1D.pixels">pixels (raysect.optical.observer.base.observer.Observer1D attribute)</a>
+
+      <ul>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer2D.pixels">(raysect.optical.observer.base.observer.Observer2D attribute)</a>
 </li>
-      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer2D.pixels">pixels (raysect.optical.observer.base.observer.Observer2D attribute)</a>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.ccd.CCDArray.pixels">(raysect.optical.observer.imaging.ccd.CCDArray attribute)</a>
 </li>
+      </ul></li>
       <li><a href="api_reference/primitives/optical_elements.html#raysect.primitive.lens.spherical.PlanoConcave">PlanoConcave (class in raysect.primitive.lens.spherical)</a>
 </li>
       <li><a href="api_reference/primitives/optical_elements.html#raysect.primitive.lens.spherical.PlanoConvex">PlanoConvex (class in raysect.primitive.lens.spherical)</a>
@@ -1042,8 +1084,6 @@
       <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.mono.PowerPipeline0D">PowerPipeline0D (class in raysect.optical.observer.pipeline.mono)</a>
 </li>
       <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.mono.PowerPipeline2D">PowerPipeline2D (class in raysect.optical.observer.pipeline.mono)</a>
-</li>
-      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.mono.power.PowerPixelProcessor">PowerPixelProcessor (class in raysect.optical.observer.pipeline.mono.power)</a>
 </li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive">Primitive (class in raysect.core.scenegraph.primitive)</a>
 </li>
@@ -1085,8 +1125,6 @@
 </li>
       <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.mono.RadiancePipeline2D">RadiancePipeline2D (class in raysect.optical.observer.pipeline.mono)</a>
 </li>
-      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.mono.radiance.RadiancePixelProcessor">RadiancePixelProcessor (class in raysect.optical.observer.pipeline.mono.radiance)</a>
-</li>
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.radius">radius (raysect.optical.observer.nonimaging.fibreoptic.FibreOptic attribute)</a>
 
       <ul>
@@ -1125,8 +1163,6 @@
 </li>
       <li><a href="api_reference/core/core_classes.html#module-raysect.core.intersection">raysect.core.intersection (module)</a>
 </li>
-      <li><a href="api_reference/core/core_classes.html#module-raysect.core.material">raysect.core.material (module)</a>
-</li>
       <li><a href="api_reference/core/affinematrix.html#module-raysect.core.math.affinematrix">raysect.core.math.affinematrix (module)</a>
 </li>
       <li><a href="api_reference/core/functions.html#module-raysect.core.math.interpolators.discrete2dmesh">raysect.core.math.interpolators.discrete2dmesh (module)</a>
@@ -1138,8 +1174,6 @@
       <li><a href="api_reference/core/units.html#module-raysect.core.math.units">raysect.core.math.units (module)</a>
 </li>
       <li><a href="api_reference/core/core_classes.html#module-raysect.core.ray">raysect.core.ray (module)</a>
-</li>
-      <li><a href="api_reference/core/raysect_core_scenegraph.html#module-raysect.core.scenegraph.node">raysect.core.scenegraph.node (module)</a>
 </li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#module-raysect.core.scenegraph.observer">raysect.core.scenegraph.observer (module)</a>
 </li>
@@ -1194,13 +1228,7 @@
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.sample">sample() (raysect.optical.ray.Ray method)</a>
 
       <ul>
-        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.scenegraph.world.ImportanceManager.sample">(raysect.optical.scenegraph.world.ImportanceManager method)</a>
-</li>
-        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.ConstantSF.sample">(raysect.optical.spectralfunction.ConstantSF method)</a>
-</li>
         <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction.sample">(raysect.optical.spectralfunction.SpectralFunction method)</a>
-</li>
-        <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.sample">(raysect.optical.spectrum.Spectrum method)</a>
 </li>
       </ul></li>
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer.Observer0D.samples_per_task">samples_per_task (raysect.optical.observer.base.observer.Observer0D attribute)</a>
@@ -1219,8 +1247,36 @@
 </li>
       <li><a href="api_reference/optical/optical_surfaces.html#raysect.optical.material.dielectric.Sellmeier">Sellmeier (class in raysect.optical.material.dielectric)</a>
 </li>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.orthographic.OrthographicCamera.sensitivity">sensitivity (raysect.optical.observer.imaging.orthographic.OrthographicCamera attribute)</a>
+
+      <ul>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.pinhole.PinholeCamera.sensitivity">(raysect.optical.observer.imaging.pinhole.PinholeCamera attribute)</a>
+</li>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.vector.VectorCamera.sensitivity">(raysect.optical.observer.imaging.vector.VectorCamera attribute)</a>
+</li>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.sensitivity">(raysect.optical.observer.nonimaging.fibreoptic.FibreOptic attribute)</a>
+</li>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.sensitivity">(raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel attribute)</a>
+</li>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.pixel.Pixel.sensitivity">(raysect.optical.observer.nonimaging.pixel.Pixel attribute)</a>
+</li>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.sightline.SightLine.sensitivity">(raysect.optical.observer.nonimaging.sightline.SightLine attribute)</a>
+</li>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.sensitivity">(raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.sensitivity">sensitivity() (raysect.optical.observer.nonimaging.mesh_camera.MeshCamera method)</a>
+</li>
       <li><a href="api_reference/core/render_engines.html#raysect.core.workflow.SerialEngine">SerialEngine (class in raysect.core.workflow)</a>
 </li>
+      <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray1D.shape">shape (raysect.core.math.statsarray.StatsArray1D attribute)</a>
+
+      <ul>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray2D.shape">(raysect.core.math.statsarray.StatsArray2D attribute)</a>
+</li>
+        <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray3D.shape">(raysect.core.math.statsarray.StatsArray3D attribute)</a>
+</li>
+      </ul></li>
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.sightline.SightLine">SightLine (class in raysect.optical.observer.nonimaging.sightline)</a>
 </li>
       <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.slerp">slerp() (raysect.core.math.vector.Vector3D method)</a>
@@ -1228,15 +1284,21 @@
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.solid_angle">solid_angle (raysect.optical.observer.nonimaging.fibreoptic.FibreOptic attribute)</a>
 
       <ul>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.solid_angle">(raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel attribute)</a>
+</li>
         <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.pixel.Pixel.solid_angle">(raysect.optical.observer.nonimaging.pixel.Pixel attribute)</a>
 </li>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.solid_angle">(raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel attribute)</a>
+</li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.solid_angle">solid_angle() (raysect.optical.observer.nonimaging.mesh_camera.MeshCamera method)</a>
+</li>
       <li><a href="api_reference/core/random.html#raysect.core.math.sampler.solidangle.SolidAngleSampler">SolidAngleSampler (class in raysect.core.math.sampler.solidangle)</a>
 </li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.spawn_daughter">spawn_daughter() (raysect.optical.ray.Ray method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer._ObserverBase.spectral_bins">spectral_bins (raysect.optical.observer.base.observer._ObserverBase attribute)</a>
 </li>
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.base.observer._ObserverBase.spectral_rays">spectral_rays (raysect.optical.observer.base.observer._ObserverBase attribute)</a>
@@ -1247,13 +1309,9 @@
 </li>
       <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline2D">SpectralPowerPipeline2D (class in raysect.optical.observer.pipeline.spectral)</a>
 </li>
-      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.power.SpectralPowerPixelProcessor">SpectralPowerPixelProcessor (class in raysect.optical.observer.pipeline.spectral.power)</a>
-</li>
       <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline0D">SpectralRadiancePipeline0D (class in raysect.optical.observer.pipeline.spectral)</a>
 </li>
       <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D">SpectralRadiancePipeline2D (class in raysect.optical.observer.pipeline.spectral)</a>
-</li>
-      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.radiance.SpectralRadiancePixelProcessor">SpectralRadiancePixelProcessor (class in raysect.optical.observer.pipeline.spectral.radiance)</a>
 </li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum">Spectrum (class in raysect.optical.spectrum)</a>
 </li>
@@ -1267,12 +1325,22 @@
 </li>
       <li><a href="api_reference/core/utilities.html#raysect.core.containers.Stack">Stack (class in raysect.core.containers)</a>
 </li>
+      <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray1D">StatsArray1D (class in raysect.core.math.statsarray)</a>
+</li>
+      <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray2D">StatsArray2D (class in raysect.core.math.statsarray)</a>
+</li>
+      <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray3D">StatsArray3D (class in raysect.core.math.statsarray)</a>
+</li>
+      <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsBin">StatsBin (class in raysect.core.math.statsarray)</a>
+</li>
       <li><a href="api_reference/primitives/csg_operations.html#raysect.primitive.csg.Subtract">Subtract (class in raysect.primitive.csg)</a>
 </li>
       <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox2D.surface_area">surface_area() (raysect.core.boundingbox.BoundingBox2D method)</a>
 
       <ul>
         <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D.surface_area">(raysect.core.boundingbox.BoundingBox3D method)</a>
+</li>
+        <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingsphere.BoundingSphere3D.surface_area">(raysect.core.boundingsphere.BoundingSphere3D method)</a>
 </li>
       </ul></li>
       <li><a href="api_reference/core/random.html#raysect.core.math.sampler.surface3d.SurfaceSampler3D">SurfaceSampler3D (class in raysect.core.math.sampler.surface3d)</a>
@@ -1283,6 +1351,12 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.targets">targets (raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel attribute)</a>
+</li>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.targetted_path_prob">targetted_path_prob (raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel attribute)</a>
+</li>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel">TargettedPixel (class in raysect.optical.observer.nonimaging.targetted_pixel)</a>
+</li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node.to">to() (raysect.core.scenegraph.node.Node method)</a>
 
       <ul>
@@ -1301,19 +1375,17 @@
         <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D.to_spectrum">(raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D method)</a>
 </li>
       </ul></li>
-      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.total">total() (raysect.optical.spectrum.Spectrum method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.total">total() (raysect.optical.spectrum.Spectrum method)</a>
+</li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.ray.Ray.trace">trace() (raysect.optical.ray.Ray method)</a>
 </li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.node.Node.transform">transform (raysect.core.scenegraph.node.Node attribute)</a>
 </li>
-      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.normal.Normal3D.transform">transform() (raysect.core.math.normal.Normal3D method)</a>
+      <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.transform">transform() (raysect.core.math.point.Point3D method)</a>
 
       <ul>
-        <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.transform">(raysect.core.math.point.Point3D method)</a>
-</li>
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.vector.Vector3D.transform">(raysect.core.math.vector.Vector3D method)</a>
 </li>
       </ul></li>
@@ -1343,6 +1415,8 @@
 
       <ul>
         <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D.union">(raysect.core.boundingbox.BoundingBox3D method)</a>
+</li>
+        <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingsphere.BoundingSphere3D.union">(raysect.core.boundingsphere.BoundingSphere3D method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1383,10 +1457,10 @@
         <li><a href="api_reference/core/points_and_vectors.html#raysect.core.math.point.Point3D.vector_to">(raysect.core.math.point.Point3D method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.vector.VectorCamera">VectorCamera (class in raysect.optical.observer.imaging.vector)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox2D.vertices">vertices() (raysect.core.boundingbox.BoundingBox2D method)</a>
 
       <ul>
@@ -1394,7 +1468,11 @@
 </li>
       </ul></li>
       <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingbox.BoundingBox3D.volume">volume() (raysect.core.boundingbox.BoundingBox3D method)</a>
+
+      <ul>
+        <li><a href="api_reference/core/spatial_acceleration.html#raysect.core.boundingsphere.BoundingSphere3D.volume">(raysect.core.boundingsphere.BoundingSphere3D method)</a>
 </li>
+      </ul></li>
       <li><a href="api_reference/optical/optical_volumes.html#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator">VolumeIntegrator (class in raysect.optical.material.emitter.inhomogeneous)</a>
 </li>
   </ul></td>
@@ -1407,11 +1485,9 @@
 </li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectrum.Spectrum.wavelengths">wavelengths (raysect.optical.spectrum.Spectrum attribute)</a>
 </li>
-      <li><a href="api_reference/optical/optical_surfaces.html#raysect.optical.material.emitter.Checkerboard.width">width (raysect.optical.material.emitter.Checkerboard attribute)</a>
+      <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.ccd.CCDArray.width">width (raysect.optical.observer.imaging.ccd.CCDArray attribute)</a>
 
       <ul>
-        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.ccd.CCDArray.width">(raysect.optical.observer.imaging.ccd.CCDArray attribute)</a>
-</li>
         <li><a href="api_reference/optical/observers.html#raysect.optical.observer.imaging.orthographic.OrthographicCamera.width">(raysect.optical.observer.imaging.orthographic.OrthographicCamera attribute)</a>
 </li>
       </ul></li>
@@ -1432,11 +1508,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.pixel.Pixel.x_width">x_width (raysect.optical.observer.nonimaging.pixel.Pixel attribute)</a>
+
+      <ul>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.x_width">(raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api_reference/optical/pipelines.html#raysect.optical.observer.pipeline.rgb.XYZPixelProcessor">XYZPixelProcessor (class in raysect.optical.observer.pipeline.rgb)</a>
-</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -1444,7 +1520,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.pixel.Pixel.y_width">y_width (raysect.optical.observer.nonimaging.pixel.Pixel attribute)</a>
+
+      <ul>
+        <li><a href="api_reference/optical/observers.html#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.y_width">(raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api_reference/core/units.html#raysect.core.math.units.yard">yard() (in module raysect.core.math.units)</a>
@@ -1455,9 +1535,7 @@
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -1466,11 +1544,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2017, Dr Alex Meakins.
+        &copy; Copyright 2014-2018, Dr Alex Meakins.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1488,7 +1566,8 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.4.0',
+            VERSION:'0.5.4',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -1498,23 +1577,17 @@
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
