@@ -383,7 +383,7 @@ system relative to the scene-graph parent (default = identity matrix).</li>
 <p>It is easiest to import meshes from existing CAD files in either obj or stl with the helper methods.</p>
 <dl class="function">
 <dt id="raysect.primitive.mesh.obj.import_obj">
-<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">import_obj</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">raysect.primitive.mesh.obj.</code><code class="descname">import_obj</code><span class="sig-paren">(</span><em>filename</em>, <em>scaling=1.0</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a Wavefront OBJ mesh file (.obj).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -417,7 +417,7 @@ system relative to the scene-graph parent (default = identity matrix).</li>
 
 <dl class="function">
 <dt id="raysect.primitive.mesh.stl.import_stl">
-<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">import_stl</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">raysect.primitive.mesh.stl.</code><code class="descname">import_stl</code><span class="sig-paren">(</span><em>filename</em>, <em>scaling=1.0</em>, <em>mode='auto'</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a STereoLithography (STL) mesh file (.stl).</p>
 <p>Some engineering meshes are exported in different units (mm for example)
 whereas Raysect units are in m. Applying a scale factor of 0.001 would
@@ -483,7 +483,7 @@ convert the mesh into m for use in Raysect.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2018, Dr Alex Meakins
+        &copy; Copyright 2014-2018, Dr Alex Meakins.
 
     </p>
   </div>
@@ -502,14 +502,21 @@ convert the mesh into m for use in Raysect.</p>
 
   
 
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.5.4',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

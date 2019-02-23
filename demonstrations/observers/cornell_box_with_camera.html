@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Making a camera &mdash; Raysect Documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Raysect
+          
+
+          
+            
+            <img src="../../_static/RaysectLogo_web.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">2. License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">3. Downloading and Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../how_it_works.html">4. How it works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart_guide.html">5. Quickstart Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../observers.html">6. Sampling and Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitives.html">7. Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../materials.html">8. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../conventions.html">9. Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Demonstrations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../demonstrations.html">1. Core Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demonstrations.html#materials">2. Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demonstrations.html#observers">3. Observers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demonstrations.html#optics">4. Optics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference/core/core.html">1. Raysect Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference/primitives/primitives.html">2. Primitives Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference/optical/optical.html">3. Optical Module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Raysect</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Making a camera</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/demonstrations/observers/cornell_box_with_camera.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="making-a-camera">
+<span id="demo-cornell-box-with-camera"></span><h1>Making a camera<a class="headerlink" href="#making-a-camera" title="Permalink to this headline">¶</a></h1>
+<p>An example of making a custom camera from a CCD, aperture and lens. The
+camera is observing our implementation of the classic Cornell Box computer
+graphics benchmark scene.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Box</span>
+<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="k">import</span> <span class="n">Lambert</span><span class="p">,</span> <span class="n">UniformSurfaceEmitter</span><span class="p">,</span> <span class="n">NullMaterial</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">RGBPipeline2D</span><span class="p">,</span> <span class="n">BayerPipeline2D</span><span class="p">,</span> <span class="n">PowerPipeline2D</span><span class="p">,</span> <span class="n">TargettedCCDArray</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">RGBAdaptiveSampler2D</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Cornell Box Demo</span>
+<span class="sd">================</span>
+
+<span class="sd">This demo renders a variant of the classic Cornell Box scene.</span>
+
+<span class="sd">To the original Cornell Box see:</span>
+
+<span class="sd">    http://www.graphics.cornell.edu/online/box/data.html</span>
+
+<span class="sd">The wall colours and light spectrum used in this demo are the values measured</span>
+<span class="sd">for the physical Cornell Box.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># define reflectivity for box surfaces</span>
+<span class="n">wavelengths</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">404</span><span class="p">,</span> <span class="mi">408</span><span class="p">,</span> <span class="mi">412</span><span class="p">,</span> <span class="mi">416</span><span class="p">,</span> <span class="mi">420</span><span class="p">,</span> <span class="mi">424</span><span class="p">,</span> <span class="mi">428</span><span class="p">,</span> <span class="mi">432</span><span class="p">,</span> <span class="mi">436</span><span class="p">,</span> <span class="mi">440</span><span class="p">,</span> <span class="mi">444</span><span class="p">,</span> <span class="mi">448</span><span class="p">,</span> <span class="mi">452</span><span class="p">,</span> <span class="mi">456</span><span class="p">,</span> <span class="mi">460</span><span class="p">,</span> <span class="mi">464</span><span class="p">,</span> <span class="mi">468</span><span class="p">,</span> <span class="mi">472</span><span class="p">,</span> <span class="mi">476</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="mi">484</span><span class="p">,</span> <span class="mi">488</span><span class="p">,</span>
+     <span class="mi">492</span><span class="p">,</span> <span class="mi">496</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">504</span><span class="p">,</span> <span class="mi">508</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="mi">516</span><span class="p">,</span> <span class="mi">520</span><span class="p">,</span> <span class="mi">524</span><span class="p">,</span> <span class="mi">528</span><span class="p">,</span> <span class="mi">532</span><span class="p">,</span> <span class="mi">536</span><span class="p">,</span> <span class="mi">540</span><span class="p">,</span> <span class="mi">544</span><span class="p">,</span> <span class="mi">548</span><span class="p">,</span> <span class="mi">552</span><span class="p">,</span> <span class="mi">556</span><span class="p">,</span> <span class="mi">560</span><span class="p">,</span> <span class="mi">564</span><span class="p">,</span> <span class="mi">568</span><span class="p">,</span> <span class="mi">572</span><span class="p">,</span> <span class="mi">576</span><span class="p">,</span> <span class="mi">580</span><span class="p">,</span>
+     <span class="mi">584</span><span class="p">,</span> <span class="mi">588</span><span class="p">,</span> <span class="mi">592</span><span class="p">,</span> <span class="mi">596</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">604</span><span class="p">,</span> <span class="mi">608</span><span class="p">,</span> <span class="mi">612</span><span class="p">,</span> <span class="mi">616</span><span class="p">,</span> <span class="mi">620</span><span class="p">,</span> <span class="mi">624</span><span class="p">,</span> <span class="mi">628</span><span class="p">,</span> <span class="mi">632</span><span class="p">,</span> <span class="mi">636</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">644</span><span class="p">,</span> <span class="mi">648</span><span class="p">,</span> <span class="mi">652</span><span class="p">,</span> <span class="mi">656</span><span class="p">,</span> <span class="mi">660</span><span class="p">,</span> <span class="mi">664</span><span class="p">,</span> <span class="mi">668</span><span class="p">,</span> <span class="mi">672</span><span class="p">,</span>
+     <span class="mi">676</span><span class="p">,</span> <span class="mi">680</span><span class="p">,</span> <span class="mi">684</span><span class="p">,</span> <span class="mi">688</span><span class="p">,</span> <span class="mi">692</span><span class="p">,</span> <span class="mi">696</span><span class="p">,</span> <span class="mi">700</span><span class="p">])</span>
+
+<span class="n">white</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span><span class="mf">0.343</span><span class="p">,</span> <span class="mf">0.445</span><span class="p">,</span> <span class="mf">0.551</span><span class="p">,</span> <span class="mf">0.624</span><span class="p">,</span> <span class="mf">0.665</span><span class="p">,</span> <span class="mf">0.687</span><span class="p">,</span> <span class="mf">0.708</span><span class="p">,</span> <span class="mf">0.723</span><span class="p">,</span> <span class="mf">0.715</span><span class="p">,</span> <span class="mf">0.71</span><span class="p">,</span> <span class="mf">0.745</span><span class="p">,</span> <span class="mf">0.758</span><span class="p">,</span> <span class="mf">0.739</span><span class="p">,</span> <span class="mf">0.767</span><span class="p">,</span> <span class="mf">0.777</span><span class="p">,</span> <span class="mf">0.765</span><span class="p">,</span>
+     <span class="mf">0.751</span><span class="p">,</span> <span class="mf">0.745</span><span class="p">,</span> <span class="mf">0.748</span><span class="p">,</span> <span class="mf">0.729</span><span class="p">,</span> <span class="mf">0.745</span><span class="p">,</span> <span class="mf">0.757</span><span class="p">,</span> <span class="mf">0.753</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.746</span><span class="p">,</span> <span class="mf">0.747</span><span class="p">,</span> <span class="mf">0.735</span><span class="p">,</span> <span class="mf">0.732</span><span class="p">,</span> <span class="mf">0.739</span><span class="p">,</span> <span class="mf">0.734</span><span class="p">,</span> <span class="mf">0.725</span><span class="p">,</span> <span class="mf">0.721</span><span class="p">,</span>
+     <span class="mf">0.733</span><span class="p">,</span> <span class="mf">0.725</span><span class="p">,</span> <span class="mf">0.732</span><span class="p">,</span> <span class="mf">0.743</span><span class="p">,</span> <span class="mf">0.744</span><span class="p">,</span> <span class="mf">0.748</span><span class="p">,</span> <span class="mf">0.728</span><span class="p">,</span> <span class="mf">0.716</span><span class="p">,</span> <span class="mf">0.733</span><span class="p">,</span> <span class="mf">0.726</span><span class="p">,</span> <span class="mf">0.713</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">,</span> <span class="mf">0.754</span><span class="p">,</span> <span class="mf">0.764</span><span class="p">,</span> <span class="mf">0.752</span><span class="p">,</span> <span class="mf">0.736</span><span class="p">,</span>
+     <span class="mf">0.734</span><span class="p">,</span> <span class="mf">0.741</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">,</span> <span class="mf">0.732</span><span class="p">,</span> <span class="mf">0.745</span><span class="p">,</span> <span class="mf">0.755</span><span class="p">,</span> <span class="mf">0.751</span><span class="p">,</span> <span class="mf">0.744</span><span class="p">,</span> <span class="mf">0.731</span><span class="p">,</span> <span class="mf">0.733</span><span class="p">,</span> <span class="mf">0.744</span><span class="p">,</span> <span class="mf">0.731</span><span class="p">,</span> <span class="mf">0.712</span><span class="p">,</span> <span class="mf">0.708</span><span class="p">,</span> <span class="mf">0.729</span><span class="p">,</span> <span class="mf">0.73</span><span class="p">,</span>
+     <span class="mf">0.727</span><span class="p">,</span> <span class="mf">0.707</span><span class="p">,</span> <span class="mf">0.703</span><span class="p">,</span> <span class="mf">0.729</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.76</span><span class="p">,</span> <span class="mf">0.751</span><span class="p">,</span> <span class="mf">0.739</span><span class="p">,</span> <span class="mf">0.724</span><span class="p">,</span> <span class="mf">0.73</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">,</span> <span class="mf">0.737</span><span class="p">])</span>
+
+<span class="n">green</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span><span class="mf">0.092</span><span class="p">,</span> <span class="mf">0.096</span><span class="p">,</span> <span class="mf">0.098</span><span class="p">,</span> <span class="mf">0.097</span><span class="p">,</span> <span class="mf">0.098</span><span class="p">,</span> <span class="mf">0.095</span><span class="p">,</span> <span class="mf">0.095</span><span class="p">,</span> <span class="mf">0.097</span><span class="p">,</span> <span class="mf">0.095</span><span class="p">,</span> <span class="mf">0.094</span><span class="p">,</span> <span class="mf">0.097</span><span class="p">,</span> <span class="mf">0.098</span><span class="p">,</span> <span class="mf">0.096</span><span class="p">,</span> <span class="mf">0.101</span><span class="p">,</span> <span class="mf">0.103</span><span class="p">,</span> <span class="mf">0.104</span><span class="p">,</span>
+     <span class="mf">0.107</span><span class="p">,</span> <span class="mf">0.109</span><span class="p">,</span> <span class="mf">0.112</span><span class="p">,</span> <span class="mf">0.115</span><span class="p">,</span> <span class="mf">0.125</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="mf">0.187</span><span class="p">,</span> <span class="mf">0.229</span><span class="p">,</span> <span class="mf">0.285</span><span class="p">,</span> <span class="mf">0.343</span><span class="p">,</span> <span class="mf">0.39</span><span class="p">,</span> <span class="mf">0.435</span><span class="p">,</span> <span class="mf">0.464</span><span class="p">,</span> <span class="mf">0.472</span><span class="p">,</span> <span class="mf">0.476</span><span class="p">,</span> <span class="mf">0.481</span><span class="p">,</span>
+     <span class="mf">0.462</span><span class="p">,</span> <span class="mf">0.447</span><span class="p">,</span> <span class="mf">0.441</span><span class="p">,</span> <span class="mf">0.426</span><span class="p">,</span> <span class="mf">0.406</span><span class="p">,</span> <span class="mf">0.373</span><span class="p">,</span> <span class="mf">0.347</span><span class="p">,</span> <span class="mf">0.337</span><span class="p">,</span> <span class="mf">0.314</span><span class="p">,</span> <span class="mf">0.285</span><span class="p">,</span> <span class="mf">0.277</span><span class="p">,</span> <span class="mf">0.266</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">,</span> <span class="mf">0.207</span><span class="p">,</span> <span class="mf">0.186</span><span class="p">,</span>
+     <span class="mf">0.171</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="mf">0.148</span><span class="p">,</span> <span class="mf">0.141</span><span class="p">,</span> <span class="mf">0.136</span><span class="p">,</span> <span class="mf">0.13</span><span class="p">,</span> <span class="mf">0.126</span><span class="p">,</span> <span class="mf">0.123</span><span class="p">,</span> <span class="mf">0.121</span><span class="p">,</span> <span class="mf">0.122</span><span class="p">,</span> <span class="mf">0.119</span><span class="p">,</span> <span class="mf">0.114</span><span class="p">,</span> <span class="mf">0.115</span><span class="p">,</span> <span class="mf">0.117</span><span class="p">,</span> <span class="mf">0.117</span><span class="p">,</span> <span class="mf">0.118</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span>
+     <span class="mf">0.122</span><span class="p">,</span> <span class="mf">0.128</span><span class="p">,</span> <span class="mf">0.132</span><span class="p">,</span> <span class="mf">0.139</span><span class="p">,</span> <span class="mf">0.144</span><span class="p">,</span> <span class="mf">0.146</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.152</span><span class="p">,</span> <span class="mf">0.157</span><span class="p">,</span> <span class="mf">0.159</span><span class="p">])</span>
+
+<span class="n">red</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span><span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.046</span><span class="p">,</span> <span class="mf">0.048</span><span class="p">,</span> <span class="mf">0.053</span><span class="p">,</span> <span class="mf">0.049</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.053</span><span class="p">,</span> <span class="mf">0.055</span><span class="p">,</span> <span class="mf">0.057</span><span class="p">,</span> <span class="mf">0.056</span><span class="p">,</span> <span class="mf">0.059</span><span class="p">,</span> <span class="mf">0.057</span><span class="p">,</span> <span class="mf">0.061</span><span class="p">,</span> <span class="mf">0.061</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.062</span><span class="p">,</span> <span class="mf">0.062</span><span class="p">,</span>
+     <span class="mf">0.062</span><span class="p">,</span> <span class="mf">0.061</span><span class="p">,</span> <span class="mf">0.062</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.059</span><span class="p">,</span> <span class="mf">0.057</span><span class="p">,</span> <span class="mf">0.058</span><span class="p">,</span> <span class="mf">0.058</span><span class="p">,</span> <span class="mf">0.058</span><span class="p">,</span> <span class="mf">0.056</span><span class="p">,</span> <span class="mf">0.055</span><span class="p">,</span> <span class="mf">0.056</span><span class="p">,</span> <span class="mf">0.059</span><span class="p">,</span> <span class="mf">0.057</span><span class="p">,</span> <span class="mf">0.055</span><span class="p">,</span> <span class="mf">0.059</span><span class="p">,</span>
+     <span class="mf">0.059</span><span class="p">,</span> <span class="mf">0.058</span><span class="p">,</span> <span class="mf">0.059</span><span class="p">,</span> <span class="mf">0.061</span><span class="p">,</span> <span class="mf">0.061</span><span class="p">,</span> <span class="mf">0.063</span><span class="p">,</span> <span class="mf">0.063</span><span class="p">,</span> <span class="mf">0.067</span><span class="p">,</span> <span class="mf">0.068</span><span class="p">,</span> <span class="mf">0.072</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.09</span><span class="p">,</span> <span class="mf">0.099</span><span class="p">,</span> <span class="mf">0.124</span><span class="p">,</span> <span class="mf">0.154</span><span class="p">,</span> <span class="mf">0.192</span><span class="p">,</span>
+     <span class="mf">0.255</span><span class="p">,</span> <span class="mf">0.287</span><span class="p">,</span> <span class="mf">0.349</span><span class="p">,</span> <span class="mf">0.402</span><span class="p">,</span> <span class="mf">0.443</span><span class="p">,</span> <span class="mf">0.487</span><span class="p">,</span> <span class="mf">0.513</span><span class="p">,</span> <span class="mf">0.558</span><span class="p">,</span> <span class="mf">0.584</span><span class="p">,</span> <span class="mf">0.62</span><span class="p">,</span> <span class="mf">0.606</span><span class="p">,</span> <span class="mf">0.609</span><span class="p">,</span> <span class="mf">0.651</span><span class="p">,</span> <span class="mf">0.612</span><span class="p">,</span> <span class="mf">0.61</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.638</span><span class="p">,</span>
+     <span class="mf">0.627</span><span class="p">,</span> <span class="mf">0.62</span><span class="p">,</span> <span class="mf">0.63</span><span class="p">,</span> <span class="mf">0.628</span><span class="p">,</span> <span class="mf">0.642</span><span class="p">,</span> <span class="mf">0.639</span><span class="p">,</span> <span class="mf">0.657</span><span class="p">,</span> <span class="mf">0.639</span><span class="p">,</span> <span class="mf">0.635</span><span class="p">,</span> <span class="mf">0.642</span><span class="p">])</span>
+
+<span class="n">white_reflectivity</span> <span class="o">=</span> <span class="n">InterpolatedSF</span><span class="p">(</span><span class="n">wavelengths</span><span class="p">,</span> <span class="n">white</span><span class="p">)</span>
+<span class="n">red_reflectivity</span> <span class="o">=</span> <span class="n">InterpolatedSF</span><span class="p">(</span><span class="n">wavelengths</span><span class="p">,</span> <span class="n">red</span><span class="p">)</span>
+<span class="n">green_reflectivity</span> <span class="o">=</span> <span class="n">InterpolatedSF</span><span class="p">(</span><span class="n">wavelengths</span><span class="p">,</span> <span class="n">green</span><span class="p">)</span>
+
+<span class="c1"># define light spectrum</span>
+<span class="n">light_spectrum</span> <span class="o">=</span> <span class="n">InterpolatedSF</span><span class="p">(</span><span class="n">array</span><span class="p">([</span><span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">700</span><span class="p">]),</span> <span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">15.6</span><span class="p">,</span> <span class="mf">18.4</span><span class="p">]))</span>
+
+<span class="c1"># set-up scenegraph</span>
+<span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+
+<span class="c1"># enclosing box</span>
+<span class="n">enclosure</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
+
+<span class="n">e_back</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">parent</span><span class="o">=</span><span class="n">enclosure</span><span class="p">,</span>
+             <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">(</span><span class="n">white_reflectivity</span><span class="p">))</span>
+
+<span class="n">e_bottom</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+               <span class="n">parent</span><span class="o">=</span><span class="n">enclosure</span><span class="p">,</span>
+               <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+               <span class="c1"># material=m)</span>
+               <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">(</span><span class="n">white_reflectivity</span><span class="p">))</span>
+
+<span class="n">e_top</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="n">parent</span><span class="o">=</span><span class="n">enclosure</span><span class="p">,</span>
+            <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">(</span><span class="n">white_reflectivity</span><span class="p">))</span>
+
+<span class="n">e_left</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">parent</span><span class="o">=</span><span class="n">enclosure</span><span class="p">,</span>
+             <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+             <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">(</span><span class="n">red_reflectivity</span><span class="p">))</span>
+
+<span class="n">e_right</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+              <span class="n">parent</span><span class="o">=</span><span class="n">enclosure</span><span class="p">,</span>
+              <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+              <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">(</span><span class="n">green_reflectivity</span><span class="p">))</span>
+
+<span class="c1"># ceiling light</span>
+<span class="n">light</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+            <span class="n">parent</span><span class="o">=</span><span class="n">enclosure</span><span class="p">,</span>
+            <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="n">material</span><span class="o">=</span><span class="n">UniformSurfaceEmitter</span><span class="p">(</span><span class="n">light_spectrum</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># light = Box(Point3D(-0.4, -0.4, -0.01), Point3D(0.4, 0.4, 0.0),</span>
+<span class="c1">#             parent=enclosure,</span>
+<span class="c1">#             transform=translate(0, 1, 0) * rotate(0, 90, 0),</span>
+<span class="c1">#             material=UniformSurfaceEmitter(d65_white, 2))</span>
+
+<span class="c1"># back_light = Sphere(0.1,</span>
+<span class="c1">#     parent=enclosure,</span>
+<span class="c1">#     transform=translate(0.80, -0.85, 0.80)*rotate(0, 0, 0),</span>
+<span class="c1">#     material=UniformSurfaceEmitter(light_spectrum, 10.0))</span>
+
+<span class="c1"># objects in enclosure</span>
+<span class="n">box</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span>
+          <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+          <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+          <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;N-BK7&quot;</span><span class="p">))</span>
+
+<span class="n">sphere</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span>
+                <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+                <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span> <span class="o">+</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;N-BK7&quot;</span><span class="p">))</span>
+
+
+<span class="n">filter_red</span> <span class="o">=</span> <span class="n">InterpolatedSF</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">650</span><span class="p">,</span> <span class="mi">660</span><span class="p">,</span> <span class="mi">670</span><span class="p">,</span> <span class="mi">680</span><span class="p">,</span> <span class="mi">800</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">filter_green</span> <span class="o">=</span> <span class="n">InterpolatedSF</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">530</span><span class="p">,</span> <span class="mi">540</span><span class="p">,</span> <span class="mi">550</span><span class="p">,</span> <span class="mi">560</span><span class="p">,</span> <span class="mi">800</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">filter_blue</span> <span class="o">=</span> <span class="n">InterpolatedSF</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="mi">490</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">510</span><span class="p">,</span> <span class="mi">800</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># create and setup the camera</span>
+<span class="n">power_unfiltered</span> <span class="o">=</span> <span class="n">PowerPipeline2D</span><span class="p">(</span><span class="n">display_unsaturated_fraction</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Unfiltered&quot;</span><span class="p">)</span>
+<span class="n">power_unfiltered</span><span class="o">.</span><span class="n">display_update_time</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">power_green</span> <span class="o">=</span> <span class="n">PowerPipeline2D</span><span class="p">(</span><span class="nb">filter</span><span class="o">=</span><span class="n">filter_green</span><span class="p">,</span> <span class="n">display_unsaturated_fraction</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Green Filter&quot;</span><span class="p">)</span>
+<span class="n">power_green</span><span class="o">.</span><span class="n">display_update_time</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">power_red</span> <span class="o">=</span> <span class="n">PowerPipeline2D</span><span class="p">(</span><span class="nb">filter</span><span class="o">=</span><span class="n">filter_red</span><span class="p">,</span> <span class="n">display_unsaturated_fraction</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Red Filter&quot;</span><span class="p">)</span>
+<span class="n">power_red</span><span class="o">.</span><span class="n">display_update_time</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">rgb</span> <span class="o">=</span> <span class="n">RGBPipeline2D</span><span class="p">(</span><span class="n">display_unsaturated_fraction</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;sRGB&quot;</span><span class="p">)</span>
+
+<span class="n">bayer</span> <span class="o">=</span> <span class="n">BayerPipeline2D</span><span class="p">(</span><span class="n">filter_red</span><span class="p">,</span> <span class="n">filter_green</span><span class="p">,</span> <span class="n">filter_blue</span><span class="p">,</span> <span class="n">display_unsaturated_fraction</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bayer Filter&quot;</span><span class="p">)</span>
+<span class="n">bayer</span><span class="o">.</span><span class="n">display_update_time</span> <span class="o">=</span> <span class="mi">15</span>
+
+<span class="n">pipelines</span> <span class="o">=</span> <span class="p">[</span><span class="n">rgb</span><span class="p">,</span> <span class="n">power_unfiltered</span><span class="p">,</span> <span class="n">power_green</span><span class="p">,</span> <span class="n">power_red</span><span class="p">,</span> <span class="n">bayer</span><span class="p">]</span>
+
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">RGBAdaptiveSampler2D</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+
+
+<span class="n">camera</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.3</span><span class="p">))</span>
+<span class="n">pinhole</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">0.0005</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">NullMaterial</span><span class="p">())</span>
+<span class="n">film</span> <span class="o">=</span> <span class="n">TargettedCCDArray</span><span class="p">(</span><span class="n">targetted_path_prob</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="p">[</span><span class="n">pinhole</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">pixels</span><span class="o">=</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">camera</span><span class="p">,</span>
+                         <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1207</span><span class="p">),</span> <span class="n">pipelines</span><span class="o">=</span><span class="n">pipelines</span><span class="p">)</span>
+<span class="n">film</span><span class="o">.</span><span class="n">frame_sampler</span> <span class="o">=</span> <span class="n">sampler</span>
+<span class="n">film</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">film</span><span class="o">.</span><span class="n">spectral_bins</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">film</span><span class="o">.</span><span class="n">spectral_rays</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">film</span><span class="o">.</span><span class="n">ray_importance_sampling</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">film</span><span class="o">.</span><span class="n">ray_important_path_weight</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">film</span><span class="o">.</span><span class="n">ray_max_depth</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">film</span><span class="o">.</span><span class="n">ray_extinction_min_depth</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">film</span><span class="o">.</span><span class="n">ray_extinction_prob</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+
+<span class="c1"># start ray tracing</span>
+<span class="n">ion</span><span class="p">()</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">film</span><span class="o">.</span><span class="n">render_complete</span><span class="p">:</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendering pass </span><span class="si">{}</span><span class="s2">...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+
+    <span class="n">film</span><span class="o">.</span><span class="n">observe</span><span class="p">()</span>
+
+    <span class="n">rgb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;cornell_box_real_rgb_pass_</span><span class="si">{:04d}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+    <span class="n">power_unfiltered</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;cornell_box_real_unfiltered_pass_</span><span class="si">{:04d}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="n">p</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">ioff</span><span class="p">()</span>
+<span class="n">rgb</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+
+
+</pre></div>
+</div>
+<img alt="../../_images/cornell_box_real_lens.png" class="align-center" src="../../_images/cornell_box_real_lens.png" />
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014-2018, Dr Alex Meakins.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.5.4',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
