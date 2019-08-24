@@ -19,13 +19,21 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
@@ -33,21 +41,16 @@
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="3.5. Optical Surface Materials" href="optical_surfaces.html" />
     <link rel="prev" title="3.3. Frame Samples and Pipelines" href="pipelines.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -64,7 +67,7 @@
             
             
               <div class="version">
-                0.5.4
+                0.5.6
               </div>
             
           
@@ -407,27 +410,22 @@ from local primitive space to world space.</li>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>A base class for materials implementing a continuous BSDF.</p>
 <dl class="method">
-<dt id="raysect.optical.material.material.ContinuousBSDF.evaluate_brdf">
-<code class="descname">evaluate_brdf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.ContinuousBSDF.evaluate_brdf" title="Permalink to this definition">¶</a></dt>
-<dd><p>Evaluates the surface bidirectional reflectance distribution function (BRDF) for a given
-incoming and outgoing direction.</p>
-<p>The integral of the BRDF over <span class="math notranslate nohighlight">\(2\pi\)</span> steradians equals the total fraction of light
-that is reflected from the surface. The remainder is either absorbed or undergoes subsurface
-transport through the material.</p>
+<dt id="raysect.optical.material.material.ContinuousBSDF.bsdf">
+<code class="descname">bsdf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.ContinuousBSDF.bsdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the surface bi-directional scattering distribution function (BSDF).</p>
+<p>The BSDF is calculated for the given wavelength, incoming and outgoing surface space directions.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>omega_incoming</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The incoming vector, <span class="math notranslate nohighlight">\(\omega_i\)</span>, along which light is incident
-at the surface.</li>
-<li><strong>omega_outgoing</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The outgoing vector, <span class="math notranslate nohighlight">\(\omega_o\)</span>, along which light is reflected 
-from the surface.</li>
-<li><strong>wavelength</strong> (<em>float</em>) – The wavelength <span class="math notranslate nohighlight">\(\lambda\)</span> at which to perform the brdf calculation.</li>
+<li><strong>s_incident</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The surface space incident vector, <span class="math notranslate nohighlight">\(\omega_i\)</span>.</li>
+<li><strong>s_reflected</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The surface space reflected vector, <span class="math notranslate nohighlight">\(\omega_o\)</span>.</li>
+<li><strong>wavelength</strong> (<em>float</em>) – The wavelength <span class="math notranslate nohighlight">\(\lambda\)</span> at which to perform the BSDF evaluation.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The BRDF evaluated at the given point in brdf space <span class="math notranslate nohighlight">\((\omega_i, \omega_o)\)</span>.</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The BSDF value, <span class="math notranslate nohighlight">\(BSDF(\omega_i, \omega_o, \lambda)\)</span></p>
 </td>
 </tr>
 </tbody>
@@ -480,7 +478,7 @@ from local primitive space to world space.</li>
         <a href="optical_surfaces.html" class="btn btn-neutral float-right" title="3.5. Optical Surface Materials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pipelines.html" class="btn btn-neutral" title="3.3. Frame Samples and Pipelines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="pipelines.html" class="btn btn-neutral float-left" title="3.3. Frame Samples and Pipelines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -489,7 +487,7 @@ from local primitive space to world space.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2018, Dr Alex Meakins.
+        &copy; Copyright 2014-2018, Dr Alex Meakins
 
     </p>
   </div>
@@ -506,33 +504,16 @@ from local primitive space to world space.</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'0.5.4',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

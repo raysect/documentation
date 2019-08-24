@@ -20,33 +20,36 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/theme.css" type="text/css" />
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -63,7 +66,7 @@
             
             
               <div class="version">
-                0.5.4
+                0.5.6
               </div>
             
           
@@ -373,6 +376,8 @@
 </li>
       <li><a href="api_reference/primitives/geometric_primitives.html#raysect.primitive.Box">Box (class in raysect.primitive)</a>, <a href="primitives.html#raysect.primitive.Box">[1]</a>
 </li>
+      <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.ContinuousBSDF.bsdf">bsdf() (raysect.optical.material.material.ContinuousBSDF method)</a>
+</li>
       <li><a href="api_reference/core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World.build_accelerator">build_accelerator() (raysect.core.scenegraph.world.World method)</a>
 </li>
       <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.scenegraph.world.World.build_importance">build_importance() (raysect.optical.scenegraph.world.World method)</a>
@@ -591,7 +596,7 @@
         <li><a href="api_reference/core/statistics_arrays.html#raysect.core.math.statsarray.StatsArray3D.errors">(raysect.core.math.statsarray.StatsArray3D method)</a>
 </li>
       </ul></li>
-      <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.ContinuousBSDF.evaluate_brdf">evaluate_brdf() (raysect.optical.material.material.ContinuousBSDF method)</a>
+      <li><a href="api_reference/optical/main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction.evaluate">evaluate() (raysect.optical.spectralfunction.SpectralFunction method)</a>
 </li>
       <li><a href="api_reference/optical/optical_material_base_classes.html#raysect.optical.material.material.ContinuousBSDF.evaluate_surface">evaluate_surface() (raysect.optical.material.material.ContinuousBSDF method)</a>
 
@@ -1546,7 +1551,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2018, Dr Alex Meakins.
+        &copy; Copyright 2014-2018, Dr Alex Meakins
 
     </p>
   </div>
@@ -1563,33 +1568,16 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.5.4',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

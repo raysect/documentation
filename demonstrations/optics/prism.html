@@ -19,33 +19,36 @@
   
 
   
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -62,7 +65,7 @@
             
             
               <div class="version">
-                0.5.4
+                0.5.6
               </div>
             
           
@@ -180,18 +183,18 @@
 <span id="demo-prism-dispersion"></span><h1>Dispersion through a Prism<a class="headerlink" href="#dispersion-through-a-prism" title="Permalink to this headline">¶</a></h1>
 <p>This demo demonstrates the dispersion of a white light source through a prism. Note, it may take a very long time to
 generate adequate samples for this demonstration.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># External module imports</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># External module imports</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">tan</span><span class="p">,</span> <span class="n">pi</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="c1"># Raysect imports</span>
 <span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Intersect</span><span class="p">,</span> <span class="n">Subtract</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Cylinder</span><span class="p">,</span> <span class="n">Sphere</span>
 <span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">Node</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">d65_white</span><span class="p">,</span> <span class="n">ConstantSF</span>
-<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span><span class="p">,</span> <span class="n">RGBPipeline2D</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span><span class="p">,</span> <span class="n">RGBPipeline2D</span><span class="p">,</span> <span class="n">RGBAdaptiveSampler2D</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="k">import</span> <span class="n">Lambert</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.material.emitter</span> <span class="k">import</span> <span class="n">UniformSurfaceEmitter</span>
-<span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="n">schott</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="n">schott</span><span class="p">,</span> <span class="n">RoughIron</span>
 
 
 <span class="c1"># Utility method to construct a glass prism from CSG operations</span>
@@ -202,17 +205,25 @@ generate adequate samples for this demonstration.</p>
 
     <span class="n">centre</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="n">half_width</span> <span class="o">*</span> <span class="mf">1.001</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="n">half_width</span> <span class="o">*</span> <span class="mf">1.001</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">))</span>
 
-    <span class="n">left</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">height</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">,</span> <span class="o">-</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">),</span>
-               <span class="n">Point3D</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">*</span> <span class="mf">1.001</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">width</span><span class="p">),</span>
-               <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="n">half_width</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span>
+        <span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">height</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">,</span> <span class="o">-</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">),</span>
+        <span class="n">Point3D</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">*</span> <span class="mf">1.001</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">width</span><span class="p">),</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="n">half_width</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">)</span>
 
-    <span class="n">right</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="p">,</span> <span class="o">-</span><span class="n">height</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">,</span> <span class="o">-</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">),</span>
-                <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">height</span> <span class="o">*</span> <span class="mf">1.001</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">width</span><span class="p">),</span>
-                <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="n">half_width</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="n">right</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span>
+        <span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="p">,</span> <span class="o">-</span><span class="n">height</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">,</span> <span class="o">-</span><span class="n">width</span> <span class="o">*</span> <span class="mf">0.001</span><span class="p">),</span>
+        <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">height</span> <span class="o">*</span> <span class="mf">1.001</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">width</span><span class="p">),</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="n">half_width</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">)</span>
 
-    <span class="n">csg_prism</span> <span class="o">=</span> <span class="n">Subtract</span><span class="p">(</span><span class="n">Subtract</span><span class="p">(</span><span class="n">centre</span><span class="p">,</span> <span class="n">left</span><span class="p">),</span> <span class="n">right</span><span class="p">,</span>
-                     <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span> <span class="o">*</span> <span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">mid_point</span><span class="p">),</span>
-                     <span class="n">material</span><span class="o">=</span><span class="n">material</span><span class="p">)</span>
+    <span class="n">csg_prism</span> <span class="o">=</span> <span class="n">Subtract</span><span class="p">(</span>
+        <span class="n">Subtract</span><span class="p">(</span><span class="n">centre</span><span class="p">,</span> <span class="n">left</span><span class="p">),</span>
+        <span class="n">right</span><span class="p">,</span>
+        <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">transform</span> <span class="o">*</span> <span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">mid_point</span><span class="p">),</span>
+        <span class="n">material</span><span class="o">=</span><span class="n">material</span>
+    <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">csg_prism</span>
 
@@ -229,71 +240,87 @@ generate adequate samples for this demonstration.</p>
 
     <span class="n">Subtract</span><span class="p">(</span><span class="n">outer</span><span class="p">,</span> <span class="n">slit</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">node</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">(</span><span class="n">reflectivity</span><span class="o">=</span><span class="n">ConstantSF</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)))</span>
 
-    <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.0015</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.045</span><span class="p">),</span>
+    <span class="n">Box</span><span class="p">(</span>
+        <span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mf">0.0015</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.045</span><span class="p">),</span>
         <span class="n">Point3D</span><span class="p">(</span><span class="mf">0.0015</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.04</span><span class="p">),</span>
         <span class="n">parent</span><span class="o">=</span><span class="n">node</span><span class="p">,</span>
-        <span class="n">material</span><span class="o">=</span><span class="n">UniformSurfaceEmitter</span><span class="p">(</span><span class="n">d65_white</span><span class="p">,</span> <span class="mi">250</span><span class="p">))</span>
+        <span class="n">material</span><span class="o">=</span><span class="n">UniformSurfaceEmitter</span><span class="p">(</span><span class="n">d65_white</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
+    <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">node</span>
 
 
 <span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
 
-
 <span class="c1"># construct diffuse floor surface</span>
-<span class="n">floor</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span>
-            <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">())</span>
-
+<span class="n">floor</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1000</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">())</span>
 
 <span class="c1"># construct prism from utility method</span>
-<span class="n">prism</span> <span class="o">=</span> <span class="n">equilateral_prism</span><span class="p">(</span><span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
-                          <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;SF11&quot;</span><span class="p">),</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="o">+</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-
+<span class="n">prism</span> <span class="o">=</span> <span class="n">equilateral_prism</span><span class="p">(</span><span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;SF11&quot;</span><span class="p">),</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="o">+</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">))</span>
 
 <span class="c1"># Curved target screen for collecting rainbow light</span>
-<span class="n">screen</span> <span class="o">=</span> <span class="n">Intersect</span><span class="p">(</span>
+<span class="n">stand</span> <span class="o">=</span> <span class="n">Intersect</span><span class="p">(</span>
     <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
-    <span class="n">Subtract</span><span class="p">(</span><span class="n">Cylinder</span><span class="p">(</span><span class="mf">0.22</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">),</span>
-             <span class="n">Cylinder</span><span class="p">(</span><span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.005</span><span class="p">)),</span>
-             <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+    <span class="n">Subtract</span><span class="p">(</span>
+        <span class="n">Cylinder</span><span class="p">(</span><span class="mf">0.21</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">),</span>
+        <span class="n">Cylinder</span><span class="p">(</span><span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.16</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.005</span><span class="p">)),</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
     <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
-    <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">()</span>
+    <span class="n">material</span><span class="o">=</span><span class="n">schott</span><span class="p">(</span><span class="s2">&quot;N-BK7&quot;</span><span class="p">)</span>  <span class="c1"># RoughIron(0.25)</span>
 <span class="p">)</span>
 
+<span class="n">surface</span> <span class="o">=</span> <span class="n">Intersect</span><span class="p">(</span>
+    <span class="n">Box</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.015</span><span class="p">)),</span>
+    <span class="n">Subtract</span><span class="p">(</span>
+        <span class="n">Cylinder</span><span class="p">(</span><span class="mf">0.1999</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.015</span><span class="p">)),</span>
+        <span class="n">Cylinder</span><span class="p">(</span><span class="mf">0.1998</span><span class="p">,</span> <span class="mf">0.13</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.010</span><span class="p">)),</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">parent</span><span class="o">=</span><span class="n">stand</span><span class="p">,</span>
+    <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">(</span><span class="n">ConstantSF</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="p">)</span>
 
 <span class="c1"># construct main collimated light source</span>
-<span class="n">prism_light</span> <span class="o">=</span> <span class="n">light_box</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
-                        <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mf">35.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">translate</span><span class="p">(</span><span class="mf">0.10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-
+<span class="n">prism_light</span> <span class="o">=</span> <span class="n">light_box</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mf">35.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">translate</span><span class="p">(</span><span class="mf">0.10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 
 <span class="c1"># background light source</span>
-<span class="n">top_light</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
-                   <span class="n">material</span><span class="o">=</span><span class="n">UniformSurfaceEmitter</span><span class="p">(</span><span class="n">d65_white</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
-
+<span class="n">top_light</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">UniformSurfaceEmitter</span><span class="p">(</span><span class="n">d65_white</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
 
 <span class="c1"># Give the prism a high importance to ensure adequate sampling</span>
 <span class="n">prism</span><span class="o">.</span><span class="n">material</span><span class="o">.</span><span class="n">importance</span> <span class="o">=</span> <span class="mi">9</span>
 
 <span class="n">rgb</span> <span class="o">=</span> <span class="n">RGBPipeline2D</span><span class="p">()</span>
+<span class="n">rgb</span><span class="o">.</span><span class="n">display_sensitivity</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">RGBAdaptiveSampler2D</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
 
 <span class="c1"># create and setup the camera</span>
-<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">((</span><span class="mi">512</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span> <span class="n">fov</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">pipelines</span><span class="o">=</span><span class="p">[</span><span class="n">rgb</span><span class="p">])</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">65</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.75</span><span class="p">)</span>
+<span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">((</span><span class="mi">1920</span><span class="p">,</span> <span class="mi">1080</span><span class="p">),</span> <span class="n">fov</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span> <span class="n">pipelines</span><span class="o">=</span><span class="p">[</span><span class="n">rgb</span><span class="p">],</span> <span class="n">frame_sampler</span><span class="o">=</span><span class="n">sampler</span><span class="p">)</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">transform</span> <span class="o">=</span> <span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.075</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="o">-</span><span class="mi">45</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.75</span><span class="p">)</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">ray_importance_sampling</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">ray_important_path_weight</span> <span class="o">=</span> <span class="mf">0.75</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">ray_max_depth</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">ray_extinction_prob</span> <span class="o">=</span> <span class="mf">0.01</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">spectral_bins</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">spectral_rays</span> <span class="o">=</span> <span class="mi">32</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">100</span>
-
+<span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">250</span>
 
 <span class="c1"># start ray tracing</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
+
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendering pass </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
     <span class="n">camera</span><span class="o">.</span><span class="n">observe</span><span class="p">()</span>
+
+    <span class="c1"># save image</span>
     <span class="n">rgb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;prisms_</span><span class="si">{}</span><span class="s2">.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># save pipeline object</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prisms_</span><span class="si">{}</span><span class="s1">.pickle&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
     <span class="nb">print</span><span class="p">()</span>
 
 <span class="c1"># display final result</span>
@@ -302,7 +329,7 @@ generate adequate samples for this demonstration.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/prism_720x360.jpg" class="align-center" src="../../_images/prism_720x360.jpg" />
+<img alt="demonstrations/optics/prism_720x405.jpg" class="align-center" src="demonstrations/optics/prism_720x405.jpg" />
 </div>
 
 
@@ -316,7 +343,7 @@ generate adequate samples for this demonstration.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2018, Dr Alex Meakins.
+        &copy; Copyright 2014-2018, Dr Alex Meakins
 
     </p>
   </div>
@@ -333,33 +360,16 @@ generate adequate samples for this demonstration.</p>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'0.5.4',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
