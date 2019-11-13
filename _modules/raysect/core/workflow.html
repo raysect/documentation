@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.5.6
+                0.6.0
               </div>
             
           
@@ -207,8 +207,9 @@
 <span class="c1"># ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</span>
 <span class="c1"># POSSIBILITY OF SUCH DAMAGE.</span>
 
-<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="k">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">cpu_count</span><span class="p">,</span> <span class="n">SimpleQueue</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="k">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">cpu_count</span><span class="p">,</span> <span class="n">SimpleQueue</span><span class="p">,</span> <span class="n">Value</span>
 <span class="kn">from</span> <span class="nn">raysect.core.math</span> <span class="k">import</span> <span class="n">random</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
 
 <div class="viewcode-block" id="RenderEngine"><a class="viewcode-back" href="../../../api_reference/core/render_engines.html#raysect.core.workflow.RenderEngine">[docs]</a><span class="k">class</span> <span class="nc">RenderEngine</span><span class="p">:</span>
@@ -303,10 +304,23 @@
 <span class="sd">    the processes attribute. This can also be set at object initialisation.</span>
 <span class="sd">   </span>
 <span class="sd">    If the processes attribute is set to None (the default), the render engine</span>
-<span class="sd">    will automatically set the number pf processes to be equal to the number</span>
+<span class="sd">    will automatically set the number of processes to be equal to the number</span>
 <span class="sd">    of CPU cores detected on the machine.</span>
-<span class="sd">    </span>
+
+<span class="sd">    If a render is being performed where the time to compute an individual task</span>
+<span class="sd">    is comparable to the latency of the inter process communication (IPC), the</span>
+<span class="sd">    render may run significantly slower than expected due to waiting for the</span>
+<span class="sd">    IPC to complete. To reduce the impact of the IPC overhead, multiple tasks</span>
+<span class="sd">    are grouped together into jobs, requiring only one IPC wait for multiple</span>
+<span class="sd">    tasks.</span>
+
+<span class="sd">    By default the number of tasks per job is adjusted automatically. The</span>
+<span class="sd">    tasks_per_job attribute can be used to override this automatic adjustment.</span>
+<span class="sd">    To reenable the automated adjustment, set the tasks_per_job attribute to</span>
+<span class="sd">    None.</span>
+
 <span class="sd">    :param processes: The number of worker processes, or None to use all available cores (default).</span>
+<span class="sd">    :param tasks_per_job: The number of tasks to group into a single job, or None if this should be determined automatically (default).</span>
 
 <span class="sd">    .. code-block:: pycon</span>
 
@@ -322,10 +336,10 @@
 <span class="sd">        &gt;&gt;&gt; camera.render_engine = MulticoreEngine(processes=8)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">processes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">processes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tasks_per_job</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_processes</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">processes</span> <span class="o">=</span> <span class="n">processes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tasks_per_job</span> <span class="o">=</span> <span class="n">tasks_per_job</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">processes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -341,55 +355,122 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Number of concurrent worker processes must be greater than zero.&#39;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_processes</span> <span class="o">=</span> <span class="n">value</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tasks_per_job</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tasks_per_job</span>
+
+    <span class="nd">@tasks_per_job</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">tasks_per_job</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tasks_per_job</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_auto_tasks_per_job</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The number of tasks per job must be greater than zero or None.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tasks_per_job</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_auto_tasks_per_job</span> <span class="o">=</span> <span class="kc">False</span>
+
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">render_args</span><span class="o">=</span><span class="p">(),</span> <span class="n">render_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">update_args</span><span class="o">=</span><span class="p">(),</span> <span class="n">update_kwargs</span><span class="o">=</span><span class="p">{}):</span>
 
-        <span class="c1"># establish ipc queues using a manager process</span>
-        <span class="n">task_queue</span> <span class="o">=</span> <span class="n">SimpleQueue</span><span class="p">()</span>
+        <span class="c1"># establish ipc queues</span>
+        <span class="n">job_queue</span> <span class="o">=</span> <span class="n">SimpleQueue</span><span class="p">()</span>
         <span class="n">result_queue</span> <span class="o">=</span> <span class="n">SimpleQueue</span><span class="p">()</span>
+        <span class="n">tasks_per_job</span> <span class="o">=</span> <span class="n">Value</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
 
-        <span class="c1"># start process to generate image samples</span>
-        <span class="n">producer</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_producer</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">tasks</span><span class="p">,</span> <span class="n">task_queue</span><span class="p">))</span>
+        <span class="c1"># start process to generate jobs</span>
+        <span class="n">tasks_per_job</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tasks_per_job</span>
+        <span class="n">producer</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_producer</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">tasks</span><span class="p">,</span> <span class="n">job_queue</span><span class="p">,</span> <span class="n">tasks_per_job</span><span class="p">))</span>
         <span class="n">producer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
         <span class="c1"># start worker processes</span>
         <span class="n">workers</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">pid</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_processes</span><span class="p">):</span>
-            <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">render</span><span class="p">,</span> <span class="n">render_args</span><span class="p">,</span> <span class="n">render_kwargs</span><span class="p">,</span> <span class="n">task_queue</span><span class="p">,</span> <span class="n">result_queue</span><span class="p">))</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">render</span><span class="p">,</span> <span class="n">render_args</span><span class="p">,</span> <span class="n">render_kwargs</span><span class="p">,</span> <span class="n">job_queue</span><span class="p">,</span> <span class="n">result_queue</span><span class="p">))</span>
             <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
             <span class="n">workers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 
         <span class="c1"># consume results</span>
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">result_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-            <span class="n">update</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="o">*</span><span class="n">update_args</span><span class="p">,</span> <span class="o">**</span><span class="n">update_kwargs</span><span class="p">)</span>
+        <span class="n">remaining</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">remaining</span><span class="p">:</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="n">result_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+                <span class="n">update</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="o">*</span><span class="n">update_args</span><span class="p">,</span> <span class="o">**</span><span class="n">update_kwargs</span><span class="p">)</span>
+                <span class="n">remaining</span> <span class="o">-=</span> <span class="mi">1</span>
 
         <span class="c1"># shutdown workers</span>
         <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">workers</span><span class="p">:</span>
-            <span class="n">task_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="n">job_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+
+        <span class="c1"># store tasks per job value for next run</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tasks_per_job</span> <span class="o">=</span> <span class="n">tasks_per_job</span><span class="o">.</span><span class="n">value</span>
 
     <span class="k">def</span> <span class="nf">worker_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processes</span>
 
-    <span class="k">def</span> <span class="nf">_producer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">task_queue</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span><span class="p">:</span>
-            <span class="n">task_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_producer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">job_queue</span><span class="p">,</span> <span class="n">stored_tasks_per_job</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">_worker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">task_queue</span><span class="p">,</span> <span class="n">result_queue</span><span class="p">):</span>
+        <span class="c1"># initialise request rate controller constants</span>
+        <span class="n">target_rate</span> <span class="o">=</span> <span class="mi">50</span>  <span class="c1"># requests per second</span>
+        <span class="n">min_time</span> <span class="o">=</span> <span class="mi">1</span>      <span class="c1"># seconds</span>
+        <span class="n">min_requests</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">target_rate</span><span class="p">,</span> <span class="mi">5</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_processes</span><span class="p">)</span>
+        <span class="n">tasks_per_job</span> <span class="o">=</span> <span class="n">stored_tasks_per_job</span><span class="o">.</span><span class="n">value</span>
+
+        <span class="c1"># split tasks into jobs and dispatch to workers</span>
+        <span class="n">requests</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">processes</span>  <span class="c1"># ignore the initial jobs, the requests are instantaneous</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">while</span> <span class="n">tasks</span><span class="p">:</span>
+
+            <span class="c1"># assemble job</span>
+            <span class="n">job</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tasks_per_job</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">tasks</span><span class="p">:</span>
+                    <span class="n">job</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tasks</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+                    <span class="k">continue</span>
+                <span class="k">break</span>
+
+            <span class="c1"># add job to queue</span>
+            <span class="n">job_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">job</span><span class="p">)</span>
+            <span class="n">requests</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="c1"># if enabled, auto adjust tasks per job to keep target requests per second</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_auto_tasks_per_job</span><span class="p">:</span>
+
+                <span class="n">elapsed_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">elapsed_time</span> <span class="o">&gt;</span> <span class="n">min_time</span> <span class="ow">and</span> <span class="n">requests</span> <span class="o">&gt;</span> <span class="n">min_requests</span><span class="p">:</span>
+
+                    <span class="c1"># re-normalise the tasks per job based on previous work to propose a new value</span>
+                    <span class="n">requests_rate</span> <span class="o">=</span> <span class="n">requests</span> <span class="o">/</span> <span class="n">elapsed_time</span>
+                    <span class="n">proposed</span> <span class="o">=</span> <span class="n">tasks_per_job</span> <span class="o">*</span> <span class="n">requests_rate</span> <span class="o">/</span> <span class="n">target_rate</span>
+
+                    <span class="c1"># gradually adjust tasks per job to reduce risk of oscillation</span>
+                    <span class="n">tasks_per_job</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">proposed</span> <span class="o">+</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">tasks_per_job</span>
+                    <span class="n">tasks_per_job</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">tasks_per_job</span><span class="p">))</span>
+
+                    <span class="c1"># reset counters</span>
+                    <span class="n">requests</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+        <span class="c1"># pass back new value</span>
+        <span class="n">stored_tasks_per_job</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">tasks_per_job</span>
+
+    <span class="k">def</span> <span class="nf">_worker</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">,</span> <span class="n">job_queue</span><span class="p">,</span> <span class="n">result_queue</span><span class="p">):</span>
 
         <span class="c1"># re-seed the random number generator to prevent all workers inheriting the same sequence</span>
         <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">()</span>
 
-        <span class="c1"># process tasks</span>
+        <span class="c1"># process jobs</span>
         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 
-            <span class="n">task</span> <span class="o">=</span> <span class="n">task_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+            <span class="n">job</span> <span class="o">=</span> <span class="n">job_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
 
             <span class="c1"># have we been commanded to shutdown?</span>
-            <span class="k">if</span> <span class="n">task</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">job</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">break</span>
 
-            <span class="n">result</span> <span class="o">=</span> <span class="n">render</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            <span class="n">result_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+            <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">job</span><span class="p">:</span>
+                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">render</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+            <span class="n">result_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>

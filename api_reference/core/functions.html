@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.5.6
+                0.6.0
               </div>
             
           
@@ -204,8 +204,8 @@
   <div class="section" id="functions-and-interpolators">
 <h1>1.2.3. Functions and Interpolators<a class="headerlink" href="#functions-and-interpolators" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="raysect.core.math.function.function1d.Function1D">
-<em class="property">class </em><code class="descclassname">raysect.core.math.function.function1d.</code><code class="descname">Function1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.Function1D" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.core.math.function.function1d.base.Function1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function1d.base.</code><code class="sig-name descname">Function1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.base.Function1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cython optimised class for representing an arbitrary 1D function.</p>
 <p>Using __call__() in cython is slow. This class provides an overloadable
 cython cdef evaluate() method which has much less overhead than a python
@@ -214,28 +214,26 @@ function call.</p>
 <p>To create a new function object, inherit this class and implement the
 evaluate() method. The new function object can then be used with any code
 that accepts a function object.</p>
-<dl class="attribute">
-<dt id="raysect.core.math.function.function1d.Function1D.__call__">
-<code class="descname">__call__</code><a class="headerlink" href="#raysect.core.math.function.function1d.Function1D.__call__" title="Permalink to this definition">¶</a></dt>
+<dl class="method">
+<dt id="raysect.core.math.function.function1d.base.Function1D.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.function.function1d.base.Function1D.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the function f(x)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> (<em>float</em>) – function parameter x</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>float</em>) – function parameter x</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.core.math.function.function1d.PythonFunction1D">
-<em class="property">class </em><code class="descclassname">raysect.core.math.function.function1d.</code><code class="descname">PythonFunction1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.PythonFunction1D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.Function1D" title="raysect.core.math.function.function1d.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function1d.Function1D</span></code></a></p>
+<dt id="raysect.core.math.function.function1d.autowrap.PythonFunction1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function1d.autowrap.</code><code class="sig-name descname">PythonFunction1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.autowrap.PythonFunction1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function1d.base.Function1D</span></code></a></p>
 <p>Wraps a python callable object with a Function1D object.</p>
 <p>This class allows a python object to interact with cython code that requires
 a Function1D object. The python object must implement __call__() expecting
@@ -248,20 +246,163 @@ designed to accept a generic python object and then test that object to
 determine if it is an instance of Function1D. If the object is not a
 Function1D object it should be wrapped using this class for internal use.</p>
 <p>See also: autowrap_function1d()</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> (<em>object</em>) – the python function to wrap, __call__() function must be</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<em>object</em>) – the python function to wrap, __call__() function must be</p>
+</dd>
+</dl>
 <p>implemented on the object.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.core.math.function.function2d.Function2D">
-<em class="property">class </em><code class="descclassname">raysect.core.math.function.function2d.</code><code class="descname">Function2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.Function2D" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.core.math.function.function1d.constant.Constant1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function1d.constant.</code><code class="sig-name descname">Constant1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.constant.Constant1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function1d.base.Function1D</span></code></a></p>
+<p>Wraps a scalar constant with a Function1D object.</p>
+<p>This class allows a numeric Python scalar, such as a float or an integer, to
+interact with cython code that requires a Function1D object. The scalar must
+be convertible to double. The value of the scalar constant will be returned
+independent of the arguments the function is called with.</p>
+<p>This class is intended to be used to transparently wrap python objects that
+are passed via constructors or methods into cython optimised code. It is not
+intended that the users should need to directly interact with these wrapping
+objects. Constructors and methods expecting a Function1D object should be
+designed to accept a generic python object and then test that object to
+determine if it is an instance of Function1D. If the object is not a
+Function1D object it should be wrapped using this class for internal use.</p>
+<p>See also: autowrap_function1d()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) – the constant value to return when called</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function1d.arg.Arg1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function1d.arg.</code><code class="sig-name descname">Arg1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.arg.Arg1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function1d.base.Function1D</span></code></a></p>
+<p>Returns the argument the function is passed, unmodified</p>
+<p>This is used to pass coordinates through to other functions in the
+function framework which expect a Function1D object.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">arg</span> <span class="o">=</span> <span class="n">Arg1D</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arg</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">arg</span><span class="p">(</span><span class="o">-</span><span class="mf">3.14</span><span class="p">)</span>
+<span class="go">-3.14</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squarer</span> <span class="o">=</span> <span class="n">Arg1D</span><span class="p">()</span><span class="o">**</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squarer</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squarer</span><span class="p">(</span><span class="o">-</span><span class="mf">3.14</span><span class="p">)</span>
+<span class="go">9.8596</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function1d.cmath.Exp1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function1d.cmath.</code><code class="sig-name descname">Exp1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.cmath.Exp1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function1d.base.Function1D</span></code></a></p>
+<p>A Function1D class that implements the exponential of the result of a Function1D object: exp(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><em>Function1D</em></a>) – A Function1D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function1d.cmath.Sin1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function1d.cmath.</code><code class="sig-name descname">Sin1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.cmath.Sin1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function1d.base.Function1D</span></code></a></p>
+<p>A Function1D class that implements the sine of the result of a Function1D object: sin(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><em>Function1D</em></a>) – A Function1D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function1d.cmath.Cos1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function1d.cmath.</code><code class="sig-name descname">Cos1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.cmath.Cos1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function1d.base.Function1D</span></code></a></p>
+<p>A Function1D class that implements the cosine of the result of a Function1D object: cos(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><em>Function1D</em></a>) – A Function1D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function1d.cmath.Tan1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function1d.cmath.</code><code class="sig-name descname">Tan1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.cmath.Tan1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function1d.base.Function1D</span></code></a></p>
+<p>A Function1D class that implements the tangent of the result of a Function1D object: tan(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><em>Function1D</em></a>) – A Function1D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function1d.cmath.Asin1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function1d.cmath.</code><code class="sig-name descname">Asin1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.cmath.Asin1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function1d.base.Function1D</span></code></a></p>
+<p>A Function1D class that implements the arcsine of the result of a Function1D object: asin(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><em>Function1D</em></a>) – A Function1D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function1d.cmath.Acos1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function1d.cmath.</code><code class="sig-name descname">Acos1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.cmath.Acos1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function1d.base.Function1D</span></code></a></p>
+<p>A Function1D class that implements the arccosine of the result of a Function1D object: acos(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><em>Function1D</em></a>) – A Function1D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function1d.cmath.Atan1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function1d.cmath.</code><code class="sig-name descname">Atan1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.cmath.Atan1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function1d.base.Function1D</span></code></a></p>
+<p>A Function1D class that implements the arctangent of the result of a Function1D object: atan(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><em>Function1D</em></a>) – A Function1D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function1d.cmath.Atan4Q1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function1d.cmath.</code><code class="sig-name descname">Atan4Q1D</code><a class="headerlink" href="#raysect.core.math.function.function1d.cmath.Atan4Q1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function1d.base.Function1D</span></code></a></p>
+<p>A Function1D class that implements the arctangent of the result of 2 Function1D objects: atan2(f1(), f2())</p>
+<p>This differs from Atan1D in that it takes separate functions for the
+numerator and denominator, in order to get the quadrant correct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numerator</strong> (<a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><em>Function1D</em></a>) – A Function1D object representing the numerator</p></li>
+<li><p><strong>denominator</strong> (<a class="reference internal" href="#raysect.core.math.function.function1d.base.Function1D" title="raysect.core.math.function.function1d.base.Function1D"><em>Function1D</em></a>) – A Function1D object representing the denominator</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function2d.base.Function2D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.base.</code><code class="sig-name descname">Function2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.base.Function2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cython optimised class for representing an arbitrary 2D function.</p>
 <p>Using __call__() in cython is slow. This class provides an overloadable
 cython cdef evaluate() method which has much less overhead than a python
@@ -270,33 +411,29 @@ function call.</p>
 <p>To create a new function object, inherit this class and implement the
 evaluate() method. The new function object can then be used with any code
 that accepts a function object.</p>
-<dl class="attribute">
-<dt id="raysect.core.math.function.function2d.Function2D.__call__">
-<code class="descname">__call__</code><a class="headerlink" href="#raysect.core.math.function.function2d.Function2D.__call__" title="Permalink to this definition">¶</a></dt>
+<dl class="method">
+<dt id="raysect.core.math.function.function2d.base.Function2D.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.function.function2d.base.Function2D.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the function f(x, y)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) – function parameter x</li>
-<li><strong>y</strong> (<em>float</em>) – function parameter y</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – function parameter x</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – function parameter y</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.core.math.function.function2d.PythonFunction2D">
-<em class="property">class </em><code class="descclassname">raysect.core.math.function.function2d.</code><code class="descname">PythonFunction2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.PythonFunction2D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.Function2D" title="raysect.core.math.function.function2d.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.Function2D</span></code></a></p>
+<dt id="raysect.core.math.function.function2d.autowrap.PythonFunction2D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.autowrap.</code><code class="sig-name descname">PythonFunction2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.autowrap.PythonFunction2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.base.Function2D</span></code></a></p>
 <p>Wraps a python callable object with a Function2D object.</p>
 <p>This class allows a python object to interact with cython code that requires
 a Function2D object. The python object must implement __call__() expecting
@@ -309,20 +446,171 @@ designed to accept a generic python object and then test that object to
 determine if it is an instance of Function2D. If the object is not a
 Function2D object it should be wrapped using this class for internal use.</p>
 <p>See also: autowrap_function2d()</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> (<em>object</em>) – the python function to wrap, __call__() function must</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<em>object</em>) – the python function to wrap, __call__() function must</p>
+</dd>
+</dl>
 <p>be implemented on the object.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.core.math.function.function3d.Function3D">
-<em class="property">class </em><code class="descclassname">raysect.core.math.function.function3d.</code><code class="descname">Function3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.Function3D" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.core.math.function.function2d.constant.Constant2D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.constant.</code><code class="sig-name descname">Constant2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.constant.Constant2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.base.Function2D</span></code></a></p>
+<p>Wraps a scalar constant with a Function2D object.</p>
+<p>This class allows a numeric Python scalar, such as a float or an integer, to
+interact with cython code that requires a Function2D object. The scalar must
+be convertible to double. The value of the scalar constant will be returned
+independent of the arguments the function is called with.</p>
+<p>This class is intended to be used to transparently wrap python objects that
+are passed via constructors or methods into cython optimised code. It is not
+intended that the users should need to directly interact with these wrapping
+objects. Constructors and methods expecting a Function2D object should be
+designed to accept a generic python object and then test that object to
+determine if it is an instance of Function2D. If the object is not a
+Function2D object it should be wrapped using this class for internal use.</p>
+<p>See also: autowrap_function2d()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) – the constant value to return when called</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function2d.arg.Arg2D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.arg.</code><code class="sig-name descname">Arg2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.arg.Arg2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.base.Function2D</span></code></a></p>
+<p>Returns one of the arguments the function is passed, unmodified</p>
+<p>This is used to pass coordinates through to other functions in the
+function framework which expect a Function2D object.</p>
+<p>Valid options for argument are “x” and “y”.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">argx</span> <span class="o">=</span> <span class="n">Arg2D</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">argx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">argy</span> <span class="o">=</span> <span class="n">Arg2D</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">argy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">3.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squarerx</span> <span class="o">=</span> <span class="n">argx</span><span class="o">**</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squarerx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squarery</span> <span class="o">=</span> <span class="n">argy</span><span class="o">**</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squarery</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">9.0</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>argument</strong> (<em>str</em>) – either “x” or “y”, the argument to return</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function2d.cmath.Exp2D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.cmath.</code><code class="sig-name descname">Exp2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.cmath.Exp2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.base.Function2D</span></code></a></p>
+<p>A Function2D class that implements the exponential of the result of a Function2D object: exp(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><em>Function2D</em></a>) – A Function2D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function2d.cmath.Sin2D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.cmath.</code><code class="sig-name descname">Sin2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.cmath.Sin2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.base.Function2D</span></code></a></p>
+<p>A Function2D class that implements the sine of the result of a Function2D object: sin(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><em>Function2D</em></a>) – A Function2D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function2d.cmath.Cos2D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.cmath.</code><code class="sig-name descname">Cos2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.cmath.Cos2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.base.Function2D</span></code></a></p>
+<p>A Function2D class that implements the cosine of the result of a Function2D object: cos(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><em>Function2D</em></a>) – A Function2D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function2d.cmath.Tan2D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.cmath.</code><code class="sig-name descname">Tan2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.cmath.Tan2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.base.Function2D</span></code></a></p>
+<p>A Function2D class that implements the tangent of the result of a Function2D object: tan(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><em>Function2D</em></a>) – A Function2D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function2d.cmath.Asin2D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.cmath.</code><code class="sig-name descname">Asin2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.cmath.Asin2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.base.Function2D</span></code></a></p>
+<p>A Function2D class that implements the arcsine of the result of a Function2D object: asin(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><em>Function2D</em></a>) – A Function2D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function2d.cmath.Acos2D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.cmath.</code><code class="sig-name descname">Acos2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.cmath.Acos2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.base.Function2D</span></code></a></p>
+<p>A Function2D class that implements the arccosine of the result of a Function2D object: acos(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><em>Function2D</em></a>) – A Function2D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function2d.cmath.Atan2D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.cmath.</code><code class="sig-name descname">Atan2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.cmath.Atan2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.base.Function2D</span></code></a></p>
+<p>A Function2D class that implements the arctangent of the result of a Function2D object: atan(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><em>Function2D</em></a>) – A Function2D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function2d.cmath.Atan4Q2D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.cmath.</code><code class="sig-name descname">Atan4Q2D</code><a class="headerlink" href="#raysect.core.math.function.function2d.cmath.Atan4Q2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.base.Function2D</span></code></a></p>
+<p>A Function2D class that implements the arctangent of the result of 2 Function2D objects: atan2(f1(), f2())</p>
+<p>This differs from Atan2D in that it takes separate functions for the
+numerator and denominator, in order to get the quadrant correct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numerator</strong> (<a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><em>Function2D</em></a>) – A Function2D object representing the numerator</p></li>
+<li><p><strong>denominator</strong> (<a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><em>Function2D</em></a>) – A Function2D object representing the denominator</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function3d.base.Function3D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function3d.base.</code><code class="sig-name descname">Function3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.base.Function3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cython optimised class for representing an arbitrary 3D function.</p>
 <p>Using __call__() in cython is slow. This class provides an overloadable
 cython cdef evaluate() method which has much less overhead than a python
@@ -331,34 +619,30 @@ function call.</p>
 <p>To create a new function object, inherit this class and implement the
 evaluate() method. The new function object can then be used with any code
 that accepts a function object.</p>
-<dl class="attribute">
-<dt id="raysect.core.math.function.function3d.Function3D.__call__">
-<code class="descname">__call__</code><a class="headerlink" href="#raysect.core.math.function.function3d.Function3D.__call__" title="Permalink to this definition">¶</a></dt>
+<dl class="method">
+<dt id="raysect.core.math.function.function3d.base.Function3D.__call__">
+<code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.function.function3d.base.Function3D.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the function f(x, y, z)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) – function parameter x</li>
-<li><strong>y</strong> (<em>float</em>) – function parameter y</li>
-<li><strong>y</strong> – function parameter z</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – function parameter x</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – function parameter y</p></li>
+<li><p><strong>y</strong> – function parameter z</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.core.math.function.function3d.PythonFunction3D">
-<em class="property">class </em><code class="descclassname">raysect.core.math.function.function3d.</code><code class="descname">PythonFunction3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.PythonFunction3D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.Function3D" title="raysect.core.math.function.function3d.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function3d.Function3D</span></code></a></p>
+<dt id="raysect.core.math.function.function3d.autowrap.PythonFunction3D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function3d.autowrap.</code><code class="sig-name descname">PythonFunction3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.autowrap.PythonFunction3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function3d.base.Function3D</span></code></a></p>
 <p>Wraps a python callable object with a Function3D object.</p>
 <p>This class allows a python object to interact with cython code that requires
 a Function3D object. The python object must implement __call__() expecting
@@ -373,10 +657,170 @@ Function3D object it should be wrapped using this class for internal use.</p>
 <p>See also: autowrap_function3d()</p>
 </dd></dl>
 
-<span class="target" id="module-raysect.core.math.interpolators.discrete2dmesh"></span><dl class="class">
-<dt id="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh">
-<em class="property">class </em><code class="descclassname">raysect.core.math.interpolators.discrete2dmesh.</code><code class="descname">Discrete2DMesh</code><a class="headerlink" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.Function2D" title="raysect.core.math.function.function2d.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.Function2D</span></code></a></p>
+<dl class="class">
+<dt id="raysect.core.math.function.function3d.constant.Constant3D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function3d.constant.</code><code class="sig-name descname">Constant3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.constant.Constant3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function3d.base.Function3D</span></code></a></p>
+<p>Wraps a scalar constant with a Function3D object.</p>
+<p>This class allows a numeric Python scalar, such as a float or an integer, to
+interact with cython code that requires a Function3D object. The scalar must
+be convertible to double. The value of the scalar constant will be returned
+independent of the arguments the function is called with.</p>
+<p>This class is intended to be used to transparently wrap python objects that
+are passed via constructors or methods into cython optimised code. It is not
+intended that the users should need to directly interact with these wrapping
+objects. Constructors and methods expecting a Function3D object should be
+designed to accept a generic python object and then test that object to
+determine if it is an instance of Function3D. If the object is not a
+Function3D object it should be wrapped using this class for internal use.</p>
+<p>See also: autowrap_function3d()</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) – the constant value to return when called</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function3d.arg.Arg3D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function3d.arg.</code><code class="sig-name descname">Arg3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.arg.Arg3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function3d.base.Function3D</span></code></a></p>
+<p>Returns one of the arguments the function is passed, unmodified</p>
+<p>This is used to pass coordinates through to other functions in the
+function framework which expect a Function3D object.</p>
+<p>Valid options for argument are “x”, “y” or “z”.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">argx</span> <span class="o">=</span> <span class="n">Arg3D</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">argx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">2.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">argy</span> <span class="o">=</span> <span class="n">Arg3D</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">argy</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">3.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">argz</span> <span class="o">=</span> <span class="n">Arg3D</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">argz</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">5.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squarerx</span> <span class="o">=</span> <span class="n">argx</span><span class="o">**</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squarerx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">4.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squarery</span> <span class="o">=</span> <span class="n">argy</span><span class="o">**</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squarery</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">9.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squarerz</span> <span class="o">=</span> <span class="n">argz</span><span class="o">**</span><span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">squarerz</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">25.0</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>argument</strong> (<em>str</em>) – either “x”, “y” or “z”, the argument to return</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function3d.cmath.Exp3D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function3d.cmath.</code><code class="sig-name descname">Exp3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.cmath.Exp3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function3d.base.Function3D</span></code></a></p>
+<p>A Function3D class that implements the exponential of the result of a Function3D object: exp(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><em>Function3D</em></a>) – A Function3D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function3d.cmath.Sin3D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function3d.cmath.</code><code class="sig-name descname">Sin3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.cmath.Sin3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function3d.base.Function3D</span></code></a></p>
+<p>A Function3D class that implements the sine of the result of a Function3D object: sin(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><em>Function3D</em></a>) – A Function3D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function3d.cmath.Cos3D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function3d.cmath.</code><code class="sig-name descname">Cos3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.cmath.Cos3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function3d.base.Function3D</span></code></a></p>
+<p>A Function3D class that implements the cosine of the result of a Function3D object: cos(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><em>Function3D</em></a>) – A Function3D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function3d.cmath.Tan3D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function3d.cmath.</code><code class="sig-name descname">Tan3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.cmath.Tan3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function3d.base.Function3D</span></code></a></p>
+<p>A Function3D class that implements the tangent of the result of a Function3D object: tan(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><em>Function3D</em></a>) – A Function3D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function3d.cmath.Asin3D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function3d.cmath.</code><code class="sig-name descname">Asin3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.cmath.Asin3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function3d.base.Function3D</span></code></a></p>
+<p>A Function3D class that implements the arcsine of the result of a Function3D object: asin(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><em>Function3D</em></a>) – A Function3D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function3d.cmath.Acos3D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function3d.cmath.</code><code class="sig-name descname">Acos3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.cmath.Acos3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function3d.base.Function3D</span></code></a></p>
+<p>A Function3D class that implements the arccosine of the result of a Function3D object: acos(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><em>Function3D</em></a>) – A Function3D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function3d.cmath.Atan3D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function3d.cmath.</code><code class="sig-name descname">Atan3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.cmath.Atan3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function3d.base.Function3D</span></code></a></p>
+<p>A Function3D class that implements the arctangent of the result of a Function3D object: atan(f())</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>function</strong> (<a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><em>Function3D</em></a>) – A Function3D object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.core.math.function.function3d.cmath.Atan4Q3D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function3d.cmath.</code><code class="sig-name descname">Atan4Q3D</code><a class="headerlink" href="#raysect.core.math.function.function3d.cmath.Atan4Q3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function3d.base.Function3D</span></code></a></p>
+<p>A Function3D class that implements the arctangent of the result of 2 Function3D objects: atan2(f1(), f2())</p>
+<p>This differs from Atan3D in that it takes separate functions for the
+numerator and denominator, in order to get the quadrant correct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numerator</strong> (<a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><em>Function3D</em></a>) – A Function3D object representing the numerator</p></li>
+<li><p><strong>denominator</strong> (<a class="reference internal" href="#raysect.core.math.function.function3d.base.Function3D" title="raysect.core.math.function.function3d.base.Function3D"><em>Function3D</em></a>) – A Function3D object representing the denominator</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-raysect.core.math.function.function2d.interpolate.discrete2dmesh"></span><dl class="class">
+<dt id="raysect.core.math.function.function2d.interpolate.discrete2dmesh.Discrete2DMesh">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.interpolate.discrete2dmesh.</code><code class="sig-name descname">Discrete2DMesh</code><a class="headerlink" href="#raysect.core.math.function.function2d.interpolate.discrete2dmesh.Discrete2DMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.base.Function2D</span></code></a></p>
 <p>Discrete interpolator for data on a 2d ungridded tri-poly mesh.</p>
 <p>The mesh is specified as a set of 2D vertices supplied as an Nx2 numpy
 array or a suitably sized sequence that can be converted to a numpy array.</p>
@@ -403,24 +847,20 @@ a copy of the internal acceleration data. The triangle_data, limit and
 default_value can be customised for the new instance. See instance(). This
 will avoid the cost in memory and time of rebuilding an identical
 acceleration structure.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>vertex_coords</strong> (<em>ndarray</em>) – An array of vertex coordinates (x, y) with shape Nx2.</li>
-<li><strong>triangles</strong> (<em>ndarray</em>) – An array of vertex indices defining the mesh triangles, with shape Mx3.</li>
-<li><strong>triangle_data</strong> (<em>ndarray</em>) – An array containing data for each triangle of shape Mx1.</li>
-<li><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False.</li>
-<li><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertex_coords</strong> (<em>ndarray</em>) – An array of vertex coordinates (x, y) with shape Nx2.</p></li>
+<li><p><strong>triangles</strong> (<em>ndarray</em>) – An array of vertex indices defining the mesh triangles, with shape Mx3.</p></li>
+<li><p><strong>triangle_data</strong> (<em>ndarray</em>) – An array containing data for each triangle of shape Mx1.</p></li>
+<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False.</p></li>
+<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <dl class="method">
-<dt id="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh.instance">
-<code class="descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh.instance" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.core.math.function.function2d.interpolate.discrete2dmesh.Discrete2DMesh.instance">
+<code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.function.function2d.interpolate.discrete2dmesh.Discrete2DMesh.instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new interpolator instance from an existing interpolator instance.</p>
 <p>The new interpolator instance will share the same internal acceleration
 data as the original interpolator. The triangle_data, limit and default_value
@@ -431,34 +871,30 @@ value from the original interpolator will be copied.</p>
 that lie on the same mesh geometry. Using this methods avoids the
 repeated rebuilding of the mesh acceleration structures by sharing the
 geometry data between multiple interpolator objects.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh"><em>Discrete2DMesh</em></a>) – Discrete2DMesh object.</li>
-<li><strong>triangle_data</strong> (<em>ndarray</em>) – An array containing data for each triangle of shape Mx1 (default None).</li>
-<li><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False (default None).</li>
-<li><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False (default None).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.function.function2d.interpolate.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.function.function2d.interpolate.discrete2dmesh.Discrete2DMesh"><em>Discrete2DMesh</em></a>) – Discrete2DMesh object.</p></li>
+<li><p><strong>triangle_data</strong> (<em>ndarray</em>) – An array containing data for each triangle of shape Mx1 (default None).</p></li>
+<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False (default None).</p></li>
+<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False (default None).</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An Discrete2DMesh object.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.interpolators.discrete2dmesh.Discrete2DMesh">Discrete2DMesh</a></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An Discrete2DMesh object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#raysect.core.math.function.function2d.interpolate.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.function.function2d.interpolate.discrete2dmesh.Discrete2DMesh">Discrete2DMesh</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<span class="target" id="module-raysect.core.math.interpolators.interpolator2dmesh"></span><dl class="class">
-<dt id="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh">
-<em class="property">class </em><code class="descclassname">raysect.core.math.interpolators.interpolator2dmesh.</code><code class="descname">Interpolator2DMesh</code><a class="headerlink" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.Function2D" title="raysect.core.math.function.function2d.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.Function2D</span></code></a></p>
+<span class="target" id="module-raysect.core.math.function.function2d.interpolate.interpolator2dmesh"></span><dl class="class">
+<dt id="raysect.core.math.function.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.function2d.interpolate.interpolator2dmesh.</code><code class="sig-name descname">Interpolator2DMesh</code><a class="headerlink" href="#raysect.core.math.function.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.function2d.base.Function2D" title="raysect.core.math.function.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.function2d.base.Function2D</span></code></a></p>
 <p>Linear interpolator for data on a 2d ungridded tri-poly mesh.</p>
 <p>The mesh is specified as a set of 2D vertices supplied as an Nx2 numpy
 array or a suitably sized sequence that can be converted to a numpy array.</p>
@@ -485,24 +921,20 @@ a copy of the internal acceleration data. The vertex_data, limit and
 default_value can be customised for the new instance. See instance(). This
 will avoid the cost in memory and time of rebuilding an identical
 acceleration structure.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>vertex_coords</strong> (<em>ndarray</em>) – An array of vertex coordinates (x, y) with shape Nx2.</li>
-<li><strong>vertex_data</strong> (<em>ndarray</em>) – An array containing data for each vertex of shape Nx1.</li>
-<li><strong>triangles</strong> (<em>ndarray</em>) – An array of vertex indices defining the mesh triangles, with shape Mx3.</li>
-<li><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False.</li>
-<li><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertex_coords</strong> (<em>ndarray</em>) – An array of vertex coordinates (x, y) with shape Nx2.</p></li>
+<li><p><strong>vertex_data</strong> (<em>ndarray</em>) – An array containing data for each vertex of shape Nx1.</p></li>
+<li><p><strong>triangles</strong> (<em>ndarray</em>) – An array of vertex indices defining the mesh triangles, with shape Mx3.</p></li>
+<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False.</p></li>
+<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <dl class="method">
-<dt id="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh.instance">
-<code class="descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh.instance" title="Permalink to this definition">¶</a></dt>
+<dt id="raysect.core.math.function.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh.instance">
+<code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.function.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh.instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a new interpolator instance from an existing interpolator instance.</p>
 <p>The new interpolator instance will share the same internal acceleration
 data as the original interpolator. The vertex_data, limit and default_value
@@ -513,26 +945,22 @@ value from the original interpolator will be copied.</p>
 that lie on the same mesh geometry. Using this methods avoids the
 repeated rebuilding of the mesh acceleration structures by sharing the
 geometry data between multiple interpolator objects.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh"><em>Interpolator2DMesh</em></a>) – Interpolator2DMesh object.</li>
-<li><strong>vertex_data</strong> (<em>ndarray</em>) – An array containing data for each vertex of shape Nx1 (default None).</li>
-<li><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False (default None).</li>
-<li><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False (default None).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.function.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.function.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh"><em>Interpolator2DMesh</em></a>) – Interpolator2DMesh object.</p></li>
+<li><p><strong>vertex_data</strong> (<em>ndarray</em>) – An array containing data for each vertex of shape Nx1 (default None).</p></li>
+<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False (default None).</p></li>
+<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False (default None).</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An Interpolator2DMesh object.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.interpolators.interpolator2dmesh.Interpolator2DMesh">Interpolator2DMesh</a></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An Interpolator2DMesh object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#raysect.core.math.function.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.function.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh">Interpolator2DMesh</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

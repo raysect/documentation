@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.5.6
+                0.6.0
               </div>
             
           
@@ -201,26 +201,26 @@ to be easy to extend by a physicist/engineer.</p>
 <div class="section" id="feature-set">
 <h2>1.2. Feature set<a class="headerlink" href="#feature-set" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Path tracer for efficient configurable ray-tracing.</li>
-<li>Full scenegraph for managing complex geometry and coordinate transforms.</li>
-<li>A complete set of geometric primitives, lens types, meshes and CSG operations.</li>
-<li>A wide range of simulated physical observers such as CCDs, cameras, fibreoptics, etc.</li>
-<li>Advanced optical material models, an associated material library (BRDFs), metals, glasses.</li>
-<li>Supports serial or multi-core operation. MPI not currently supported.</li>
-<li>Geometric optics =&gt; ray simulations with prisims, lenses, etc.</li>
+<li><p>Path tracer for efficient configurable ray-tracing.</p></li>
+<li><p>Full scenegraph for managing complex geometry and coordinate transforms.</p></li>
+<li><p>A complete set of geometric primitives, lens types, meshes and CSG operations.</p></li>
+<li><p>A wide range of simulated physical observers such as CCDs, cameras, fibreoptics, etc.</p></li>
+<li><p>Advanced optical material models, an associated material library (BRDFs), metals, glasses.</p></li>
+<li><p>Supports serial or multi-core operation. MPI not currently supported.</p></li>
+<li><p>Geometric optics =&gt; ray simulations with prisims, lenses, etc.</p></li>
 </ul>
 </div>
 <div class="section" id="structure-architecture">
 <h2>1.3. Structure/Architecture<a class="headerlink" href="#structure-architecture" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Raysect is an OOP framework written in a combination of python and cython. All major functionality
+<li><p>Raysect is an OOP framework written in a combination of python and cython. All major functionality
 is accessible from python. It is possible to extend all components from python, however to gain full
-speed, the cython api should be used.</li>
-<li>The core of raysect is actually completely generalised and can be used for other ray-tracing applications
+speed, the cython api should be used.</p></li>
+<li><p>The core of raysect is actually completely generalised and can be used for other ray-tracing applications
 such as neutron transport, etc. However, at the present time the optical model is the only application
-which has been implemented.</li>
-<li>The core of Raysect is a generalised kernel for calculating interactions with rays and or volumes onto
-which physics models that require raytracing (such as geometric optics) can be built.</li>
+which has been implemented.</p></li>
+<li><p>The core of Raysect is a generalised kernel for calculating interactions with rays and or volumes onto
+which physics models that require raytracing (such as geometric optics) can be built.</p></li>
 </ul>
 </div>
 <div class="section" id="contributions">

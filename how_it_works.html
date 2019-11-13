@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.5.6
+                0.6.0
               </div>
             
           
@@ -204,10 +204,10 @@ optical interactions can be simulated such as reflection and refraction, scatter
 and dispersion.</p>
 <p>Same example scientific applications:</p>
 <ul class="simple">
-<li>Design of lenses and optical systems, such as cameras, microscopes and telescopes.
-Image-forming properties of a system to be modeled.</li>
-<li>Simulating optical diagnostics of plasmas through forward modelling, diagnostic
-design optimisation.</li>
+<li><p>Design of lenses and optical systems, such as cameras, microscopes and telescopes.
+Image-forming properties of a system to be modeled.</p></li>
+<li><p>Simulating optical diagnostics of plasmas through forward modelling, diagnostic
+design optimisation.</p></li>
 </ul>
 <p>Ray-tracing is typically very computationally expensive and is best suited for
 applications that don’t require real-time calculation.</p>
@@ -218,15 +218,15 @@ applications that don’t require real-time calculation.</p>
 <h3>4.2.1. Rays<a class="headerlink" href="#rays" title="Permalink to this headline">¶</a></h3>
 <p>Represent a ray of light</p>
 <ul class="simple">
-<li>defines a line with an origin and direction</li>
-<li>wavelength range and number of spectral samples, centre of range used for refraction calculations</li>
+<li><p>defines a line with an origin and direction</p></li>
+<li><p>wavelength range and number of spectral samples, centre of range used for refraction calculations</p></li>
 </ul>
 <p>Ray objects must implement a tracing algorithm</p>
 <ul class="simple">
-<li>spectrum = ray.trace(world)</li>
-<li>causes the ray to start sampling the world</li>
-<li>returns a Spectrum object</li>
-<li>samples of spectral radiance: W/m 2 /str/nm</li>
+<li><p>spectrum = ray.trace(world)</p></li>
+<li><p>causes the ray to start sampling the world</p></li>
+<li><p>returns a Spectrum object</p></li>
+<li><p>samples of spectral radiance: W/m 2 /str/nm</p></li>
 </ul>
 </div>
 <div class="section" id="observers">
@@ -234,8 +234,8 @@ applications that don’t require real-time calculation.</p>
 <p>Represents objects that measure light, e.g. CCDs, cameras, photo diodes, eyes. Observers launch rays and accumulate
 samples of the scene, which is more convenient than tracing individual rays manually.</p>
 <ul class="simple">
-<li>can be placed in the world and moved around</li>
-<li>observe() method triggers ray-tracing, i.e camera.observe()</li>
+<li><p>can be placed in the world and moved around</p></li>
+<li><p>observe() method triggers ray-tracing, i.e camera.observe()</p></li>
 </ul>
 </div>
 <div class="section" id="primitives">
@@ -243,9 +243,9 @@ samples of the scene, which is more convenient than tracing individual rays manu
 <p>Scenes in Raysect consist of primitives, which are the basic objects making up the scene. These are objects that rays
 can interact with, e.g light sources, lenses, mirrors, diffuse surfaces. Types of primitives:</p>
 <ul class="simple">
-<li>Mathematically defined surfaces and solids (i.e. sphere, box, cylinder, cone).</li>
-<li>Constructive Solid Geometry Operators (union, intersect, subtract).</li>
-<li>Tri-poly meshes optimised for millions of polygons, support instancing. Importers for STL and OBJ.</li>
+<li><p>Mathematically defined surfaces and solids (i.e. sphere, box, cylinder, cone).</p></li>
+<li><p>Constructive Solid Geometry Operators (union, intersect, subtract).</p></li>
+<li><p>Tri-poly meshes optimised for millions of polygons, support instancing. Importers for STL and OBJ.</p></li>
 </ul>
 <p>Primitive surfaces and volumes can be assigned materials, e.g. glass, metal, emitter properties.</p>
 </div>
@@ -281,18 +281,18 @@ interactions to the observer. In backward ray-tracing, light starts at the obser
 paths are followed through to the sources of emission. Raysect traces light in the reverse
 direction because this is generally more computationally efficient. The majority of light
 rays fired from a light source won’t reach the observer resulting in wasted computation.</p>
-<div class="figure" id="id1">
+<div class="figure align-default" id="id1">
 <img alt="_images/ray-tracing_directions.png" src="_images/ray-tracing_directions.png" />
 <p class="caption"><span class="caption-text"><strong>Caption:</strong> Ray-tracing algorithms are generally bi-directional and can be evaluated in both the
 forward and reverse directions. ray-tracing is naturally recursive. (Image credit: Carr, M.,
-Meakins, A., et. al. (2017))</span></p>
+Meakins, A., et. al. (2017))</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>During ray propogation, rays are tested for intersection with objects in the scene. Once
 the nearest object has been identified, the material properties of the object are inspected
 to determine the next step of the algorithm. Materials can alter the path of ray propagation
 and alter the ray’s spectra through absorption and reflection curves. Some materials will
 require more rays to be launched to return an accurate spectra.</p>
-<div class="figure" id="id2">
+<div class="figure align-default" id="id2">
 <img alt="_images/calculate_emission.png" src="_images/calculate_emission.png" />
 <p class="caption"><span class="caption-text"><strong>Caption:</strong> In the first stage of path tracing, a single ray path is generated. This path may be
 represented by a number of smaller straight path segments that represent a ray’s interactions
@@ -300,7 +300,7 @@ with surfaces and light sources in the scene. Once the termination criteria has 
 (absorbing surface or recursion limit, etc) the emission is evaluated along the segment stack
 in the forward direction. This ensures materials along the path can correctly add their emission
 or absorption. To estimate a light arriving at the observer, many of these paths will be measured
-and combined in a weighted average. (Image credit: Carr, M., Meakins, A., et. al. (2017))</span></p>
+and combined in a weighted average. (Image credit: Carr, M., Meakins, A., et. al. (2017))</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>

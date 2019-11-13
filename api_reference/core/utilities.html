@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.5.6
+                0.6.0
               </div>
             
           
@@ -202,163 +202,135 @@
 in cython. These are mainly intended for use by developers.</p>
 <dl class="class">
 <dt id="raysect.core.containers.LinkedList">
-<em class="property">class </em><code class="descclassname">raysect.core.containers.</code><code class="descname">LinkedList</code><a class="headerlink" href="#raysect.core.containers.LinkedList" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.containers.</code><code class="sig-name descname">LinkedList</code><a class="headerlink" href="#raysect.core.containers.LinkedList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Basic implementation of a Linked List for fast container operations in cython.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>initial_items</strong> (<em>object</em>) – Optional iterable for initialising container.</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Variables:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector2D.length" title="raysect.core.math.vector.Vector2D.length"><strong>length</strong></a> (<em>int</em>) – number of items in the container</li>
-<li><strong>first</strong> – starting element of container</li>
-<li><strong>last</strong> – final element of container</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>initial_items</strong> (<em>object</em>) – Optional iterable for initialising container.</p>
+</dd>
+<dt class="field-even">Variables</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector2D.length" title="raysect.core.math.vector.Vector2D.length"><strong>length</strong></a> (<em>int</em>) – number of items in the container</p></li>
+<li><p><strong>first</strong> – starting element of container</p></li>
+<li><p><strong>last</strong> – final element of container</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <dl class="method">
 <dt id="raysect.core.containers.LinkedList.add">
-<code class="descname">add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.add" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add an item to the end of the container.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>object</em>) – The item to add to the end of the container.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>object</em>) – The item to add to the end of the container.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.core.containers.LinkedList.add_items">
-<code class="descname">add_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.add_items" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.add_items" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extend this container with another iterable container.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iterable</strong> (<em>object</em>) – Iterable object such as a list or ndarray with
-which to extend this container.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>iterable</strong> (<em>object</em>) – Iterable object such as a list or ndarray with
+which to extend this container.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.core.containers.LinkedList.get_index">
-<code class="descname">get_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.get_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.get_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the item from the container at specified index.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) – requested item index</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – requested item index</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.core.containers.LinkedList.insert">
-<code class="descname">insert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.insert" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">insert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.insert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Insert an item at the specified index.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>value</strong> (<em>object</em>) – item to insert</li>
-<li><strong>index</strong> (<em>int</em>) – index at which to insert this item</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>object</em>) – item to insert</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – index at which to insert this item</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.core.containers.LinkedList.is_empty">
-<code class="descname">is_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.is_empty" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">is_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.is_empty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns True if the container is empty.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.core.containers.LinkedList.remove">
-<code class="descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.remove" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove and return the specified item from the container.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) – Index at which an item will be removed.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The object at the specified index position.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – Index at which an item will be removed.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The object at the specified index position.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="raysect.core.containers.Stack">
-<em class="property">class </em><code class="descclassname">raysect.core.containers.</code><code class="descname">Stack</code><a class="headerlink" href="#raysect.core.containers.Stack" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.containers.</code><code class="sig-name descname">Stack</code><a class="headerlink" href="#raysect.core.containers.Stack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.containers.LinkedList" title="raysect.core.containers.LinkedList"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.containers.LinkedList</span></code></a></p>
 <p>Basic implementation of a Stack container for fast container operations in cython.
 Inherits attributes and methods from LinkedList.</p>
 <dl class="method">
 <dt id="raysect.core.containers.Stack.pop">
-<code class="descname">pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Stack.pop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Stack.pop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes and returns the most recently added item from the stack</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">object</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.core.containers.Stack.push">
-<code class="descname">push</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Stack.push" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">push</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Stack.push" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an item to the top of the stack</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>object</em>) – Object that will be pushed to top of the stack</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>object</em>) – Object that will be pushed to top of the stack</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="raysect.core.containers.Queue">
-<em class="property">class </em><code class="descclassname">raysect.core.containers.</code><code class="descname">Queue</code><a class="headerlink" href="#raysect.core.containers.Queue" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.containers.</code><code class="sig-name descname">Queue</code><a class="headerlink" href="#raysect.core.containers.Queue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.containers.LinkedList" title="raysect.core.containers.LinkedList"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.containers.LinkedList</span></code></a></p>
 <p>Basic implementation of a Queue container for fast container operations in cython.
 Inherits attributes and methods from LinkedList.</p>
 <dl class="method">
 <dt id="raysect.core.containers.Queue.next_in_queue">
-<code class="descname">next_in_queue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Queue.next_in_queue" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">next_in_queue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Queue.next_in_queue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the next object in the queue</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">object</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

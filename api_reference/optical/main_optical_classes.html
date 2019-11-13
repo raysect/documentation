@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.5.6
+                0.6.0
               </div>
             
           
@@ -203,37 +203,33 @@
 <h2>3.1.1. Optical Rays<a class="headerlink" href="#optical-rays" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="raysect.optical.ray.Ray">
-<em class="property">class </em><code class="descclassname">raysect.optical.ray.</code><code class="descname">Ray</code><a class="headerlink" href="#raysect.optical.ray.Ray" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.ray.</code><code class="sig-name descname">Ray</code><a class="headerlink" href="#raysect.optical.ray.Ray" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.ray.Ray</span></code></a></p>
 <p>Optical Ray class for optical applications, inherits from core Ray class.</p>
 <p>Provides the trace(world) method.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Point defining ray’s origin (default=Point3D(0, 0, 0))</li>
-<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – Vector defining ray’s direction (default=Vector3D(0, 0, 1))</li>
-<li><strong>min_wavelength</strong> (<em>float</em>) – Lower wavelength bound for observed spectrum</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) – Upper wavelength bound for observed spectrum</li>
-<li><strong>bins</strong> (<em>int</em>) – Number of samples to use over the spectral range</li>
-<li><strong>max_distance</strong> (<em>float</em>) – The terminating distance of the ray</li>
-<li><strong>extinction_prob</strong> (<em>float</em>) – Probability of path extinction at every
-material surface interaction (default=0.1)</li>
-<li><strong>extinction_min_depth</strong> (<em>int</em>) – Minimum number of paths before triggering
-extinction probability (default=3)</li>
-<li><strong>max_depth</strong> (<em>int</em>) – Maximum number of material interactions before
-terminating ray trajectory.</li>
-<li><strong>importance_sampling</strong> (<em>bool</em>) – Toggles use of importance sampling for
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Point defining ray’s origin (default=Point3D(0, 0, 0))</p></li>
+<li><p><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – Vector defining ray’s direction (default=Vector3D(0, 0, 1))</p></li>
+<li><p><strong>min_wavelength</strong> (<em>float</em>) – Lower wavelength bound for observed spectrum</p></li>
+<li><p><strong>max_wavelength</strong> (<em>float</em>) – Upper wavelength bound for observed spectrum</p></li>
+<li><p><strong>bins</strong> (<em>int</em>) – Number of samples to use over the spectral range</p></li>
+<li><p><strong>max_distance</strong> (<em>float</em>) – The terminating distance of the ray</p></li>
+<li><p><strong>extinction_prob</strong> (<em>float</em>) – Probability of path extinction at every
+material surface interaction (default=0.1)</p></li>
+<li><p><strong>extinction_min_depth</strong> (<em>int</em>) – Minimum number of paths before triggering
+extinction probability (default=3)</p></li>
+<li><p><strong>max_depth</strong> (<em>int</em>) – Maximum number of material interactions before
+terminating ray trajectory.</p></li>
+<li><p><strong>importance_sampling</strong> (<em>bool</em>) – Toggles use of importance sampling for
 important primitives. See help documentation on importance sampling,
-(default=True).</li>
-<li><strong>important_path_weight</strong> (<em>float</em>) – Weight to use for important paths when
-using importance sampling.</li>
+(default=True).</p></li>
+<li><p><strong>important_path_weight</strong> (<em>float</em>) – Weight to use for important paths when
+using importance sampling.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">Vector3D</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">Ray</span>
 <span class="go">&gt;&gt;&gt;</span>
@@ -252,37 +248,30 @@ using importance sampling.</li>
 </div>
 <dl class="attribute">
 <dt id="raysect.optical.ray.Ray.bins">
-<code class="descname">bins</code><a class="headerlink" href="#raysect.optical.ray.Ray.bins" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bins</code><a class="headerlink" href="#raysect.optical.ray.Ray.bins" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of spectral bins across wavelength range.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.optical.ray.Ray.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtain a new Ray object with the same configuration settings.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – New Ray’s origin position.</li>
-<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – New Ray’s direction.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – New Ray’s origin position.</p></li>
+<li><p><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – New Ray’s direction.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray">Ray</a></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray">Ray</a></p>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">Vector3D</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">Ray</span>
 <span class="go">&gt;&gt;&gt;</span>
@@ -300,100 +289,79 @@ using importance sampling.</li>
 
 <dl class="attribute">
 <dt id="raysect.optical.ray.Ray.extinction_min_depth">
-<code class="descname">extinction_min_depth</code><a class="headerlink" href="#raysect.optical.ray.Ray.extinction_min_depth" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">extinction_min_depth</code><a class="headerlink" href="#raysect.optical.ray.Ray.extinction_min_depth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Minimum number of paths before triggering extinction probability.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="raysect.optical.ray.Ray.extinction_prob">
-<code class="descname">extinction_prob</code><a class="headerlink" href="#raysect.optical.ray.Ray.extinction_prob" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">extinction_prob</code><a class="headerlink" href="#raysect.optical.ray.Ray.extinction_prob" title="Permalink to this definition">¶</a></dt>
 <dd><p>Probability of path extinction at every material surface interaction.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="raysect.optical.ray.Ray.important_path_weight">
-<code class="descname">important_path_weight</code><a class="headerlink" href="#raysect.optical.ray.Ray.important_path_weight" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">important_path_weight</code><a class="headerlink" href="#raysect.optical.ray.Ray.important_path_weight" title="Permalink to this definition">¶</a></dt>
 <dd><p>Weight to use for important paths when using importance sampling.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="raysect.optical.ray.Ray.max_depth">
-<code class="descname">max_depth</code><a class="headerlink" href="#raysect.optical.ray.Ray.max_depth" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">max_depth</code><a class="headerlink" href="#raysect.optical.ray.Ray.max_depth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum number of material interactions before terminating ray trajectory.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="raysect.optical.ray.Ray.max_wavelength">
-<code class="descname">max_wavelength</code><a class="headerlink" href="#raysect.optical.ray.Ray.max_wavelength" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">max_wavelength</code><a class="headerlink" href="#raysect.optical.ray.Ray.max_wavelength" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper bound on wavelength range.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="raysect.optical.ray.Ray.min_wavelength">
-<code class="descname">min_wavelength</code><a class="headerlink" href="#raysect.optical.ray.Ray.min_wavelength" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">min_wavelength</code><a class="headerlink" href="#raysect.optical.ray.Ray.min_wavelength" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower bound on wavelength range.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.optical.ray.Ray.new_spectrum">
-<code class="descname">new_spectrum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.new_spectrum" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">new_spectrum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.new_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new Spectrum compatible with the ray spectral settings.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum">Spectrum</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum">Spectrum</a></p>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">Vector3D</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">Ray</span>
 <span class="go">&gt;&gt;&gt;</span>
@@ -411,30 +379,26 @@ using importance sampling.</li>
 
 <dl class="method">
 <dt id="raysect.optical.ray.Ray.sample">
-<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.sample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples the radiance directed along the ray direction.</p>
 <p>This methods calls trace repeatedly to obtain a statistical sample of
 the radiance directed along the ray direction from the world. The count
 parameter specifies the number of samples to obtain. The mean spectrum
 accumulated from these samples is returned.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – World object defining the scene.</li>
-<li><strong>count</strong> (<em>int</em>) – Number of samples to take.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – World object defining the scene.</p></li>
+<li><p><strong>count</strong> (<em>int</em>) – Number of samples to take.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The accumulated spectrum collected by the ray.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum">Spectrum</a></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The accumulated spectrum collected by the ray.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum">Spectrum</a></p>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">Vector3D</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">Ray</span>
 <span class="go">&gt;&gt;&gt;</span>
@@ -454,52 +418,44 @@ accumulated from these samples is returned.</p>
 
 <dl class="method">
 <dt id="raysect.optical.ray.Ray.spawn_daughter">
-<code class="descname">spawn_daughter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.spawn_daughter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">spawn_daughter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.spawn_daughter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Spawns a new daughter of the ray.</p>
 <p>A daughter ray has the same spectral configuration as the source ray,
 however the ray depth is increased by 1.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – A Point3D defining the ray origin.</li>
-<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – A vector defining the ray direction.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – A Point3D defining the ray origin.</p></li>
+<li><p><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – A vector defining the ray direction.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A daughter Ray object.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray">Ray</a></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A daughter Ray object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray">Ray</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.optical.ray.Ray.trace">
-<code class="descname">trace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.trace" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">trace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.trace" title="Permalink to this definition">¶</a></dt>
 <dd><p>Traces a single ray path through the world.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – World object defining the scene.</li>
-<li><strong>keep_alive</strong> (<em>bool</em>) – If true, disables Russian roulette termination of the ray.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – World object defining the scene.</p></li>
+<li><p><strong>keep_alive</strong> (<em>bool</em>) – If true, disables Russian roulette termination of the ray.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The resulting Spectrum object collected by the ray.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum">Spectrum</a></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The resulting Spectrum object collected by the ray.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum">Spectrum</a></p>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">Vector3D</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">Ray</span>
 <span class="go">&gt;&gt;&gt;</span>
@@ -520,16 +476,13 @@ however the ray depth is increased by 1.</p>
 
 <dl class="attribute">
 <dt id="raysect.optical.ray.Ray.wavelength_range">
-<code class="descname">wavelength_range</code><a class="headerlink" href="#raysect.optical.ray.Ray.wavelength_range" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">wavelength_range</code><a class="headerlink" href="#raysect.optical.ray.Ray.wavelength_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper and lower wavelength range.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -539,7 +492,7 @@ however the ray depth is increased by 1.</p>
 <h2>3.1.2. Spectral Functions<a class="headerlink" href="#spectral-functions" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="raysect.optical.spectralfunction.SpectralFunction">
-<em class="property">class </em><code class="descclassname">raysect.optical.spectralfunction.</code><code class="descname">SpectralFunction</code><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.spectralfunction.</code><code class="sig-name descname">SpectralFunction</code><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction" title="Permalink to this definition">¶</a></dt>
 <dd><p>SpectralFunction abstract base class.</p>
 <p>A common interface for representing optical properties that are a function
 of wavelength. It provides methods for sampling, integrating and averaging
@@ -556,24 +509,20 @@ development.</p>
 <p>see also: NumericallyIntegratedSF, InterpolatedSF, ConstantSF, Spectrum</p>
 <dl class="method">
 <dt id="raysect.optical.spectralfunction.SpectralFunction.average">
-<code class="descname">average</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.average" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">average</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.average" title="Permalink to this definition">¶</a></dt>
 <dd><p>Average radiance over the requested spectral range (W/m^2/sr/nm).</p>
 <p>Virtual method, to be implemented in child classes.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) – lower wavelength for calculation</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) – upper wavelength for calculation</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_wavelength</strong> (<em>float</em>) – lower wavelength for calculation</p></li>
+<li><p><strong>max_wavelength</strong> (<em>float</em>) – upper wavelength for calculation</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">700</span><span class="p">)</span>
 <span class="go">1.095030870970234</span>
@@ -583,43 +532,37 @@ development.</p>
 
 <dl class="method">
 <dt id="raysect.optical.spectralfunction.SpectralFunction.evaluate">
-<code class="descname">evaluate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.evaluate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the spectral function f(wavelength)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wavelength</strong> (<em>float</em>) – Wavelength in nanometers.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wavelength</strong> (<em>float</em>) – Wavelength in nanometers.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.optical.spectralfunction.SpectralFunction.integrate">
-<code class="descname">integrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.integrate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">integrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.integrate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the integrated radiance over the specified spectral range.</p>
 <p>Virtual method, to be implemented in child classes.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in nanometers</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in nanometers</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in nanometers</p></li>
+<li><p><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in nanometers</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Integrated radiance in W/m^2/str</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Integrated radiance in W/m^2/str</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">700</span><span class="p">)</span>
 <span class="go">328.50926129107023</span>
@@ -629,24 +572,20 @@ development.</p>
 
 <dl class="method">
 <dt id="raysect.optical.spectralfunction.SpectralFunction.sample">
-<code class="descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.sample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Re-sample the spectral function with a new wavelength range and resolution.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) – lower wavelength for calculation</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) – upper wavelength for calculation</li>
-<li><strong>bins</strong> (<em>int</em>) – The number of spectral bins</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_wavelength</strong> (<em>float</em>) – lower wavelength for calculation</p></li>
+<li><p><strong>max_wavelength</strong> (<em>float</em>) – upper wavelength for calculation</p></li>
+<li><p><strong>bins</strong> (<em>int</em>) – The number of spectral bins</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">ndarray</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>ndarray</p>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span>
 <span class="go">&lt;raysect.optical.spectrum.Spectrum at 0x7f56c22bd8b8&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span><span class="o">.</span><span class="n">min_wavelength</span><span class="p">,</span> <span class="n">spectrum</span><span class="o">.</span><span class="n">max_wavelength</span>
@@ -660,25 +599,21 @@ development.</p>
 
 <dl class="class">
 <dt id="raysect.optical.spectrum.Spectrum">
-<em class="property">class </em><code class="descclassname">raysect.optical.spectrum.</code><code class="descname">Spectrum</code><a class="headerlink" href="#raysect.optical.spectrum.Spectrum" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.spectrum.</code><code class="sig-name descname">Spectrum</code><a class="headerlink" href="#raysect.optical.spectrum.Spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.spectralfunction.SpectralFunction</span></code></a></p>
 <p>A class for working with spectra.</p>
 <p>Describes the distribution of light at each wavelength in units of radiance (W/m^2/str/nm).
 Spectral samples are regularly spaced over the wavelength range and lie in the centre of
 the wavelength bins.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) – Lower wavelength bound for this spectrum</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) – Upper wavelength bound for this spectrum</li>
-<li><strong>bins</strong> (<em>int</em>) – Number of samples to use over the spectral range</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_wavelength</strong> (<em>float</em>) – Lower wavelength bound for this spectrum</p></li>
+<li><p><strong>max_wavelength</strong> (<em>float</em>) – Upper wavelength bound for this spectrum</p></li>
+<li><p><strong>bins</strong> (<em>int</em>) – Number of samples to use over the spectral range</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">Spectrum</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">Spectrum</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">720</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
@@ -686,63 +621,53 @@ the wavelength bins.</p>
 </div>
 <dl class="method">
 <dt id="raysect.optical.spectrum.Spectrum.clear">
-<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.clear" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets the sample values in the spectrum to zero.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.optical.spectrum.Spectrum.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a copy of the spectrum.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum">Spectrum</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum">Spectrum</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.optical.spectrum.Spectrum.is_compatible">
-<code class="descname">is_compatible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.is_compatible" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">is_compatible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.is_compatible" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns True if the stored samples are consistent with the specified
 wavelength range and sample size.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in nanometers</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in nanometers</li>
-<li><strong>bins</strong> (<em>int</em>) – The number of bins.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_wavelength</strong> (<em>float</em>) – The minimum wavelength in nanometers</p></li>
+<li><p><strong>max_wavelength</strong> (<em>float</em>) – The maximum wavelength in nanometers</p></li>
+<li><p><strong>bins</strong> (<em>int</em>) – The number of bins.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if the samples are compatible with the range/samples, False otherwise.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">boolean</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the samples are compatible with the range/samples, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.optical.spectrum.Spectrum.is_zero">
-<code class="descname">is_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.is_zero" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">is_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.is_zero" title="Permalink to this definition">¶</a></dt>
 <dd><p>Can be used to determine if all the samples are zero.</p>
 <p>True if the spectrum is zero, False otherwise.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span><span class="o">.</span><span class="n">is_zero</span><span class="p">()</span>
 <span class="go">False</span>
@@ -752,31 +677,25 @@ wavelength range and sample size.</p>
 
 <dl class="method">
 <dt id="raysect.optical.spectrum.Spectrum.new_spectrum">
-<code class="descname">new_spectrum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.new_spectrum" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">new_spectrum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.new_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new Spectrum compatible with the same spectral settings.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum">Spectrum</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum">Spectrum</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.optical.spectrum.Spectrum.to_photons">
-<code class="descname">to_photons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.to_photons" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_photons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.to_photons" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts the spectrum sample array from radiance W/m^2/str/nm to Photons/s/m^2/str/nm
 and returns the data in a numpy array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span><span class="o">.</span><span class="n">to_photons</span><span class="p">()</span>
 <span class="go">array([2.30744985e+17, 3.12842916e+17, ...])</span>
@@ -786,17 +705,14 @@ and returns the data in a numpy array.</p>
 
 <dl class="method">
 <dt id="raysect.optical.spectrum.Spectrum.total">
-<code class="descname">total</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.total" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">total</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.total" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the total radiance integrated over the whole spectral range.</p>
 <p>Returns radiance in W/m^2/str</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span><span class="o">.</span><span class="n">total</span><span class="p">()</span>
 <span class="go">416.6978223103715</span>
@@ -806,23 +722,20 @@ and returns the data in a numpy array.</p>
 
 <dl class="attribute">
 <dt id="raysect.optical.spectrum.Spectrum.wavelengths">
-<code class="descname">wavelengths</code><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.wavelengths" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">wavelengths</code><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.wavelengths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wavelength array in nm</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">ndarray</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="raysect.optical.spectralfunction.NumericallyIntegratedSF">
-<em class="property">class </em><code class="descclassname">raysect.optical.spectralfunction.</code><code class="descname">NumericallyIntegratedSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.NumericallyIntegratedSF" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.spectralfunction.</code><code class="sig-name descname">NumericallyIntegratedSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.NumericallyIntegratedSF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.spectralfunction.SpectralFunction</span></code></a></p>
 <p>Numerically integrates a supplied function.</p>
 <p>This abstract class provides an implementation of the integrate method that
@@ -831,19 +744,16 @@ analytical function). The function to numerically integrate is supplied by
 sub-classing this class and implementing the function() method.</p>
 <p>The function is numerically sampled at regular intervals. A sampling
 resolution may be specified in the class constructor (default: 1 sample/nm).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sample_resolution</strong> (<em>double</em>) – The numerical sampling resolution in nanometers.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sample_resolution</strong> (<em>double</em>) – The numerical sampling resolution in nanometers.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
 <dt id="raysect.optical.spectralfunction.InterpolatedSF">
-<em class="property">class </em><code class="descclassname">raysect.optical.spectralfunction.</code><code class="descname">InterpolatedSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.InterpolatedSF" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.spectralfunction.</code><code class="sig-name descname">InterpolatedSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.InterpolatedSF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.spectralfunction.SpectralFunction</span></code></a></p>
 <p>Linearly interpolated spectral function.</p>
 <p>Spectral function defined by samples of regular or irregular spacing, ends
@@ -853,20 +763,16 @@ go to zero at the edges!</p>
 <p>If normalise is set to True the data is rescaled so the integrated area
 of the spectral function over the full range of the input data is
 normalised to 1.0.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>wavelengths</strong> (<em>object</em>) – 1D array of wavelengths in nanometers.</li>
-<li><strong>samples</strong> (<em>object</em>) – 1D array of spectral samples.</li>
-<li><strong>normalise</strong> (<em>bool</em>) – True/false toggle for whether to normalise the
-spectral function so its integral equals 1.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wavelengths</strong> (<em>object</em>) – 1D array of wavelengths in nanometers.</p></li>
+<li><p><strong>samples</strong> (<em>object</em>) – 1D array of spectral samples.</p></li>
+<li><p><strong>normalise</strong> (<em>bool</em>) – True/false toggle for whether to normalise the
+spectral function so its integral equals 1.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">InterpolatedSF</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># defining a set of spectral filters</span>
@@ -879,17 +785,14 @@ spectral function so its integral equals 1.</li>
 
 <dl class="class">
 <dt id="raysect.optical.spectralfunction.ConstantSF">
-<em class="property">class </em><code class="descclassname">raysect.optical.spectralfunction.</code><code class="descname">ConstantSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.ConstantSF" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.spectralfunction.</code><code class="sig-name descname">ConstantSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.ConstantSF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.spectralfunction.SpectralFunction</span></code></a></p>
 <p>Constant value spectral function</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>float</em>) – Constant radiance value</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>float</em>) – Constant radiance value</p>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">ConstantSF</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">unity_spectral_function</span> <span class="o">=</span> <span class="n">ConstantSF</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
@@ -899,20 +802,19 @@ spectral function so its integral equals 1.</li>
 
 <dl class="function">
 <dt id="raysect.optical.spectrum.photon_energy">
-<code class="descclassname">raysect.optical.spectrum.</code><code class="descname">photon_energy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.photon_energy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.optical.spectrum.</code><code class="sig-name descname">photon_energy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.photon_energy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the energy of a photon with the specified wavelength.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>wavelength</strong> (<em>float</em>) – Photon wavelength in nanometers.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Photon energy in Joules.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>wavelength</strong> (<em>float</em>) – Photon wavelength in nanometers.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Photon energy in Joules.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -926,118 +828,102 @@ Y, Z normalised spectral functions from the CIE 1931 Standard Colorimetric Obser
 more information see <a class="reference external" href="https://en.wikipedia.org/wiki/CIE_1931_color_space">Wikipedia</a>.</p>
 <dl class="data">
 <dt id="raysect.optical.colour.ciexyz_x">
-<code class="descclassname">raysect.optical.colour.</code><code class="descname">ciexyz_x</code><a class="headerlink" href="#raysect.optical.colour.ciexyz_x" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">ciexyz_x</code><a class="headerlink" href="#raysect.optical.colour.ciexyz_x" title="Permalink to this definition">¶</a></dt>
 <dd><p>X spectral function from CIE 1931 Standard Colorimetric Observer (normalised)</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="raysect.optical.colour.ciexyz_y">
-<code class="descclassname">raysect.optical.colour.</code><code class="descname">ciexyz_y</code><a class="headerlink" href="#raysect.optical.colour.ciexyz_y" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">ciexyz_y</code><a class="headerlink" href="#raysect.optical.colour.ciexyz_y" title="Permalink to this definition">¶</a></dt>
 <dd><p>Y spectral function from CIE 1931 Standard Colorimetric Observer (normalised)</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="raysect.optical.colour.ciexyz_z">
-<code class="descclassname">raysect.optical.colour.</code><code class="descname">ciexyz_z</code><a class="headerlink" href="#raysect.optical.colour.ciexyz_z" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">ciexyz_z</code><a class="headerlink" href="#raysect.optical.colour.ciexyz_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Z spectral function from CIE 1931 Standard Colorimetric Observer (normalised)</p>
 </dd></dl>
 
 <dl class="data">
 <dt id="raysect.optical.colour.d65_white">
-<code class="descclassname">raysect.optical.colour.</code><code class="descname">d65_white</code><a class="headerlink" href="#raysect.optical.colour.d65_white" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">d65_white</code><a class="headerlink" href="#raysect.optical.colour.d65_white" title="Permalink to this definition">¶</a></dt>
 <dd><p>CIE D65 standard illuminant, normalised to 1.0 over visual range 375-785 nm</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="raysect.optical.colour.resample_ciexyz">
-<code class="descclassname">raysect.optical.colour.</code><code class="descname">resample_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.resample_ciexyz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">resample_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.resample_ciexyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pre-calculates samples of XYZ sensitivity curves over desired spectral range.</p>
 <p>Returns ndarray of shape [N, 3] where the last dimension (0, 1, 2) corresponds
 to (X, Y, Z).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>min_wavelength</strong> (<em>float</em>) – Lower wavelength bound on spectrum</li>
-<li><strong>max_wavelength</strong> (<em>float</em>) – Upper wavelength bound on spectrum</li>
-<li><strong>bins</strong> (<em>int</em>) – Number of spectral bins in spectrum</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_wavelength</strong> (<em>float</em>) – Lower wavelength bound on spectrum</p></li>
+<li><p><strong>max_wavelength</strong> (<em>float</em>) – Upper wavelength bound on spectrum</p></li>
+<li><p><strong>bins</strong> (<em>int</em>) – Number of spectral bins in spectrum</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">memoryview</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>memoryview</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="raysect.optical.colour.spectrum_to_ciexyz">
-<code class="descclassname">raysect.optical.colour.</code><code class="descname">spectrum_to_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.spectrum_to_ciexyz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">spectrum_to_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.spectrum_to_ciexyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates a tuple of CIE X, Y, Z values from an input spectrum</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>spectrum</strong> (<a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum to process</li>
-<li><strong>resampled_xyz</strong> (<em>memoryview</em>) – Pre-calculated XYZ sensitivity curves optimised
-for this spectral range (default=None).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spectrum</strong> (<a class="reference internal" href="#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum to process</p></li>
+<li><p><strong>resampled_xyz</strong> (<em>memoryview</em>) – Pre-calculated XYZ sensitivity curves optimised
+for this spectral range (default=None).</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="raysect.optical.colour.ciexyy_to_ciexyz">
-<code class="descclassname">raysect.optical.colour.</code><code class="descname">ciexyy_to_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.ciexyy_to_ciexyz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">ciexyy_to_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.ciexyy_to_ciexyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs conversion from CIE xyY to CIE XYZ colour space</p>
 <p>Returns a tuple of (X, Y, Z)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>cx</strong> (<em>float</em>) – chromaticity x</li>
-<li><strong>cy</strong> (<em>float</em>) – chromaticity y</li>
-<li><strong>y</strong> (<em>float</em>) – tristimulus Y</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cx</strong> (<em>float</em>) – chromaticity x</p></li>
+<li><p><strong>cy</strong> (<em>float</em>) – chromaticity y</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – tristimulus Y</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="raysect.optical.colour.ciexyz_to_ciexyy">
-<code class="descclassname">raysect.optical.colour.</code><code class="descname">ciexyz_to_ciexyy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.ciexyz_to_ciexyy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">ciexyz_to_ciexyy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.ciexyz_to_ciexyy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs conversion from CIE XYZ to CIE xyY colour space</p>
 <p>Returns a tuple of (cx, cy, Y)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) – tristimulus X</li>
-<li><strong>y</strong> (<em>float</em>) – tristimulus y</li>
-<li><strong>z</strong> (<em>float</em>) – tristimulus Z</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – tristimulus X</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – tristimulus y</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – tristimulus Z</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p>Raysect also supports conversion of CIE colour space values to standard sRGB colour space
@@ -1045,50 +931,42 @@ as defined by HP and Microsoft in 1996 as per IEC 61966-2-1:1999. For more infor
 see <a class="reference external" href="https://en.wikipedia.org/wiki/SRGB">Wikipedia</a>.</p>
 <dl class="function">
 <dt id="raysect.optical.colour.ciexyz_to_srgb">
-<code class="descclassname">raysect.optical.colour.</code><code class="descname">ciexyz_to_srgb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.ciexyz_to_srgb" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">ciexyz_to_srgb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.ciexyz_to_srgb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert CIE XYZ values to sRGB colour space.</p>
 <p>x, y, z in range [0, 1]
 r, g, b in range [0, 1]</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>float</em>) – tristimulus X</li>
-<li><strong>y</strong> (<em>float</em>) – tristimulus y</li>
-<li><strong>z</strong> (<em>float</em>) – tristimulus Z</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – tristimulus X</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – tristimulus y</p></li>
+<li><p><strong>z</strong> (<em>float</em>) – tristimulus Z</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="raysect.optical.colour.srgb_to_ciexyz">
-<code class="descclassname">raysect.optical.colour.</code><code class="descname">srgb_to_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.srgb_to_ciexyz" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">srgb_to_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.srgb_to_ciexyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert sRGB values to CIE XYZ colour space.</p>
 <p>r, g, b in range [0, 1]
 x, y, z in range [0, 1]</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>r</strong> (<em>float</em>) – Red value</li>
-<li><strong>g</strong> (<em>float</em>) – Green value</li>
-<li><strong>b</strong> (<em>float</em>) – Blue value</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>r</strong> (<em>float</em>) – Red value</p></li>
+<li><p><strong>g</strong> (<em>float</em>) – Green value</p></li>
+<li><p><strong>b</strong> (<em>float</em>) – Blue value</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -1096,88 +974,74 @@ x, y, z in range [0, 1]</p>
 <h2>3.1.4. Optical Scenegraph<a class="headerlink" href="#optical-scenegraph" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="raysect.optical.scenegraph.world.World">
-<em class="property">class </em><code class="descclassname">raysect.optical.scenegraph.world.</code><code class="descname">World</code><a class="headerlink" href="#raysect.optical.scenegraph.world.World" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.scenegraph.world.</code><code class="sig-name descname">World</code><a class="headerlink" href="#raysect.optical.scenegraph.world.World" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.scenegraph.world.World</span></code></a></p>
 <p>The root node of the optical scene-graph.</p>
 <p>Inherits a lot of functionality and attributes from the core World object.</p>
 <p>The world node tracks all primitives and observers in the world. It maintains acceleration structures to speed up
 the ray-tracing calculations. The particular acceleration algorithm used is selectable. The default acceleration
 structure is a kd-tree.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> – A string defining the node name.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – A string defining the node name.</p>
+</dd>
+</dl>
 <dl class="method">
 <dt id="raysect.optical.scenegraph.world.World.build_importance">
-<code class="descname">build_importance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.scenegraph.world.World.build_importance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">build_importance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.scenegraph.world.World.build_importance" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method manually triggers a rebuild of the importance manager object.</p>
 <p>If the importance manager object is already in a consistent state this method
 will do nothing unless the force keyword option is set to True.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>force</strong> (<em>bint</em>) – If set to True, forces rebuilding of acceleration structure.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>force</strong> (<em>bint</em>) – If set to True, forces rebuilding of acceleration structure.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.optical.scenegraph.world.World.has_important_primitives">
-<code class="descname">has_important_primitives</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.scenegraph.world.World.has_important_primitives" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">has_important_primitives</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.scenegraph.world.World.has_important_primitives" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns true if any primitives in this scene-graph have an importance weighting.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.optical.scenegraph.world.World.important_direction_pdf">
-<code class="descname">important_direction_pdf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.scenegraph.world.World.important_direction_pdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">important_direction_pdf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.scenegraph.world.World.important_direction_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the value of the PDF for the specified sample point and direction.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point from which to sample.</li>
-<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The sample direction.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point from which to sample.</p></li>
+<li><p><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The sample direction.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="raysect.optical.scenegraph.world.World.important_direction_sample">
-<code class="descname">important_direction_sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.scenegraph.world.World.important_direction_sample" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">important_direction_sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.scenegraph.world.World.important_direction_sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a sample direction of an important primitive.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point from which to sample.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The vector along which to sample.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>origin</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The point from which to sample.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The vector along which to sample.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D">Vector3D</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

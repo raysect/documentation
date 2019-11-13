@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.5.6
+                0.6.0
               </div>
             
           
@@ -206,7 +206,7 @@
 <h2>3.5.1. Absorber<a class="headerlink" href="#absorber" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="raysect.optical.material.absorber.AbsorbingSurface">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.absorber.</code><code class="descname">AbsorbingSurface</code><a class="headerlink" href="#raysect.optical.material.absorber.AbsorbingSurface" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.absorber.</code><code class="sig-name descname">AbsorbingSurface</code><a class="headerlink" href="#raysect.optical.material.absorber.AbsorbingSurface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
 <p>A perfectly absorbing surface material.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span>
@@ -225,7 +225,7 @@
 <h2>3.5.2. Emitters<a class="headerlink" href="#emitters" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="raysect.optical.material.emitter.UnitySurfaceEmitter">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.emitter.</code><code class="descname">UnitySurfaceEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UnitySurfaceEmitter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">UnitySurfaceEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UnitySurfaceEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
 <p>Uniform and isotropic surface emitter with emission 1W/str/m^2/ x nm,
 where x is the spectrum’s wavelength interval.</p>
@@ -244,23 +244,19 @@ conservation.</p>
 
 <dl class="class">
 <dt id="raysect.optical.material.emitter.UniformSurfaceEmitter">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.emitter.</code><code class="descname">UniformSurfaceEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UniformSurfaceEmitter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">UniformSurfaceEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UniformSurfaceEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
 <p>Uniform and isotropic surface emitter.</p>
 <p>Uniform emission will be given by the emission_spectrum multiplied by the
 emission scale.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>emission_spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – The surface’s emission function.</li>
-<li><strong>scale</strong> (<em>float</em>) – Scale of the emission function (default = 1 W/m^2/str/nm).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>emission_spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – The surface’s emission function.</p></li>
+<li><p><strong>scale</strong> (<em>float</em>) – Scale of the emission function (default = 1 W/m^2/str/nm).</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Sphere</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">ConstantSF</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">UniformSurfaceEmitter</span>
@@ -273,25 +269,64 @@ emission scale.</p>
 </div>
 </dd></dl>
 
+<dl class="class">
+<dt id="raysect.optical.material.AnisotropicSurfaceEmitter">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.</code><code class="sig-name descname">AnisotropicSurfaceEmitter</code><a class="headerlink" href="#raysect.optical.material.AnisotropicSurfaceEmitter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
+<p>Base class for anisotropic surface emitters.</p>
+<p>Simplifies the development of anisotropic light sources. The emitter
+spectrum can be varied based on the angle between the normal and
+incident observation direction, and the side of the surface.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.material.Checkerboard">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.</code><code class="sig-name descname">Checkerboard</code><a class="headerlink" href="#raysect.optical.material.Checkerboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
+<p>Isotropic checkerboard surface emitter</p>
+<p>Defines a plane of alternating squares of emission forming a checkerboard
+pattern. Useful in debugging and as a light source in test scenes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>float</em>) – The width of the squares in metres.</p></li>
+<li><p><strong>emission_spectrum1</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Emission spectrum for square one.</p></li>
+<li><p><strong>emission_spectrum2</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Emission spectrum for square two.</p></li>
+<li><p><strong>scale1</strong> (<em>float</em>) – Intensity of square one emission.</p></li>
+<li><p><strong>scale2</strong> (<em>float</em>) – Intensity of square two emission.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Box</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">d65_white</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">Checkerboard</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># checker board wall that acts as emitter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">emitter</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">upper</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">10.1</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
+<span class="go">                  transform=rotate(45, 0, 0))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">emitter</span><span class="o">.</span><span class="n">material</span><span class="o">=</span><span class="n">Checkerboard</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">d65_white</span><span class="p">,</span> <span class="n">d65_white</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
 </div>
 <div class="section" id="lambertian">
 <h2>3.5.3. Lambertian<a class="headerlink" href="#lambertian" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="raysect.optical.material.lambert.Lambert">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.lambert.</code><code class="descname">Lambert</code><a class="headerlink" href="#raysect.optical.material.lambert.Lambert" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.lambert.</code><code class="sig-name descname">Lambert</code><a class="headerlink" href="#raysect.optical.material.lambert.Lambert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.ContinuousBSDF" title="raysect.optical.material.material.ContinuousBSDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.ContinuousBSDF</span></code></a></p>
 <p>An ideal Lambertian surface material.</p>
 <p>A Lambertian is a perfectly diffuse surface that scatters light equally in
 all directions. It is a good approximation to many real world surfaces.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reflectivity</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Reflectance function which defines the
-fraction of light scattered at each wavelength.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>reflectivity</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Reflectance function which defines the
+fraction of light scattered at each wavelength.</p>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Sphere</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">ConstantSF</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">Lambert</span>
@@ -309,7 +344,7 @@ fraction of light scattered at each wavelength.</td>
 <h2>3.5.4. Conductors<a class="headerlink" href="#conductors" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="raysect.optical.material.conductor.Conductor">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.conductor.</code><code class="descname">Conductor</code><a class="headerlink" href="#raysect.optical.material.conductor.Conductor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.conductor.</code><code class="sig-name descname">Conductor</code><a class="headerlink" href="#raysect.optical.material.conductor.Conductor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>Conductor material.</p>
 <p>The conductor material simulates the interaction of light with a
@@ -317,20 +352,16 @@ homogeneous conducting material, such as, gold, silver or aluminium.</p>
 <p>This material implements the Fresnel equations for a conducting surface. To
 use the material, the complex refractive index of the conductor must be
 supplied.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Real component of the refractive
-index - <span class="math notranslate nohighlight">\(n(\lambda)\)</span>.</li>
-<li><strong>extinction</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Imaginary component of the
-refractive index (extinction) - <span class="math notranslate nohighlight">\(k(\lambda)\)</span>.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Real component of the refractive
+index - <span class="math notranslate nohighlight">\(n(\lambda)\)</span>.</p></li>
+<li><p><strong>extinction</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Imaginary component of the
+refractive index (extinction) - <span class="math notranslate nohighlight">\(k(\lambda)\)</span>.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">InterpolatedSF</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">Conductor</span>
@@ -346,26 +377,22 @@ refractive index (extinction) - <span class="math notranslate nohighlight">\(k(\
 
 <dl class="class">
 <dt id="raysect.optical.material.conductor.RoughConductor">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.conductor.</code><code class="descname">RoughConductor</code><a class="headerlink" href="#raysect.optical.material.conductor.RoughConductor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.conductor.</code><code class="sig-name descname">RoughConductor</code><a class="headerlink" href="#raysect.optical.material.conductor.RoughConductor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.ContinuousBSDF" title="raysect.optical.material.material.ContinuousBSDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.ContinuousBSDF</span></code></a></p>
 <p>This is implementing Cook-Torrence with conducting fresnel microfacets.</p>
 <p>Smith shadowing and GGX facet distribution used to model roughness.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Real component of the refractive
-index - <span class="math notranslate nohighlight">\(n(\lambda)\)</span>.</li>
-<li><strong>extinction</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Imaginary component of the
-refractive index (extinction) - <span class="math notranslate nohighlight">\(k(\lambda)\)</span>.</li>
-<li><strong>roughness</strong> (<em>float</em>) – The roughness parameter in range (0, 1]. 0 is
-perfectly specular, 1 is perfectly rough.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Real component of the refractive
+index - <span class="math notranslate nohighlight">\(n(\lambda)\)</span>.</p></li>
+<li><p><strong>extinction</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Imaginary component of the
+refractive index (extinction) - <span class="math notranslate nohighlight">\(k(\lambda)\)</span>.</p></li>
+<li><p><strong>roughness</strong> (<em>float</em>) – The roughness parameter in range (0, 1]. 0 is
+perfectly specular, 1 is perfectly rough.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">InterpolatedSF</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">RoughConductor</span>
@@ -383,56 +410,21 @@ perfectly specular, 1 is perfectly rough.</li>
 <div class="section" id="dielectrics">
 <h2>3.5.5. Dielectrics<a class="headerlink" href="#dielectrics" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="raysect.optical.material.dielectric.Sellmeier">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.dielectric.</code><code class="descname">Sellmeier</code><a class="headerlink" href="#raysect.optical.material.dielectric.Sellmeier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.NumericallyIntegratedSF" title="raysect.optical.spectralfunction.NumericallyIntegratedSF"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.spectralfunction.NumericallyIntegratedSF</span></code></a></p>
-<p>Material with refractive index defined by <a class="reference external" href="https://en.wikipedia.org/wiki/Sellmeier_equation">Sellmeier equation</a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>b1</strong> (<em>float</em>) – Sellmeier <span class="math notranslate nohighlight">\(B_1\)</span> coefficient.</li>
-<li><strong>b2</strong> (<em>float</em>) – Sellmeier <span class="math notranslate nohighlight">\(B_2\)</span> coefficient.</li>
-<li><strong>b3</strong> (<em>float</em>) – Sellmeier <span class="math notranslate nohighlight">\(B_3\)</span> coefficient.</li>
-<li><strong>c1</strong> (<em>float</em>) – Sellmeier <span class="math notranslate nohighlight">\(C_1\)</span> coefficient.</li>
-<li><strong>c2</strong> (<em>float</em>) – Sellmeier <span class="math notranslate nohighlight">\(C_2\)</span> coefficient.</li>
-<li><strong>c3</strong> (<em>float</em>) – Sellmeier <span class="math notranslate nohighlight">\(B_1\)</span> coefficient.</li>
-<li><strong>sample_resolution</strong> (<em>float</em>) – The numerical sampling resolution in nanometers.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">ConstantSF</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">Dielectric</span><span class="p">,</span> <span class="n">Sellmeier</span>
-<span class="go">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">diamond_material</span> <span class="o">=</span> <span class="n">Dielectric</span><span class="p">(</span><span class="n">Sellmeier</span><span class="p">(</span><span class="mf">0.3306</span><span class="p">,</span> <span class="mf">4.3356</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1750</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1060</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
-<span class="go">                                  ConstantSF(1))</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="class">
 <dt id="raysect.optical.material.dielectric.Dielectric">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.dielectric.</code><code class="descname">Dielectric</code><a class="headerlink" href="#raysect.optical.material.dielectric.Dielectric" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.dielectric.</code><code class="sig-name descname">Dielectric</code><a class="headerlink" href="#raysect.optical.material.dielectric.Dielectric" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>An ideal dielectric material.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Refractive index as a function of wavelength.</li>
-<li><strong>transmission</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Transmission per metre as a function of wavelength.</li>
-<li><strong>external_index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Refractive index of the external material at the interface,
-defaults to a vacuum (n=1).</li>
-<li><strong>transmission_only</strong> (<em>bool</em>) – toggles transmission only, no reflection (default=False).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Refractive index as a function of wavelength.</p></li>
+<li><p><strong>transmission</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Transmission per metre as a function of wavelength.</p></li>
+<li><p><strong>external_index</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Refractive index of the external material at the interface,
+defaults to a vacuum (n=1).</p></li>
+<li><p><strong>transmission_only</strong> (<em>bool</em>) – toggles transmission only, no reflection (default=False).</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">ConstantSF</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">Dielectric</span><span class="p">,</span> <span class="n">Sellmeier</span>
 <span class="go">&gt;&gt;&gt;</span>
@@ -443,18 +435,137 @@ defaults to a vacuum (n=1).</li>
 </dd></dl>
 
 <dl class="class">
-<dt id="raysect.optical.material.debug.PerfectReflectingSurface">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.debug.</code><code class="descname">PerfectReflectingSurface</code><a class="headerlink" href="#raysect.optical.material.debug.PerfectReflectingSurface" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
-<p>A material that is perfectly reflecting.</p>
+<dt id="raysect.optical.material.dielectric.Sellmeier">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.dielectric.</code><code class="sig-name descname">Sellmeier</code><a class="headerlink" href="#raysect.optical.material.dielectric.Sellmeier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.NumericallyIntegratedSF" title="raysect.optical.spectralfunction.NumericallyIntegratedSF"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.spectralfunction.NumericallyIntegratedSF</span></code></a></p>
+<p>Material with refractive index defined by <a class="reference external" href="https://en.wikipedia.org/wiki/Sellmeier_equation">Sellmeier equation</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>b1</strong> (<em>float</em>) – Sellmeier <span class="math notranslate nohighlight">\(B_1\)</span> coefficient.</p></li>
+<li><p><strong>b2</strong> (<em>float</em>) – Sellmeier <span class="math notranslate nohighlight">\(B_2\)</span> coefficient.</p></li>
+<li><p><strong>b3</strong> (<em>float</em>) – Sellmeier <span class="math notranslate nohighlight">\(B_3\)</span> coefficient.</p></li>
+<li><p><strong>c1</strong> (<em>float</em>) – Sellmeier <span class="math notranslate nohighlight">\(C_1\)</span> coefficient.</p></li>
+<li><p><strong>c2</strong> (<em>float</em>) – Sellmeier <span class="math notranslate nohighlight">\(C_2\)</span> coefficient.</p></li>
+<li><p><strong>c3</strong> (<em>float</em>) – Sellmeier <span class="math notranslate nohighlight">\(B_1\)</span> coefficient.</p></li>
+<li><p><strong>sample_resolution</strong> (<em>float</em>) – The numerical sampling resolution in nanometers.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">ConstantSF</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">Dielectric</span><span class="p">,</span> <span class="n">Sellmeier</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">diamond_material</span> <span class="o">=</span> <span class="n">Dielectric</span><span class="p">(</span><span class="n">Sellmeier</span><span class="p">(</span><span class="mf">0.3306</span><span class="p">,</span> <span class="mf">4.3356</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1750</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.1060</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="go">                                  ConstantSF(1))</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
 <div class="section" id="modifiers">
 <h2>3.5.6. Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="raysect.optical.material.modifiers.Blend">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.modifiers.</code><code class="sig-name descname">Blend</code><a class="headerlink" href="#raysect.optical.material.modifiers.Blend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
+<p>Blend combines the behaviours of two materials.</p>
+<p>This modifier is used to blend together the behaviours of two different
+materials. Which material handles the interaction for an incoming ray is
+determined by a random choice, weighted by the ratio argument. Low values
+of ratio bias the selection towards material 1, high values to material 2.</p>
+<p>It is the responsibility of the user to ensure the material combination is
+physically valid.</p>
+<p>By default both the volume and surface responses are blended. This may be
+configured with the surface_only and volume_only parameters. If blending
+is disabled the response from material 1 is returned.</p>
+<p>Blend can be used to approximate finely sputtered surfaces consisting of a
+mix of materials. For example it can be used to crudely approximate a gold
+coated glass surface:</p>
+<blockquote>
+<div><p>material = Blend(schott(‘N-BK7’), Gold(), 0.1, surface_only=True)</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>m1</strong> – The first material.</p></li>
+<li><p><strong>m2</strong> – The second material.</p></li>
+<li><p><strong>ratio</strong> – A double value in the range (0, 1).</p></li>
+<li><p><strong>surface_only</strong> – Only blend the surface response (default=False).</p></li>
+<li><p><strong>volume_only</strong> – Only blend the volume response (default=False).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.material.modifiers.Add">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.modifiers.</code><code class="sig-name descname">Add</code><a class="headerlink" href="#raysect.optical.material.modifiers.Add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
+<p>Adds the response of two materials.</p>
+<p>This modifier is used to sum together the behaviours of two different
+materials. The surface response is the simple sum of the two surface
+material responses. The volume response is more nuanced. The volume method
+of material 1 is applied first, followed by the volume method of material
+2. Depending on the choice of volume material, this may result in a simple
+summation or a more complex interaction.</p>
+<p>The Add modifier should be used with caution, it is possible to produce
+unphysical material combinations that violate energy conservation. It is
+the responsibility of the user to ensure the material combination is
+physically valid.</p>
+<p>By default both the volume and surface responses are combined. This may be
+configured with the surface_only and volume_only parameters. If summation
+is disabled the response from material 1 is returned.</p>
+<p>Add can be used to introduce a surface emission component to a non-emitting
+surface. For example, A hot metal surface can be approximated by adding a
+black body emitter to a metal material:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>material = Add(</dt><dd><p>Iron(),
+UniformSurfaceEmitter(BlackBody(800)),
+surface_only=True</p>
+</dd>
+</dl>
+<p>)</p>
+</div></blockquote>
+<p>Combining volumes is more complex and must only be used with materials that
+are mathematically commutative, for example two volume emitters or two
+absorbing volumes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>m1</strong> – The first material.</p></li>
+<li><p><strong>m2</strong> – The second material.</p></li>
+<li><p><strong>surface_only</strong> – Only blend the surface response (default=False).</p></li>
+<li><p><strong>volume_only</strong> – Only blend the volume response (default=False).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.material.modifiers.VolumeTransform">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.modifiers.</code><code class="sig-name descname">VolumeTransform</code><a class="headerlink" href="#raysect.optical.material.modifiers.VolumeTransform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
+<p>Translate/rotate the volume material relative to the primitive.</p>
+<p>Applies an affine transform to the start and end points of the volume
+response calculation. This modifier is intended for use with volume
+texture materials, allowing them to be translated/rotated.</p>
+<p>As a modifier material, it takes another material (the base material) as an
+argument. Using a supplied an affine transform, this material will modify
+the start and end coordinate of the volume integration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>material</strong> – The base material.</p></li>
+<li><p><strong>transform</strong> – An affine transform.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
 <dt id="raysect.optical.material.modifiers.Roughen">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.modifiers.</code><code class="descname">Roughen</code><a class="headerlink" href="#raysect.optical.material.modifiers.Roughen" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.modifiers.</code><code class="sig-name descname">Roughen</code><a class="headerlink" href="#raysect.optical.material.modifiers.Roughen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>Modifies the surface normal to approximate a rough surface.</p>
 <p>This is a modifier material, it takes another material (the base material)
@@ -468,18 +579,14 @@ interpolation, and hence the roughness of the surface, is controlled by the
 roughness argument. The roughness argument takes a value in the range
 [0, 1] where 1 is a fully rough, lambert-like surface and 0 is a smooth,
 untainted surface.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>material</strong> – The base material.</li>
-<li><strong>roughness</strong> – A double value in the range [0, 1].</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>material</strong> – The base material.</p></li>
+<li><p><strong>roughness</strong> – A double value in the range [0, 1].</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -488,26 +595,22 @@ untainted surface.</p>
 <p>This module contains materials to aid with debugging and creating test scenes.</p>
 <dl class="class">
 <dt id="raysect.optical.material.emitter.Checkerboard">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.emitter.</code><code class="descname">Checkerboard</code><a class="headerlink" href="#raysect.optical.material.emitter.Checkerboard" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">Checkerboard</code><a class="headerlink" href="#raysect.optical.material.emitter.Checkerboard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
 <p>Isotropic checkerboard surface emitter</p>
 <p>Defines a plane of alternating squares of emission forming a checkerboard
 pattern. Useful in debugging and as a light source in test scenes.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>width</strong> (<em>float</em>) – The width of the squares in metres.</li>
-<li><strong>emission_spectrum1</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Emission spectrum for square one.</li>
-<li><strong>emission_spectrum2</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Emission spectrum for square two.</li>
-<li><strong>scale1</strong> (<em>float</em>) – Intensity of square one emission.</li>
-<li><strong>scale2</strong> (<em>float</em>) – Intensity of square two emission.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>float</em>) – The width of the squares in metres.</p></li>
+<li><p><strong>emission_spectrum1</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Emission spectrum for square one.</p></li>
+<li><p><strong>emission_spectrum2</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – Emission spectrum for square two.</p></li>
+<li><p><strong>scale1</strong> (<em>float</em>) – Intensity of square one emission.</p></li>
+<li><p><strong>scale2</strong> (<em>float</em>) – Intensity of square two emission.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Box</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">d65_white</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">Checkerboard</span>
@@ -524,27 +627,30 @@ pattern. Useful in debugging and as a light source in test scenes.</p>
 
 <dl class="class">
 <dt id="raysect.optical.material.debug.Light">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.debug.</code><code class="descname">Light</code><a class="headerlink" href="#raysect.optical.material.debug.Light" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.debug.</code><code class="sig-name descname">Light</code><a class="headerlink" href="#raysect.optical.material.debug.Light" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
 <p>A Lambertian surface material illuminated by a distant light source.</p>
 <p>This debug material lights the primitive from the world direction specified
 by a vector passed to the light_direction parameter. An optional intensity
 and emission spectrum may be supplied. By default the light spectrum is the
 D65 white point spectrum.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>light_direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – A world space Vector3D defining the light direction.</li>
-<li><strong>intensity</strong> (<em>float</em>) – The light intensity in units of radiance (default is 1.0).</li>
-<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – A SpectralFunction defining the light’s
-emission spectrum (default is D65 white).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>light_direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – A world space Vector3D defining the light direction.</p></li>
+<li><p><strong>intensity</strong> (<em>float</em>) – The light intensity in units of radiance (default is 1.0).</p></li>
+<li><p><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – A SpectralFunction defining the light’s
+emission spectrum (default is D65 white).</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.material.debug.PerfectReflectingSurface">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.debug.</code><code class="sig-name descname">PerfectReflectingSurface</code><a class="headerlink" href="#raysect.optical.material.debug.PerfectReflectingSurface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
+<p>A material that is perfectly reflecting.</p>
 </dd></dl>
 
 </div>

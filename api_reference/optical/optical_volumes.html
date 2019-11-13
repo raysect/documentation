@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.5.6
+                0.6.0
               </div>
             
           
@@ -194,7 +194,7 @@
 <h1>3.6. Optical Volume Materials<a class="headerlink" href="#optical-volume-materials" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="raysect.optical.material.emitter.UnityVolumeEmitter">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.emitter.</code><code class="descname">UnityVolumeEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UnityVolumeEmitter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">UnityVolumeEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UnityVolumeEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.emitter.homogeneous.HomogeneousVolumeEmitter</span></code></p>
 <p>Uniform, isotropic volume emitter with emission 1W/str/m^3/ x nm,
 where x is the spectrum’s wavelength interval.</p>
@@ -213,23 +213,19 @@ coefficients between cameras and emitting volumes.</p>
 
 <dl class="class">
 <dt id="raysect.optical.material.emitter.UniformVolumeEmitter">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.emitter.</code><code class="descname">UniformVolumeEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UniformVolumeEmitter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">UniformVolumeEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UniformVolumeEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.emitter.homogeneous.HomogeneousVolumeEmitter</span></code></p>
 <p>Uniform, homogeneous and isotropic volume emitter.</p>
 <p>Uniform emission will be given by the emission_spectrum multiplied by the
 emission scale in radiance.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>emission_spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – The volume’s emission function.</li>
-<li><strong>scale</strong> (<em>float</em>) – Scale of the emission function (default = 1 W/m^3/str/nm).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>emission_spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – The volume’s emission function.</p></li>
+<li><p><strong>scale</strong> (<em>float</em>) – Scale of the emission function (default = 1 W/m^3/str/nm).</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Sphere</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">ConstantSF</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">UniformVolumeEmitter</span>
@@ -244,7 +240,7 @@ emission scale in radiance.</p>
 
 <dl class="class">
 <dt id="raysect.optical.material.emitter.HomogeneousVolumeEmitter">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.emitter.</code><code class="descname">HomogeneousVolumeEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.HomogeneousVolumeEmitter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">HomogeneousVolumeEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.HomogeneousVolumeEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullSurface" title="raysect.optical.material.material.NullSurface"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullSurface</span></code></a></p>
 <p>Base class for homogeneous volume emitters.</p>
 <p>Total power output of the light from each point is constant,
@@ -252,167 +248,144 @@ but not necessarily isotropic.</p>
 <p>The deriving class must implement the emission_function() method.</p>
 <dl class="method">
 <dt id="raysect.optical.material.emitter.HomogeneousVolumeEmitter.emission_function">
-<code class="descname">emission_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.emitter.HomogeneousVolumeEmitter.emission_function" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">emission_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.emitter.HomogeneousVolumeEmitter.emission_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>The emission function for the material.</p>
 <p>This is a virtual method and must be implemented in a sub class.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The emission direction vector in local coordinates.</li>
-<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum measured so far along ray path. Add your emission
-to this spectrum, don’t override it.</li>
-<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scene-graph.</li>
-<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray being traced.</li>
-<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric primitive to which this material belongs
-(i.e. a cylinder or a mesh).</li>
-<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from world space to the primitive’s local space.</li>
-<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from the primitive’s local space to world space.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The emission direction vector in local coordinates.</p></li>
+<li><p><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum measured so far along ray path. Add your emission
+to this spectrum, don’t override it.</p></li>
+<li><p><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scene-graph.</p></li>
+<li><p><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray being traced.</p></li>
+<li><p><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric primitive to which this material belongs
+(i.e. a cylinder or a mesh).</p></li>
+<li><p><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
+transform from world space to the primitive’s local space.</p></li>
+<li><p><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
+transform from the primitive’s local space to world space.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="raysect.optical.material.emitter.InhomogeneousVolumeEmitter">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.emitter.</code><code class="descname">InhomogeneousVolumeEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.InhomogeneousVolumeEmitter" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">InhomogeneousVolumeEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.InhomogeneousVolumeEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullSurface" title="raysect.optical.material.material.NullSurface"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullSurface</span></code></a></p>
 <p>Base class for inhomogeneous volume emitters.</p>
 <p>The integration technique can be changed by the user, but defaults to
 a basic numerical integration scheme.</p>
 <p>The deriving class must implement the emission_function() method.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>integrator</strong> (<a class="reference internal" href="#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator" title="raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator"><em>VolumeIntegrator</em></a>) – Integration object, defaults to
-NumericalIntegrator(step=0.01, min_samples=5).</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>integrator</strong> (<a class="reference internal" href="#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator" title="raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator"><em>VolumeIntegrator</em></a>) – Integration object, defaults to
+NumericalIntegrator(step=0.01, min_samples=5).</p>
+</dd>
+</dl>
 <dl class="method">
 <dt id="raysect.optical.material.emitter.InhomogeneousVolumeEmitter.emission_function">
-<code class="descname">emission_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.emitter.InhomogeneousVolumeEmitter.emission_function" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">emission_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.emitter.InhomogeneousVolumeEmitter.emission_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>The emission function for the material at a given sample point.</p>
 <p>This is a virtual method and must be implemented in a sub class.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Requested sample point in local coordinates.</li>
-<li><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The emission direction in local coordinates.</li>
-<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum measured so far along ray path. Add your emission
-to this spectrum, don’t override it.</li>
-<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scene-graph.</li>
-<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray being traced.</li>
-<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric primitive to which this material belongs
-(i.e. a cylinder or a mesh).</li>
-<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from world space to the primitive’s local space.</li>
-<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from the primitive’s local space to world space.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – Requested sample point in local coordinates.</p></li>
+<li><p><strong>direction</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.vector.Vector3D" title="raysect.core.math.vector.Vector3D"><em>Vector3D</em></a>) – The emission direction in local coordinates.</p></li>
+<li><p><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum measured so far along ray path. Add your emission
+to this spectrum, don’t override it.</p></li>
+<li><p><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scene-graph.</p></li>
+<li><p><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray being traced.</p></li>
+<li><p><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric primitive to which this material belongs
+(i.e. a cylinder or a mesh).</p></li>
+<li><p><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
+transform from world space to the primitive’s local space.</p></li>
+<li><p><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
+transform from the primitive’s local space to world space.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.emitter.inhomogeneous.</code><code class="descname">VolumeIntegrator</code><a class="headerlink" href="#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.inhomogeneous.</code><code class="sig-name descname">VolumeIntegrator</code><a class="headerlink" href="#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for integrators in InhomogeneousVolumeEmitter materials.</p>
 <p>The deriving class must implement the integrate() method.</p>
 <dl class="method">
 <dt id="raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator.integrate">
-<code class="descname">integrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator.integrate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">integrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator.integrate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a customised integration of the emission through a volume emitter.</p>
 <p>This is a virtual method and must be implemented in a sub class.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum measured so far along ray path. Add your emission
-to this spectrum, don’t override it.</li>
-<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scene-graph.</li>
-<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray being traced.</li>
-<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric primitive to which this material belongs
-(i.e. a cylinder or a mesh).</li>
-<li><strong>material</strong> (<a class="reference internal" href="#raysect.optical.material.emitter.InhomogeneousVolumeEmitter" title="raysect.optical.material.emitter.InhomogeneousVolumeEmitter"><em>InhomogeneousVolumeEmitter</em></a>) – The material whose emission needs to be
-integrated.</li>
-<li><strong>start_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The start point for integration in world space.</li>
-<li><strong>end_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The end point for integration in world space.</li>
-<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from world space to the primitive’s local space.</li>
-<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from the primitive’s local space to world space.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum measured so far along ray path. Add your emission
+to this spectrum, don’t override it.</p></li>
+<li><p><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scene-graph.</p></li>
+<li><p><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray being traced.</p></li>
+<li><p><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric primitive to which this material belongs
+(i.e. a cylinder or a mesh).</p></li>
+<li><p><strong>material</strong> (<a class="reference internal" href="#raysect.optical.material.emitter.InhomogeneousVolumeEmitter" title="raysect.optical.material.emitter.InhomogeneousVolumeEmitter"><em>InhomogeneousVolumeEmitter</em></a>) – The material whose emission needs to be
+integrated.</p></li>
+<li><p><strong>start_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The start point for integration in world space.</p></li>
+<li><p><strong>end_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The end point for integration in world space.</p></li>
+<li><p><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
+transform from world space to the primitive’s local space.</p></li>
+<li><p><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
+transform from the primitive’s local space to world space.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
 <dt id="raysect.optical.material.emitter.inhomogeneous.NumericalIntegrator">
-<em class="property">class </em><code class="descclassname">raysect.optical.material.emitter.inhomogeneous.</code><code class="descname">NumericalIntegrator</code><a class="headerlink" href="#raysect.optical.material.emitter.inhomogeneous.NumericalIntegrator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.inhomogeneous.</code><code class="sig-name descname">NumericalIntegrator</code><a class="headerlink" href="#raysect.optical.material.emitter.inhomogeneous.NumericalIntegrator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator" title="raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator</span></code></a></p>
 <p>A basic implementation of the trapezium integration scheme for volume emitters.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>step</strong> (<em>float</em>) – The step size for numerical integration in metres.</li>
-<li><strong>min_samples</strong> (<em>int</em>) – The minimum number of samples to use over integration
-range (default=5).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>step</strong> (<em>float</em>) – The step size for numerical integration in metres.</p></li>
+<li><p><strong>min_samples</strong> (<em>int</em>) – The minimum number of samples to use over integration
+range (default=5).</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <dl class="method">
 <dt id="raysect.optical.material.emitter.inhomogeneous.NumericalIntegrator.integrate">
-<code class="descname">integrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.emitter.inhomogeneous.NumericalIntegrator.integrate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">integrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.emitter.inhomogeneous.NumericalIntegrator.integrate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a customised integration of the emission through a volume emitter.</p>
 <p>This is a virtual method and must be implemented in a sub class.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum measured so far along ray path. Add your emission
-to this spectrum, don’t override it.</li>
-<li><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scene-graph.</li>
-<li><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray being traced.</li>
-<li><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric primitive to which this material belongs
-(i.e. a cylinder or a mesh).</li>
-<li><strong>material</strong> (<a class="reference internal" href="#raysect.optical.material.emitter.InhomogeneousVolumeEmitter" title="raysect.optical.material.emitter.InhomogeneousVolumeEmitter"><em>InhomogeneousVolumeEmitter</em></a>) – The material whose emission needs to be
-integrated.</li>
-<li><strong>start_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The start point for integration in world space.</li>
-<li><strong>end_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The end point for integration in world space.</li>
-<li><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from world space to the primitive’s local space.</li>
-<li><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
-transform from the primitive’s local space to world space.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>spectrum</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectrum.Spectrum" title="raysect.optical.spectrum.Spectrum"><em>Spectrum</em></a>) – Spectrum measured so far along ray path. Add your emission
+to this spectrum, don’t override it.</p></li>
+<li><p><strong>world</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><em>World</em></a>) – The world scene-graph.</p></li>
+<li><p><strong>ray</strong> (<a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><em>Ray</em></a>) – The ray being traced.</p></li>
+<li><p><strong>primitive</strong> (<a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><em>Primitive</em></a>) – The geometric primitive to which this material belongs
+(i.e. a cylinder or a mesh).</p></li>
+<li><p><strong>material</strong> (<a class="reference internal" href="#raysect.optical.material.emitter.InhomogeneousVolumeEmitter" title="raysect.optical.material.emitter.InhomogeneousVolumeEmitter"><em>InhomogeneousVolumeEmitter</em></a>) – The material whose emission needs to be
+integrated.</p></li>
+<li><p><strong>start_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The start point for integration in world space.</p></li>
+<li><p><strong>end_point</strong> (<a class="reference internal" href="../core/points_and_vectors.html#raysect.core.math.point.Point3D" title="raysect.core.math.point.Point3D"><em>Point3D</em></a>) – The end point for integration in world space.</p></li>
+<li><p><strong>world_to_primitive</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
+transform from world space to the primitive’s local space.</p></li>
+<li><p><strong>primitive_to_world</strong> (<a class="reference internal" href="../core/affinematrix.html#raysect.core.math.affinematrix.AffineMatrix3D" title="raysect.core.math.affinematrix.AffineMatrix3D"><em>AffineMatrix3D</em></a>) – Affine matrix defining the coordinate
+transform from the primitive’s local space to world space.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
