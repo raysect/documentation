@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.6.0
+                0.6.1
               </div>
             
           
@@ -249,6 +249,10 @@
 
 <span class="sd">    The render() function must return an object representing the results,</span>
 <span class="sd">    this must be a picklable python object.</span>
+
+<span class="sd">    The execution order of tasks is not guaranteed to be in order. If the order</span>
+<span class="sd">    is critical, an identifier should be passed as part of the task definition</span>
+<span class="sd">    and returned in the result. This will permit the order to be reconstructed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="RenderEngine.run"><a class="viewcode-back" href="../../../api_reference/core/render_engines.html#raysect.core.workflow.RenderEngine.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">render_args</span><span class="o">=</span><span class="p">(),</span> <span class="n">render_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">update_args</span><span class="o">=</span><span class="p">(),</span> <span class="n">update_kwargs</span><span class="o">=</span><span class="p">{}):</span>
@@ -392,7 +396,27 @@
         <span class="c1"># consume results</span>
         <span class="n">remaining</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span>
         <span class="k">while</span> <span class="n">remaining</span><span class="p">:</span>
+
             <span class="n">results</span> <span class="o">=</span> <span class="n">result_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+
+            <span class="c1"># has a worker failed?</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">):</span>
+
+                <span class="c1"># clean up</span>
+                <span class="k">for</span> <span class="n">worker</span> <span class="ow">in</span> <span class="n">workers</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">worker</span><span class="o">.</span><span class="n">is_alive</span><span class="p">():</span>
+                        <span class="n">worker</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+                <span class="n">producer</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+
+                <span class="c1"># wait for processes to terminate</span>
+                <span class="k">for</span> <span class="n">worker</span> <span class="ow">in</span> <span class="n">workers</span><span class="p">:</span>
+                    <span class="n">worker</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+                <span class="n">producer</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+                <span class="c1"># raise the exception to inform the user</span>
+                <span class="k">raise</span> <span class="n">results</span>
+
+            <span class="c1"># update state with new results</span>
             <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
                 <span class="n">update</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="o">*</span><span class="n">update_args</span><span class="p">,</span> <span class="o">**</span><span class="n">update_kwargs</span><span class="p">)</span>
                 <span class="n">remaining</span> <span class="o">-=</span> <span class="mi">1</span>
@@ -469,13 +493,18 @@
 
             <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">job</span><span class="p">:</span>
-                <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">render</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">render</span><span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="c1"># pass the exception back to the main process and quit</span>
+                    <span class="n">result_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                    <span class="k">break</span>
+
+            <span class="c1"># hand back results</span>
             <span class="n">result_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">results</span><span class="p">)</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-
-    <span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">time</span>
 
     <span class="k">class</span> <span class="nc">Job</span><span class="p">:</span>
 
@@ -497,15 +526,15 @@
         <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">total</span> <span class="o">+=</span> <span class="n">result</span>
 
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">2000</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">20000</span>
 
-    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="n">j</span> <span class="o">=</span> <span class="n">Job</span><span class="p">(</span><span class="n">SerialEngine</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span>
 
-    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     <span class="n">j</span> <span class="o">=</span> <span class="n">Job</span><span class="p">(</span><span class="n">MulticoreEngine</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span>
 </pre></div>
 
            </div>

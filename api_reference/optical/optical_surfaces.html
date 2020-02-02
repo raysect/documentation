@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.0
+                0.6.1
               </div>
             
           
@@ -401,7 +401,7 @@ perfectly specular, 1 is perfectly rough.</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">index</span> <span class="o">=</span> <span class="n">InterpolatedSF</span><span class="p">(</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="o">...</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">extinction</span> <span class="o">=</span> <span class="n">InterpolatedSF</span><span class="p">(</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="o">...</span><span class="p">))</span>
 <span class="go">&gt;&gt;&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">rough_metal</span> <span class="o">=</span> <span class="n">Conductor</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">extinction</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rough_metal</span> <span class="o">=</span> <span class="n">RoughConductor</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">extinction</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>

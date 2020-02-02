@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.0
+                0.6.1
               </div>
             
           
@@ -797,6 +797,29 @@ measured spectrum.</p></li>
 </dd></dl>
 
 <dl class="class">
+<dt id="raysect.optical.observer.pipeline.mono.PowerPipeline1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.mono.</code><code class="sig-name descname">PowerPipeline1D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline1D" title="raysect.optical.observer.base.pipeline.Pipeline1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline1D</span></code></a></p>
+<p>A power pipeline for 1D observers.</p>
+<p>The raw spectrum collected at each pixel by the observer is multiplied by
+a spectral filter and integrated to give to total power collected at that
+pixel.</p>
+<p>The measured value and error for each pixel are accessed at self.frame.mean
+and self.frame.error respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – A filter function to be multiplied with the
+measured spectrum.</p></li>
+<li><p><strong>accumulate</strong> (<em>bool</em>) – Whether to accumulate samples with subsequent calls
+to observe() (default=True).</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
 <dt id="raysect.optical.observer.pipeline.mono.PowerPipeline2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.mono.</code><code class="sig-name descname">PowerPipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline2D" title="raysect.optical.observer.base.pipeline.Pipeline2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline2D</span></code></a></p>
@@ -903,6 +926,29 @@ measured spectrum.</p></li>
 </dd></dl>
 
 <dl class="class">
+<dt id="raysect.optical.observer.pipeline.mono.RadiancePipeline1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.mono.</code><code class="sig-name descname">RadiancePipeline1D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.RadiancePipeline1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.pipeline.mono.power.PowerPipeline1D</span></code></p>
+<p>A radiance pipeline for 1D observers.</p>
+<p>The raw spectrum collected at each pixel by the observer is multiplied by
+a spectral filter and integrated to give to total radiance collected at that
+pixel (W/str/m^2).</p>
+<p>The measured value and error for each pixel are accessed at self.frame.mean
+and self.frame.error respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filter</strong> (<a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><em>SpectralFunction</em></a>) – A filter function to be multiplied with the
+measured spectrum.</p></li>
+<li><p><strong>accumulate</strong> (<em>bool</em>) – Whether to accumulate samples with subsequent calls
+to observe() (default=True).</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
 <dt id="raysect.optical.observer.pipeline.mono.RadiancePipeline2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.mono.</code><code class="sig-name descname">RadiancePipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.RadiancePipeline2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.pipeline.mono.power.PowerPipeline2D</span></code></p>
@@ -985,6 +1031,50 @@ to observe() (default=True).</p></li>
 </dd></dl>
 
 <dl class="class">
+<dt id="raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="sig-name descname">SpectralPowerPipeline1D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline1D" title="raysect.optical.observer.base.pipeline.Pipeline1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline1D</span></code></a></p>
+<p>A basic spectral power pipeline for 1D observers (W/nm).</p>
+<p>The mean spectral power for each pixel is stored along with the associated
+error on each wavelength bin in a 1D frame object.</p>
+<p>Spectral values and errors are available through the self.frame attribute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>accumulate</strong> (<em>bool</em>) – Whether to accumulate samples with subsequent calls
+to observe() (default=True).</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="sig-name descname">SpectralRadiancePipeline1D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.pipeline.spectral.power.SpectralPowerPipeline1D</span></code></p>
+<p>A basic spectral radiance pipeline for 1D observers (W/str/m^2/nm).</p>
+<p>The mean spectral radiance for each pixel is stored along with the associated
+error on each wavelength bin in a 1D frame object.</p>
+<p>Spectral values and errors are available through the self.frame attribute.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>accumulate</strong> (<em>bool</em>) – Whether to accumulate samples with subsequent calls
+to observe() (default=True).</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – User friendly name for this pipeline.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline1D.to_spectrum">
+<code class="sig-name descname">to_spectrum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline1D.to_spectrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the mean spectral radiance of pixel in a Spectrum() object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="sig-name descname">SpectralPowerPipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline2D" title="raysect.optical.observer.base.pipeline.Pipeline2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline2D</span></code></a></p>
@@ -1032,10 +1122,107 @@ to observe() (default=True).</p></li>
 <div class="section" id="frame-samplers">
 <h2>3.3.7. Frame Samplers<a class="headerlink" href="#frame-samplers" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="raysect.optical.observer.sampler1d.FullFrameSampler1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.sampler1d.</code><code class="sig-name descname">FullFrameSampler1D</code><a class="headerlink" href="#raysect.optical.observer.sampler1d.FullFrameSampler1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler1D" title="raysect.optical.observer.base.sampler.FrameSampler1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler1D</span></code></a></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.sampler1d.MonoAdaptiveSampler1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.sampler1d.</code><code class="sig-name descname">MonoAdaptiveSampler1D</code><a class="headerlink" href="#raysect.optical.observer.sampler1d.MonoAdaptiveSampler1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler1D" title="raysect.optical.observer.base.sampler.FrameSampler1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler1D</span></code></a></p>
+<p>FrameSampler that dynamically adjusts a camera’s pixel samples based on the noise
+level in each pixel’s power value.</p>
+<p>Pixels that have high noise levels will receive extra samples until the desired
+noise threshold is achieve across the whole image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pipeline</strong> (<a class="reference internal" href="#raysect.optical.observer.pipeline.mono.PowerPipeline1D" title="raysect.optical.observer.pipeline.mono.PowerPipeline1D"><em>PowerPipeline1D</em></a>) – The specific power pipeline to use for feedback control.</p></li>
+<li><p><strong>fraction</strong> (<em>float</em>) – The fraction of frame pixels to receive extra sampling
+(default=0.2).</p></li>
+<li><p><strong>ratio</strong> (<em>float</em>) – The maximum allowable ratio between the maximum and minimum number of
+samples obtained for the pixels of the same observer (default=10).
+The sampler will generate additional tasks for pixels with the least number of samples
+in order to keep this ratio below a given value.</p></li>
+<li><p><strong>min_samples</strong> (<em>int</em>) – Minimum number of pixel samples across the image before
+turning on adaptive sampling (default=1000).</p></li>
+<li><p><strong>cutoff</strong> (<em>double</em>) – Normalised noise threshold at which extra sampling will be aborted and
+rendering will complete (default=0.0). The standard error is normalised to 1 so that a
+cutoff of 0.01 corresponds to 1% standard error.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.sampler1d.SpectralAdaptiveSampler1D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.sampler1d.</code><code class="sig-name descname">SpectralAdaptiveSampler1D</code><a class="headerlink" href="#raysect.optical.observer.sampler1d.SpectralAdaptiveSampler1D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler1D" title="raysect.optical.observer.base.sampler.FrameSampler1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler1D</span></code></a></p>
+<p>FrameSampler that dynamically adjusts a camera’s pixel samples based on the noise
+level in each pixel’s power value.</p>
+<p>Pixels that have high noise levels will receive extra samples until the desired
+noise threshold is achieve across the whole image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pipeline</strong> (<a class="reference internal" href="#raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline1D" title="raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline1D"><em>SpectralPowerPipeline1D</em></a>) – The specific spectral power pipeline to use
+for feedback control.</p></li>
+<li><p><strong>fraction</strong> (<em>float</em>) – The fraction of frame pixels to receive extra sampling
+(default=0.2).</p></li>
+<li><p><strong>ratio</strong> (<em>float</em>) – The maximum allowable ratio between the maximum and minimum number of
+samples obtained for the pixels of the same observer (default=10).
+The sampler will generate additional tasks for pixels with the least number of samples
+in order to keep this ratio below a given value.</p></li>
+<li><p><strong>min_samples</strong> (<em>int</em>) – Minimum number of pixel samples across the image before
+turning on adaptive sampling (default=1000).</p></li>
+<li><p><strong>cutoff</strong> (<em>double</em>) – Normalised noise threshold at which extra sampling will be aborted and
+rendering will complete (default=0.0). The standard error is normalised to 1 so that a
+cutoff of 0.01 corresponds to 1% standard error.</p></li>
+<li><p><strong>reduction_method</strong> (<em>str</em>) – <p>A method for obtaining spectral-average value of normalised
+error of a pixel from spectral array of errors (default=’percentile’).</p>
+<blockquote>
+<div><ul>
+<li><p><cite>reduction_method=’weighted’</cite>: the error of a pixel is calculated as power-weighted
+average of the spectral errors,</p></li>
+<li><p><cite>reduction_method=’mean’</cite>: the error of a pixel is calculated as a mean
+of the spectral errors excluding spectral bins with zero power,</p></li>
+<li><p><cite>reduction_method=’percentile’</cite>: the error of a pixel is calculated as a user-defined
+percentile of the spectral errors excluding spectral bins with zero power.</p></li>
+<li><p><cite>reduction_method=’power_percentile’</cite>: the error of a pixel is calculated as the highest
+spectral error among a given percentage of spectral bins with the highest spectral power.</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>percentile</strong> (<em>double</em>) – <p>Used only if <cite>reduction_method=’percentile’</cite> or
+<cite>reduction_method=’power_percentile’</cite> (default=100).</p>
+<blockquote>
+<div><ul>
+<li><p><cite>reduction_method=’percentile’</cite>: If <cite>percentile=x</cite>, extra sampling will be aborted
+if x% of spectral bins of each pixel have normalised errors lower than <cite>cutoff</cite>.</p></li>
+<li><p><cite>reduction_method=’power_percentile’</cite>: If <cite>percentile=x</cite>, extra sampling will be aborted
+if x% of spectral bins with the highest spectral power all have normalised errors lower
+than <cite>cutoff</cite>.</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
 <dt id="raysect.optical.observer.sampler2d.FullFrameSampler2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.sampler2d.</code><code class="sig-name descname">FullFrameSampler2D</code><a class="headerlink" href="#raysect.optical.observer.sampler2d.FullFrameSampler2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler2D</span></code></a></p>
-<p>Evenly samples the full 2D frame.</p>
+<p>Evenly samples the full 2D frame or its masked fragment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mask</strong> (<em>np.ndarray</em>) – The image mask array (default=None). A 2D boolean array with
+the same shape as the frame. The tasks are generated only for those pixels for which
+the mask is True.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -1050,14 +1237,76 @@ noise threshold is achieve across the whole image.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pipeline</strong> (<a class="reference internal" href="#raysect.optical.observer.pipeline.mono.PowerPipeline2D" title="raysect.optical.observer.pipeline.mono.PowerPipeline2D"><em>PowerPipeline2D</em></a>) – The specific power pipeline to use for feedback control.</p></li>
-<li><p><strong>fraction</strong> (<em>float</em>) – The fraction of frame pixels to receive extra sampling
-(default=0.2).</p></li>
-<li><p><strong>ratio</strong> (<em>float</em>) – </p></li>
-<li><p><strong>min_samples</strong> (<em>int</em>) – Minimum number of pixel samples across the image before
-turning on adaptive sampling (default=1000).</p></li>
+<li><p><strong>fraction</strong> (<em>float</em>) – The fraction of frame (or its masked fragment) pixels to receive
+extra sampling (default=0.2).</p></li>
+<li><p><strong>ratio</strong> (<em>float</em>) – The maximum allowable ratio between the maximum and minimum number of
+samples obtained for the pixels of the same observer (default=10).
+The sampler will generate additional tasks for pixels with the least number of samples
+in order to keep this ratio below a given value.</p></li>
+<li><p><strong>min_samples</strong> (<em>int</em>) – Minimum number of pixel samples across the image
+(or its masked fragment) before turning on adaptive sampling (default=1000).</p></li>
 <li><p><strong>cutoff</strong> (<em>double</em>) – Normalised noise threshold at which extra sampling will be aborted and
 rendering will complete (default=0.0). The standard error is normalised to 1 so that a
 cutoff of 0.01 corresponds to 1% standard error.</p></li>
+<li><p><strong>mask</strong> (<em>np.ndarray</em>) – The image mask array (default=None). A 2D boolean array with
+the same shape as the frame. The tasks are generated only for those pixels for which
+the mask is True. If not provided, the all-true mask will be created during the first call
+of generate_tasks().</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="raysect.optical.observer.sampler2d.SpectralAdaptiveSampler2D">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.sampler2d.</code><code class="sig-name descname">SpectralAdaptiveSampler2D</code><a class="headerlink" href="#raysect.optical.observer.sampler2d.SpectralAdaptiveSampler2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler2D</span></code></a></p>
+<p>FrameSampler that dynamically adjusts a camera’s pixel samples based on the noise
+level in each pixel’s power value.</p>
+<p>Pixels that have high noise levels will receive extra samples until the desired
+noise threshold is achieve across the whole image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pipeline</strong> (<a class="reference internal" href="#raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline2D" title="raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline2D"><em>SpectralPowerPipeline2D</em></a>) – The specific power pipeline to use for feedback control.</p></li>
+<li><p><strong>fraction</strong> (<em>float</em>) – The fraction of frame (or its masked fragment) pixels to receive
+extra sampling (default=0.2).</p></li>
+<li><p><strong>ratio</strong> (<em>float</em>) – The maximum allowable ratio between the maximum and minimum number of
+samples obtained for the pixels of the same observer (default=10).
+The sampler will generate additional tasks for pixels with the least number of samples
+in order to keep this ratio below a given value.</p></li>
+<li><p><strong>min_samples</strong> (<em>int</em>) – Minimum number of pixel samples across the image
+(or its masked fragment) before turning on adaptive sampling (default=1000).</p></li>
+<li><p><strong>cutoff</strong> (<em>double</em>) – Normalised noise threshold at which extra sampling will be aborted and
+rendering will complete (default=0.0). The standard error is normalised to 1 so that a
+cutoff of 0.01 corresponds to 1% standard error.</p></li>
+<li><p><strong>reduction_method</strong> (<em>str</em>) – <p>A method for obtaining spectral-average value of normalised
+error of a pixel from spectral array of errors (default=’percentile’).</p>
+<blockquote>
+<div><ul>
+<li><p><cite>reduction_method=’weighted’</cite>: the error of a pixel is calculated as power-weighted
+average of the spectral errors,</p></li>
+<li><p><cite>reduction_method=’mean’</cite>: the error of a pixel is calculated as a mean
+of the spectral errors excluding spectral bins with zero power,</p></li>
+<li><p><cite>reduction_method=’percentile’</cite>: the error of a pixel is calculated as a user-defined
+percentile of the spectral errors excluding spectral bins with zero power.</p></li>
+<li><p><cite>reduction_method=’power_percentile’</cite>: the error of a pixel is calculated as the highest
+spectral error among a given percentage of spectral bins with the highest spectral power.</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>percentile</strong> (<em>double</em>) – <p>Used only if <cite>reduction_method=’percentile’</cite> or
+<cite>reduction_method=’power_percentile’</cite> (default=100).</p>
+<blockquote>
+<div><ul>
+<li><p><cite>reduction_method=’percentile’</cite>: If <cite>percentile=x</cite>, extra sampling will be aborted
+if x% of spectral bins of each pixel have normalised errors lower than <cite>cutoff</cite>.</p></li>
+<li><p><cite>reduction_method=’power_percentile’</cite>: If <cite>percentile=x</cite>, extra sampling will be aborted
+if x% of spectral bins with the highest spectral power all have normalised errors lower
+than <cite>cutoff</cite>.</p></li>
+</ul>
+</div></blockquote>
+</p></li>
 </ul>
 </dd>
 </dl>
@@ -1075,13 +1324,20 @@ noise threshold is achieve across the whole image.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pipeline</strong> (<a class="reference internal" href="#raysect.optical.observer.pipeline.rgb.RGBPipeline2D" title="raysect.optical.observer.pipeline.rgb.RGBPipeline2D"><em>RGBPipeline2D</em></a>) – The specific RGB pipeline to use for feedback control.</p></li>
-<li><p><strong>fraction</strong> (<em>float</em>) – The fraction of frame pixels to receive extra sampling
-(default=0.2).</p></li>
-<li><p><strong>ratio</strong> (<em>float</em>) – </p></li>
-<li><p><strong>min_samples</strong> (<em>int</em>) – Minimum number of pixel samples across the image before
-turning on adaptive sampling (default=1000).</p></li>
+<li><p><strong>fraction</strong> (<em>float</em>) – The fraction of frame (or its masked fragment) pixels to receive
+extra sampling (default=0.2).</p></li>
+<li><p><strong>ratio</strong> (<em>float</em>) – The maximum allowable ratio between the maximum and minimum number of
+samples obtained for the pixels of the same observer (default=10).
+The sampler will generate additional tasks for pixels with the least number of samples
+in order to keep this ratio below a given value.</p></li>
+<li><p><strong>min_samples</strong> (<em>int</em>) – Minimum number of pixel samples across the image
+(or its masked fragment) before turning on adaptive sampling (default=1000).</p></li>
 <li><p><strong>cutoff</strong> (<em>double</em>) – Noise threshold at which extra sampling will be aborted and
 rendering will complete (default=0.0).</p></li>
+<li><p><strong>mask</strong> (<em>np.ndarray</em>) – The image mask array (default=None). A 2D boolean array with
+the same shape as the frame. The tasks are generated only for those pixels for which
+the mask is True. If not provided, the all-true mask will be created during the first call
+of generate_tasks().</p></li>
 </ul>
 </dd>
 </dl>

@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.0
+                0.6.1
               </div>
             
           
@@ -224,6 +224,9 @@ render(). Update() has the following signature:</p>
 <p>where args and kwargs are additional arguments supplied by the user.</p>
 <p>The render() function must return an object representing the results,
 this must be a picklable python object.</p>
+<p>The execution order of tasks is not guaranteed to be in order. If the order
+is critical, an identifier should be passed as part of the task definition
+and returned in the result. This will permit the order to be reconstructed.</p>
 <dl class="method">
 <dt id="raysect.core.workflow.RenderEngine.run">
 <code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">tasks</em>, <em class="sig-param">render</em>, <em class="sig-param">update</em>, <em class="sig-param">render_args=()</em>, <em class="sig-param">render_kwargs={}</em>, <em class="sig-param">update_args=()</em>, <em class="sig-param">update_kwargs={}</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/raysect/core/workflow.html#RenderEngine.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.RenderEngine.run" title="Permalink to this definition">¶</a></dt>
