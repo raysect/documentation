@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -182,11 +182,11 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="core.html">1. Raysect Core</a> &raquo;</li>
+          <li><a href="core.html"><span class="section-number">1. </span>Raysect Core</a> &raquo;</li>
         
-          <li><a href="math.html">1.2. Math Module</a> &raquo;</li>
+          <li><a href="math.html"><span class="section-number">1.2. </span>Math Module</a> &raquo;</li>
         
-      <li>1.2.1. Points and Vectors</li>
+      <li><span class="section-number">1.2.1. </span>Points and Vectors</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -206,10 +206,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="points-and-vectors">
-<h1>1.2.1. Points and Vectors<a class="headerlink" href="#points-and-vectors" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.2.1. </span>Points and Vectors<a class="headerlink" href="#points-and-vectors" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="two-dimensions">
-<h2>1.2.1.1. Two Dimensions<a class="headerlink" href="#two-dimensions" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<h2><span class="section-number">1.2.1.1. </span>Two Dimensions<a class="headerlink" href="#two-dimensions" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
 <dt id="raysect.core.math.point.Point2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.point.</code><code class="sig-name descname">Point2D</code><a class="headerlink" href="#raysect.core.math.point.Point2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents a point in 2D affine space.</p>
@@ -236,32 +236,32 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point2D.__add__">
 <code class="sig-name descname">__add__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point2D.__add__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Addition operator.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">Point2D(1.0, 1.0)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point2D.__getitem__">
 <code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point2D.__getitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the point coordinates by index ([0,1] -&gt; [x,y]).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">1</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point2D.__iter__">
 <code class="sig-name descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point2D.__iter__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterates over the coordinates (x, y)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 <span class="go">(1.0, 1.0)</span>
@@ -269,11 +269,11 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point2D.__setitem__">
 <code class="sig-name descname">__setitem__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point2D.__setitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the point coordinates by index ([0,1] -&gt; [x,y]).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">Point2D(1.0, 2.0)</span>
@@ -281,17 +281,17 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point2D.__sub__">
 <code class="sig-name descname">__sub__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point2D.__sub__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subtraction operator.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">Point2D(1.0, -1.0)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point2D.copy">
 <code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point2D.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a copy of the point.</p>
@@ -307,7 +307,7 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point2D.distance_to">
 <code class="sig-name descname">distance_to</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point2D.distance_to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the distance between this point and the passed point.</p>
@@ -327,7 +327,7 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point2D.vector_to">
 <code class="sig-name descname">vector_to</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point2D.vector_to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a vector from this point to the passed point.</p>
@@ -349,7 +349,7 @@ and distance between two Point2Ds, and transform a Point2D from one coordinate s
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.core.math.vector.Vector2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.vector.</code><code class="sig-name descname">Vector2D</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents a vector in 2D space.</p>
@@ -375,32 +375,32 @@ aligned with the x-axis: Vector2D(1.0, 0.0)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector2D.__add__">
 <code class="sig-name descname">__add__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__add__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Addition operator.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">Vector2D(1.0, 1.0)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector2D.__getitem__">
 <code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__getitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the vector coordinates by index ([0,1] -&gt; [x,y]).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">1</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector2D.__iter__">
 <code class="sig-name descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__iter__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterates over the vector coordinates (x, y)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">a</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 <span class="go">(1.0, 0.0)</span>
@@ -408,32 +408,32 @@ aligned with the x-axis: Vector2D(1.0, 0.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector2D.__mul__">
 <code class="sig-name descname">__mul__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__mul__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Multiplication operator.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="go">Vector2D(2.0, 4.0)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector2D.__neg__">
 <code class="sig-name descname">__neg__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__neg__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a vector with the reverse orientation (negation operator).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="n">a</span>
 <span class="go">Vector2D(-1.0, -0.0)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector2D.__setitem__">
 <code class="sig-name descname">__setitem__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__setitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the vector coordinates by index ([0,1] -&gt; [x,y]).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">Vector2D(1.0, 2.0)</span>
@@ -441,27 +441,27 @@ aligned with the x-axis: Vector2D(1.0, 0.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector2D.__sub__">
 <code class="sig-name descname">__sub__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__sub__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subtraction operator.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="go">Vector2D(1.0, -1.0)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector2D.__truediv__">
 <code class="sig-name descname">__truediv__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.__truediv__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Division operator.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="go">Vector2D(0.5, 0.5)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector2D.copy">
 <code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a copy of the vector.</p>
@@ -477,7 +477,7 @@ aligned with the x-axis: Vector2D(1.0, 0.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector2D.cross">
 <code class="sig-name descname">cross</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.cross" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the 2D cross product analogue between this vector and the supplied vector</p>
@@ -500,7 +500,7 @@ aligned with the x-axis: Vector2D(1.0, 0.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector2D.dot">
 <code class="sig-name descname">dot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.dot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the dot product between this vector and the supplied vector.</p>
@@ -517,21 +517,21 @@ aligned with the x-axis: Vector2D(1.0, 0.0)</p>
 </div>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.core.math.vector.Vector2D.length">
 <code class="sig-name descname">length</code><a class="headerlink" href="#raysect.core.math.vector.Vector2D.length" title="Permalink to this definition">¶</a></dt>
 <dd><p>The vector’s length.</p>
 <p>Raises a ZeroDivisionError if an attempt is made to change the length of
 a zero length vector. The direction of a zero length vector is
 undefined hence it can not be lengthened.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector2D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">length</span>
 <span class="go">1.4142135623730951</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector2D.normalise">
 <code class="sig-name descname">normalise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.normalise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a normalised copy of the vector.</p>
@@ -548,7 +548,7 @@ undefined hence it can not be lengthened.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector2D.orthogonal">
 <code class="sig-name descname">orthogonal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector2D.orthogonal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a unit vector that is guaranteed to be orthogonal to the vector.</p>
@@ -568,8 +568,8 @@ undefined hence it can not be lengthened.</p>
 
 </div>
 <div class="section" id="three-dimensions">
-<h2>1.2.1.2. Three Dimensions<a class="headerlink" href="#three-dimensions" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<h2><span class="section-number">1.2.1.2. </span>Three Dimensions<a class="headerlink" href="#three-dimensions" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
 <dt id="raysect.core.math.point.Point3D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.point.</code><code class="sig-name descname">Point3D</code><a class="headerlink" href="#raysect.core.math.point.Point3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents a point in 3D affine space.</p>
@@ -598,32 +598,32 @@ Point3D(0.0, 0.0, 0.0)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point3D.__add__">
 <code class="sig-name descname">__add__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.__add__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Addition operator.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="go">Point3D(1.0, 1.0, 0.0)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point3D.__getitem__">
 <code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.__getitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the point coordinates by index ([0,1,2] -&gt; [x,y,z]).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">1</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point3D.__iter__">
 <code class="sig-name descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.__iter__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterates over the coordinates (x, y, z)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">a</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
 <span class="go">(0.0, 1.0, 2.0)</span>
@@ -631,7 +631,7 @@ Point3D(0.0, 0.0, 0.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point3D.__mul__">
 <code class="sig-name descname">__mul__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.__mul__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Multiplication operator.</p>
@@ -651,11 +651,11 @@ Point3D(0.0, 0.0, 0.0)</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point3D.__setitem__">
 <code class="sig-name descname">__setitem__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.__setitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the point coordinates by index ([0,1,2] -&gt; [x,y,z]).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">Point3D(1.0, 2.0, 0.0)</span>
@@ -663,17 +663,17 @@ Point3D(0.0, 0.0, 0.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point3D.__sub__">
 <code class="sig-name descname">__sub__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.__sub__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subtraction operator.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Point3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="go">Point3D(1.0, -1.0, 0.0)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point3D.copy">
 <code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a copy of the point.</p>
@@ -689,7 +689,7 @@ Point3D(0.0, 0.0, 0.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point3D.distance_to">
 <code class="sig-name descname">distance_to</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.distance_to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the distance between this point and the passed point.</p>
@@ -709,7 +709,7 @@ Point3D(0.0, 0.0, 0.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point3D.transform">
 <code class="sig-name descname">transform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms the point with the supplied Affine Matrix.</p>
@@ -732,7 +732,7 @@ checks are performed on the matrix.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.point.Point3D.vector_to">
 <code class="sig-name descname">vector_to</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.point.Point3D.vector_to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a vector from this point to the passed point.</p>
@@ -754,7 +754,7 @@ checks are performed on the matrix.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.core.math.vector.Vector3D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.vector.</code><code class="sig-name descname">Vector3D</code><a class="headerlink" href="#raysect.core.math.vector.Vector3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents a vector in 3D affine space.</p>
@@ -783,32 +783,32 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.__add__">
 <code class="sig-name descname">__add__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__add__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Addition operator.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="go">Vector3D(1.0, 1.0, 0.0)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.__getitem__">
 <code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__getitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the vector coordinates by index ([0,1,2] -&gt; [x,y,z]).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">1</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.__iter__">
 <code class="sig-name descname">__iter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__iter__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterates over the vector coordinates (x, y, z)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">a</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span>
 <span class="go">(0.0, 1.0, 2.0)</span>
@@ -816,12 +816,12 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.__mul__">
 <code class="sig-name descname">__mul__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__mul__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Multiplication operator.</p>
 <p>3D vectors can be multiplied with both scalars and transformation matrices.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="k">import</span> <span class="n">Vector3D</span><span class="p">,</span> <span class="n">rotate_x</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">Vector3D</span><span class="p">,</span> <span class="n">rotate_x</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="go">Vector3D(2.0, 4.0, 6.0)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rotate_x</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">*</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -830,22 +830,22 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.__neg__">
 <code class="sig-name descname">__neg__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__neg__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a vector with the reverse orientation (negation operator).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="n">a</span>
 <span class="go">Vector3D(-1.0, -0.0, -0.0)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.__setitem__">
 <code class="sig-name descname">__setitem__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__setitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sets the vector coordinates by index ([0,1,2] -&gt; [x,y,z]).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">Vector3D(1.0, 2.0, 0.0)</span>
@@ -853,32 +853,32 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.__sub__">
 <code class="sig-name descname">__sub__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__sub__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Subtraction operator.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="go">Vector3D(1.0, -1.0, 0.0)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.__truediv__">
 <code class="sig-name descname">__truediv__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.__truediv__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Division operator.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="go">Vector3D(0.5, 0.5, 0.5)</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.angle">
 <code class="sig-name descname">angle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the angle between this vector and the supplied vector.</p>
 <p>Returns the angle in degrees.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 <span class="go">54.735610317245346</span>
@@ -886,7 +886,7 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.copy">
 <code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a copy of the vector.</p>
@@ -902,7 +902,7 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.cross">
 <code class="sig-name descname">cross</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.cross" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the cross product between this vector and the supplied vector</p>
@@ -923,7 +923,7 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.dot">
 <code class="sig-name descname">dot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.dot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the dot product between this vector and the supplied vector.</p>
@@ -940,21 +940,21 @@ aligned with the z-axis: Vector3D(0.0, 0.0, 1.0)</p>
 </div>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.core.math.vector.Vector3D.length">
 <code class="sig-name descname">length</code><a class="headerlink" href="#raysect.core.math.vector.Vector3D.length" title="Permalink to this definition">¶</a></dt>
 <dd><p>The vector’s length.</p>
 <p>Raises a ZeroDivisionError if an attempt is made to change the length of
 a zero length vector. The direction of a zero length vector is
 undefined hence it can not be lengthened.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">length</span>
 <span class="go">1.7320508075688772</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.lerp">
 <code class="sig-name descname">lerp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.lerp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the linear interpolation between this vector and the supplied vector.</p>
@@ -976,7 +976,7 @@ undefined hence it can not be lengthened.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.normalise">
 <code class="sig-name descname">normalise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.normalise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a normalised copy of the vector.</p>
@@ -993,7 +993,7 @@ undefined hence it can not be lengthened.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.orthogonal">
 <code class="sig-name descname">orthogonal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.orthogonal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a unit vector that is guaranteed to be orthogonal to the vector.</p>
@@ -1009,7 +1009,7 @@ undefined hence it can not be lengthened.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.slerp">
 <code class="sig-name descname">slerp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.slerp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs spherical vector interpolation between two vectors.</p>
@@ -1053,7 +1053,7 @@ vector magnitudes.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.vector.Vector3D.transform">
 <code class="sig-name descname">transform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.vector.Vector3D.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms the vector with the supplied AffineMatrix3D.</p>
@@ -1084,7 +1084,7 @@ operator of AffineMatrix3D when called from cython code.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.core.math.normal.Normal3D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.normal.</code><code class="sig-name descname">Normal3D</code><a class="headerlink" href="#raysect.core.math.normal.Normal3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents a normal vector in 3D affine space.</p>
@@ -1113,7 +1113,7 @@ aligned with the z-axis: Normal3D(0.0, 0.0, 1.0)</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">Normal3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.normal.Normal3D.as_vector">
 <code class="sig-name descname">as_vector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.as_vector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a Vector3D copy of the normal.</p>
@@ -1124,7 +1124,7 @@ aligned with the z-axis: Normal3D(0.0, 0.0, 1.0)</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.normal.Normal3D.transform_with_inverse">
 <code class="sig-name descname">transform_with_inverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.normal.Normal3D.transform_with_inverse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms the normal with the supplied inverse Affine Matrix.</p>

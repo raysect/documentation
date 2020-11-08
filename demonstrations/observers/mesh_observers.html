@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -189,15 +189,15 @@ vtk data file for later visualisation in paraview.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 <span class="kn">import</span> <span class="nn">csv</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">pi</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
 
-<span class="kn">from</span> <span class="nn">raysect.core</span> <span class="k">import</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate_x</span>
-<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">import_obj</span><span class="p">,</span> <span class="n">export_vtk</span>
-<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span>
-<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">MeshPixel</span><span class="p">,</span> <span class="n">MeshCamera</span><span class="p">,</span> <span class="n">PowerPipeline0D</span><span class="p">,</span> <span class="n">PowerPipeline1D</span><span class="p">,</span> <span class="n">MonoAdaptiveSampler1D</span>
+<span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate_x</span>
+<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">import_obj</span><span class="p">,</span> <span class="n">export_vtk</span>
+<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="kn">import</span> <span class="n">MeshPixel</span><span class="p">,</span> <span class="n">MeshCamera</span><span class="p">,</span> <span class="n">PowerPipeline0D</span><span class="p">,</span> <span class="n">PowerPipeline1D</span><span class="p">,</span> <span class="n">MonoAdaptiveSampler1D</span>
 
-<span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="k">import</span> <span class="n">AbsorbingSurface</span>
-<span class="kn">from</span> <span class="nn">raysect.optical.material.emitter</span> <span class="k">import</span> <span class="n">UnityVolumeEmitter</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">AbsorbingSurface</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material.emitter</span> <span class="kn">import</span> <span class="n">UnityVolumeEmitter</span>
 
 
 <span class="k">def</span> <span class="nf">write_results</span><span class="p">(</span><span class="n">basename</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">mesh</span><span class="p">):</span>

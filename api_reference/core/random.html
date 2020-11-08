@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -183,11 +183,11 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="core.html">1. Raysect Core</a> &raquo;</li>
+          <li><a href="core.html"><span class="section-number">1. </span>Raysect Core</a> &raquo;</li>
         
-          <li><a href="math.html">1.2. Math Module</a> &raquo;</li>
+          <li><a href="math.html"><span class="section-number">1.2. </span>Math Module</a> &raquo;</li>
         
-      <li>1.2.4. Random</li>
+      <li><span class="section-number">1.2.4. </span>Random</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -207,10 +207,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="random">
-<h1>1.2.4. Random<a class="headerlink" href="#random" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.2.4. </span>Random<a class="headerlink" href="#random" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="random-samplers">
-<h2>1.2.4.1. Random samplers<a class="headerlink" href="#random-samplers" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
+<h2><span class="section-number">1.2.4.1. </span>Random samplers<a class="headerlink" href="#random-samplers" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
 <dt id="raysect.core.math.random.seed">
 <code class="sig-prename descclassname">raysect.core.math.random.</code><code class="sig-name descname">seed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.seed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Seeds the random number generator with the specified integer.</p>
@@ -227,7 +227,7 @@ system cryptographic random number generator (urandom).</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.core.math.random.uniform">
 <code class="sig-prename descclassname">raysect.core.math.random.</code><code class="sig-name descname">uniform</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.uniform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate random doubles in range [0, 1).</p>
@@ -247,7 +247,7 @@ system cryptographic random number generator (urandom).</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.core.math.random.normal">
 <code class="sig-prename descclassname">raysect.core.math.random.</code><code class="sig-name descname">normal</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.normal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a normally distributed random number.</p>
@@ -273,7 +273,7 @@ system cryptographic random number generator (urandom).</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.core.math.random.probability">
 <code class="sig-prename descclassname">raysect.core.math.random.</code><code class="sig-name descname">probability</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.random.probability" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples from the Bernoulli distribution where P(True) = prob.</p>
@@ -304,12 +304,12 @@ the nearest end of the range [0, 1].</p>
 
 </div>
 <div class="section" id="d-surface-samplers">
-<h2>1.2.4.2. 3D Surface Samplers<a class="headerlink" href="#d-surface-samplers" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<h2><span class="section-number">1.2.4.2. </span>3D Surface Samplers<a class="headerlink" href="#d-surface-samplers" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
 <dt id="raysect.core.math.sampler.surface3d.SurfaceSampler3D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.sampler.surface3d.</code><code class="sig-name descname">SurfaceSampler3D</code><a class="headerlink" href="#raysect.core.math.sampler.surface3d.SurfaceSampler3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for an object that generates samples from a surface in 3D.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.sampler.surface3d.SurfaceSampler3D.__call__">
 <code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.sampler.surface3d.SurfaceSampler3D.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><p>If samples is not provided, returns a single Point3D sample from
@@ -332,7 +332,7 @@ with its associated pdf value as the second element.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.core.math.sampler.surface3d.DiskSampler3D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.sampler.surface3d.</code><code class="sig-name descname">DiskSampler3D</code><a class="headerlink" href="#raysect.core.math.sampler.surface3d.DiskSampler3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.surface3d.SurfaceSampler3D" title="raysect.core.math.sampler.surface3d.SurfaceSampler3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.sampler.surface3d.SurfaceSampler3D</span></code></a></p>
@@ -352,7 +352,7 @@ with its associated pdf value as the second element.</p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.core.math.sampler.surface3d.RectangleSampler3D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.sampler.surface3d.</code><code class="sig-name descname">RectangleSampler3D</code><a class="headerlink" href="#raysect.core.math.sampler.surface3d.RectangleSampler3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.surface3d.SurfaceSampler3D" title="raysect.core.math.sampler.surface3d.SurfaceSampler3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.sampler.surface3d.SurfaceSampler3D</span></code></a></p>
@@ -375,7 +375,7 @@ with its associated pdf value as the second element.</p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.core.math.sampler.surface3d.TriangleSampler3D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.sampler.surface3d.</code><code class="sig-name descname">TriangleSampler3D</code><a class="headerlink" href="#raysect.core.math.sampler.surface3d.TriangleSampler3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.surface3d.SurfaceSampler3D" title="raysect.core.math.sampler.surface3d.SurfaceSampler3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.sampler.surface3d.SurfaceSampler3D</span></code></a></p>
@@ -403,12 +403,12 @@ with its associated pdf value as the second element.</p>
 
 </div>
 <div class="section" id="solid-angle-samplers">
-<h2>1.2.4.3. Solid Angle Samplers<a class="headerlink" href="#solid-angle-samplers" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<h2><span class="section-number">1.2.4.3. </span>Solid Angle Samplers<a class="headerlink" href="#solid-angle-samplers" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
 <dt id="raysect.core.math.sampler.solidangle.SolidAngleSampler">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.sampler.solidangle.</code><code class="sig-name descname">SolidAngleSampler</code><a class="headerlink" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for an object that generates samples over a solid angle.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.sampler.solidangle.SolidAngleSampler.__call__">
 <code class="sig-name descname">__call__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><p>If samples is not provided, returns a single Vector3D sample from
@@ -429,7 +429,7 @@ with its associated pdf value as the second element.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.sampler.solidangle.SolidAngleSampler.pdf">
 <code class="sig-name descname">pdf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler.pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a pdf for a given sample value.</p>
@@ -446,12 +446,12 @@ with its associated pdf value as the second element.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.core.math.sampler.solidangle.SphereSampler">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.sampler.solidangle.</code><code class="sig-name descname">SphereSampler</code><a class="headerlink" href="#raysect.core.math.sampler.solidangle.SphereSampler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler" title="raysect.core.math.sampler.solidangle.SolidAngleSampler"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.sampler.solidangle.SolidAngleSampler</span></code></a></p>
 <p>Generates a random vector on a unit sphere.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.math</span> <span class="k">import</span> <span class="n">SphereSampler</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.math</span> <span class="kn">import</span> <span class="n">SphereSampler</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sphere_sampler</span> <span class="o">=</span> <span class="n">SphereSampler</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sphere_sampler</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -461,14 +461,14 @@ with its associated pdf value as the second element.</p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.core.math.sampler.solidangle.HemisphereUniformSampler">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.sampler.solidangle.</code><code class="sig-name descname">HemisphereUniformSampler</code><a class="headerlink" href="#raysect.core.math.sampler.solidangle.HemisphereUniformSampler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler" title="raysect.core.math.sampler.solidangle.SolidAngleSampler"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.sampler.solidangle.SolidAngleSampler</span></code></a></p>
 <p>Generates a random vector on a unit hemisphere.</p>
 <p>The hemisphere is aligned along the z-axis - the plane that forms the
 hemisphere base lies in the x-y plane.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.math</span> <span class="k">import</span> <span class="n">HemisphereUniformSampler</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.math</span> <span class="kn">import</span> <span class="n">HemisphereUniformSampler</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sampler</span> <span class="o">=</span> <span class="n">HemisphereUniformSampler</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sampler</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -478,14 +478,14 @@ hemisphere base lies in the x-y plane.</p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.core.math.sampler.solidangle.HemisphereCosineSampler">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.sampler.solidangle.</code><code class="sig-name descname">HemisphereCosineSampler</code><a class="headerlink" href="#raysect.core.math.sampler.solidangle.HemisphereCosineSampler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler" title="raysect.core.math.sampler.solidangle.SolidAngleSampler"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.sampler.solidangle.SolidAngleSampler</span></code></a></p>
 <p>Generates a cosine-weighted random vector on a unit hemisphere.</p>
 <p>The hemisphere is aligned along the z-axis - the plane that forms the
 hemisphere base lies in the x-y plane.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.math</span> <span class="k">import</span> <span class="n">HemisphereCosineSampler</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.math</span> <span class="kn">import</span> <span class="n">HemisphereCosineSampler</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sampler</span> <span class="o">=</span> <span class="n">HemisphereCosineSampler</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sampler</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -495,7 +495,7 @@ hemisphere base lies in the x-y plane.</p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.core.math.sampler.solidangle.ConeUniformSampler">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.sampler.solidangle.</code><code class="sig-name descname">ConeUniformSampler</code><a class="headerlink" href="#raysect.core.math.sampler.solidangle.ConeUniformSampler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.math.sampler.solidangle.SolidAngleSampler" title="raysect.core.math.sampler.solidangle.SolidAngleSampler"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.sampler.solidangle.SolidAngleSampler</span></code></a></p>

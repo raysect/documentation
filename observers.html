@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -182,7 +182,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>6. Sampling and Observers</li>
+      <li><span class="section-number">6. </span>Sampling and Observers</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -202,11 +202,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="sampling-and-observers">
-<h1>6. Sampling and Observers<a class="headerlink" href="#sampling-and-observers" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">6. </span>Sampling and Observers<a class="headerlink" href="#sampling-and-observers" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="primer-on-monte-carlo-integration">
-<h2>6.1. Primer on Monte-Carlo Integration<a class="headerlink" href="#primer-on-monte-carlo-integration" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.1. </span>Primer on Monte-Carlo Integration<a class="headerlink" href="#primer-on-monte-carlo-integration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="average-value-method">
-<h3>6.1.1. Average value method<a class="headerlink" href="#average-value-method" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.1. </span>Average value method<a class="headerlink" href="#average-value-method" title="Permalink to this headline">¶</a></h3>
 <p>The integrals encountered in optical ray-tracing are exact but difficult to evaluate
 analytically for most physically relevant scenes. Monte-Carlo integration is a
 technique for approximating the value of an integral by simulating a random process
@@ -232,7 +232,7 @@ square area <span class="math notranslate nohighlight">\(A\)</span> and 3D vecto
 <span class="math notranslate nohighlight">\(N\)</span> samples.</p>
 </div>
 <div class="section" id="importance-sampling">
-<h3>6.1.2. Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.2. </span>Importance Sampling<a class="headerlink" href="#importance-sampling" title="Permalink to this headline">¶</a></h3>
 <p>The average value formula works well for smoothly varying functions but becomes inefficient when
 the integral contains steep gradients or a divergence, for example, a bright point light source.
 The standard error on the integral estimator can become large in such circumstances.</p>
@@ -256,7 +256,7 @@ are taken from a distribution p(x) that is similar to the function f(x) in the i
 (i.e. concentrate the calculations where the integrand is high).</p>
 </div>
 <div class="section" id="multiple-importance-sampling">
-<h3>6.1.3. Multiple Importance Sampling<a class="headerlink" href="#multiple-importance-sampling" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.1.3. </span>Multiple Importance Sampling<a class="headerlink" href="#multiple-importance-sampling" title="Permalink to this headline">¶</a></h3>
 <p>It is difficult to construct a single sampling distribution that represents a physically relevant scene.
 Instead, the integrand of the lighting equations can be approximated as sums and products of the
 underlying features in a scene, such as individual light sources and geometry factors. Ideally we would
@@ -276,7 +276,7 @@ evaluate complicated integrands by simultaneously sampling multiple underlying i
 </div>
 </div>
 <div class="section" id="observing-surfaces">
-<h2>6.2. Observing Surfaces<a class="headerlink" href="#observing-surfaces" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.2. </span>Observing Surfaces<a class="headerlink" href="#observing-surfaces" title="Permalink to this headline">¶</a></h2>
 <p>The total power (radiant flux) measured by an observing surface is given be the integral
 of the incident radiance over the collecting solid angle <span class="math notranslate nohighlight">\(\Omega\)</span> and surface
 area <span class="math notranslate nohighlight">\(A\)</span>. Therefore the observer equation is</p>
@@ -313,7 +313,7 @@ of sampling strategies for the sample directions, <span class="math notranslate 
 Meakins, A., et. al. (2017))</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="ccd-pixel-with-uniform-hemisphere-sampling">
-<h3>6.2.1. CCD Pixel with Uniform Hemisphere Sampling<a class="headerlink" href="#ccd-pixel-with-uniform-hemisphere-sampling" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.1. </span>CCD Pixel with Uniform Hemisphere Sampling<a class="headerlink" href="#ccd-pixel-with-uniform-hemisphere-sampling" title="Permalink to this headline">¶</a></h3>
 <p>Let us consider one of the most common cases for an observing surface, a rectangular
 pixel surface with a hemisphere of solid angle over which incident light can be collected.
 To calculate the Monte Carlo estimator we need <span class="math notranslate nohighlight">\(N\)</span> sample points and vectors. The simplest
@@ -333,7 +333,7 @@ the <span class="math notranslate nohighlight">\(b-a\)</span> length scale for t
 \[L = \frac{1}{N} \sum_{j=1}^{N} L_i(x_j, \omega_j) \cos(\theta_j)\]</div>
 </div>
 <div class="section" id="ccd-pixel-with-a-cosine-distribution">
-<h3>6.2.2. CCD Pixel with a Cosine distribution<a class="headerlink" href="#ccd-pixel-with-a-cosine-distribution" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.2. </span>CCD Pixel with a Cosine distribution<a class="headerlink" href="#ccd-pixel-with-a-cosine-distribution" title="Permalink to this headline">¶</a></h3>
 <p>As mentioned above, it is often advantageous to draw samples from a distribution with similar shape
 to the function being integrated. The observer equation is weighted with a cosine theta term meaning
 that vector samples near the top of the hemisphere are weighted much more than samples near the edge.
@@ -353,7 +353,7 @@ Hence it is useful to generate vector samples proportional to the cosine distrib
 the <span class="math notranslate nohighlight">\(\cos(\theta)\)</span> term as the important distribution.</p>
 </div>
 <div class="section" id="optical-fibre">
-<h3>6.2.3. Optical Fibre<a class="headerlink" href="#optical-fibre" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.3. </span>Optical Fibre<a class="headerlink" href="#optical-fibre" title="Permalink to this headline">¶</a></h3>
 <p>Consider an optical fibre with circular area <span class="math notranslate nohighlight">\(A_f\)</span> and radius <span class="math notranslate nohighlight">\(r_f\)</span>. The area of solid angle
 over which light can be collected is a cone with half angle <span class="math notranslate nohighlight">\(\theta_{max}\)</span>. The circular area can
 be sampled with uniformly distributed points, meaning <span class="math notranslate nohighlight">\(p_A(x_j)\)</span> would cancel out again. An
@@ -374,7 +374,7 @@ function is uniform and hence</p>
 \[L = \frac{(1-\cos(\theta_{max}))}{N} \sum_{i=1}^{N} L_i(x_i, \omega_i) \cos(\theta_i).\]</div>
 </div>
 <div class="section" id="sampling-the-lights">
-<h3>6.2.4. Sampling the lights<a class="headerlink" href="#sampling-the-lights" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.2.4. </span>Sampling the lights<a class="headerlink" href="#sampling-the-lights" title="Permalink to this headline">¶</a></h3>
 <p>Arbitrary light sources and important primitives can be sampled with the projection method. The
 light (or primitive) in question is wrapped in a bounding sphere that just encloses the object.
 It is then a matter of projecting the bounding sphere into a uniform cone at the surface of the
@@ -387,7 +387,7 @@ inside the bounding sphere that defines the effective solid angle to be sampled.
 </div>
 </div>
 <div class="section" id="material-surfaces">
-<h2>6.3. Material Surfaces<a class="headerlink" href="#material-surfaces" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.3. </span>Material Surfaces<a class="headerlink" href="#material-surfaces" title="Permalink to this headline">¶</a></h2>
 <p>The amount of light that reaches a camera from a point on an object surface is
 given by the sum of light emitted and reflected from other sources.</p>
 <div class="math notranslate nohighlight">
@@ -409,11 +409,11 @@ transmission and absorption.</p>
 Meakins, A., et. al. (2017))</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="sampling-the-brdf">
-<h3>6.3.1. Sampling the BRDF<a class="headerlink" href="#sampling-the-brdf" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">6.3.1. </span>Sampling the BRDF<a class="headerlink" href="#sampling-the-brdf" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="participating-media">
-<h2>6.4. Participating Media<a class="headerlink" href="#participating-media" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">6.4. </span>Participating Media<a class="headerlink" href="#participating-media" title="Permalink to this headline">¶</a></h2>
 <p>Volume scattering, fluorescence and opacity effects.</p>
 </div>
 </div>

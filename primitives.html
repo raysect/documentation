@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -173,7 +173,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>7. Primitives</li>
+      <li><span class="section-number">7. </span>Primitives</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,14 +193,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="primitives">
-<h1>7. Primitives<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7. </span>Primitives<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h1>
 <p>The raysect primitives: sphere; box; cylinder; and cone.</p>
 <img alt="_images/raysect_primitives.png" class="align-center" src="_images/raysect_primitives.png" />
 <div class="section" id="geometric-primitives">
-<h2>7.1. Geometric Primitives<a class="headerlink" href="#geometric-primitives" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>Geometric Primitives<a class="headerlink" href="#geometric-primitives" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="sphere">
-<h3>7.1.1. Sphere<a class="headerlink" href="#sphere" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
+<h3><span class="section-number">7.1.1. </span>Sphere<a class="headerlink" href="#sphere" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
 <dt id="raysect.primitive.Sphere">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.</code><code class="sig-name descname">Sphere</code><a class="headerlink" href="#raysect.primitive.Sphere" title="Permalink to this definition">¶</a></dt>
 <dd><p>A sphere primitive.</p>
@@ -235,8 +235,8 @@
 
 </div>
 <div class="section" id="box">
-<h3>7.1.2. Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
+<h3><span class="section-number">7.1.2. </span>Box<a class="headerlink" href="#box" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
 <dt id="raysect.primitive.Box">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.</code><code class="sig-name descname">Box</code><a class="headerlink" href="#raysect.primitive.Box" title="Permalink to this definition">¶</a></dt>
 <dd><p>A box primitive.</p>
@@ -270,8 +270,8 @@ system.</p>
 
 </div>
 <div class="section" id="cylinder">
-<h3>7.1.3. Cylinder<a class="headerlink" href="#cylinder" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
+<h3><span class="section-number">7.1.3. </span>Cylinder<a class="headerlink" href="#cylinder" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
 <dt id="raysect.primitive.Cylinder">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.</code><code class="sig-name descname">Cylinder</code><a class="headerlink" href="#raysect.primitive.Cylinder" title="Permalink to this definition">¶</a></dt>
 <dd><p>A cylinder primitive.</p>
@@ -307,8 +307,8 @@ system relative to the scene-graph parent (default = identity matrix).</p></li>
 
 </div>
 <div class="section" id="cone">
-<h3>7.1.4. Cone<a class="headerlink" href="#cone" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
+<h3><span class="section-number">7.1.4. </span>Cone<a class="headerlink" href="#cone" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
 <dt id="raysect.primitive.Cone">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.</code><code class="sig-name descname">Cone</code><a class="headerlink" href="#raysect.primitive.Cone" title="Permalink to this definition">¶</a></dt>
 <dd><p>A cone primitive.</p>
@@ -346,7 +346,7 @@ system relative to the scene-graph parent (default = identity matrix).</p></li>
 </div>
 </div>
 <div class="section" id="csg-operations">
-<h2>7.2. CSG Operations<a class="headerlink" href="#csg-operations" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.2. </span>CSG Operations<a class="headerlink" href="#csg-operations" title="Permalink to this headline">¶</a></h2>
 <p>Operations such as union, substract, intersect on some basic glass primitives:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Making the lense in the centre</span>
 <span class="n">s1</span> <span class="o">=</span> <span class="n">Sphere</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">-</span><span class="mf">0.01</span><span class="p">))</span>
@@ -366,11 +366,11 @@ system relative to the scene-graph parent (default = identity matrix).</p></li>
 <img alt="_images/csg_glass.png" class="align-center" src="_images/csg_glass.png" />
 </div>
 <div class="section" id="meshes">
-<h2>7.3. Meshes<a class="headerlink" href="#meshes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.3. </span>Meshes<a class="headerlink" href="#meshes" title="Permalink to this headline">¶</a></h2>
 <p>It is easiest to import meshes from existing CAD files in either obj or stl with the helper methods.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.primitive.mesh.obj.import_obj">
-<code class="sig-prename descclassname">raysect.primitive.mesh.obj.</code><code class="sig-name descname">import_obj</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">scaling=1.0</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.primitive.mesh.obj.</code><code class="sig-name descname">import_obj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">scaling</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a Wavefront OBJ mesh file (.obj).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -398,9 +398,9 @@ system relative to the scene-graph parent (default = identity matrix).</p></li>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.primitive.mesh.stl.import_stl">
-<code class="sig-prename descclassname">raysect.primitive.mesh.stl.</code><code class="sig-name descname">import_stl</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">scaling=1.0</em>, <em class="sig-param">mode='auto'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.primitive.mesh.stl.</code><code class="sig-name descname">import_stl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">scaling</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a STereoLithography (STL) mesh file (.stl).</p>
 <p>Some engineering meshes are exported in different units (mm for example)
 whereas Raysect units are in m. Applying a scale factor of 0.001 would
@@ -433,7 +433,7 @@ convert the mesh into m for use in Raysect.</p>
 </dd></dl>
 
 <p>An example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">raysect.primitive.mesh</span> <span class="k">import</span> <span class="n">import_obj</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">raysect.primitive.mesh</span> <span class="kn">import</span> <span class="n">import_obj</span>
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">import_obj</span><span class="p">(</span><span class="s2">&quot;./resources/stanford_bunny.obj&quot;</span><span class="p">,</span> <span class="n">scaling</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">,</span>
                   <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">165</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">gold</span><span class="p">)</span>
 </pre></div>

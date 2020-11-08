@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -178,11 +178,11 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="core.html">1. Raysect Core</a> &raquo;</li>
+          <li><a href="core.html"><span class="section-number">1. </span>Raysect Core</a> &raquo;</li>
         
-          <li><a href="math.html">1.2. Math Module</a> &raquo;</li>
+          <li><a href="math.html"><span class="section-number">1.2. </span>Math Module</a> &raquo;</li>
         
-      <li>1.2.2. Affine Matricies</li>
+      <li><span class="section-number">1.2.2. </span>Affine Matricies</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -202,8 +202,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="affine-matricies">
-<h1>1.2.2. Affine Matricies<a class="headerlink" href="#affine-matricies" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-raysect.core.math.affinematrix"><span id="affine-matrix-3d"></span></span><dl class="class">
+<h1><span class="section-number">1.2.2. </span>Affine Matricies<a class="headerlink" href="#affine-matricies" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-raysect.core.math.affinematrix"><span id="affine-matrix-3d"></span></span><dl class="py class">
 <dt id="raysect.core.math.affinematrix.AffineMatrix3D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.affinematrix.</code><code class="sig-name descname">AffineMatrix3D</code><a class="headerlink" href="#raysect.core.math.affinematrix.AffineMatrix3D" title="Permalink to this definition">¶</a></dt>
 <dd><p>A 4x4 affine matrix.</p>
@@ -270,7 +270,7 @@ initialise the matrix. 16 element objects must be specified in
 row-major format.</p>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.affinematrix.AffineMatrix3D.__getitem__">
 <code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.affinematrix.AffineMatrix3D.__getitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indexing get operator.</p>
@@ -278,11 +278,11 @@ row-major format.</p>
 <p>e.g. v = matrix[1, 2]</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.affinematrix.AffineMatrix3D.__mul__">
 <code class="sig-name descname">__mul__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.affinematrix.AffineMatrix3D.__mul__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Multiplication operator.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="k">import</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate_x</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate_x</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate_x</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
 <span class="go">AffineMatrix3D([[1.0, 0.0, 0.0, 0.0],</span>
 <span class="go">                [0.0, 0.7071067811865476, -0.7071067811865475, 0.0],</span>
@@ -292,7 +292,7 @@ row-major format.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.affinematrix.AffineMatrix3D.__setitem__">
 <code class="sig-name descname">__setitem__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.affinematrix.AffineMatrix3D.__setitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indexing set operator.</p>
@@ -300,14 +300,14 @@ row-major format.</p>
 <p>e.g. matrix[1, 2] = 7.0</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.affinematrix.AffineMatrix3D.inverse">
 <code class="sig-name descname">inverse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.affinematrix.AffineMatrix3D.inverse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the inverse of the affine matrix.</p>
 <p>Returns an AffineMatrix3D containing the inverse.</p>
 <p>Raises a ValueError if the matrix is singular and the inverse can not be
 calculated. All valid affine transforms should be invertable.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="k">import</span> <span class="n">AffineMatrix3D</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">AffineMatrix3D</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">AffineMatrix3D</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
 <span class="go">                        [1.0, 0.0, 0.0, 0.0],</span>
 <span class="go">                        [0.0, 1.0, 0.0, 0.0],</span>
@@ -321,7 +321,7 @@ calculated. All valid affine transforms should be invertable.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.affinematrix.AffineMatrix3D.is_close">
 <code class="sig-name descname">is_close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.affinematrix.AffineMatrix3D.is_close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Is this matrix equal to another matrix within a numerical tolerance.</p>
@@ -341,7 +341,7 @@ may be altered by setting the tolerance argument.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.math.affinematrix.AffineMatrix3D.is_identity">
 <code class="sig-name descname">is_identity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.affinematrix.AffineMatrix3D.is_identity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifies if the matrix is an identity matrix.</p>
@@ -361,7 +361,7 @@ tolerance argument.</p>
 
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.core.math.transform.translate">
 <code class="sig-prename descclassname">raysect.core.math.transform.</code><code class="sig-name descname">translate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.translate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an affine matrix representing a translation of the coordinate space.</p>
@@ -394,7 +394,7 @@ is the vector from the origin of space A to space B.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.core.math.transform.rotate_x">
 <code class="sig-prename descclassname">raysect.core.math.transform.</code><code class="sig-name descname">rotate_x</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.rotate_x" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an affine matrix representing the rotation of the coordinate space
@@ -423,7 +423,7 @@ about the X axis by the supplied angle.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.core.math.transform.rotate_y">
 <code class="sig-prename descclassname">raysect.core.math.transform.</code><code class="sig-name descname">rotate_y</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.rotate_y" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an affine matrix representing the rotation of the coordinate space
@@ -444,7 +444,7 @@ about the Y axis by the supplied angle.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.core.math.transform.rotate_z">
 <code class="sig-prename descclassname">raysect.core.math.transform.</code><code class="sig-name descname">rotate_z</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.rotate_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an affine matrix representing the rotation of the coordinate space
@@ -465,11 +465,11 @@ about the Z axis by the supplied angle.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.core.math.transform.rotate">
 <code class="sig-prename descclassname">raysect.core.math.transform.</code><code class="sig-name descname">rotate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.rotate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an affine transform matrix representing an intrinsic rotation with
-an axis order (-Y)(-X)’Z’‘.</p>
+an axis order (-Y)(-X)’Z’’.</p>
 <p>For an object aligned such that forward is the +ve Z-axis, left is the +ve
 X-axis and up is the +ve Y-axis then this rotation operation corresponds to
 the yaw, pitch and roll of the object.</p>
@@ -487,7 +487,7 @@ the yaw, pitch and roll of the object.</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.core.math.transform.rotate_vector">
 <code class="sig-prename descclassname">raysect.core.math.transform.</code><code class="sig-name descname">rotate_vector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.rotate_vector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an affine matrix representing the rotation of the coordinate space
@@ -513,7 +513,7 @@ about the supplied vector by the specified angle.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.core.math.transform.rotate_basis">
 <code class="sig-prename descclassname">raysect.core.math.transform.</code><code class="sig-name descname">rotate_basis</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.transform.rotate_basis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a rotation matrix defined by forward and up vectors.</p>

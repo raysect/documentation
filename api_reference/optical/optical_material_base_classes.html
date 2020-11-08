@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -170,9 +170,9 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="optical.html">3. Optical Module</a> &raquo;</li>
+          <li><a href="optical.html"><span class="section-number">3. </span>Optical Module</a> &raquo;</li>
         
-      <li>3.4. Optical Material Base Classes</li>
+      <li><span class="section-number">3.4. </span>Optical Material Base Classes</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -192,19 +192,19 @@
            <div itemprop="articleBody">
             
   <div class="section" id="optical-material-base-classes">
-<h1>3.4. Optical Material Base Classes<a class="headerlink" href="#optical-material-base-classes" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.4. </span>Optical Material Base Classes<a class="headerlink" href="#optical-material-base-classes" title="Permalink to this headline">¶</a></h1>
 <p>The Bidirectional Scattering Distribution Function (BSDF) function describes how
 incoming light is split into the reflected (bidirectional reflectance distribution
 function BRDF) and transmitted (bidirectional transmittance distribution function
 BTDF) components. See
 <a class="reference external" href="https://en.wikipedia.org/wiki/Bidirectional_scattering_distribution_function">wikipedia</a>.</p>
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.material.material.Material">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.material.</code><code class="sig-name descname">Material</code><a class="headerlink" href="#raysect.optical.material.material.Material" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.material.Material</span></code></p>
 <p>Base class for optical material classes.</p>
 <p>Derived classes must implement the evaluate_surface() and evaluate_volume() methods.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.material.material.Material.evaluate_surface">
 <code class="sig-name descname">evaluate_surface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.Material.evaluate_surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Virtual method for evaluating the spectrum at a material surface.</p>
@@ -231,7 +231,7 @@ from local primitive space to world space.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.material.material.Material.evaluate_volume">
 <code class="sig-name descname">evaluate_volume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.Material.evaluate_volume" title="Permalink to this definition">¶</a></dt>
 <dd><p>Virtual method for evaluating the spectrum emitted/absorbed along the rays trajectory
@@ -259,7 +259,7 @@ from local primitive space to world space.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.material.material.Material.importance">
 <code class="sig-name descname">importance</code><a class="headerlink" href="#raysect.optical.material.material.Material.importance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Importance sampling weight for this material.</p>
@@ -273,7 +273,7 @@ from local primitive space to world space.</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.material.material.NullSurface">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.material.</code><code class="sig-name descname">NullSurface</code><a class="headerlink" href="#raysect.optical.material.material.NullSurface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
@@ -281,7 +281,7 @@ from local primitive space to world space.</p></li>
 but no surface properties (e.g. a plasma). This material will launch a new ray after
 the initial ray has transited the material primitive’s volume. evaluate_volume() must be
 implemented by the deriving class.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.material.material.NullSurface.evaluate_surface">
 <code class="sig-name descname">evaluate_surface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.NullSurface.evaluate_surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Virtual method for evaluating the spectrum at a material surface.</p>
@@ -310,14 +310,14 @@ from local primitive space to world space.</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.material.material.NullVolume">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.material.</code><code class="sig-name descname">NullVolume</code><a class="headerlink" href="#raysect.optical.material.material.NullVolume" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>A base class for materials that have surface properties such as reflection
 but no volume properties (e.g. a metallic mirror). evaluate_surface() must be
 implemented by the deriving class.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.material.material.NullVolume.evaluate_volume">
 <code class="sig-name descname">evaluate_volume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.NullVolume.evaluate_volume" title="Permalink to this definition">¶</a></dt>
 <dd><p>Virtual method for evaluating the spectrum emitted/absorbed along the rays trajectory
@@ -347,12 +347,12 @@ from local primitive space to world space.</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.material.material.DiscreteBSDF">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.material.</code><code class="sig-name descname">DiscreteBSDF</code><a class="headerlink" href="#raysect.optical.material.material.DiscreteBSDF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>A base class for materials implementing a discrete BSDF.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.material.material.DiscreteBSDF.evaluate_surface">
 <code class="sig-name descname">evaluate_surface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.DiscreteBSDF.evaluate_surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Virtual method for evaluating the spectrum at a material surface.</p>
@@ -381,12 +381,12 @@ from local primitive space to world space.</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.material.material.ContinuousBSDF">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.material.</code><code class="sig-name descname">ContinuousBSDF</code><a class="headerlink" href="#raysect.optical.material.material.ContinuousBSDF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>A base class for materials implementing a continuous BSDF.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.material.material.ContinuousBSDF.bsdf">
 <code class="sig-name descname">bsdf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.ContinuousBSDF.bsdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the surface bi-directional scattering distribution function (BSDF).</p>
@@ -405,7 +405,7 @@ from local primitive space to world space.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.material.material.ContinuousBSDF.evaluate_surface">
 <code class="sig-name descname">evaluate_surface</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.material.ContinuousBSDF.evaluate_surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Virtual method for evaluating the spectrum at a material surface.</p>

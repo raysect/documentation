@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -176,9 +176,9 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="optical.html">3. Optical Module</a> &raquo;</li>
+          <li><a href="optical.html"><span class="section-number">3. </span>Optical Module</a> &raquo;</li>
         
-      <li>3.1. Main Optical Classes</li>
+      <li><span class="section-number">3.1. </span>Main Optical Classes</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -198,10 +198,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="main-optical-classes">
-<h1>3.1. Main Optical Classes<a class="headerlink" href="#main-optical-classes" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.1. </span>Main Optical Classes<a class="headerlink" href="#main-optical-classes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="optical-rays">
-<h2>3.1.1. Optical Rays<a class="headerlink" href="#optical-rays" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<h2><span class="section-number">3.1.1. </span>Optical Rays<a class="headerlink" href="#optical-rays" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
 <dt id="raysect.optical.ray.Ray">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.ray.</code><code class="sig-name descname">Ray</code><a class="headerlink" href="#raysect.optical.ray.Ray" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../core/core_classes.html#raysect.core.ray.Ray" title="raysect.core.ray.Ray"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.ray.Ray</span></code></a></p>
@@ -246,7 +246,7 @@ using importance sampling.</p></li>
 <span class="go">&lt;raysect.optical.spectrum.Spectrum at 0x7f5b08b6e048&gt;</span>
 </pre></div>
 </div>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.ray.Ray.bins">
 <code class="sig-name descname">bins</code><a class="headerlink" href="#raysect.optical.ray.Ray.bins" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of spectral bins across wavelength range.</p>
@@ -257,7 +257,7 @@ using importance sampling.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.ray.Ray.copy">
 <code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtain a new Ray object with the same configuration settings.</p>
@@ -287,7 +287,7 @@ using importance sampling.</p></li>
 </div>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.ray.Ray.extinction_min_depth">
 <code class="sig-name descname">extinction_min_depth</code><a class="headerlink" href="#raysect.optical.ray.Ray.extinction_min_depth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Minimum number of paths before triggering extinction probability.</p>
@@ -298,7 +298,7 @@ using importance sampling.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.ray.Ray.extinction_prob">
 <code class="sig-name descname">extinction_prob</code><a class="headerlink" href="#raysect.optical.ray.Ray.extinction_prob" title="Permalink to this definition">¶</a></dt>
 <dd><p>Probability of path extinction at every material surface interaction.</p>
@@ -309,7 +309,7 @@ using importance sampling.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.ray.Ray.important_path_weight">
 <code class="sig-name descname">important_path_weight</code><a class="headerlink" href="#raysect.optical.ray.Ray.important_path_weight" title="Permalink to this definition">¶</a></dt>
 <dd><p>Weight to use for important paths when using importance sampling.</p>
@@ -320,7 +320,7 @@ using importance sampling.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.ray.Ray.max_depth">
 <code class="sig-name descname">max_depth</code><a class="headerlink" href="#raysect.optical.ray.Ray.max_depth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum number of material interactions before terminating ray trajectory.</p>
@@ -331,7 +331,7 @@ using importance sampling.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.ray.Ray.max_wavelength">
 <code class="sig-name descname">max_wavelength</code><a class="headerlink" href="#raysect.optical.ray.Ray.max_wavelength" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper bound on wavelength range.</p>
@@ -342,7 +342,7 @@ using importance sampling.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.ray.Ray.min_wavelength">
 <code class="sig-name descname">min_wavelength</code><a class="headerlink" href="#raysect.optical.ray.Ray.min_wavelength" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower bound on wavelength range.</p>
@@ -353,7 +353,7 @@ using importance sampling.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.ray.Ray.new_spectrum">
 <code class="sig-name descname">new_spectrum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.new_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new Spectrum compatible with the ray spectral settings.</p>
@@ -377,7 +377,7 @@ using importance sampling.</p></li>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.ray.Ray.sample">
 <code class="sig-name descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Samples the radiance directed along the ray direction.</p>
@@ -416,7 +416,7 @@ accumulated from these samples is returned.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.ray.Ray.spawn_daughter">
 <code class="sig-name descname">spawn_daughter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.spawn_daughter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Spawns a new daughter of the ray.</p>
@@ -438,7 +438,7 @@ however the ray depth is increased by 1.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.ray.Ray.trace">
 <code class="sig-name descname">trace</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.ray.Ray.trace" title="Permalink to this definition">¶</a></dt>
 <dd><p>Traces a single ray path through the world.</p>
@@ -474,7 +474,7 @@ however the ray depth is increased by 1.</p>
 </div>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.ray.Ray.wavelength_range">
 <code class="sig-name descname">wavelength_range</code><a class="headerlink" href="#raysect.optical.ray.Ray.wavelength_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper and lower wavelength range.</p>
@@ -489,8 +489,8 @@ however the ray depth is increased by 1.</p>
 
 </div>
 <div class="section" id="spectral-functions">
-<h2>3.1.2. Spectral Functions<a class="headerlink" href="#spectral-functions" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<h2><span class="section-number">3.1.2. </span>Spectral Functions<a class="headerlink" href="#spectral-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
 <dt id="raysect.optical.spectralfunction.SpectralFunction">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.spectralfunction.</code><code class="sig-name descname">SpectralFunction</code><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction" title="Permalink to this definition">¶</a></dt>
 <dd><p>SpectralFunction abstract base class.</p>
@@ -507,7 +507,7 @@ function at that wavelength. The units of wavelength are nanometers.</p>
 <p>A number of utility sub-classes exist to simplify SpectralFunction
 development.</p>
 <p>see also: NumericallyIntegratedSF, InterpolatedSF, ConstantSF, Spectrum</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.spectralfunction.SpectralFunction.average">
 <code class="sig-name descname">average</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.average" title="Permalink to this definition">¶</a></dt>
 <dd><p>Average radiance over the requested spectral range (W/m^2/sr/nm).</p>
@@ -530,7 +530,7 @@ development.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.spectralfunction.SpectralFunction.evaluate">
 <code class="sig-name descname">evaluate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.evaluate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Evaluate the spectral function f(wavelength)</p>
@@ -544,7 +544,7 @@ development.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.spectralfunction.SpectralFunction.integrate">
 <code class="sig-name descname">integrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.integrate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the integrated radiance over the specified spectral range.</p>
@@ -570,7 +570,7 @@ development.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.spectralfunction.SpectralFunction.sample">
 <code class="sig-name descname">sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectralfunction.SpectralFunction.sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Re-sample the spectral function with a new wavelength range and resolution.</p>
@@ -597,7 +597,7 @@ development.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.spectrum.Spectrum">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.spectrum.</code><code class="sig-name descname">Spectrum</code><a class="headerlink" href="#raysect.optical.spectrum.Spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.spectralfunction.SpectralFunction</span></code></a></p>
@@ -619,13 +619,13 @@ the wavelength bins.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">spectrum</span> <span class="o">=</span> <span class="n">Spectrum</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">720</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.spectrum.Spectrum.clear">
 <code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resets the sample values in the spectrum to zero.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.spectrum.Spectrum.copy">
 <code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a copy of the spectrum.</p>
@@ -636,7 +636,7 @@ the wavelength bins.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.spectrum.Spectrum.is_compatible">
 <code class="sig-name descname">is_compatible</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.is_compatible" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns True if the stored samples are consistent with the specified
@@ -658,7 +658,7 @@ wavelength range and sample size.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.spectrum.Spectrum.is_zero">
 <code class="sig-name descname">is_zero</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.is_zero" title="Permalink to this definition">¶</a></dt>
 <dd><p>Can be used to determine if all the samples are zero.</p>
@@ -675,7 +675,7 @@ wavelength range and sample size.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.spectrum.Spectrum.new_spectrum">
 <code class="sig-name descname">new_spectrum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.new_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new Spectrum compatible with the same spectral settings.</p>
@@ -686,7 +686,7 @@ wavelength range and sample size.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.spectrum.Spectrum.to_photons">
 <code class="sig-name descname">to_photons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.to_photons" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts the spectrum sample array from radiance W/m^2/str/nm to Photons/s/m^2/str/nm
@@ -703,7 +703,7 @@ and returns the data in a numpy array.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.spectrum.Spectrum.total">
 <code class="sig-name descname">total</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.total" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the total radiance integrated over the whole spectral range.</p>
@@ -720,7 +720,7 @@ and returns the data in a numpy array.</p>
 </div>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.spectrum.Spectrum.wavelengths">
 <code class="sig-name descname">wavelengths</code><a class="headerlink" href="#raysect.optical.spectrum.Spectrum.wavelengths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wavelength array in nm</p>
@@ -733,7 +733,7 @@ and returns the data in a numpy array.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.spectralfunction.NumericallyIntegratedSF">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.spectralfunction.</code><code class="sig-name descname">NumericallyIntegratedSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.NumericallyIntegratedSF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.spectralfunction.SpectralFunction</span></code></a></p>
@@ -751,7 +751,7 @@ resolution may be specified in the class constructor (default: 1 sample/nm).</p>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.spectralfunction.InterpolatedSF">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.spectralfunction.</code><code class="sig-name descname">InterpolatedSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.InterpolatedSF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.spectralfunction.SpectralFunction</span></code></a></p>
@@ -783,7 +783,7 @@ spectral function so its integral equals 1.</p></li>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.spectralfunction.ConstantSF">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.spectralfunction.</code><code class="sig-name descname">ConstantSF</code><a class="headerlink" href="#raysect.optical.spectralfunction.ConstantSF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.spectralfunction.SpectralFunction" title="raysect.optical.spectralfunction.SpectralFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.spectralfunction.SpectralFunction</span></code></a></p>
@@ -800,7 +800,7 @@ spectral function so its integral equals 1.</p></li>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.optical.spectrum.photon_energy">
 <code class="sig-prename descclassname">raysect.optical.spectrum.</code><code class="sig-name descname">photon_energy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.spectrum.photon_energy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the energy of a photon with the specified wavelength.</p>
@@ -819,38 +819,38 @@ spectral function so its integral equals 1.</p></li>
 
 </div>
 <div class="section" id="colours">
-<h2>3.1.3. Colours<a class="headerlink" href="#colours" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1.3. </span>Colours<a class="headerlink" href="#colours" title="Permalink to this headline">¶</a></h2>
 <p>The CIE 1931 colour spaces define quantitatively the link between pure physical colours
 (i.e. wavelengths in the visible spectrum) and human perceivable colours. The mathematical
 relationships between the spectrum and perceivable colours are based on the sensitivity
 curves for the three different cone cells in the human eye. Raysect implements three X,
 Y, Z normalised spectral functions from the CIE 1931 Standard Colorimetric Observer. For
 more information see <a class="reference external" href="https://en.wikipedia.org/wiki/CIE_1931_color_space">Wikipedia</a>.</p>
-<dl class="data">
+<dl class="py data">
 <dt id="raysect.optical.colour.ciexyz_x">
 <code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">ciexyz_x</code><a class="headerlink" href="#raysect.optical.colour.ciexyz_x" title="Permalink to this definition">¶</a></dt>
 <dd><p>X spectral function from CIE 1931 Standard Colorimetric Observer (normalised)</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="raysect.optical.colour.ciexyz_y">
 <code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">ciexyz_y</code><a class="headerlink" href="#raysect.optical.colour.ciexyz_y" title="Permalink to this definition">¶</a></dt>
 <dd><p>Y spectral function from CIE 1931 Standard Colorimetric Observer (normalised)</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="raysect.optical.colour.ciexyz_z">
 <code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">ciexyz_z</code><a class="headerlink" href="#raysect.optical.colour.ciexyz_z" title="Permalink to this definition">¶</a></dt>
 <dd><p>Z spectral function from CIE 1931 Standard Colorimetric Observer (normalised)</p>
 </dd></dl>
 
-<dl class="data">
+<dl class="py data">
 <dt id="raysect.optical.colour.d65_white">
 <code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">d65_white</code><a class="headerlink" href="#raysect.optical.colour.d65_white" title="Permalink to this definition">¶</a></dt>
 <dd><p>CIE D65 standard illuminant, normalised to 1.0 over visual range 375-785 nm</p>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.optical.colour.resample_ciexyz">
 <code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">resample_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.resample_ciexyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pre-calculates samples of XYZ sensitivity curves over desired spectral range.</p>
@@ -870,7 +870,7 @@ to (X, Y, Z).</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.optical.colour.spectrum_to_ciexyz">
 <code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">spectrum_to_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.spectrum_to_ciexyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates a tuple of CIE X, Y, Z values from an input spectrum</p>
@@ -888,7 +888,7 @@ for this spectral range (default=None).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.optical.colour.ciexyy_to_ciexyz">
 <code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">ciexyy_to_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.ciexyy_to_ciexyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs conversion from CIE xyY to CIE XYZ colour space</p>
@@ -907,7 +907,7 @@ for this spectral range (default=None).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.optical.colour.ciexyz_to_ciexyy">
 <code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">ciexyz_to_ciexyy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.ciexyz_to_ciexyy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs conversion from CIE XYZ to CIE xyY colour space</p>
@@ -929,7 +929,7 @@ for this spectral range (default=None).</p></li>
 <p>Raysect also supports conversion of CIE colour space values to standard sRGB colour space
 as defined by HP and Microsoft in 1996 as per IEC 61966-2-1:1999. For more information
 see <a class="reference external" href="https://en.wikipedia.org/wiki/SRGB">Wikipedia</a>.</p>
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.optical.colour.ciexyz_to_srgb">
 <code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">ciexyz_to_srgb</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.ciexyz_to_srgb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert CIE XYZ values to sRGB colour space.</p>
@@ -949,7 +949,7 @@ r, g, b in range [0, 1]</p>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.optical.colour.srgb_to_ciexyz">
 <code class="sig-prename descclassname">raysect.optical.colour.</code><code class="sig-name descname">srgb_to_ciexyz</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.colour.srgb_to_ciexyz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert sRGB values to CIE XYZ colour space.</p>
@@ -971,8 +971,8 @@ x, y, z in range [0, 1]</p>
 
 </div>
 <div class="section" id="optical-scenegraph">
-<h2>3.1.4. Optical Scenegraph<a class="headerlink" href="#optical-scenegraph" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<h2><span class="section-number">3.1.4. </span>Optical Scenegraph<a class="headerlink" href="#optical-scenegraph" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
 <dt id="raysect.optical.scenegraph.world.World">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.scenegraph.world.</code><code class="sig-name descname">World</code><a class="headerlink" href="#raysect.optical.scenegraph.world.World" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.world.World" title="raysect.core.scenegraph.world.World"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.scenegraph.world.World</span></code></a></p>
@@ -986,7 +986,7 @@ structure is a kd-tree.</p>
 <dd class="field-odd"><p><strong>name</strong> – A string defining the node name.</p>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.scenegraph.world.World.build_importance">
 <code class="sig-name descname">build_importance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.scenegraph.world.World.build_importance" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method manually triggers a rebuild of the importance manager object.</p>
@@ -999,7 +999,7 @@ will do nothing unless the force keyword option is set to True.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.scenegraph.world.World.has_important_primitives">
 <code class="sig-name descname">has_important_primitives</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.scenegraph.world.World.has_important_primitives" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns true if any primitives in this scene-graph have an importance weighting.</p>
@@ -1010,7 +1010,7 @@ will do nothing unless the force keyword option is set to True.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.scenegraph.world.World.important_direction_pdf">
 <code class="sig-name descname">important_direction_pdf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.scenegraph.world.World.important_direction_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the value of the PDF for the specified sample point and direction.</p>
@@ -1027,7 +1027,7 @@ will do nothing unless the force keyword option is set to True.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.scenegraph.world.World.important_direction_sample">
 <code class="sig-name descname">important_direction_sample</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.scenegraph.world.World.important_direction_sample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a sample direction of an important primitive.</p>

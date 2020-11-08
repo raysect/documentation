@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -168,9 +168,9 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="primitives.html">2. Primitives Module</a> &raquo;</li>
+          <li><a href="primitives.html"><span class="section-number">2. </span>Primitives Module</a> &raquo;</li>
         
-      <li>2.1. Geometric Primitives</li>
+      <li><span class="section-number">2.1. </span>Geometric Primitives</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,8 +190,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="geometric-primitives">
-<h1>2.1. Geometric Primitives<a class="headerlink" href="#geometric-primitives" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<h1><span class="section-number">2.1. </span>Geometric Primitives<a class="headerlink" href="#geometric-primitives" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
 <dt id="raysect.primitive.Box">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.</code><code class="sig-name descname">Box</code><a class="headerlink" href="#raysect.primitive.Box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
@@ -222,7 +222,7 @@ system.</p>
 <span class="go">               material=UniformSurfaceEmitter(red), name=&quot;red cube&quot;)</span>
 </pre></div>
 </div>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.primitive.Box.lower">
 <code class="sig-name descname">lower</code><a class="headerlink" href="#raysect.primitive.Box.lower" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower 3D coordinate of the box in primitive’s local coordinates.</p>
@@ -233,7 +233,7 @@ system.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.primitive.Box.upper">
 <code class="sig-name descname">upper</code><a class="headerlink" href="#raysect.primitive.Box.upper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper 3D coordinate of the box in primitive’s local coordinates.</p>
@@ -246,7 +246,7 @@ system.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.primitive.Sphere">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.</code><code class="sig-name descname">Sphere</code><a class="headerlink" href="#raysect.primitive.Sphere" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
@@ -278,7 +278,7 @@ system.</p>
 <span class="go">                    material=UniformSurfaceEmitter(orange), name=&quot;orange sphere&quot;)</span>
 </pre></div>
 </div>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.primitive.Sphere.radius">
 <code class="sig-name descname">radius</code><a class="headerlink" href="#raysect.primitive.Sphere.radius" title="Permalink to this definition">¶</a></dt>
 <dd><p>The radius of this sphere.</p>
@@ -291,7 +291,7 @@ system.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.primitive.Cylinder">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.</code><code class="sig-name descname">Cylinder</code><a class="headerlink" href="#raysect.primitive.Cylinder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
@@ -324,13 +324,13 @@ system relative to the scene-graph parent (default = identity matrix).</p></li>
 <span class="go">                        material=UniformSurfaceEmitter(blue), name=&quot;blue cylinder&quot;)</span>
 </pre></div>
 </div>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.primitive.Cylinder.height">
 <code class="sig-name descname">height</code><a class="headerlink" href="#raysect.primitive.Cylinder.height" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extent of the cylinder along the z-axis.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.primitive.Cylinder.radius">
 <code class="sig-name descname">radius</code><a class="headerlink" href="#raysect.primitive.Cylinder.radius" title="Permalink to this definition">¶</a></dt>
 <dd><p>Radius of the cylinder in x-y plane.</p>
@@ -338,7 +338,7 @@ system relative to the scene-graph parent (default = identity matrix).</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.primitive.Cone">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.</code><code class="sig-name descname">Cone</code><a class="headerlink" href="#raysect.primitive.Cone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
@@ -372,13 +372,13 @@ system relative to the scene-graph parent (default = identity matrix).</p></li>
 <span class="go">                material=UniformSurfaceEmitter(green), name=&quot;green cone&quot;)</span>
 </pre></div>
 </div>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.primitive.Cone.height">
 <code class="sig-name descname">height</code><a class="headerlink" href="#raysect.primitive.Cone.height" title="Permalink to this definition">¶</a></dt>
 <dd><p>The extend of the cone along the z-axis</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.primitive.Cone.radius">
 <code class="sig-name descname">radius</code><a class="headerlink" href="#raysect.primitive.Cone.radius" title="Permalink to this definition">¶</a></dt>
 <dd><p>The radius of the cone base in the x-y plane</p>
@@ -386,7 +386,7 @@ system relative to the scene-graph parent (default = identity matrix).</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.primitive.Parabola">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.</code><code class="sig-name descname">Parabola</code><a class="headerlink" href="#raysect.primitive.Parabola" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
@@ -419,13 +419,13 @@ on the x-y plane, the parabola vertex (tip) lies at z=height.</p>
 <span class="go">                        material=UniformSurfaceEmitter(yellow), name=&quot;yellow parabola&quot;)</span>
 </pre></div>
 </div>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.primitive.Parabola.height">
 <code class="sig-name descname">height</code><a class="headerlink" href="#raysect.primitive.Parabola.height" title="Permalink to this definition">¶</a></dt>
 <dd><p>The parabola’s extent along the z-axis [0, height].</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.primitive.Parabola.radius">
 <code class="sig-name descname">radius</code><a class="headerlink" href="#raysect.primitive.Parabola.radius" title="Permalink to this definition">¶</a></dt>
 <dd><p>Radius of the parabola base in x-y plane.</p>

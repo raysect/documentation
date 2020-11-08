@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -183,9 +183,9 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="optical.html">3. Optical Module</a> &raquo;</li>
+          <li><a href="optical.html"><span class="section-number">3. </span>Optical Module</a> &raquo;</li>
         
-      <li>3.3. Frame Samples and Pipelines</li>
+      <li><span class="section-number">3.3. </span>Frame Samples and Pipelines</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -205,19 +205,19 @@
            <div itemprop="articleBody">
             
   <div class="section" id="frame-samples-and-pipelines">
-<h1>3.3. Frame Samples and Pipelines<a class="headerlink" href="#frame-samples-and-pipelines" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.3. </span>Frame Samples and Pipelines<a class="headerlink" href="#frame-samples-and-pipelines" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="base-classes">
-<h2>3.3.1. Base Classes<a class="headerlink" href="#base-classes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3.1. </span>Base Classes<a class="headerlink" href="#base-classes" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="frame-sampler">
-<h3>3.3.1.1. Frame Sampler<a class="headerlink" href="#frame-sampler" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.1.1. </span>Frame Sampler<a class="headerlink" href="#frame-sampler" title="Permalink to this headline">¶</a></h3>
 <p>For the higher dimensional observers (&gt;0D) frame samplers determine how the individual
 pixels that make up the observers frame are sampled. For example, sample the full frame
 or adaptively select pixels to sample based on their noise level.</p>
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.base.sampler.FrameSampler1D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.base.sampler.</code><code class="sig-name descname">FrameSampler1D</code><a class="headerlink" href="#raysect.optical.observer.base.sampler.FrameSampler1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for 1D frame samplers.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.sampler.FrameSampler1D.generate_tasks">
 <code class="sig-name descname">generate_tasks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.sampler.FrameSampler1D.generate_tasks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a list of tuples that selects the pixels to render.</p>
@@ -239,11 +239,11 @@ to render. For example:</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.base.sampler.FrameSampler2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.base.sampler.</code><code class="sig-name descname">FrameSampler2D</code><a class="headerlink" href="#raysect.optical.observer.base.sampler.FrameSampler2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for 2D frame samplers.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.sampler.FrameSampler2D.generate_tasks">
 <code class="sig-name descname">generate_tasks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.sampler.FrameSampler2D.generate_tasks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates a list of tuples that selects the pixels to render.</p>
@@ -267,16 +267,16 @@ to render. For example:</p>
 
 </div>
 <div class="section" id="pipeline">
-<h3>3.3.1.2. Pipeline<a class="headerlink" href="#pipeline" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.3.1.2. </span>Pipeline<a class="headerlink" href="#pipeline" title="Permalink to this headline">¶</a></h3>
 <p>Pipelines define how spectra are processed by observers into the form desired by the user.
 For example, the power pipelines define how the measured spectra is integrated over the
 spectral range to give the overall power in W arriving at the observing surfaces. The also
 control the display and visualisation of results.</p>
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline0D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.base.pipeline.</code><code class="sig-name descname">Pipeline0D</code><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline0D" title="Permalink to this definition">¶</a></dt>
 <dd><p>The base class for 0D pipelines.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline0D.finalise">
 <code class="sig-name descname">finalise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline0D.finalise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finalises the results when rendering has finished.</p>
@@ -287,7 +287,7 @@ final visualisation of results.</p>
 <p>This is a virtual method and must be implemented in a sub class.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline0D.initialise">
 <code class="sig-name descname">initialise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline0D.initialise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialises containers for the pipeline’s processing output.</p>
@@ -308,7 +308,7 @@ rays is &gt; 1 (i.e. dispersion effects turned on).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline0D.pixel_processor">
 <code class="sig-name descname">pixel_processor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline0D.pixel_processor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialise and return a pixel processor for this pipeline.</p>
@@ -326,7 +326,7 @@ by the requesting worker thread.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline0D.update">
 <code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline0D.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates the internal results array with packed results from the pixel processor.</p>
@@ -352,11 +352,11 @@ accuracy of statistical errors when combining new samples with previous results.
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline1D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.base.pipeline.</code><code class="sig-name descname">Pipeline1D</code><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>The base class for 1D pipelines.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline1D.finalise">
 <code class="sig-name descname">finalise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline1D.finalise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finalises the results when rendering has finished.</p>
@@ -367,7 +367,7 @@ final visualisation of results.</p>
 <p>This is a virtual method and must be implemented in a sub class.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline1D.initialise">
 <code class="sig-name descname">initialise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline1D.initialise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialises containers for the pipeline’s processing output.</p>
@@ -392,7 +392,7 @@ rays is &gt; 1 (i.e. dispersion effects turned on).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline1D.pixel_processor">
 <code class="sig-name descname">pixel_processor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline1D.pixel_processor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialise and return a pixel processor for this pipeline and pixel coordinate.</p>
@@ -413,7 +413,7 @@ by the requesting worker thread.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline1D.update">
 <code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline1D.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates the internal results array with packed results from the pixel processor.</p>
@@ -439,11 +439,11 @@ PixelProcessor.</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.base.pipeline.</code><code class="sig-name descname">Pipeline2D</code><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>The base class for 2D pipelines.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline2D.finalise">
 <code class="sig-name descname">finalise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline2D.finalise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finalises the results when rendering has finished.</p>
@@ -454,7 +454,7 @@ final visualisation of results.</p>
 <p>This is a virtual method and must be implemented in a sub class.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline2D.initialise">
 <code class="sig-name descname">initialise</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline2D.initialise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialises containers for the pipeline’s processing output.</p>
@@ -479,7 +479,7 @@ rays is &gt; 1 (i.e. dispersion effects turned on).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline2D.pixel_processor">
 <code class="sig-name descname">pixel_processor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline2D.pixel_processor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialise and return a pixel processor for this pipeline and pixel coordinate.</p>
@@ -501,7 +501,7 @@ by the requesting worker thread.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.base.pipeline.Pipeline2D.update">
 <code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.pipeline.Pipeline2D.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates the internal results array with packed results from the pixel processor.</p>
@@ -531,8 +531,8 @@ PixelProcessor.</p></li>
 </div>
 </div>
 <div class="section" id="rgb">
-<h2>3.3.2. RGB<a class="headerlink" href="#rgb" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<h2><span class="section-number">3.3.2. </span>RGB<a class="headerlink" href="#rgb" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.rgb.RGBPipeline2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.rgb.</code><code class="sig-name descname">RGBPipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.rgb.RGBPipeline2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline2D" title="raysect.optical.observer.base.pipeline.Pipeline2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline2D</span></code></a></p>
@@ -562,13 +562,13 @@ be saturated. Display values will be scaled to satisfy this value
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.pipeline.rgb.RGBPipeline2D.display">
 <code class="sig-name descname">display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.pipeline.rgb.RGBPipeline2D.display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the RGB frame.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.observer.pipeline.rgb.RGBPipeline2D.display_auto_exposure">
 <code class="sig-name descname">display_auto_exposure</code><a class="headerlink" href="#raysect.optical.observer.pipeline.rgb.RGBPipeline2D.display_auto_exposure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Toggles the use of automatic exposure on final image.</p>
@@ -579,7 +579,7 @@ be saturated. Display values will be scaled to satisfy this value
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.observer.pipeline.rgb.RGBPipeline2D.display_sensitivity">
 <code class="sig-name descname">display_sensitivity</code><a class="headerlink" href="#raysect.optical.observer.pipeline.rgb.RGBPipeline2D.display_sensitivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The sensitivity of the camera, effectively inverse of the exposure time.</p>
@@ -590,7 +590,7 @@ be saturated. Display values will be scaled to satisfy this value
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.observer.pipeline.rgb.RGBPipeline2D.display_unsaturated_fraction">
 <code class="sig-name descname">display_unsaturated_fraction</code><a class="headerlink" href="#raysect.optical.observer.pipeline.rgb.RGBPipeline2D.display_unsaturated_fraction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fraction of pixels that must not be saturated. Display values will
@@ -602,7 +602,7 @@ be scaled to satisfy this value.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.observer.pipeline.rgb.RGBPipeline2D.display_update_time">
 <code class="sig-name descname">display_update_time</code><a class="headerlink" href="#raysect.optical.observer.pipeline.rgb.RGBPipeline2D.display_update_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Time in seconds between preview display updates.</p>
@@ -613,7 +613,7 @@ be scaled to satisfy this value.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.pipeline.rgb.RGBPipeline2D.save">
 <code class="sig-name descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.pipeline.rgb.RGBPipeline2D.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves the display image to a png file.</p>
@@ -630,8 +630,8 @@ process the image prior saving.</p>
 
 </div>
 <div class="section" id="bayer">
-<h2>3.3.3. Bayer<a class="headerlink" href="#bayer" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<h2><span class="section-number">3.3.3. </span>Bayer<a class="headerlink" href="#bayer" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.bayer.BayerPipeline2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.bayer.</code><code class="sig-name descname">BayerPipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.bayer.BayerPipeline2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline2D" title="raysect.optical.observer.base.pipeline.Pipeline2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline2D</span></code></a></p>
@@ -680,13 +680,13 @@ display screens (default=2.2).</p></li>
 <span class="go">                            display_unsaturated_fraction=0.96, name=&quot;Bayer Filter&quot;)</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display">
 <code class="sig-name descname">display</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the RGB frame.</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_auto_exposure">
 <code class="sig-name descname">display_auto_exposure</code><a class="headerlink" href="#raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_auto_exposure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Toggles the use of automatic exposure on final image.</p>
@@ -697,7 +697,7 @@ display screens (default=2.2).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_black_point">
 <code class="sig-name descname">display_black_point</code><a class="headerlink" href="#raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_black_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower clamp point for pixel to appear black.</p>
@@ -708,7 +708,7 @@ display screens (default=2.2).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_gamma">
 <code class="sig-name descname">display_gamma</code><a class="headerlink" href="#raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_gamma" title="Permalink to this definition">¶</a></dt>
 <dd><p>Power law exponent to approximate non-linear human eye response.</p>
@@ -723,7 +723,7 @@ display screens (default=2.2).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_unsaturated_fraction">
 <code class="sig-name descname">display_unsaturated_fraction</code><a class="headerlink" href="#raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_unsaturated_fraction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fraction of pixels that must not be saturated. Display values will
@@ -735,7 +735,7 @@ be scaled to satisfy this value.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_update_time">
 <code class="sig-name descname">display_update_time</code><a class="headerlink" href="#raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_update_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Time in seconds between preview display updates.</p>
@@ -746,7 +746,7 @@ be scaled to satisfy this value.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_white_point">
 <code class="sig-name descname">display_white_point</code><a class="headerlink" href="#raysect.optical.observer.pipeline.bayer.BayerPipeline2D.display_white_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper clamp point for pixel colour saturation.</p>
@@ -757,7 +757,7 @@ be scaled to satisfy this value.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.pipeline.bayer.BayerPipeline2D.save">
 <code class="sig-name descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.pipeline.bayer.BayerPipeline2D.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves the display image to a png file.</p>
@@ -774,8 +774,8 @@ process the image prior saving.</p>
 
 </div>
 <div class="section" id="power">
-<h2>3.3.4. Power<a class="headerlink" href="#power" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<h2><span class="section-number">3.3.4. </span>Power<a class="headerlink" href="#power" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.mono.PowerPipeline0D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.mono.</code><code class="sig-name descname">PowerPipeline0D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline0D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline0D" title="raysect.optical.observer.base.pipeline.Pipeline0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline0D</span></code></a></p>
@@ -796,7 +796,7 @@ measured spectrum.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.mono.PowerPipeline1D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.mono.</code><code class="sig-name descname">PowerPipeline1D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline1D" title="raysect.optical.observer.base.pipeline.Pipeline1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline1D</span></code></a></p>
@@ -819,7 +819,7 @@ to observe() (default=True).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.mono.PowerPipeline2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.mono.</code><code class="sig-name descname">PowerPipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline2D" title="raysect.optical.observer.base.pipeline.Pipeline2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline2D</span></code></a></p>
@@ -852,7 +852,7 @@ be saturated. Display values will be scaled to satisfy this value
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.observer.pipeline.mono.PowerPipeline2D.display_auto_exposure">
 <code class="sig-name descname">display_auto_exposure</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline2D.display_auto_exposure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Toggles the use of automatic exposure on final image.</p>
@@ -863,7 +863,7 @@ be saturated. Display values will be scaled to satisfy this value
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.observer.pipeline.mono.PowerPipeline2D.display_unsaturated_fraction">
 <code class="sig-name descname">display_unsaturated_fraction</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline2D.display_unsaturated_fraction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fraction of pixels that must not be saturated. Display values will
@@ -875,7 +875,7 @@ be scaled to satisfy this value.</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.optical.observer.pipeline.mono.PowerPipeline2D.display_update_time">
 <code class="sig-name descname">display_update_time</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline2D.display_update_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Time in seconds between preview display updates.</p>
@@ -886,7 +886,7 @@ be scaled to satisfy this value.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.pipeline.mono.PowerPipeline2D.save">
 <code class="sig-name descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.PowerPipeline2D.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves the display image to a png file.</p>
@@ -903,8 +903,8 @@ process the image prior saving.</p>
 
 </div>
 <div class="section" id="radiance">
-<h2>3.3.5. Radiance<a class="headerlink" href="#radiance" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<h2><span class="section-number">3.3.5. </span>Radiance<a class="headerlink" href="#radiance" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.mono.RadiancePipeline0D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.mono.</code><code class="sig-name descname">RadiancePipeline0D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.RadiancePipeline0D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.pipeline.mono.power.PowerPipeline0D</span></code></p>
@@ -925,7 +925,7 @@ measured spectrum.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.mono.RadiancePipeline1D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.mono.</code><code class="sig-name descname">RadiancePipeline1D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.RadiancePipeline1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.pipeline.mono.power.PowerPipeline1D</span></code></p>
@@ -948,7 +948,7 @@ to observe() (default=True).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.mono.RadiancePipeline2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.mono.</code><code class="sig-name descname">RadiancePipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.mono.RadiancePipeline2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.pipeline.mono.power.PowerPipeline2D</span></code></p>
@@ -985,8 +985,8 @@ be saturated. Display values will be scaled to satisfy this value
 
 </div>
 <div class="section" id="spectral">
-<h2>3.3.6. Spectral<a class="headerlink" href="#spectral" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<h2><span class="section-number">3.3.6. </span>Spectral<a class="headerlink" href="#spectral" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline0D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="sig-name descname">SpectralPowerPipeline0D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline0D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline0D" title="raysect.optical.observer.base.pipeline.Pipeline0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline0D</span></code></a></p>
@@ -1005,7 +1005,7 @@ to observe() (default=True).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline0D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="sig-name descname">SpectralRadiancePipeline0D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline0D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.pipeline.spectral.power.SpectralPowerPipeline0D</span></code></p>
@@ -1022,7 +1022,7 @@ to observe() (default=True).</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline0D.to_spectrum">
 <code class="sig-name descname">to_spectrum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline0D.to_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the mean spectral radiance in a Spectrum() object.</p>
@@ -1030,7 +1030,7 @@ to observe() (default=True).</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline1D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="sig-name descname">SpectralPowerPipeline1D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline1D" title="raysect.optical.observer.base.pipeline.Pipeline1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline1D</span></code></a></p>
@@ -1049,7 +1049,7 @@ to observe() (default=True).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline1D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="sig-name descname">SpectralRadiancePipeline1D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.pipeline.spectral.power.SpectralPowerPipeline1D</span></code></p>
@@ -1066,7 +1066,7 @@ to observe() (default=True).</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline1D.to_spectrum">
 <code class="sig-name descname">to_spectrum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline1D.to_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the mean spectral radiance of pixel in a Spectrum() object.</p>
@@ -1074,7 +1074,7 @@ to observe() (default=True).</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="sig-name descname">SpectralPowerPipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralPowerPipeline2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.pipeline.Pipeline2D" title="raysect.optical.observer.base.pipeline.Pipeline2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.pipeline.Pipeline2D</span></code></a></p>
@@ -1093,7 +1093,7 @@ to observe() (default=True).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.pipeline.spectral.</code><code class="sig-name descname">SpectralRadiancePipeline2D</code><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.pipeline.spectral.power.SpectralPowerPipeline2D</span></code></p>
@@ -1110,7 +1110,7 @@ to observe() (default=True).</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D.to_spectrum">
 <code class="sig-name descname">to_spectrum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.pipeline.spectral.SpectralRadiancePipeline2D.to_spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the mean spectral radiance of pixel (x, y) in a Spectrum() object.</p>
@@ -1120,14 +1120,14 @@ to observe() (default=True).</p></li>
 
 </div>
 <div class="section" id="frame-samplers">
-<h2>3.3.7. Frame Samplers<a class="headerlink" href="#frame-samplers" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
+<h2><span class="section-number">3.3.7. </span>Frame Samplers<a class="headerlink" href="#frame-samplers" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
 <dt id="raysect.optical.observer.sampler1d.FullFrameSampler1D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.sampler1d.</code><code class="sig-name descname">FullFrameSampler1D</code><a class="headerlink" href="#raysect.optical.observer.sampler1d.FullFrameSampler1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler1D" title="raysect.optical.observer.base.sampler.FrameSampler1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler1D</span></code></a></p>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.sampler1d.MonoAdaptiveSampler1D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.sampler1d.</code><code class="sig-name descname">MonoAdaptiveSampler1D</code><a class="headerlink" href="#raysect.optical.observer.sampler1d.MonoAdaptiveSampler1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler1D" title="raysect.optical.observer.base.sampler.FrameSampler1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler1D</span></code></a></p>
@@ -1155,7 +1155,7 @@ cutoff of 0.01 corresponds to 1% standard error.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.sampler1d.SpectralAdaptiveSampler1D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.sampler1d.</code><code class="sig-name descname">SpectralAdaptiveSampler1D</code><a class="headerlink" href="#raysect.optical.observer.sampler1d.SpectralAdaptiveSampler1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler1D" title="raysect.optical.observer.base.sampler.FrameSampler1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler1D</span></code></a></p>
@@ -1211,7 +1211,7 @@ than <cite>cutoff</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.sampler2d.FullFrameSampler2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.sampler2d.</code><code class="sig-name descname">FullFrameSampler2D</code><a class="headerlink" href="#raysect.optical.observer.sampler2d.FullFrameSampler2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler2D</span></code></a></p>
@@ -1225,7 +1225,7 @@ the mask is True.</p>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.sampler2d.MonoAdaptiveSampler2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.sampler2d.</code><code class="sig-name descname">MonoAdaptiveSampler2D</code><a class="headerlink" href="#raysect.optical.observer.sampler2d.MonoAdaptiveSampler2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler2D</span></code></a></p>
@@ -1257,7 +1257,7 @@ of generate_tasks().</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.sampler2d.SpectralAdaptiveSampler2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.sampler2d.</code><code class="sig-name descname">SpectralAdaptiveSampler2D</code><a class="headerlink" href="#raysect.optical.observer.sampler2d.SpectralAdaptiveSampler2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler2D</span></code></a></p>
@@ -1312,7 +1312,7 @@ than <cite>cutoff</cite>.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.observer.sampler2d.RGBAdaptiveSampler2D">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.sampler2d.</code><code class="sig-name descname">RGBAdaptiveSampler2D</code><a class="headerlink" href="#raysect.optical.observer.sampler2d.RGBAdaptiveSampler2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.sampler.FrameSampler2D" title="raysect.optical.observer.base.sampler.FrameSampler2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.sampler.FrameSampler2D</span></code></a></p>

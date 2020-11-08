@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -169,7 +169,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>5. Quickstart Guide</li>
+      <li><span class="section-number">5. </span>Quickstart Guide</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -189,11 +189,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="quickstart-guide">
-<h1>5. Quickstart Guide<a class="headerlink" href="#quickstart-guide" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5. </span>Quickstart Guide<a class="headerlink" href="#quickstart-guide" title="Permalink to this headline">¶</a></h1>
 <p>This example is based on the demo file demos/quickstart/demo_lambert.py. It outlines the typical workflow used in
 raysect.</p>
 <div class="section" id="create-primitives">
-<h2>5.1. Create Primitives<a class="headerlink" href="#create-primitives" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1. </span>Create Primitives<a class="headerlink" href="#create-primitives" title="Permalink to this headline">¶</a></h2>
 <p>Set-up your primitives by defining materials, meshes, etc:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Box defining the ground plane</span>
 <span class="n">ground</span> <span class="o">=</span> <span class="n">Box</span><span class="p">(</span><span class="n">lower</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.51</span><span class="p">,</span> <span class="o">-</span><span class="mi">50</span><span class="p">),</span> <span class="n">upper</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">())</span>
@@ -210,7 +210,7 @@ raysect.</p>
 </div>
 </div>
 <div class="section" id="add-observer">
-<h2>5.2. Add Observer<a class="headerlink" href="#add-observer" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Add Observer<a class="headerlink" href="#add-observer" title="Permalink to this headline">¶</a></h2>
 <p>Add an observer and configure its sampling settings. All of these camera settings have sensible defaults, The camera
 settings will be explained in detail in another section:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># processing pipeline (human vision like camera response)</span>
@@ -229,7 +229,7 @@ settings will be explained in detail in another section:</p>
 </div>
 </div>
 <div class="section" id="build-scenegraph">
-<h2>5.3. Build Scenegraph<a class="headerlink" href="#build-scenegraph" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.3. </span>Build Scenegraph<a class="headerlink" href="#build-scenegraph" title="Permalink to this headline">¶</a></h2>
 <p>Assemble the scene-graph by linking primitives and observers to the World. Set their transforms:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
 
@@ -241,7 +241,7 @@ settings will be explained in detail in another section:</p>
 </div>
 </div>
 <div class="section" id="observe">
-<h2>5.4. Observe()<a class="headerlink" href="#observe" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4. </span>Observe()<a class="headerlink" href="#observe" title="Permalink to this headline">¶</a></h2>
 <p>Call observe() on an Observer or trace a ray manually:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">observe</span><span class="p">()</span>
@@ -255,7 +255,7 @@ settings will be explained in detail in another section:</p>
 <img alt="_images/demo_lambert.png" class="align-center" src="_images/demo_lambert.png" />
 </div>
 <div class="section" id="simulated-spectrum">
-<h2>5.5. Simulated Spectrum<a class="headerlink" href="#simulated-spectrum" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5. </span>Simulated Spectrum<a class="headerlink" href="#simulated-spectrum" title="Permalink to this headline">¶</a></h2>
 <p>Lets simulate measuring a spectrum by launching a single ray:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ray</span> <span class="o">=</span> <span class="n">Ray</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">),</span>
           <span class="n">direction</span><span class="o">=</span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>

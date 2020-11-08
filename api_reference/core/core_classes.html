@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -170,9 +170,9 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="core.html">1. Raysect Core</a> &raquo;</li>
+          <li><a href="core.html"><span class="section-number">1. </span>Raysect Core</a> &raquo;</li>
         
-      <li>1.1. Core Classes</li>
+      <li><span class="section-number">1.1. </span>Core Classes</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -192,8 +192,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="module-raysect.core.ray">
-<span id="core-classes"></span><h1>1.1. Core Classes<a class="headerlink" href="#module-raysect.core.ray" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<span id="core-classes"></span><h1><span class="section-number">1.1. </span>Core Classes<a class="headerlink" href="#module-raysect.core.ray" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
 <dt id="raysect.core.ray.Ray">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.ray.</code><code class="sig-name descname">Ray</code><a class="headerlink" href="#raysect.core.ray.Ray" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describes a line in space with an origin and direction.</p>
@@ -220,11 +220,11 @@ need the derived optical Ray class (<a class="reference internal" href="../optic
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.ray</span> <span class="kn">import</span> <span class="n">Ray</span> <span class="k">as</span> <span class="n">CoreRay</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">intersection</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">hit</span><span class="p">(</span><span class="n">CoreRay</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,),</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">intersection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">intersection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="c1"># do something with the intersection results</span>
 </pre></div>
 </div>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.ray.Ray.copy">
 <code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.ray.Ray.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy this ray to a new Ray instance.</p>
@@ -252,7 +252,7 @@ need the derived optical Ray class (<a class="reference internal" href="../optic
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.ray.Ray.point_on">
 <code class="sig-name descname">point_on</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.ray.Ray.point_on" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the point on the ray at the specified parametric distance from the ray origin.</p>
@@ -280,7 +280,7 @@ need the derived optical Ray class (<a class="reference internal" href="../optic
 
 </dd></dl>
 
-<span class="target" id="module-raysect.core.intersection"></span><dl class="class">
+<span class="target" id="module-raysect.core.intersection"></span><dl class="py class">
 <dt id="raysect.core.intersection.Intersection">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.intersection.</code><code class="sig-name descname">Intersection</code><a class="headerlink" href="#raysect.core.intersection.Intersection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Describes the result of a ray-primitive intersection.</p>
@@ -329,7 +329,7 @@ normal.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.ray</span> <span class="kn">import</span> <span class="n">Ray</span> <span class="k">as</span> <span class="n">CoreRay</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">intersection</span> <span class="o">=</span> <span class="n">world</span><span class="o">.</span><span class="n">hit</span><span class="p">(</span><span class="n">CoreRay</span><span class="p">(</span><span class="n">Point3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,),</span> <span class="n">Vector3D</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">intersection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">intersection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="n">hit_point</span> <span class="o">=</span> <span class="n">intersection</span><span class="o">.</span><span class="n">hit_point</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">intersection</span><span class="o">.</span><span class="n">primitive_to_world</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span>    <span class="c1"># do something with the hit point...</span>
 </pre></div>

@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -168,9 +168,9 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="primitives.html">2. Primitives Module</a> &raquo;</li>
+          <li><a href="primitives.html"><span class="section-number">2. </span>Primitives Module</a> &raquo;</li>
         
-      <li>2.3. CSG Operations</li>
+      <li><span class="section-number">2.3. </span>CSG Operations</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,8 +190,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="csg-operations">
-<h1>2.3. CSG Operations<a class="headerlink" href="#csg-operations" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<h1><span class="section-number">2.3. </span>CSG Operations<a class="headerlink" href="#csg-operations" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
 <dt id="raysect.primitive.csg.CSGPrimitive">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.csg.</code><code class="sig-name descname">CSGPrimitive</code><a class="headerlink" href="#raysect.primitive.csg.CSGPrimitive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
@@ -214,7 +214,7 @@ material (default = None).</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.primitive.csg.CSGPrimitive.primitive_a">
 <code class="sig-name descname">primitive_a</code><a class="headerlink" href="#raysect.primitive.csg.CSGPrimitive.primitive_a" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component primitive A of the compound CSG primitive.</p>
@@ -225,7 +225,7 @@ material (default = None).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="raysect.primitive.csg.CSGPrimitive.primitive_b">
 <code class="sig-name descname">primitive_b</code><a class="headerlink" href="#raysect.primitive.csg.CSGPrimitive.primitive_b" title="Permalink to this definition">¶</a></dt>
 <dd><p>Component primitive B of the compound CSG primitive.</p>
@@ -238,7 +238,7 @@ material (default = None).</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.primitive.csg.Union">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.csg.</code><code class="sig-name descname">Union</code><a class="headerlink" href="#raysect.primitive.csg.Union" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.primitive.csg.CSGPrimitive" title="raysect.primitive.csg.CSGPrimitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.primitive.csg.CSGPrimitive</span></code></a></p>
@@ -274,7 +274,7 @@ material (default = None).</p></li>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.primitive.csg.Intersect">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.csg.</code><code class="sig-name descname">Intersect</code><a class="headerlink" href="#raysect.primitive.csg.Intersect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.primitive.csg.CSGPrimitive" title="raysect.primitive.csg.CSGPrimitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.primitive.csg.CSGPrimitive</span></code></a></p>
@@ -311,7 +311,7 @@ material (default = None).</p></li>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.primitive.csg.Subtract">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.csg.</code><code class="sig-name descname">Subtract</code><a class="headerlink" href="#raysect.primitive.csg.Subtract" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.primitive.csg.CSGPrimitive" title="raysect.primitive.csg.CSGPrimitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.primitive.csg.CSGPrimitive</span></code></a></p>

@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -169,9 +169,9 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="optical.html">3. Optical Module</a> &raquo;</li>
+          <li><a href="optical.html"><span class="section-number">3. </span>Optical Module</a> &raquo;</li>
         
-      <li>3.6. Optical Volume Materials</li>
+      <li><span class="section-number">3.6. </span>Optical Volume Materials</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -191,8 +191,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="optical-volume-materials">
-<h1>3.6. Optical Volume Materials<a class="headerlink" href="#optical-volume-materials" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<h1><span class="section-number">3.6. </span>Optical Volume Materials<a class="headerlink" href="#optical-volume-materials" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
 <dt id="raysect.optical.material.emitter.UnityVolumeEmitter">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">UnityVolumeEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UnityVolumeEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.emitter.homogeneous.HomogeneousVolumeEmitter</span></code></p>
@@ -200,9 +200,9 @@
 where x is the spectrum’s wavelength interval.</p>
 <p>This material is useful for general purpose debugging and evaluating the coupling
 coefficients between cameras and emitting volumes.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="k">import</span> <span class="n">UnityVolumeEmitter</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Sphere</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">UnityVolumeEmitter</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="c1"># set-up scenegraph</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
@@ -211,7 +211,7 @@ coefficients between cameras and emitting volumes.</p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.material.emitter.UniformVolumeEmitter">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">UniformVolumeEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UniformVolumeEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.emitter.homogeneous.HomogeneousVolumeEmitter</span></code></p>
@@ -238,7 +238,7 @@ emission scale in radiance.</p>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.material.emitter.HomogeneousVolumeEmitter">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">HomogeneousVolumeEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.HomogeneousVolumeEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullSurface" title="raysect.optical.material.material.NullSurface"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullSurface</span></code></a></p>
@@ -246,7 +246,7 @@ emission scale in radiance.</p>
 <p>Total power output of the light from each point is constant,
 but not necessarily isotropic.</p>
 <p>The deriving class must implement the emission_function() method.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.material.emitter.HomogeneousVolumeEmitter.emission_function">
 <code class="sig-name descname">emission_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.emitter.HomogeneousVolumeEmitter.emission_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>The emission function for the material.</p>
@@ -272,7 +272,7 @@ transform from the primitive’s local space to world space.</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.material.emitter.InhomogeneousVolumeEmitter">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">InhomogeneousVolumeEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.InhomogeneousVolumeEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullSurface" title="raysect.optical.material.material.NullSurface"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullSurface</span></code></a></p>
@@ -286,7 +286,7 @@ a basic numerical integration scheme.</p>
 NumericalIntegrator(step=0.01, min_samples=5).</p>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.material.emitter.InhomogeneousVolumeEmitter.emission_function">
 <code class="sig-name descname">emission_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.emitter.InhomogeneousVolumeEmitter.emission_function" title="Permalink to this definition">¶</a></dt>
 <dd><p>The emission function for the material at a given sample point.</p>
@@ -313,12 +313,12 @@ transform from the primitive’s local space to world space.</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.inhomogeneous.</code><code class="sig-name descname">VolumeIntegrator</code><a class="headerlink" href="#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for integrators in InhomogeneousVolumeEmitter materials.</p>
 <p>The deriving class must implement the integrate() method.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator.integrate">
 <code class="sig-name descname">integrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator.integrate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a customised integration of the emission through a volume emitter.</p>
@@ -347,7 +347,7 @@ transform from the primitive’s local space to world space.</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.optical.material.emitter.inhomogeneous.NumericalIntegrator">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.inhomogeneous.</code><code class="sig-name descname">NumericalIntegrator</code><a class="headerlink" href="#raysect.optical.material.emitter.inhomogeneous.NumericalIntegrator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator" title="raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.emitter.inhomogeneous.VolumeIntegrator</span></code></a></p>
@@ -361,7 +361,7 @@ range (default=5).</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.optical.material.emitter.inhomogeneous.NumericalIntegrator.integrate">
 <code class="sig-name descname">integrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.material.emitter.inhomogeneous.NumericalIntegrator.integrate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs a customised integration of the emission through a volume emitter.</p>

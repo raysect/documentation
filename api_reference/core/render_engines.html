@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -170,9 +170,9 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="core.html">1. Raysect Core</a> &raquo;</li>
+          <li><a href="core.html"><span class="section-number">1. </span>Raysect Core</a> &raquo;</li>
         
-      <li>1.5. Render Engines</li>
+      <li><span class="section-number">1.5. </span>Render Engines</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -192,8 +192,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="render-engines">
-<h1>1.5. Render Engines<a class="headerlink" href="#render-engines" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<h1><span class="section-number">1.5. </span>Render Engines<a class="headerlink" href="#render-engines" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
 <dt id="raysect.core.workflow.RenderEngine">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.workflow.</code><code class="sig-name descname">RenderEngine</code><a class="reference internal" href="../../_modules/raysect/core/workflow.html#RenderEngine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.RenderEngine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides a common rendering workflow interface.</p>
@@ -227,9 +227,9 @@ this must be a picklable python object.</p>
 <p>The execution order of tasks is not guaranteed to be in order. If the order
 is critical, an identifier should be passed as part of the task definition
 and returned in the result. This will permit the order to be reconstructed.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.workflow.RenderEngine.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param">tasks</em>, <em class="sig-param">render</em>, <em class="sig-param">update</em>, <em class="sig-param">render_args=()</em>, <em class="sig-param">render_kwargs={}</em>, <em class="sig-param">update_args=()</em>, <em class="sig-param">update_kwargs={}</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/raysect/core/workflow.html#RenderEngine.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.RenderEngine.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tasks</span></em>, <em class="sig-param"><span class="n">render</span></em>, <em class="sig-param"><span class="n">update</span></em>, <em class="sig-param"><span class="n">render_args</span><span class="o">=</span><span class="default_value">()</span></em>, <em class="sig-param"><span class="n">render_kwargs</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">update_args</span><span class="o">=</span><span class="default_value">()</span></em>, <em class="sig-param"><span class="n">update_kwargs</span><span class="o">=</span><span class="default_value">{}</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/raysect/core/workflow.html#RenderEngine.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.RenderEngine.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts the render engine executing the requested tasks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -247,7 +247,7 @@ used to update the internal state of the object requesting work.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.core.workflow.RenderEngine.worker_count">
 <code class="sig-name descname">worker_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/raysect/core/workflow.html#RenderEngine.worker_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.RenderEngine.worker_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the number of workers in use by this engine.</p>
@@ -255,14 +255,14 @@ used to update the internal state of the object requesting work.</p></li>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.core.workflow.SerialEngine">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.core.workflow.</code><code class="sig-name descname">SerialEngine</code><a class="reference internal" href="../../_modules/raysect/core/workflow.html#SerialEngine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.SerialEngine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.workflow.RenderEngine" title="raysect.core.workflow.RenderEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.workflow.RenderEngine</span></code></a></p>
 <p>Render engine for running on a single CPU processor.</p>
 <p>This engine is useful for debugging.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="k">import</span> <span class="n">SerialEngine</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">PinholeCamera</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core</span> <span class="kn">import</span> <span class="n">SerialEngine</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="kn">import</span> <span class="n">PinholeCamera</span>
 <span class="go">&gt;&gt;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">((</span><span class="mi">512</span><span class="p">,</span> <span class="mi">512</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">camera</span><span class="o">.</span><span class="n">render_engine</span> <span class="o">=</span> <span class="n">SerialEngine</span><span class="p">()</span>
@@ -270,9 +270,9 @@ used to update the internal state of the object requesting work.</p></li>
 </div>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.core.workflow.MulticoreEngine">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.core.workflow.</code><code class="sig-name descname">MulticoreEngine</code><span class="sig-paren">(</span><em class="sig-param">processes=None</em>, <em class="sig-param">tasks_per_job=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/raysect/core/workflow.html#MulticoreEngine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.MulticoreEngine" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.workflow.</code><code class="sig-name descname">MulticoreEngine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">processes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tasks_per_job</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/raysect/core/workflow.html#MulticoreEngine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.MulticoreEngine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.workflow.RenderEngine" title="raysect.core.workflow.RenderEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.workflow.RenderEngine</span></code></a></p>
 <p>A render engine for distributing work across multiple CPU cores.</p>
 <p>The number of processes spawned by this render engine is controlled via

@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -183,16 +183,16 @@
 <span id="demo-orthographic-camera"></span><h1>Orthographic Camera<a class="headerlink" href="#orthographic-camera" title="Permalink to this headline">¶</a></h1>
 <p>An example using an orthographic camera.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="k">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span>
+<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span>
 
-<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Cylinder</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Intersect</span><span class="p">,</span> <span class="n">Subtract</span>
+<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Cylinder</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Intersect</span><span class="p">,</span> <span class="n">Subtract</span>
 
-<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="k">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">d65_white</span><span class="p">,</span> <span class="n">InterpolatedSF</span>
-<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="k">import</span> <span class="n">OrthographicCamera</span>
-<span class="kn">from</span> <span class="nn">raysect.optical.material.emitter</span> <span class="k">import</span> <span class="n">UniformSurfaceEmitter</span><span class="p">,</span> <span class="n">Checkerboard</span>
-<span class="kn">from</span> <span class="nn">raysect.optical.material.dielectric</span> <span class="k">import</span> <span class="n">Dielectric</span><span class="p">,</span> <span class="n">Sellmeier</span>
-<span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="k">import</span> <span class="n">schott</span>
+<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">d65_white</span><span class="p">,</span> <span class="n">InterpolatedSF</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="kn">import</span> <span class="n">OrthographicCamera</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material.emitter</span> <span class="kn">import</span> <span class="n">UniformSurfaceEmitter</span><span class="p">,</span> <span class="n">Checkerboard</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material.dielectric</span> <span class="kn">import</span> <span class="n">Dielectric</span><span class="p">,</span> <span class="n">Sellmeier</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="kn">import</span> <span class="n">schott</span>
 
 
 <span class="n">red_glass</span> <span class="o">=</span> <span class="n">Dielectric</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">Sellmeier</span><span class="p">(</span><span class="mf">1.03961212</span><span class="p">,</span> <span class="mf">0.231792344</span><span class="p">,</span> <span class="mf">1.01046945</span><span class="p">,</span> <span class="mf">6.00069867e-3</span><span class="p">,</span> <span class="mf">2.00179144e-2</span><span class="p">,</span> <span class="mf">1.03560653e2</span><span class="p">),</span>

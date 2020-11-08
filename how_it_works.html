@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -173,7 +173,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>4. How it works</li>
+      <li><span class="section-number">4. </span>How it works</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,9 +193,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="how-it-works">
-<h1>4. How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-is-a-ray-tracer">
-<h2>4.1. What is a ray tracer?<a class="headerlink" href="#what-is-a-ray-tracer" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>What is a ray tracer?<a class="headerlink" href="#what-is-a-ray-tracer" title="Permalink to this headline">¶</a></h2>
 <p>An algorithm for simulating light propogation, light is modelled as a bundle of rays
 that travel through a scene. The paths of the rays follow a straight line unless
 they interact with objects in the scene. As rays interact with materials, their
@@ -213,9 +213,9 @@ design optimisation.</p></li>
 applications that don’t require real-time calculation.</p>
 </div>
 <div class="section" id="key-concepts">
-<h2>4.2. Key Concepts<a class="headerlink" href="#key-concepts" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Key Concepts<a class="headerlink" href="#key-concepts" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="rays">
-<h3>4.2.1. Rays<a class="headerlink" href="#rays" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.1. </span>Rays<a class="headerlink" href="#rays" title="Permalink to this headline">¶</a></h3>
 <p>Represent a ray of light</p>
 <ul class="simple">
 <li><p>defines a line with an origin and direction</p></li>
@@ -230,7 +230,7 @@ applications that don’t require real-time calculation.</p>
 </ul>
 </div>
 <div class="section" id="observers">
-<h3>4.2.2. Observers<a class="headerlink" href="#observers" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.2. </span>Observers<a class="headerlink" href="#observers" title="Permalink to this headline">¶</a></h3>
 <p>Represents objects that measure light, e.g. CCDs, cameras, photo diodes, eyes. Observers launch rays and accumulate
 samples of the scene, which is more convenient than tracing individual rays manually.</p>
 <ul class="simple">
@@ -239,7 +239,7 @@ samples of the scene, which is more convenient than tracing individual rays manu
 </ul>
 </div>
 <div class="section" id="primitives">
-<h3>4.2.3. Primitives<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.3. </span>Primitives<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h3>
 <p>Scenes in Raysect consist of primitives, which are the basic objects making up the scene. These are objects that rays
 can interact with, e.g light sources, lenses, mirrors, diffuse surfaces. Types of primitives:</p>
 <ul class="simple">
@@ -250,7 +250,7 @@ can interact with, e.g light sources, lenses, mirrors, diffuse surfaces. Types o
 <p>Primitive surfaces and volumes can be assigned materials, e.g. glass, metal, emitter properties.</p>
 </div>
 <div class="section" id="scene-graph">
-<h3>4.2.4. Scene-graph<a class="headerlink" href="#scene-graph" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">4.2.4. </span>Scene-graph<a class="headerlink" href="#scene-graph" title="Permalink to this headline">¶</a></h3>
 <p>Primitives and Observers are typically defined in their own local coordinate system but need to be placed into the
 “world”. There needs to be a system to keep track of the locations/co-ordinate transforms of all objects in the scene.</p>
 <p>The Scene-graph is a tree structure consisting of nodes, which can be both primitives and observers. Each node has an
@@ -264,7 +264,7 @@ one transform.</p>
 </div>
 </div>
 <div class="section" id="process-of-raytracing">
-<h2>4.3. Process of raytracing<a class="headerlink" href="#process-of-raytracing" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Process of raytracing<a class="headerlink" href="#process-of-raytracing" title="Permalink to this headline">¶</a></h2>
 <p>We desire the intensity/spectrum of light reaching an observer e.g. camera pixel.
 Our strategy is to sample light (radiance) along paths reaching observer and
 accumulate many samples to obtain intensity. Raysect uses a “Path tracing” algorithm

@@ -71,7 +71,7 @@
             
             
               <div class="version">
-                0.5.3
+                0.5.4
               </div>
             
           
@@ -192,7 +192,7 @@
 <div><a class="reference external" href="http://www.graphics.cornell.edu/online/box/data.html">http://www.graphics.cornell.edu/online/box/data.html</a></div></blockquote>
 <p>The wall colours and light spectrum used in this demo are the values measured
 for the physical Cornell Box.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 <span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="k">import</span> <span class="o">*</span>
 
 <span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="k">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Box</span>
@@ -332,7 +332,7 @@ for the physical Cornell Box.</p>
 <span class="n">bayer</span> <span class="o">=</span> <span class="n">BayerPipeline2D</span><span class="p">(</span><span class="n">filter_red</span><span class="p">,</span> <span class="n">filter_green</span><span class="p">,</span> <span class="n">filter_blue</span><span class="p">,</span> <span class="n">display_unsaturated_fraction</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Bayer Filter&quot;</span><span class="p">)</span>
 <span class="n">bayer</span><span class="o">.</span><span class="n">display_update_time</span> <span class="o">=</span> <span class="mi">15</span>
 
-<span class="n">pipelines</span> <span class="o">=</span> <span class="p">[</span><span class="n">rgb</span><span class="p">,</span> <span class="n">power_unfiltered</span><span class="p">,</span> <span class="n">power_green</span><span class="p">,</span> <span class="n">power_red</span><span class="p">,</span> <span class="n">bayer</span><span class="p">]</span>
+<span class="n">pipelines</span> <span class="o">=</span> <span class="p">[</span><span class="n">rgb</span><span class="p">]</span><span class="c1">#, power_unfiltered, power_green, power_red, bayer]</span>
 
 <span class="n">sampler</span> <span class="o">=</span> <span class="n">RGBAdaptiveSampler2D</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 
@@ -407,7 +407,7 @@ for the physical Cornell Box.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.5.3',
+            VERSION:'0.5.4',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

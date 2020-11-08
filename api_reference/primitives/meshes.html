@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -168,9 +168,9 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="primitives.html">2. Primitives Module</a> &raquo;</li>
+          <li><a href="primitives.html"><span class="section-number">2. </span>Primitives Module</a> &raquo;</li>
         
-      <li>2.2. Meshes</li>
+      <li><span class="section-number">2.2. </span>Meshes</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -190,8 +190,8 @@
            <div itemprop="articleBody">
             
   <div class="section" id="meshes">
-<h1>2.2. Meshes<a class="headerlink" href="#meshes" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<h1><span class="section-number">2.2. </span>Meshes<a class="headerlink" href="#meshes" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
 <dt id="raysect.primitive.mesh.mesh.Mesh">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.mesh.mesh.</code><code class="sig-name descname">Mesh</code><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../core/raysect_core_scenegraph.html#raysect.core.scenegraph.primitive.Primitive" title="raysect.core.scenegraph.primitive.Primitive"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.scenegraph.primitive.Primitive</span></code></a></p>
@@ -273,14 +273,14 @@ the mesh and its parent (default=unity matrix).</p></li>
 <li><p><strong>material</strong> (<a class="reference internal" href="../optical/optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><em>Material</em></a>) – The surface/volume material
 (default=Material() instance).</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – A human friendly name to identity the mesh in the
-scene-graph (default=”“).</p></li>
+scene-graph (default=””).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Variables</dt>
 <dd class="field-even"><p><strong>data</strong> (<em>MeshData</em>) – A class instance containing all the mesh data.</p>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.primitive.mesh.mesh.Mesh.from_file">
 <code class="sig-name descname">from_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.from_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instances a new Mesh using data from a file object or filename.</p>
@@ -310,7 +310,7 @@ are created with the Mesh save() method.</p>
 </div>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.primitive.mesh.mesh.Mesh.load">
 <code class="sig-name descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the mesh specified by a file object or filename.</p>
@@ -323,7 +323,7 @@ are created with the Mesh save() method.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.primitive.mesh.mesh.Mesh.save">
 <code class="sig-name descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.mesh.Mesh.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves the mesh to the specified file object or filename.</p>
@@ -352,9 +352,9 @@ units on import. For example, if a given engineering mesh was in mm,
 applying a scale factor of 0.001 would convert the mesh into m for
 use in Raysect.</p>
 </div>
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.primitive.mesh.obj.import_obj">
-<code class="sig-prename descclassname">raysect.primitive.mesh.obj.</code><code class="sig-name descname">import_obj</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">scaling=1.0</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.primitive.mesh.obj.</code><code class="sig-name descname">import_obj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">scaling</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.import_obj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a Wavefront OBJ mesh file (.obj).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -382,9 +382,9 @@ use in Raysect.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.primitive.mesh.obj.export_obj">
-<code class="sig-prename descclassname">raysect.primitive.mesh.obj.</code><code class="sig-name descname">export_obj</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">filename</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.export_obj" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.primitive.mesh.obj.</code><code class="sig-name descname">export_obj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.obj.export_obj" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write a mesh instance to a Wavefront OBJ (.obj) mesh file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -402,9 +402,9 @@ use in Raysect.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.primitive.mesh.stl.import_stl">
-<code class="sig-prename descclassname">raysect.primitive.mesh.stl.</code><code class="sig-name descname">import_stl</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">scaling=1.0</em>, <em class="sig-param">mode='auto'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.primitive.mesh.stl.</code><code class="sig-name descname">import_stl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">scaling</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.import_stl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a STereoLithography (STL) mesh file (.stl).</p>
 <p>Some engineering meshes are exported in different units (mm for example)
 whereas Raysect units are in m. Applying a scale factor of 0.001 would
@@ -436,9 +436,9 @@ convert the mesh into m for use in Raysect.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.primitive.mesh.stl.export_stl">
-<code class="sig-prename descclassname">raysect.primitive.mesh.stl.</code><code class="sig-name descname">export_stl</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">filename</em>, <em class="sig-param">mode='binary'</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.export_stl" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.primitive.mesh.stl.</code><code class="sig-name descname">export_stl</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'binary'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.stl.export_stl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write a mesh instance to a STereoLithography (STL) mesh file (.stl).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -457,9 +457,9 @@ convert the mesh into m for use in Raysect.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.primitive.mesh.ply.import_ply">
-<code class="sig-prename descclassname">raysect.primitive.mesh.ply.</code><code class="sig-name descname">import_ply</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">scaling=1.0</em>, <em class="sig-param">mode='auto'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.ply.import_ply" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.primitive.mesh.ply.</code><code class="sig-name descname">import_ply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">scaling</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.ply.import_ply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a Polygon File Format (PLY) mesh file (.ply).
 Note PLY is also known as the Stanford Triangle Format.</p>
 <p>Some engineering meshes are exported in different units (mm for example)
@@ -492,9 +492,9 @@ convert the mesh into m for use in Raysect.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.primitive.mesh.ply.export_ply">
-<code class="sig-prename descclassname">raysect.primitive.mesh.ply.</code><code class="sig-name descname">export_ply</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">filename</em>, <em class="sig-param">mode='binary'</em>, <em class="sig-param">comment='Generated by Raysect'</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.ply.export_ply" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.primitive.mesh.ply.</code><code class="sig-name descname">export_ply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'binary'</span></em>, <em class="sig-param"><span class="n">comment</span><span class="o">=</span><span class="default_value">'Generated by Raysect'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.ply.export_ply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write a mesh instance to a Polygon File Format (PLY) mesh file (.ply).
 Note PLY is also known as the Stanford Triangle Format.</p>
 <dl class="field-list simple">
@@ -516,9 +516,9 @@ can be multiple lines.</p></li>
 </div>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.primitive.mesh.vtk.import_vtk">
-<code class="sig-prename descclassname">raysect.primitive.mesh.vtk.</code><code class="sig-name descname">import_vtk</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">scaling=1.0</em>, <em class="sig-param">mode='auto'</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.vtk.import_vtk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.primitive.mesh.vtk.</code><code class="sig-name descname">import_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">scaling</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.vtk.import_vtk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a mesh instance from a VTK mesh data file (.vtk).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -540,9 +540,9 @@ can be multiple lines.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="raysect.primitive.mesh.vtk.export_vtk">
-<code class="sig-prename descclassname">raysect.primitive.mesh.vtk.</code><code class="sig-name descname">export_vtk</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">filename</em>, <em class="sig-param">triangle_data=None</em>, <em class="sig-param">vertex_data=None</em>, <em class="sig-param">mode='ascii'</em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.vtk.export_vtk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">raysect.primitive.mesh.vtk.</code><code class="sig-name descname">export_vtk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">filename</span></em>, <em class="sig-param"><span class="n">triangle_data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">vertex_data</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mode</span><span class="o">=</span><span class="default_value">'ascii'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.mesh.vtk.export_vtk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write a mesh instance to a vtk mesh file (.vtk) with optional cell and point data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

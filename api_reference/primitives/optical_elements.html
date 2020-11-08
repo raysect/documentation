@@ -23,11 +23,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.6.1
+                0.7.0
               </div>
             
           
@@ -171,9 +171,9 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="primitives.html">2. Primitives Module</a> &raquo;</li>
+          <li><a href="primitives.html"><span class="section-number">2. </span>Primitives Module</a> &raquo;</li>
         
-      <li>2.4. Optical Elements</li>
+      <li><span class="section-number">2.4. </span>Optical Elements</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,11 +193,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="optical-elements">
-<h1>2.4. Optical Elements<a class="headerlink" href="#optical-elements" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2.4. </span>Optical Elements<a class="headerlink" href="#optical-elements" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="spherical-lenses">
-<h2>2.4.1. Spherical Lenses<a class="headerlink" href="#spherical-lenses" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.4.1. </span>Spherical Lenses<a class="headerlink" href="#spherical-lenses" title="Permalink to this headline">¶</a></h2>
 <img alt="../../_images/spherical_lenses.png" class="align-center" src="../../_images/spherical_lenses.png" />
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.primitive.lens.spherical.BiConvex">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.lens.spherical.</code><code class="sig-name descname">BiConvex</code><a class="headerlink" href="#raysect.primitive.lens.spherical.BiConvex" title="Permalink to this definition">¶</a></dt>
 <dd><p>A bi-convex spherical lens primitive.</p>
@@ -222,7 +222,7 @@ surface lies on z=0 and with the lens extending along the +ve z direction.</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.primitive.lens.spherical.BiConvex.instance">
 <code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.lens.spherical.BiConvex.instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new instance of the primitive with the same geometry.</p>
@@ -243,7 +243,7 @@ surface lies on z=0 and with the lens extending along the +ve z direction.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.primitive.lens.spherical.BiConcave">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.lens.spherical.</code><code class="sig-name descname">BiConcave</code><a class="headerlink" href="#raysect.primitive.lens.spherical.BiConcave" title="Permalink to this definition">¶</a></dt>
 <dd><p>A bi-concave spherical lens primitive.</p>
@@ -268,7 +268,7 @@ surface lies on z=0 and with the lens extending along the +ve z direction.</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.primitive.lens.spherical.BiConcave.instance">
 <code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.lens.spherical.BiConcave.instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new instance of the primitive with the same geometry.</p>
@@ -289,7 +289,7 @@ surface lies on z=0 and with the lens extending along the +ve z direction.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.primitive.lens.spherical.PlanoConvex">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.lens.spherical.</code><code class="sig-name descname">PlanoConvex</code><a class="headerlink" href="#raysect.primitive.lens.spherical.PlanoConvex" title="Permalink to this definition">¶</a></dt>
 <dd><p>A plano-convex spherical lens primitive.</p>
@@ -317,7 +317,7 @@ extending along the +ve z direction.</p>
 <dd class="field-even"><p></p>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.primitive.lens.spherical.PlanoConvex.instance">
 <code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.lens.spherical.PlanoConvex.instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new instance of the primitive with the same geometry.</p>
@@ -338,7 +338,7 @@ extending along the +ve z direction.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.primitive.lens.spherical.PlanoConcave">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.lens.spherical.</code><code class="sig-name descname">PlanoConcave</code><a class="headerlink" href="#raysect.primitive.lens.spherical.PlanoConcave" title="Permalink to this definition">¶</a></dt>
 <dd><p>A plano-concave spherical lens primitive.</p>
@@ -366,7 +366,7 @@ extending along the +ve z direction.</p>
 <dd class="field-even"><p></p>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.primitive.lens.spherical.PlanoConcave.instance">
 <code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.lens.spherical.PlanoConcave.instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new instance of the primitive with the same geometry.</p>
@@ -387,7 +387,7 @@ extending along the +ve z direction.</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="raysect.primitive.lens.spherical.Meniscus">
 <em class="property">class </em><code class="sig-prename descclassname">raysect.primitive.lens.spherical.</code><code class="sig-name descname">Meniscus</code><a class="headerlink" href="#raysect.primitive.lens.spherical.Meniscus" title="Permalink to this definition">¶</a></dt>
 <dd><p>A meniscus spherical lens primitive.</p>
@@ -413,7 +413,7 @@ the +ve z direction.</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="raysect.primitive.lens.spherical.Meniscus.instance">
 <code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.primitive.lens.spherical.Meniscus.instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new instance of the primitive with the same geometry.</p>
