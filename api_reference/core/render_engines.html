@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.7.0
+                0.7.1
               </div>
             
           
@@ -272,7 +272,7 @@ used to update the internal state of the object requesting work.</p></li>
 
 <dl class="py class">
 <dt id="raysect.core.workflow.MulticoreEngine">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.core.workflow.</code><code class="sig-name descname">MulticoreEngine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">processes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tasks_per_job</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/raysect/core/workflow.html#MulticoreEngine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.MulticoreEngine" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.workflow.</code><code class="sig-name descname">MulticoreEngine</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">processes</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">tasks_per_job</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">start_method</span><span class="o">=</span><span class="default_value">'fork'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/raysect/core/workflow.html#MulticoreEngine"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#raysect.core.workflow.MulticoreEngine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.workflow.RenderEngine" title="raysect.core.workflow.RenderEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.workflow.RenderEngine</span></code></a></p>
 <p>A render engine for distributing work across multiple CPU cores.</p>
 <p>The number of processes spawned by this render engine is controlled via
@@ -295,6 +295,7 @@ None.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>processes</strong> – The number of worker processes, or None to use all available cores (default).</p></li>
 <li><p><strong>tasks_per_job</strong> – The number of tasks to group into a single job, or None if this should be determined automatically (default).</p></li>
+<li><p><strong>start_method</strong> – The method used to start child processes: ‘fork’ (default), ‘spawn’ or ‘forkserver’.</p></li>
 </ul>
 </dd>
 </dl>

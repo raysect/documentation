@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.7.0
+                0.7.1
               </div>
             
           
@@ -182,14 +182,39 @@
   <div class="section" id="metal-materials">
 <span id="demo-metal-materials"></span><h1>Metal Materials<a class="headerlink" href="#metal-materials" title="Permalink to this headline">¶</a></h1>
 <p>In this example we load some example metal materials from the raysect library.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-<span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="o">*</span>
 
-<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Cylinder</span>
-<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">d65_white</span><span class="p">,</span> <span class="n">ConstantSF</span>
+<span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Sphere</span><span class="p">,</span> <span class="n">Box</span><span class="p">,</span> <span class="n">Cylinder</span><span class="p">,</span> <span class="n">Subtract</span>
+<span class="kn">from</span> <span class="nn">raysect.optical</span> <span class="kn">import</span> <span class="n">World</span><span class="p">,</span> <span class="n">translate</span><span class="p">,</span> <span class="n">rotate</span><span class="p">,</span> <span class="n">Point3D</span><span class="p">,</span> <span class="n">d65_white</span><span class="p">,</span> <span class="n">ConstantSF</span><span class="p">,</span> <span class="n">Vector3D</span><span class="p">,</span> <span class="n">Node</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.observer</span> <span class="kn">import</span> <span class="n">PinholeCamera</span>
 <span class="kn">from</span> <span class="nn">raysect.optical.library</span> <span class="kn">import</span> <span class="n">Gold</span><span class="p">,</span> <span class="n">Silver</span><span class="p">,</span> <span class="n">Copper</span><span class="p">,</span> <span class="n">Titanium</span><span class="p">,</span> <span class="n">Aluminium</span>
-<span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">Lambert</span><span class="p">,</span> <span class="n">UniformSurfaceEmitter</span>
+<span class="kn">from</span> <span class="nn">raysect.optical.material</span> <span class="kn">import</span> <span class="n">Lambert</span><span class="p">,</span> <span class="n">UniformSurfaceEmitter</span><span class="p">,</span> <span class="n">LinearPolariser</span>
+
+
+<span class="k">def</span> <span class="nf">polariser</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+    <span class="n">assembly</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">transform</span><span class="p">)</span>
+
+    <span class="n">polariser</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span>
+        <span class="n">radius</span><span class="o">=</span><span class="mf">0.101</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.002</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">assembly</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">),</span>
+        <span class="n">material</span><span class="o">=</span><span class="n">LinearPolariser</span><span class="p">(</span><span class="n">Vector3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="p">)</span>
+
+    <span class="n">body</span> <span class="o">=</span> <span class="n">Subtract</span><span class="p">(</span>
+        <span class="n">Cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.11</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.010</span><span class="p">),</span>
+        <span class="n">Cylinder</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.011</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0005</span><span class="p">)),</span>
+        <span class="n">parent</span><span class="o">=</span><span class="n">assembly</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.005</span><span class="p">),</span>
+        <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">(</span><span class="n">ConstantSF</span><span class="p">(</span><span class="mf">0.05</span><span class="p">))</span>
+    <span class="p">)</span>
+
+    <span class="n">handle</span> <span class="o">=</span> <span class="n">Cylinder</span><span class="p">(</span>
+        <span class="n">radius</span><span class="o">=</span><span class="mf">0.004</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mf">0.021</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">assembly</span><span class="p">,</span>
+        <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.109</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="n">material</span><span class="o">=</span><span class="n">Lambert</span><span class="p">(</span><span class="n">ConstantSF</span><span class="p">(</span><span class="mf">0.05</span><span class="p">))</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">assembly</span>
 
 
 <span class="n">world</span> <span class="o">=</span> <span class="n">World</span><span class="p">()</span>
@@ -207,12 +232,15 @@
 <span class="n">camera</span><span class="o">.</span><span class="n">spectral_bins</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">100</span>
 
+<span class="c1"># p1 = polariser(parent=camera, transform=translate(0, 0, 0.2)*rotate(0, 0, 90))</span>
+
 <span class="c1"># start ray tracing</span>
 <span class="n">ion</span><span class="p">()</span>
+<span class="n">timestamp</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">_%H-%M-%S&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rendering pass </span><span class="si">{}</span><span class="s2">...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
     <span class="n">camera</span><span class="o">.</span><span class="n">observe</span><span class="p">()</span>
-    <span class="n">camera</span><span class="o">.</span><span class="n">pipelines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;demo_metal_</span><span class="si">{}</span><span class="s2">_samples.png&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">pipelines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;demo_metal_</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">_samples.png&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">()</span>
 
 <span class="c1"># display final result</span>

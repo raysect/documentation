@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.7.0
+                0.7.1
               </div>
             
           
@@ -258,11 +258,11 @@ from 0 to 50%.</p>
 
 <span class="c1"># observer</span>
 <span class="n">rgb</span> <span class="o">=</span> <span class="n">RGBPipeline2D</span><span class="p">(</span><span class="n">display_unsaturated_fraction</span><span class="o">=</span><span class="mf">0.96</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;sRGB&quot;</span><span class="p">)</span>
-<span class="n">sampler</span> <span class="o">=</span> <span class="n">RGBAdaptiveSampler2D</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">sampler</span> <span class="o">=</span> <span class="n">RGBAdaptiveSampler2D</span><span class="p">(</span><span class="n">rgb</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="mf">0.025</span><span class="p">)</span>
 <span class="n">camera</span> <span class="o">=</span> <span class="n">PinholeCamera</span><span class="p">((</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">512</span><span class="p">),</span> <span class="n">fov</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">pipelines</span><span class="o">=</span><span class="p">[</span><span class="n">rgb</span><span class="p">],</span> <span class="n">frame_sampler</span><span class="o">=</span><span class="n">sampler</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">translate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">rotate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">47</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">parent</span><span class="o">=</span><span class="n">world</span><span class="p">)</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">spectral_rays</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">spectral_rays</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="n">camera</span><span class="o">.</span><span class="n">spectral_bins</span> <span class="o">=</span> <span class="mi">15</span>
-<span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">camera</span><span class="o">.</span><span class="n">pixel_samples</span> <span class="o">=</span> <span class="mi">50</span>
 
 <span class="c1"># start ray tracing</span>
 <span class="n">ion</span><span class="p">()</span>

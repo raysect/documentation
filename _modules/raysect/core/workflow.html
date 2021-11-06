@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                0.7.0
+                0.7.1
               </div>
             
           
@@ -178,7 +178,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for raysect.core.workflow</h1><div class="highlight"><pre>
-<span></span><span class="c1"># Copyright (c) 2014-2020, Dr Alex Meakins, Raysect Project</span>
+<span></span><span class="c1"># Copyright (c) 2014-2021, Dr Alex Meakins, Raysect Project</span>
 <span class="c1"># All rights reserved.</span>
 <span class="c1">#</span>
 <span class="c1"># Redistribution and use in source and binary forms, with or without</span>
@@ -207,7 +207,7 @@
 <span class="c1"># ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</span>
 <span class="c1"># POSSIBILITY OF SUCH DAMAGE.</span>
 
-<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Process</span><span class="p">,</span> <span class="n">cpu_count</span><span class="p">,</span> <span class="n">SimpleQueue</span><span class="p">,</span> <span class="n">Value</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">get_context</span><span class="p">,</span> <span class="n">cpu_count</span>
 <span class="kn">from</span> <span class="nn">raysect.core.math</span> <span class="kn">import</span> <span class="n">random</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
@@ -325,6 +325,7 @@
 
 <span class="sd">    :param processes: The number of worker processes, or None to use all available cores (default).</span>
 <span class="sd">    :param tasks_per_job: The number of tasks to group into a single job, or None if this should be determined automatically (default).</span>
+<span class="sd">    :param start_method: The method used to start child processes: &#39;fork&#39; (default), &#39;spawn&#39; or &#39;forkserver&#39;.</span>
 
 <span class="sd">    .. code-block:: pycon</span>
 
@@ -340,10 +341,11 @@
 <span class="sd">        &gt;&gt;&gt; camera.render_engine = MulticoreEngine(processes=8)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">processes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tasks_per_job</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">processes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tasks_per_job</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">start_method</span><span class="o">=</span><span class="s1">&#39;fork&#39;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">processes</span> <span class="o">=</span> <span class="n">processes</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tasks_per_job</span> <span class="o">=</span> <span class="n">tasks_per_job</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_context</span> <span class="o">=</span> <span class="n">get_context</span><span class="p">(</span><span class="n">start_method</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">processes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -377,19 +379,19 @@
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">render</span><span class="p">,</span> <span class="n">update</span><span class="p">,</span> <span class="n">render_args</span><span class="o">=</span><span class="p">(),</span> <span class="n">render_kwargs</span><span class="o">=</span><span class="p">{},</span> <span class="n">update_args</span><span class="o">=</span><span class="p">(),</span> <span class="n">update_kwargs</span><span class="o">=</span><span class="p">{}):</span>
 
         <span class="c1"># establish ipc queues</span>
-        <span class="n">job_queue</span> <span class="o">=</span> <span class="n">SimpleQueue</span><span class="p">()</span>
-        <span class="n">result_queue</span> <span class="o">=</span> <span class="n">SimpleQueue</span><span class="p">()</span>
-        <span class="n">tasks_per_job</span> <span class="o">=</span> <span class="n">Value</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
+        <span class="n">job_queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="o">.</span><span class="n">SimpleQueue</span><span class="p">()</span>
+        <span class="n">result_queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="o">.</span><span class="n">SimpleQueue</span><span class="p">()</span>
+        <span class="n">tasks_per_job</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="o">.</span><span class="n">Value</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
 
         <span class="c1"># start process to generate jobs</span>
         <span class="n">tasks_per_job</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tasks_per_job</span>
-        <span class="n">producer</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_producer</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">tasks</span><span class="p">,</span> <span class="n">job_queue</span><span class="p">,</span> <span class="n">tasks_per_job</span><span class="p">))</span>
+        <span class="n">producer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_producer</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">tasks</span><span class="p">,</span> <span class="n">job_queue</span><span class="p">,</span> <span class="n">tasks_per_job</span><span class="p">))</span>
         <span class="n">producer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
         <span class="c1"># start worker processes</span>
         <span class="n">workers</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">pid</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_processes</span><span class="p">):</span>
-            <span class="n">p</span> <span class="o">=</span> <span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">render</span><span class="p">,</span> <span class="n">render_args</span><span class="p">,</span> <span class="n">render_kwargs</span><span class="p">,</span> <span class="n">job_queue</span><span class="p">,</span> <span class="n">result_queue</span><span class="p">))</span>
+            <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_worker</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">render</span><span class="p">,</span> <span class="n">render_args</span><span class="p">,</span> <span class="n">render_kwargs</span><span class="p">,</span> <span class="n">job_queue</span><span class="p">,</span> <span class="n">result_queue</span><span class="p">))</span>
             <span class="n">p</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
             <span class="n">workers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 

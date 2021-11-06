@@ -67,7 +67,7 @@
             
             
               <div class="version">
-                0.7.0
+                0.7.1
               </div>
             
           
@@ -122,6 +122,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">1.2.3. Functions and Interpolators</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#functions-returning-a-float">1.2.3.1. Functions Returning a Float</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#functions-returning-a-vector3d">1.2.3.2. Functions Returning a Vector3D</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interpolators">1.2.3.3. Interpolators</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="random.html">1.2.4. Random</a></li>
@@ -564,154 +565,6 @@ numerator and denominator, in order to get the quadrant correct.</p>
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
-<span class="target" id="module-raysect.core.math.function.float.function2d.interpolate.discrete2dmesh"></span><dl class="py class">
-<dt id="raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.</code><code class="sig-name descname">Discrete2DMesh</code><a class="headerlink" href="#raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.float.function2d.base.Function2D" title="raysect.core.math.function.float.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.float.function2d.base.Function2D</span></code></a></p>
-<p>Discrete interpolator for data on a 2d ungridded tri-poly mesh.</p>
-<p>The mesh is specified as a set of 2D vertices supplied as an Nx2 numpy
-array or a suitably sized sequence that can be converted to a numpy array.</p>
-<p>The mesh triangles are defined with a Mx3 array where the three values are
-indices into the vertex array that specify the triangle vertices. The
-mesh must not contain overlapping triangles. Supplying a mesh with
-overlapping triangles will result in undefined behaviour.</p>
-<p>A data array of length M, containing a value for each triangle, holds the
-data to be interpolated across the mesh.</p>
-<p>By default, requesting a point outside the bounds of the mesh will cause
-a ValueError exception to be raised. If this is not desired the limit
-attribute (default True) can be set to False. When set to False, a default
-value will be returned for any point lying outside the mesh. The value
-return can be specified by setting the default_value attribute (default is
-0.0).</p>
-<p>To optimise the lookup of triangles, the interpolator builds an
-acceleration structure (a KD-Tree) from the specified mesh data. Depending
-on the size of the mesh, this can be quite slow to construct. If the user
-wishes to interpolate a number of different data sets across the same mesh
-- for example: temperature and density data that are both defined on the
-same mesh - then the user can use the instance() method on an existing
-interpolator to create a new interpolator. The new interpolator will shares
-a copy of the internal acceleration data. The triangle_data, limit and
-default_value can be customised for the new instance. See instance(). This
-will avoid the cost in memory and time of rebuilding an identical
-acceleration structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>vertex_coords</strong> (<em>ndarray</em>) – An array of vertex coordinates (x, y) with shape Nx2.</p></li>
-<li><p><strong>triangles</strong> (<em>ndarray</em>) – An array of vertex indices defining the mesh triangles, with shape Mx3.</p></li>
-<li><p><strong>triangle_data</strong> (<em>ndarray</em>) – An array containing data for each triangle of shape Mx1.</p></li>
-<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False.</p></li>
-<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt id="raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh.instance">
-<code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh.instance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new interpolator instance from an existing interpolator instance.</p>
-<p>The new interpolator instance will share the same internal acceleration
-data as the original interpolator. The triangle_data, limit and default_value
-settings of the new instance can be redefined by setting the appropriate
-attributes. If any of the attributes are set to None (default) then the
-value from the original interpolator will be copied.</p>
-<p>This method should be used if the user has multiple sets of triangle_data
-that lie on the same mesh geometry. Using this methods avoids the
-repeated rebuilding of the mesh acceleration structures by sharing the
-geometry data between multiple interpolator objects.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh"><em>Discrete2DMesh</em></a>) – Discrete2DMesh object.</p></li>
-<li><p><strong>triangle_data</strong> (<em>ndarray</em>) – An array containing data for each triangle of shape Mx1 (default None).</p></li>
-<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False (default None).</p></li>
-<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False (default None).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>An Discrete2DMesh object.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh">Discrete2DMesh</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh"></span><dl class="py class">
-<dt id="raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.</code><code class="sig-name descname">Interpolator2DMesh</code><a class="headerlink" href="#raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.float.function2d.base.Function2D" title="raysect.core.math.function.float.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.float.function2d.base.Function2D</span></code></a></p>
-<p>Linear interpolator for data on a 2d ungridded tri-poly mesh.</p>
-<p>The mesh is specified as a set of 2D vertices supplied as an Nx2 numpy
-array or a suitably sized sequence that can be converted to a numpy array.</p>
-<p>The mesh triangles are defined with a Mx3 array where the three values are
-indices into the vertex array that specify the triangle vertices. The
-mesh must not contain overlapping triangles. Supplying a mesh with
-overlapping triangles will result in undefined behaviour.</p>
-<p>A data array of length N, containing a value for each vertex, holds the
-data to be interpolated across the mesh.</p>
-<p>By default, requesting a point outside the bounds of the mesh will cause
-a ValueError exception to be raised. If this is not desired the limit
-attribute (default True) can be set to False. When set to False, a default
-value will be returned for any point lying outside the mesh. The value
-return can be specified by setting the default_value attribute (default is
-0.0).</p>
-<p>To optimise the lookup of triangles, the interpolator builds an
-acceleration structure (a KD-Tree) from the specified mesh data. Depending
-on the size of the mesh, this can be quite slow to construct. If the user
-wishes to interpolate a number of different data sets across the same mesh
-- for example: temperature and density data that are both defined on the
-same mesh - then the user can use the instance() method on an existing
-interpolator to create a new interpolator. The new interpolator will shares
-a copy of the internal acceleration data. The vertex_data, limit and
-default_value can be customised for the new instance. See instance(). This
-will avoid the cost in memory and time of rebuilding an identical
-acceleration structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>vertex_coords</strong> (<em>ndarray</em>) – An array of vertex coordinates (x, y) with shape Nx2.</p></li>
-<li><p><strong>vertex_data</strong> (<em>ndarray</em>) – An array containing data for each vertex of shape Nx1.</p></li>
-<li><p><strong>triangles</strong> (<em>ndarray</em>) – An array of vertex indices defining the mesh triangles, with shape Mx3.</p></li>
-<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False.</p></li>
-<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False.</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt id="raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh.instance">
-<code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh.instance" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new interpolator instance from an existing interpolator instance.</p>
-<p>The new interpolator instance will share the same internal acceleration
-data as the original interpolator. The vertex_data, limit and default_value
-settings of the new instance can be redefined by setting the appropriate
-attributes. If any of the attributes are set to None (default) then the
-value from the original interpolator will be copied.</p>
-<p>This method should be used if the user has multiple sets of vertex_data
-that lie on the same mesh geometry. Using this methods avoids the
-repeated rebuilding of the mesh acceleration structures by sharing the
-geometry data between multiple interpolator objects.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh"><em>Interpolator2DMesh</em></a>) – Interpolator2DMesh object.</p></li>
-<li><p><strong>vertex_data</strong> (<em>ndarray</em>) – An array containing data for each vertex of shape Nx1 (default None).</p></li>
-<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False (default None).</p></li>
-<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False (default None).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>An Interpolator2DMesh object.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh">Interpolator2DMesh</a></p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
@@ -1157,6 +1010,427 @@ of the resulting vector object.</p>
 </div>
 </dd></dl>
 
+</div>
+<div class="section" id="interpolators">
+<h2><span class="section-number">1.2.3.3. </span>Interpolators<a class="headerlink" href="#interpolators" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="d-interpolators">
+<h3><span class="section-number">1.2.3.3.1. </span>1D interpolators<a class="headerlink" href="#d-interpolators" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="raysect.core.math.function.float.function1d.interpolate.Interpolator1DArray">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.float.function1d.interpolate.</code><code class="sig-name descname">Interpolator1DArray</code><a class="headerlink" href="#raysect.core.math.function.float.function1d.interpolate.Interpolator1DArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.float.function1d.base.Function1D" title="raysect.core.math.function.float.function1d.base.Function1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.float.function1d.base.Function1D</span></code></a></p>
+<p>A configurable interpolator for 1D arrays.</p>
+<p>Coordinate array (x) and data array (f) are sorted and transformed into Numpy arrays.
+The resulting Numpy arrays are stored as read only. I.e. <cite>writeable</cite> flag of self.x and self.f
+is set to False. Alteration of the flag may result in unwanted behaviour.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>object</em>) – 1D array-like object of real values storing the x spline knot positions.</p></li>
+<li><p><strong>f</strong> (<em>object</em>) – 1D array-like object of real values storing the spline knot function value at x.</p></li>
+<li><p><strong>interpolation_type</strong> (<em>str</em>) – Type of interpolation to use. Options are:
+<cite>linear</cite>: Interpolates the data using piecewise linear interpolation.
+<cite>cubic</cite>: Interpolates the data using piecewise cubic interpolation.</p></li>
+<li><p><strong>extrapolation_type</strong> (<em>str</em>) – Type of extrapolation to use. Options are:
+<cite>none</cite>: Attempt to access data outside of x’s range will yield ValueError.
+<cite>nearest</cite>: Extrapolation results is the nearest position x value in the interpolation domain.
+<cite>linear</cite>: Extrapolate bilinearly the interpolation function.
+<cite>quadratic</cite>: Extrapolate quadratically the interpolation function. Constrains the function at the edge, and the
+derivative both at the edge and 1 spline knot from the edge.</p></li>
+<li><p><strong>extrapolation_range</strong> (<em>double</em>) – Limits the range where extrapolation is permitted. Requesting data beyond the
+extrapolation range results in ValueError. Extrapolation range will be applied as padding symmetrically to both
+ends of the interpolation range (x).</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.math.function.float.function1d.interpolate</span> <span class="kn">import</span> <span class="n">Interpolator1DArray</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interpolator1D</span> <span class="o">=</span> <span class="n">Interpolate1DArray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s1">&#39;cubic&#39;</span><span class="p">,</span> <span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Interpolation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interpolator1D</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="go">0.9607850606581484</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Extrapolation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interpolator1D</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span>
+<span class="go">0.36787944117144233</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Extrapolation out of bounds</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interpolator1D</span><span class="p">(</span><span class="mf">2.1</span><span class="p">)</span>
+<span class="go">ValueError: The specified value (x=2.1) is outside of extrapolation range.</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>All input derivatives used in calculations use the previous and next indices in the spline knot arrays.
+At the edge of the spline knot arrays the index of the edge of the array is is used instead.</p>
+</dd>
+<dt class="field-even">Note</dt>
+<dd class="field-even"><p>x and f arrays must be of equal length.</p>
+</dd>
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>x must be a monotonically increasing array.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">1.2.3.3.2. </span>2D interpolators<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="raysect.core.math.function.float.function2d.interpolate.interpolator2darray.Interpolator2DArray">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.float.function2d.interpolate.interpolator2darray.</code><code class="sig-name descname">Interpolator2DArray</code><a class="headerlink" href="#raysect.core.math.function.float.function2d.interpolate.interpolator2darray.Interpolator2DArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.float.function2d.base.Function2D" title="raysect.core.math.function.float.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.float.function2d.base.Function2D</span></code></a></p>
+<p>A configurable interpolator for 2D arrays.</p>
+<p>Coordinate array (x), array (y) and data array (f) are sorted and transformed into Numpy arrays.
+The resulting Numpy arrays are stored as read only. I.e. <cite>writeable</cite> flag of self.x, self.y and self.f
+is set to False. Alteration of the flag may result in unwanted behaviour.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>object</em>) – 1D array-like object of real values storing the x spline knot positions.</p></li>
+<li><p><strong>y</strong> (<em>object</em>) – 1D array-like object of real values storing the y spline knot positions.</p></li>
+<li><p><strong>f</strong> (<em>object</em>) – 2D array-like object of real values storing the spline knot function value at x, y.</p></li>
+<li><p><strong>interpolation_type</strong> (<em>str</em>) – Type of interpolation to use. Options are:
+<cite>linear</cite>: Interpolates the data using piecewise bilinear interpolation.
+<cite>cubic</cite>: Interpolates the data using piecewise bicubic interpolation.</p></li>
+<li><p><strong>extrapolation_type</strong> (<em>str</em>) – Type of extrapolation to use. Options are:
+<cite>none</cite>: Attempt to access data outside of x’s and y’s range will yield ValueError.
+<cite>nearest</cite>: Extrapolation results is the nearest position x and y value in the interpolation domain.
+<cite>linear</cite>: Extrapolate bilinearly the interpolation function.</p></li>
+<li><p><strong>extrapolation_range_x</strong> (<em>double</em>) – Limits the range where extrapolation is permitted. Requesting data beyond the
+extrapolation range results in ValueError. Extrapolation range will be applied as padding symmetrically to both
+ends of the interpolation range (x).</p></li>
+<li><p><strong>extrapolation_range_y</strong> (<em>double</em>) – Limits the range where extrapolation is permitted. Requesting data beyond the
+extrapolation range results in ValueError. Extrapolation range will be applied as padding symmetrically to both
+ends of the interpolation range (y).</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.math.function.float.function2d.interpolate.interpolator2darray</span> <span class="kn">import</span> <span class="n">Interpolator2DArray</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_array</span><span class="p">,</span> <span class="n">y_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x_array</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y_array</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interpolator2D</span> <span class="o">=</span> <span class="n">Interpolator2DArray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s1">&#39;cubic&#39;</span><span class="p">,</span> <span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Interpolation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interpolator2D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="go">0.35345307120078995</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Extrapolation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interpolator2D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="go">0.1353352832366128</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Extrapolation out of bounds</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interpolator2D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">)</span>
+<span class="go">ValueError: The specified value (y=2.1) is outside of extrapolation range.</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>All input derivatives used in calculations use the previous and next indices in the spline knot arrays.
+At the edge of the spline knot arrays the index of the edge of the array is is used instead.</p>
+</dd>
+<dt class="field-even">Note</dt>
+<dd class="field-even"><p>x, y arrays must be equal in shape to f in the first and second dimension respectively.</p>
+</dd>
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>x and y must be monotonically increasing arrays.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh"></span><dl class="py class">
+<dt id="raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.</code><code class="sig-name descname">Interpolator2DMesh</code><a class="headerlink" href="#raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.float.function2d.base.Function2D" title="raysect.core.math.function.float.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.float.function2d.base.Function2D</span></code></a></p>
+<p>Linear interpolator for data on a 2d ungridded tri-poly mesh.</p>
+<p>The mesh is specified as a set of 2D vertices supplied as an Nx2 numpy
+array or a suitably sized sequence that can be converted to a numpy array.</p>
+<p>The mesh triangles are defined with a Mx3 array where the three values are
+indices into the vertex array that specify the triangle vertices. The
+mesh must not contain overlapping triangles. Supplying a mesh with
+overlapping triangles will result in undefined behaviour.</p>
+<p>A data array of length N, containing a value for each vertex, holds the
+data to be interpolated across the mesh.</p>
+<p>By default, requesting a point outside the bounds of the mesh will cause
+a ValueError exception to be raised. If this is not desired the limit
+attribute (default True) can be set to False. When set to False, a default
+value will be returned for any point lying outside the mesh. The value
+return can be specified by setting the default_value attribute (default is
+0.0).</p>
+<p>To optimise the lookup of triangles, the interpolator builds an
+acceleration structure (a KD-Tree) from the specified mesh data. Depending
+on the size of the mesh, this can be quite slow to construct. If the user
+wishes to interpolate a number of different data sets across the same mesh
+- for example: temperature and density data that are both defined on the
+same mesh - then the user can use the instance() method on an existing
+interpolator to create a new interpolator. The new interpolator will shares
+a copy of the internal acceleration data. The vertex_data, limit and
+default_value can be customised for the new instance. See instance(). This
+will avoid the cost in memory and time of rebuilding an identical
+acceleration structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertex_coords</strong> (<em>ndarray</em>) – An array of vertex coordinates (x, y) with shape Nx2.</p></li>
+<li><p><strong>vertex_data</strong> (<em>ndarray</em>) – An array containing data for each vertex of shape Nx1.</p></li>
+<li><p><strong>triangles</strong> (<em>ndarray</em>) – An array of vertex indices defining the mesh triangles, with shape Mx3.</p></li>
+<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False.</p></li>
+<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh.instance">
+<code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new interpolator instance from an existing interpolator instance.</p>
+<p>The new interpolator instance will share the same internal acceleration
+data as the original interpolator. The vertex_data, limit and default_value
+settings of the new instance can be redefined by setting the appropriate
+attributes. If any of the attributes are set to None (default) then the
+value from the original interpolator will be copied.</p>
+<p>This method should be used if the user has multiple sets of vertex_data
+that lie on the same mesh geometry. Using this methods avoids the
+repeated rebuilding of the mesh acceleration structures by sharing the
+geometry data between multiple interpolator objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh"><em>Interpolator2DMesh</em></a>) – Interpolator2DMesh object.</p></li>
+<li><p><strong>vertex_data</strong> (<em>ndarray</em>) – An array containing data for each vertex of shape Nx1 (default None).</p></li>
+<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False (default None).</p></li>
+<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False (default None).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An Interpolator2DMesh object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh" title="raysect.core.math.function.float.function2d.interpolate.interpolator2dmesh.Interpolator2DMesh">Interpolator2DMesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-raysect.core.math.function.float.function2d.interpolate.discrete2dmesh"></span><dl class="py class">
+<dt id="raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.</code><code class="sig-name descname">Discrete2DMesh</code><a class="headerlink" href="#raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.float.function2d.base.Function2D" title="raysect.core.math.function.float.function2d.base.Function2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.float.function2d.base.Function2D</span></code></a></p>
+<p>Discrete interpolator for data on a 2d ungridded tri-poly mesh.</p>
+<p>The mesh is specified as a set of 2D vertices supplied as an Nx2 numpy
+array or a suitably sized sequence that can be converted to a numpy array.</p>
+<p>The mesh triangles are defined with a Mx3 array where the three values are
+indices into the vertex array that specify the triangle vertices. The
+mesh must not contain overlapping triangles. Supplying a mesh with
+overlapping triangles will result in undefined behaviour.</p>
+<p>A data array of length M, containing a value for each triangle, holds the
+data to be interpolated across the mesh.</p>
+<p>By default, requesting a point outside the bounds of the mesh will cause
+a ValueError exception to be raised. If this is not desired the limit
+attribute (default True) can be set to False. When set to False, a default
+value will be returned for any point lying outside the mesh. The value
+return can be specified by setting the default_value attribute (default is
+0.0).</p>
+<p>To optimise the lookup of triangles, the interpolator builds an
+acceleration structure (a KD-Tree) from the specified mesh data. Depending
+on the size of the mesh, this can be quite slow to construct. If the user
+wishes to interpolate a number of different data sets across the same mesh
+- for example: temperature and density data that are both defined on the
+same mesh - then the user can use the instance() method on an existing
+interpolator to create a new interpolator. The new interpolator will shares
+a copy of the internal acceleration data. The triangle_data, limit and
+default_value can be customised for the new instance. See instance(). This
+will avoid the cost in memory and time of rebuilding an identical
+acceleration structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertex_coords</strong> (<em>ndarray</em>) – An array of vertex coordinates (x, y) with shape Nx2.</p></li>
+<li><p><strong>triangles</strong> (<em>ndarray</em>) – An array of vertex indices defining the mesh triangles, with shape Mx3.</p></li>
+<li><p><strong>triangle_data</strong> (<em>ndarray</em>) – An array containing data for each triangle of shape Mx1.</p></li>
+<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False.</p></li>
+<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh.instance">
+<code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new interpolator instance from an existing interpolator instance.</p>
+<p>The new interpolator instance will share the same internal acceleration
+data as the original interpolator. The triangle_data, limit and default_value
+settings of the new instance can be redefined by setting the appropriate
+attributes. If any of the attributes are set to None (default) then the
+value from the original interpolator will be copied.</p>
+<p>This method should be used if the user has multiple sets of triangle_data
+that lie on the same mesh geometry. Using this methods avoids the
+repeated rebuilding of the mesh acceleration structures by sharing the
+geometry data between multiple interpolator objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh"><em>Discrete2DMesh</em></a>) – Discrete2DMesh object.</p></li>
+<li><p><strong>triangle_data</strong> (<em>ndarray</em>) – An array containing data for each triangle of shape Mx1 (default None).</p></li>
+<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False (default None).</p></li>
+<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False (default None).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An Discrete2DMesh object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh" title="raysect.core.math.function.float.function2d.interpolate.discrete2dmesh.Discrete2DMesh">Discrete2DMesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">1.2.3.3.3. </span>3D interpolators<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="raysect.core.math.function.float.function3d.interpolate.interpolator3darray.Interpolator3DArray">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.float.function3d.interpolate.interpolator3darray.</code><code class="sig-name descname">Interpolator3DArray</code><a class="headerlink" href="#raysect.core.math.function.float.function3d.interpolate.interpolator3darray.Interpolator3DArray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.float.function3d.base.Function3D" title="raysect.core.math.function.float.function3d.base.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.float.function3d.base.Function3D</span></code></a></p>
+<p>A configurable interpolator for 3D arrays.</p>
+<p>Coordinate array (x), array (y), array (z) and data array (f) are sorted and transformed into Numpy arrays.
+The resulting Numpy arrays are stored as read only. I.e. <cite>writeable</cite> flag of self.x, self.y, self.z and self.f
+is set to False. Alteration of the flag may result in unwanted behaviour.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>object</em>) – 1D array-like object of real values storing the x spline knot positions.</p></li>
+<li><p><strong>y</strong> (<em>object</em>) – 1D array-like object of real values storing the y spline knot positions.</p></li>
+<li><p><strong>z</strong> (<em>object</em>) – 1D array-like object of real values storing the z spline knot positions.</p></li>
+<li><p><strong>f</strong> (<em>object</em>) – 3D array-like object of real values storing the spline knot function value at x, y, z.</p></li>
+<li><p><strong>interpolation_type</strong> (<em>str</em>) – Type of interpolation to use. Options are:
+<cite>linear</cite>: Interpolates the data using piecewise trilinear interpolation.
+<cite>cubic</cite>: Interpolates the data using piecewise tricubic interpolation.</p></li>
+<li><p><strong>extrapolation_type</strong> (<em>str</em>) – Type of extrapolation to use. Options are:
+<cite>none</cite>: Attempt to access data outside of x’s and y’s range will yield ValueError.
+<cite>nearest</cite>: Extrapolation results is the nearest position x and y value in the interpolation domain.
+<cite>linear</cite>: Extrapolate bilinearly the interpolation function.</p></li>
+<li><p><strong>extrapolation_range_x</strong> (<em>double</em>) – Limits the range where extrapolation is permitted. Requesting data beyond the
+extrapolation range results in ValueError. Extrapolation range will be applied as padding symmetrically to both
+ends of the interpolation range (x).</p></li>
+<li><p><strong>extrapolation_range_y</strong> (<em>double</em>) – Limits the range where extrapolation is permitted. Requesting data beyond the
+extrapolation range results in ValueError. Extrapolation range will be applied as padding symmetrically to both
+ends of the interpolation range (y).</p></li>
+<li><p><strong>extrapolation_range_z</strong> (<em>double</em>) – Limits the range where extrapolation is permitted. Requesting data beyond the
+extrapolation range results in ValueError. Extrapolation range will be applied as padding symmetrically to both
+ends of the interpolation range (z).</p></li>
+</ul>
+</dd>
+</dl>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.core.math.function.float.function3d.interpolate.interpolator3darray</span> <span class="kn">import</span> <span class="n">Interpolator3DArray</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x_array</span><span class="p">,</span> <span class="n">y_array</span><span class="p">,</span> <span class="n">z_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x_array</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y_array</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">z_array</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interpolator3D</span> <span class="o">=</span> <span class="n">Interpolator3DArray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s1">&#39;cubic&#39;</span><span class="p">,</span> <span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Interpolation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interpolator3D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="go">0.1300281183136766</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Extrapolation</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interpolator3D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="go">0.0497870683678659</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Extrapolation out of bounds</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">interpolator3D</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">)</span>
+<span class="go">ValueError: The specified value (z=2.1) is outside of extrapolation range.</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>All input derivatives used in calculations use the previous and next indices in the spline knot arrays.
+At the edge of the spline knot arrays the index of the edge of the array is is used instead.</p>
+</dd>
+<dt class="field-even">Note</dt>
+<dd class="field-even"><p>x, y, z arrays must be equal in shape to f in the first, second and third dimension respectively.</p>
+</dd>
+<dt class="field-odd">Note</dt>
+<dd class="field-odd"><p>x, y and z must be monotonically increasing arrays.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-raysect.core.math.function.float.function3d.interpolate.discrete3dmesh"></span><dl class="py class">
+<dt id="raysect.core.math.function.float.function3d.interpolate.discrete3dmesh.Discrete3DMesh">
+<em class="property">class </em><code class="sig-prename descclassname">raysect.core.math.function.float.function3d.interpolate.discrete3dmesh.</code><code class="sig-name descname">Discrete3DMesh</code><a class="headerlink" href="#raysect.core.math.function.float.function3d.interpolate.discrete3dmesh.Discrete3DMesh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#raysect.core.math.function.float.function3d.base.Function3D" title="raysect.core.math.function.float.function3d.base.Function3D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.math.function.float.function3d.base.Function3D</span></code></a></p>
+<p>Discrete interpolator for data on a 3d ungridded tetrahedra mesh.</p>
+<p>The mesh is specified as a set of 3D vertices supplied as an Nx3 numpy
+array or a suitably sized sequence that can be converted to a numpy array.</p>
+<p>The mesh tetrahedra are defined with a Mx4 array where the four values are
+indices into the vertex array that specify the tetrahedra vertices. The
+mesh must not contain overlapping tetrahedra. Supplying a mesh with
+overlapping tetrahedra will result in undefined behaviour.</p>
+<p>A data array of length M, containing a value for each tetrahedra, holds the
+data to be interpolated across the mesh.</p>
+<p>By default, requesting a point outside the bounds of the mesh will cause
+a ValueError exception to be raised. If this is not desired the limit
+attribute (default True) can be set to False. When set to False, a default
+value will be returned for any point lying outside the mesh. The value
+return can be specified by setting the default_value attribute (default is
+0.0).</p>
+<p>To optimise the lookup of tetrahedra, the interpolator builds an
+acceleration structure (a KD-Tree) from the specified mesh data. Depending
+on the size of the mesh, this can be quite slow to construct. If the user
+wishes to interpolate a number of different data sets across the same mesh
+- for example: temperature and density data that are both defined on the
+same mesh - then the user can use the instance() method on an existing
+interpolator to create a new interpolator. The new interpolator will shares
+a copy of the internal acceleration data. The tetrahedra_data, limit and
+default_value can be customised for the new instance. See instance(). This
+will avoid the cost in memory and time of rebuilding an identical
+acceleration structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertex_coords</strong> (<em>ndarray</em>) – An array of vertex coordinates (x, y, z) with shape Nx3.</p></li>
+<li><p><strong>tetrahedra</strong> (<em>ndarray</em>) – An array of vertex indices defining the mesh tetrahedra, with shape Mx4.</p></li>
+<li><p><strong>tetrahedra_data</strong> (<em>ndarray</em>) – An array containing data for each tetrahedra of shape Mx1.</p></li>
+<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False.</p></li>
+<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="raysect.core.math.function.float.function3d.interpolate.discrete3dmesh.Discrete3DMesh.instance">
+<code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.math.function.float.function3d.interpolate.discrete3dmesh.Discrete3DMesh.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new interpolator instance from an existing interpolator instance.</p>
+<p>The new interpolator instance will share the same internal acceleration
+data as the original interpolator. The tetrahedra_data, limit and default_value
+settings of the new instance can be redefined by setting the appropriate
+attributes. If any of the attributes are set to None (default) then the
+value from the original interpolator will be copied.</p>
+<p>This method should be used if the user has multiple sets of tetrahedra_data
+that lie on the same mesh geometry. Using this methods avoids the
+repeated rebuilding of the mesh acceleration structures by sharing the
+geometry data between multiple interpolator objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance</strong> (<a class="reference internal" href="#raysect.core.math.function.float.function3d.interpolate.discrete3dmesh.Discrete3DMesh" title="raysect.core.math.function.float.function3d.interpolate.discrete3dmesh.Discrete3DMesh"><em>Discrete3DMesh</em></a>) – Discrete3DMesh object.</p></li>
+<li><p><strong>tetrahedra_data</strong> (<em>ndarray</em>) – An array containing data for each tetrahedra of shape Mx1 (default None).</p></li>
+<li><p><strong>limit</strong> (<em>bool</em>) – Raise an exception outside mesh limits - True (default) or False (default None).</p></li>
+<li><p><strong>default_value</strong> (<em>float</em>) – The value to return outside the mesh limits if limit is set to False (default None).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An Discrete3DMesh object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#raysect.core.math.function.float.function3d.interpolate.discrete3dmesh.Discrete3DMesh" title="raysect.core.math.function.float.function3d.interpolate.discrete3dmesh.Discrete3DMesh">Discrete3DMesh</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 </div>
 
