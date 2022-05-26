@@ -1,42 +1,45 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>1.6. Utilities &mdash; Raysect Documentation</title>
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2. Primitives Module" href="../primitives/primitives.html" />
@@ -67,7 +70,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.8.0
               </div>
             
           
@@ -84,6 +87,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -91,7 +95,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../license.html">2. License</a></li>
@@ -105,14 +109,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Demonstrations</span></p>
+<p class="caption" role="heading"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#optics">4. Optics</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="core.html">1. Raysect Core</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="core_classes.html">1.1. Core Classes</a></li>
@@ -133,6 +137,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -167,11 +172,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="core.html"><span class="section-number">1. </span>Raysect Core</a> &raquo;</li>
         
@@ -180,7 +187,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/api_reference/core/utilities.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -201,8 +208,8 @@
 <p>Raysect has a number of container classes available for fast operations
 in cython. These are mainly intended for use by developers.</p>
 <dl class="py class">
-<dt id="raysect.core.containers.LinkedList">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.core.containers.</code><code class="sig-name descname">LinkedList</code><a class="headerlink" href="#raysect.core.containers.LinkedList" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.containers.LinkedList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.core.containers.</span></span><span class="sig-name descname"><span class="pre">LinkedList</span></span><a class="headerlink" href="#raysect.core.containers.LinkedList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Basic implementation of a Linked List for fast container operations in cython.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -210,15 +217,15 @@ in cython. These are mainly intended for use by developers.</p>
 </dd>
 <dt class="field-even">Variables</dt>
 <dd class="field-even"><ul class="simple">
-<li><p><a class="reference internal" href="points_and_vectors.html#raysect.core.math.vector.Vector2D.length" title="raysect.core.math.vector.Vector2D.length"><strong>length</strong></a> (<em>int</em>) – number of items in the container</p></li>
+<li><p><strong>length</strong> (<em>int</em>) – number of items in the container</p></li>
 <li><p><strong>first</strong> – starting element of container</p></li>
 <li><p><strong>last</strong> – final element of container</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="raysect.core.containers.LinkedList.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.add" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.containers.LinkedList.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add an item to the end of the container.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -228,8 +235,8 @@ in cython. These are mainly intended for use by developers.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.containers.LinkedList.add_items">
-<code class="sig-name descname">add_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.add_items" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.containers.LinkedList.add_items">
+<span class="sig-name descname"><span class="pre">add_items</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.add_items" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extend this container with another iterable container.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -240,8 +247,8 @@ which to extend this container.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.containers.LinkedList.get_index">
-<code class="sig-name descname">get_index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.get_index" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.containers.LinkedList.get_index">
+<span class="sig-name descname"><span class="pre">get_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.get_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the item from the container at specified index.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -251,8 +258,8 @@ which to extend this container.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.containers.LinkedList.insert">
-<code class="sig-name descname">insert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.insert" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.containers.LinkedList.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.insert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Insert an item at the specified index.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -265,14 +272,14 @@ which to extend this container.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.containers.LinkedList.is_empty">
-<code class="sig-name descname">is_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.is_empty" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.containers.LinkedList.is_empty">
+<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.is_empty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns True if the container is empty.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.containers.LinkedList.remove">
-<code class="sig-name descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.remove" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.containers.LinkedList.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.LinkedList.remove" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove and return the specified item from the container.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -287,14 +294,14 @@ which to extend this container.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.core.containers.Stack">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.core.containers.</code><code class="sig-name descname">Stack</code><a class="headerlink" href="#raysect.core.containers.Stack" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.containers.Stack">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.core.containers.</span></span><span class="sig-name descname"><span class="pre">Stack</span></span><a class="headerlink" href="#raysect.core.containers.Stack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.containers.LinkedList" title="raysect.core.containers.LinkedList"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.containers.LinkedList</span></code></a></p>
 <p>Basic implementation of a Stack container for fast container operations in cython.
 Inherits attributes and methods from LinkedList.</p>
 <dl class="py method">
-<dt id="raysect.core.containers.Stack.pop">
-<code class="sig-name descname">pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Stack.pop" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.containers.Stack.pop">
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Stack.pop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Removes and returns the most recently added item from the stack</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -304,8 +311,8 @@ Inherits attributes and methods from LinkedList.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.containers.Stack.push">
-<code class="sig-name descname">push</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Stack.push" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.containers.Stack.push">
+<span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Stack.push" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds an item to the top of the stack</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -317,14 +324,14 @@ Inherits attributes and methods from LinkedList.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.core.containers.Queue">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.core.containers.</code><code class="sig-name descname">Queue</code><a class="headerlink" href="#raysect.core.containers.Queue" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.containers.Queue">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.core.containers.</span></span><span class="sig-name descname"><span class="pre">Queue</span></span><a class="headerlink" href="#raysect.core.containers.Queue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.containers.LinkedList" title="raysect.core.containers.LinkedList"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.containers.LinkedList</span></code></a></p>
 <p>Basic implementation of a Queue container for fast container operations in cython.
 Inherits attributes and methods from LinkedList.</p>
 <dl class="py method">
-<dt id="raysect.core.containers.Queue.next_in_queue">
-<code class="sig-name descname">next_in_queue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Queue.next_in_queue" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.containers.Queue.next_in_queue">
+<span class="sig-name descname"><span class="pre">next_in_queue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.containers.Queue.next_in_queue" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the next object in the queue</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -343,29 +350,29 @@ Inherits attributes and methods from LinkedList.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../primitives/primitives.html" class="btn btn-neutral float-right" title="2. Primitives Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="render_engines.html" class="btn btn-neutral float-left" title="1.5. Render Engines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../primitives/primitives.html" class="btn btn-neutral float-right" title="2. Primitives Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="render_engines.html" class="btn btn-neutral float-left" title="1.5. Render Engines" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2018, Dr Alex Meakins
+        &#169; Copyright 2014-2021, Dr Alex Meakins.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -373,7 +380,6 @@ Inherits attributes and methods from LinkedList.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

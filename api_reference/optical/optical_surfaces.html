@@ -1,42 +1,46 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>3.5. Optical Surface Materials &mdash; Raysect Documentation</title>
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="3.6. Optical Volume Materials" href="optical_volumes.html" />
@@ -67,7 +71,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.8.0
               </div>
             
           
@@ -84,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -91,7 +96,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../license.html">2. License</a></li>
@@ -105,14 +110,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Demonstrations</span></p>
+<p class="caption" role="heading"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#optics">4. Optics</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../core/core.html">1. Raysect Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../primitives/primitives.html">2. Primitives Module</a></li>
@@ -139,6 +144,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -173,11 +179,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="optical.html"><span class="section-number">3. </span>Optical Module</a> &raquo;</li>
         
@@ -186,7 +194,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/api_reference/optical/optical_surfaces.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -205,8 +213,8 @@
 <div class="section" id="absorber">
 <h2><span class="section-number">3.5.1. </span>Absorber<a class="headerlink" href="#absorber" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="raysect.optical.material.absorber.AbsorbingSurface">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.absorber.</code><code class="sig-name descname">AbsorbingSurface</code><a class="headerlink" href="#raysect.optical.material.absorber.AbsorbingSurface" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.absorber.AbsorbingSurface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.absorber.</span></span><span class="sig-name descname"><span class="pre">AbsorbingSurface</span></span><a class="headerlink" href="#raysect.optical.material.absorber.AbsorbingSurface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
 <p>A perfectly absorbing surface material.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">raysect.primitive</span> <span class="kn">import</span> <span class="n">Sphere</span>
@@ -224,8 +232,8 @@
 <div class="section" id="emitters">
 <h2><span class="section-number">3.5.2. </span>Emitters<a class="headerlink" href="#emitters" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="raysect.optical.material.emitter.UnitySurfaceEmitter">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">UnitySurfaceEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UnitySurfaceEmitter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.emitter.UnitySurfaceEmitter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.emitter.</span></span><span class="sig-name descname"><span class="pre">UnitySurfaceEmitter</span></span><a class="headerlink" href="#raysect.optical.material.emitter.UnitySurfaceEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
 <p>Uniform and isotropic surface emitter with emission 1W/str/m^2/ x nm,
 where x is the spectrum’s wavelength interval.</p>
@@ -243,8 +251,8 @@ conservation.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.material.emitter.UniformSurfaceEmitter">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">UniformSurfaceEmitter</code><a class="headerlink" href="#raysect.optical.material.emitter.UniformSurfaceEmitter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.emitter.UniformSurfaceEmitter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.emitter.</span></span><span class="sig-name descname"><span class="pre">UniformSurfaceEmitter</span></span><a class="headerlink" href="#raysect.optical.material.emitter.UniformSurfaceEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
 <p>Uniform and isotropic surface emitter.</p>
 <p>Uniform emission will be given by the emission_spectrum multiplied by the
@@ -270,8 +278,8 @@ emission scale.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.material.AnisotropicSurfaceEmitter">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.</code><code class="sig-name descname">AnisotropicSurfaceEmitter</code><a class="headerlink" href="#raysect.optical.material.AnisotropicSurfaceEmitter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.AnisotropicSurfaceEmitter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.</span></span><span class="sig-name descname"><span class="pre">AnisotropicSurfaceEmitter</span></span><a class="headerlink" href="#raysect.optical.material.AnisotropicSurfaceEmitter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
 <p>Base class for anisotropic surface emitters.</p>
 <p>Simplifies the development of anisotropic light sources. The emitter
@@ -280,8 +288,8 @@ incident observation direction, and the side of the surface.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.material.Checkerboard">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.</code><code class="sig-name descname">Checkerboard</code><a class="headerlink" href="#raysect.optical.material.Checkerboard" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.Checkerboard">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.</span></span><span class="sig-name descname"><span class="pre">Checkerboard</span></span><a class="headerlink" href="#raysect.optical.material.Checkerboard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
 <p>Isotropic checkerboard surface emitter</p>
 <p>Defines a plane of alternating squares of emission forming a checkerboard
@@ -315,8 +323,8 @@ pattern. Useful in debugging and as a light source in test scenes.</p>
 <div class="section" id="lambertian">
 <h2><span class="section-number">3.5.3. </span>Lambertian<a class="headerlink" href="#lambertian" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="raysect.optical.material.lambert.Lambert">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.lambert.</code><code class="sig-name descname">Lambert</code><a class="headerlink" href="#raysect.optical.material.lambert.Lambert" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.lambert.Lambert">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.lambert.</span></span><span class="sig-name descname"><span class="pre">Lambert</span></span><a class="headerlink" href="#raysect.optical.material.lambert.Lambert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.ContinuousBSDF" title="raysect.optical.material.material.ContinuousBSDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.ContinuousBSDF</span></code></a></p>
 <p>An ideal Lambertian surface material.</p>
 <p>A Lambertian is a perfectly diffuse surface that scatters light equally in
@@ -343,8 +351,8 @@ fraction of light scattered at each wavelength.</p>
 <div class="section" id="conductors">
 <h2><span class="section-number">3.5.4. </span>Conductors<a class="headerlink" href="#conductors" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="raysect.optical.material.conductor.Conductor">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.conductor.</code><code class="sig-name descname">Conductor</code><a class="headerlink" href="#raysect.optical.material.conductor.Conductor" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.conductor.Conductor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.conductor.</span></span><span class="sig-name descname"><span class="pre">Conductor</span></span><a class="headerlink" href="#raysect.optical.material.conductor.Conductor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>Conductor material.</p>
 <p>The conductor material simulates the interaction of light with a
@@ -376,8 +384,8 @@ refractive index (extinction) - <span class="math notranslate nohighlight">\(k(\
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.material.conductor.RoughConductor">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.conductor.</code><code class="sig-name descname">RoughConductor</code><a class="headerlink" href="#raysect.optical.material.conductor.RoughConductor" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.conductor.RoughConductor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.conductor.</span></span><span class="sig-name descname"><span class="pre">RoughConductor</span></span><a class="headerlink" href="#raysect.optical.material.conductor.RoughConductor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.ContinuousBSDF" title="raysect.optical.material.material.ContinuousBSDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.ContinuousBSDF</span></code></a></p>
 <p>This is implementing Cook-Torrence with conducting fresnel microfacets.</p>
 <p>Smith shadowing and GGX facet distribution used to model roughness.</p>
@@ -410,8 +418,8 @@ perfectly specular, 1 is perfectly rough.</p></li>
 <div class="section" id="dielectrics">
 <h2><span class="section-number">3.5.5. </span>Dielectrics<a class="headerlink" href="#dielectrics" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="raysect.optical.material.dielectric.Dielectric">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.dielectric.</code><code class="sig-name descname">Dielectric</code><a class="headerlink" href="#raysect.optical.material.dielectric.Dielectric" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.dielectric.Dielectric">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.dielectric.</span></span><span class="sig-name descname"><span class="pre">Dielectric</span></span><a class="headerlink" href="#raysect.optical.material.dielectric.Dielectric" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>An ideal dielectric material.</p>
 <dl class="field-list simple">
@@ -435,8 +443,8 @@ defaults to a vacuum (n=1).</p></li>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.material.dielectric.Sellmeier">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.dielectric.</code><code class="sig-name descname">Sellmeier</code><a class="headerlink" href="#raysect.optical.material.dielectric.Sellmeier" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.dielectric.Sellmeier">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.dielectric.</span></span><span class="sig-name descname"><span class="pre">Sellmeier</span></span><a class="headerlink" href="#raysect.optical.material.dielectric.Sellmeier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="main_optical_classes.html#raysect.optical.spectralfunction.NumericallyIntegratedSF" title="raysect.optical.spectralfunction.NumericallyIntegratedSF"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.spectralfunction.NumericallyIntegratedSF</span></code></a></p>
 <p>Material with refractive index defined by <a class="reference external" href="https://en.wikipedia.org/wiki/Sellmeier_equation">Sellmeier equation</a></p>
 <dl class="field-list simple">
@@ -465,8 +473,8 @@ defaults to a vacuum (n=1).</p></li>
 <div class="section" id="modifiers">
 <h2><span class="section-number">3.5.6. </span>Modifiers<a class="headerlink" href="#modifiers" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="raysect.optical.material.modifiers.Blend">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.modifiers.</code><code class="sig-name descname">Blend</code><a class="headerlink" href="#raysect.optical.material.modifiers.Blend" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.modifiers.Blend">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.modifiers.</span></span><span class="sig-name descname"><span class="pre">Blend</span></span><a class="headerlink" href="#raysect.optical.material.modifiers.Blend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>Blend combines the behaviours of two materials.</p>
 <p>This modifier is used to blend together the behaviours of two different
@@ -498,8 +506,8 @@ coated glass surface:</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.material.modifiers.Add">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.modifiers.</code><code class="sig-name descname">Add</code><a class="headerlink" href="#raysect.optical.material.modifiers.Add" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.modifiers.Add">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.modifiers.</span></span><span class="sig-name descname"><span class="pre">Add</span></span><a class="headerlink" href="#raysect.optical.material.modifiers.Add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>Adds the response of two materials.</p>
 <p>This modifier is used to sum together the behaviours of two different
@@ -543,8 +551,8 @@ absorbing volumes.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.material.modifiers.VolumeTransform">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.modifiers.</code><code class="sig-name descname">VolumeTransform</code><a class="headerlink" href="#raysect.optical.material.modifiers.VolumeTransform" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.modifiers.VolumeTransform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.modifiers.</span></span><span class="sig-name descname"><span class="pre">VolumeTransform</span></span><a class="headerlink" href="#raysect.optical.material.modifiers.VolumeTransform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>Translate/rotate the volume material relative to the primitive.</p>
 <p>Applies an affine transform to the start and end points of the volume
@@ -564,8 +572,8 @@ the start and end coordinate of the volume integration.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.material.modifiers.Roughen">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.modifiers.</code><code class="sig-name descname">Roughen</code><a class="headerlink" href="#raysect.optical.material.modifiers.Roughen" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.modifiers.Roughen">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.modifiers.</span></span><span class="sig-name descname"><span class="pre">Roughen</span></span><a class="headerlink" href="#raysect.optical.material.modifiers.Roughen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>Modifies the surface normal to approximate a rough surface.</p>
 <p>This is a modifier material, it takes another material (the base material)
@@ -594,8 +602,8 @@ untainted surface.</p>
 <h2><span class="section-number">3.5.7. </span>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
 <p>This module contains materials to aid with debugging and creating test scenes.</p>
 <dl class="py class">
-<dt id="raysect.optical.material.emitter.Checkerboard">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.emitter.</code><code class="sig-name descname">Checkerboard</code><a class="headerlink" href="#raysect.optical.material.emitter.Checkerboard" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.emitter.Checkerboard">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.emitter.</span></span><span class="sig-name descname"><span class="pre">Checkerboard</span></span><a class="headerlink" href="#raysect.optical.material.emitter.Checkerboard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
 <p>Isotropic checkerboard surface emitter</p>
 <p>Defines a plane of alternating squares of emission forming a checkerboard
@@ -626,8 +634,8 @@ pattern. Useful in debugging and as a light source in test scenes.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.material.debug.Light">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.debug.</code><code class="sig-name descname">Light</code><a class="headerlink" href="#raysect.optical.material.debug.Light" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.debug.Light">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.debug.</span></span><span class="sig-name descname"><span class="pre">Light</span></span><a class="headerlink" href="#raysect.optical.material.debug.Light" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.NullVolume" title="raysect.optical.material.material.NullVolume"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.NullVolume</span></code></a></p>
 <p>A Lambertian surface material illuminated by a distant light source.</p>
 <p>This debug material lights the primitive from the world direction specified
@@ -647,8 +655,8 @@ emission spectrum (default is D65 white).</p></li>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.material.debug.PerfectReflectingSurface">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.material.debug.</code><code class="sig-name descname">PerfectReflectingSurface</code><a class="headerlink" href="#raysect.optical.material.debug.PerfectReflectingSurface" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.material.debug.PerfectReflectingSurface">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.material.debug.</span></span><span class="sig-name descname"><span class="pre">PerfectReflectingSurface</span></span><a class="headerlink" href="#raysect.optical.material.debug.PerfectReflectingSurface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="optical_material_base_classes.html#raysect.optical.material.material.Material" title="raysect.optical.material.material.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.material.material.Material</span></code></a></p>
 <p>A material that is perfectly reflecting.</p>
 </dd></dl>
@@ -661,29 +669,29 @@ emission spectrum (default is D65 white).</p></li>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="optical_volumes.html" class="btn btn-neutral float-right" title="3.6. Optical Volume Materials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="optical_material_base_classes.html" class="btn btn-neutral float-left" title="3.4. Optical Material Base Classes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="optical_volumes.html" class="btn btn-neutral float-right" title="3.6. Optical Volume Materials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="optical_material_base_classes.html" class="btn btn-neutral float-left" title="3.4. Optical Material Base Classes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2018, Dr Alex Meakins
+        &#169; Copyright 2014-2021, Dr Alex Meakins.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -691,7 +699,6 @@ emission spectrum (default is D65 white).</p></li>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

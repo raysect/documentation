@@ -1,42 +1,45 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>1.3. Scenegraph Module &mdash; Raysect Documentation</title>
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="1.4. Spatial Acceleration" href="spatial_acceleration.html" />
@@ -67,7 +70,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.8.0
               </div>
             
           
@@ -84,6 +87,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -91,7 +95,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../license.html">2. License</a></li>
@@ -105,14 +109,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Demonstrations</span></p>
+<p class="caption" role="heading"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#optics">4. Optics</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="core.html">1. Raysect Core</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="core_classes.html">1.1. Core Classes</a></li>
@@ -130,6 +134,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -164,11 +169,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="core.html"><span class="section-number">1. </span>Raysect Core</a> &raquo;</li>
         
@@ -177,7 +184,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/api_reference/core/raysect_core_scenegraph.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -194,8 +201,8 @@
   <div class="section" id="scenegraph-module">
 <h1><span class="section-number">1.3. </span>Scenegraph Module<a class="headerlink" href="#scenegraph-module" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="raysect.core.scenegraph.node.Node">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.core.scenegraph.node.</code><code class="sig-name descname">Node</code><a class="headerlink" href="#raysect.core.scenegraph.node.Node" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.node.Node">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.core.scenegraph.node.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><a class="headerlink" href="#raysect.core.scenegraph.node.Node" title="Permalink to this definition">¶</a></dt>
 <dd><p>The scene-graph node class.</p>
 <p>The basic constituent of a scene-graph tree. Nodes can be linked together
 by parenting one Node to another to form a tree structure. Each node in a
@@ -224,8 +231,8 @@ transform vectors and points between the two co-ordinate systems.</p>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt id="raysect.core.scenegraph.node.Node.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#raysect.core.scenegraph.node.Node.name" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.node.Node.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#raysect.core.scenegraph.node.Node.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name of this node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -235,8 +242,8 @@ transform vectors and points between the two co-ordinate systems.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.core.scenegraph.node.Node.parent">
-<code class="sig-name descname">parent</code><a class="headerlink" href="#raysect.core.scenegraph.node.Node.parent" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.node.Node.parent">
+<span class="sig-name descname"><span class="pre">parent</span></span><a class="headerlink" href="#raysect.core.scenegraph.node.Node.parent" title="Permalink to this definition">¶</a></dt>
 <dd><p>The parent of this node in the scenegraph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -246,8 +253,8 @@ transform vectors and points between the two co-ordinate systems.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.node.Node.to">
-<code class="sig-name descname">to</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.node.Node.to" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.node.Node.to">
+<span class="sig-name descname"><span class="pre">to</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.node.Node.to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an affine transform that, when applied to a vector or point,
 transforms the vector or point from the co-ordinate space of the calling
 node to the co-ordinate space of the target node.</p>
@@ -269,8 +276,8 @@ point (-100,0,0) in B as B is translated +100 in x compared to A.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.node.Node.to_local">
-<code class="sig-name descname">to_local</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.node.Node.to_local" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.node.Node.to_local">
+<span class="sig-name descname"><span class="pre">to_local</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.node.Node.to_local" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an affine transform from world space into this nodes local
 coordinate space.</p>
 <dl class="field-list simple">
@@ -281,8 +288,8 @@ coordinate space.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.node.Node.to_root">
-<code class="sig-name descname">to_root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.node.Node.to_root" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.node.Node.to_root">
+<span class="sig-name descname"><span class="pre">to_root</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.node.Node.to_root" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an affine transform from local space into the parent node’s
 coordinate space.</p>
 <dl class="field-list simple">
@@ -293,8 +300,8 @@ coordinate space.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.core.scenegraph.node.Node.transform">
-<code class="sig-name descname">transform</code><a class="headerlink" href="#raysect.core.scenegraph.node.Node.transform" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.node.Node.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><a class="headerlink" href="#raysect.core.scenegraph.node.Node.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>The transform for this node’s coordinate system in relation to the parent node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -306,15 +313,15 @@ coordinate space.</p>
 </dd></dl>
 
 <span class="target" id="module-raysect.core.scenegraph.observer"></span><dl class="py class">
-<dt id="raysect.core.scenegraph.observer.Observer">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.core.scenegraph.observer.</code><code class="sig-name descname">Observer</code><a class="headerlink" href="#raysect.core.scenegraph.observer.Observer" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.observer.Observer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.core.scenegraph.observer.</span></span><span class="sig-name descname"><span class="pre">Observer</span></span><a class="headerlink" href="#raysect.core.scenegraph.observer.Observer" title="Permalink to this definition">¶</a></dt>
 <dd><p>A scene-graph class for observing the world.</p>
 <p>An observer class is intended to launch rays and sample the world. This is a base class and the observe function
 must be implemented by a deriving class. This object is the fundamental abstraction for items such as cameras,
 fibre optics and other sampling objects.</p>
 <dl class="py method">
-<dt id="raysect.core.scenegraph.observer.Observer.observe">
-<code class="sig-name descname">observe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.observer.Observer.observe" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.observer.Observer.observe">
+<span class="sig-name descname"><span class="pre">observe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.observer.Observer.observe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Virtual method - to be implemented by derived classes.</p>
 <p>Triggers the exploration of the scene by emitting rays according to
 the model defined by the derived class implementing the method.</p>
@@ -323,8 +330,8 @@ the model defined by the derived class implementing the method.</p>
 </dd></dl>
 
 <span class="target" id="module-raysect.core.scenegraph.primitive"></span><dl class="py class">
-<dt id="raysect.core.scenegraph.primitive.Primitive">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.core.scenegraph.primitive.</code><code class="sig-name descname">Primitive</code><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.primitive.Primitive">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.core.scenegraph.primitive.</span></span><span class="sig-name descname"><span class="pre">Primitive</span></span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.core.scenegraph.node.Node" title="raysect.core.scenegraph.node.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.core.scenegraph.node.Node</span></code></a></p>
 <p>A scene-graph object representing a ray-intersectable surface/volume.</p>
 <p>A primitive class defines an open surface or closed surface (volume) that can be intersected by a ray. For example,
@@ -342,8 +349,8 @@ primitive class is the only class in the scene-graph with which a ray can intera
 </dd>
 </dl>
 <dl class="py method">
-<dt id="raysect.core.scenegraph.primitive.Primitive.bounding_box">
-<code class="sig-name descname">bounding_box</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.bounding_box" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.primitive.Primitive.bounding_box">
+<span class="sig-name descname"><span class="pre">bounding_box</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.bounding_box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Virtual method - to be implemented by derived classes.</p>
 <p>When the primitive is connected to a scene-graph containing a World
 object at its root, this method should return a bounding box that
@@ -364,8 +371,8 @@ exception.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.primitive.Primitive.bounding_sphere">
-<code class="sig-name descname">bounding_sphere</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.bounding_sphere" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.primitive.Primitive.bounding_sphere">
+<span class="sig-name descname"><span class="pre">bounding_sphere</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.bounding_sphere" title="Permalink to this definition">¶</a></dt>
 <dd><p>When the primitive is connected to a scene-graph containing a World
 object at its root, this method should return a bounding sphere that
 fully encloses the primitive’s surface (plus a small margin to
@@ -388,8 +395,8 @@ for the primitive, it should override this method.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.primitive.Primitive.contains">
-<code class="sig-name descname">contains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.contains" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.primitive.Primitive.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.contains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Virtual method - to be implemented by derived classes.</p>
 <p>Must returns True if the Point3D lies within the boundary of the surface
 defined by the Primitive. False is returned otherwise.</p>
@@ -407,8 +414,8 @@ defined by the Primitive. False is returned otherwise.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.primitive.Primitive.hit">
-<code class="sig-name descname">hit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.hit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.primitive.Primitive.hit">
+<span class="sig-name descname"><span class="pre">hit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.hit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Virtual method - to be implemented by derived classes.</p>
 <p>Calculates the closest intersection of the Ray with the Primitive
 surface, if such an intersection exists.</p>
@@ -430,8 +437,8 @@ the objects involved in the intersection.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.primitive.Primitive.instance">
-<code class="sig-name descname">instance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.instance" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.primitive.Primitive.instance">
+<span class="sig-name descname"><span class="pre">instance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new instance of the primitive with the same geometry.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -449,8 +456,8 @@ the objects involved in the intersection.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.core.scenegraph.primitive.Primitive.material">
-<code class="sig-name descname">material</code><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.material" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.primitive.Primitive.material">
+<span class="sig-name descname"><span class="pre">material</span></span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.material" title="Permalink to this definition">¶</a></dt>
 <dd><p>The material class for this primitive.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -460,8 +467,8 @@ the objects involved in the intersection.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.primitive.Primitive.next_intersection">
-<code class="sig-name descname">next_intersection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.next_intersection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.primitive.Primitive.next_intersection">
+<span class="sig-name descname"><span class="pre">next_intersection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.next_intersection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Virtual method - to be implemented by derived classes.</p>
 <p>Returns the next intersection of the ray with the primitive along the
 ray path.</p>
@@ -486,8 +493,8 @@ altered the data returned by next_intersection() is undefined.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.primitive.Primitive.notify_geometry_change">
-<code class="sig-name descname">notify_geometry_change</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.notify_geometry_change" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.primitive.Primitive.notify_geometry_change">
+<span class="sig-name descname"><span class="pre">notify_geometry_change</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.notify_geometry_change" title="Permalink to this definition">¶</a></dt>
 <dd><p>Notifies the scene-graph root of a change to the primitive’s geometry.</p>
 <p>This method must be called by primitives when their geometry changes.
 The notification informs the root node that any caching structures used
@@ -496,8 +503,8 @@ must be recalculated, taking the new geometry into account.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.primitive.Primitive.notify_material_change">
-<code class="sig-name descname">notify_material_change</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.notify_material_change" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.primitive.Primitive.notify_material_change">
+<span class="sig-name descname"><span class="pre">notify_material_change</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.primitive.Primitive.notify_material_change" title="Permalink to this definition">¶</a></dt>
 <dd><p>Notifies the scene-graph root of a change to the primitive’s material.</p>
 <p>This method must be called by primitives when their material changes.
 The notification informs the root node that any caching structures used
@@ -508,8 +515,8 @@ must be recalculated, taking the new material into account.</p>
 </dd></dl>
 
 <span class="target" id="module-raysect.core.scenegraph.world"></span><dl class="py class">
-<dt id="raysect.core.scenegraph.world.World">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.core.scenegraph.world.</code><code class="sig-name descname">World</code><a class="headerlink" href="#raysect.core.scenegraph.world.World" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.world.World">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.core.scenegraph.world.</span></span><span class="sig-name descname"><span class="pre">World</span></span><a class="headerlink" href="#raysect.core.scenegraph.world.World" title="Permalink to this definition">¶</a></dt>
 <dd><p>The root node of the scene-graph.</p>
 <p>The world node tracks all primitives and observers in the world. It maintains acceleration structures to speed up
 the ray-tracing calculations. The particular acceleration algorithm used is selectable. The default acceleration
@@ -520,14 +527,14 @@ structure is a kd-tree.</p>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt id="raysect.core.scenegraph.world.World.accelerator">
-<code class="sig-name descname">accelerator</code><a class="headerlink" href="#raysect.core.scenegraph.world.World.accelerator" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.world.World.accelerator">
+<span class="sig-name descname"><span class="pre">accelerator</span></span><a class="headerlink" href="#raysect.core.scenegraph.world.World.accelerator" title="Permalink to this definition">¶</a></dt>
 <dd><p>The acceleration structure used for this world’s scene-graph.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.world.World.build_accelerator">
-<code class="sig-name descname">build_accelerator</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.world.World.build_accelerator" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.world.World.build_accelerator">
+<span class="sig-name descname"><span class="pre">build_accelerator</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.world.World.build_accelerator" title="Permalink to this definition">¶</a></dt>
 <dd><p>This method manually triggers a rebuild of the Acceleration object.</p>
 <p>If the Acceleration object is already in a consistent state this method
 will do nothing unless the force keyword option is set to True.</p>
@@ -550,8 +557,8 @@ Acceleration object rebuild.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.world.World.contains">
-<code class="sig-name descname">contains</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.world.World.contains" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.world.World.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.world.World.contains" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list of Primitives that contain the specified point within
 their surface.</p>
 <p>An empty list is returned if no Primitives contain the Point3D.</p>
@@ -574,8 +581,8 @@ calculation is rebuilt to represent the new scene-graph state.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.world.World.hit">
-<code class="sig-name descname">hit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.world.World.hit" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.world.World.hit">
+<span class="sig-name descname"><span class="pre">hit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.world.World.hit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the closest intersection of the Ray with the Primitives in
 the scene-graph, if such an intersection exists.</p>
 <p>If a hit occurs an Intersection object is returned which contains the
@@ -600,8 +607,8 @@ is rebuilt to represent the new scene-graph state.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.core.scenegraph.world.World.name">
-<code class="sig-name descname">name</code><a class="headerlink" href="#raysect.core.scenegraph.world.World.name" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.world.World.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#raysect.core.scenegraph.world.World.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>The name for this world node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -611,8 +618,8 @@ is rebuilt to represent the new scene-graph state.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.core.scenegraph.world.World.observers">
-<code class="sig-name descname">observers</code><a class="headerlink" href="#raysect.core.scenegraph.world.World.observers" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.world.World.observers">
+<span class="sig-name descname"><span class="pre">observers</span></span><a class="headerlink" href="#raysect.core.scenegraph.world.World.observers" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of observers in this scene-graph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -622,8 +629,8 @@ is rebuilt to represent the new scene-graph state.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.core.scenegraph.world.World.primitives">
-<code class="sig-name descname">primitives</code><a class="headerlink" href="#raysect.core.scenegraph.world.World.primitives" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.world.World.primitives">
+<span class="sig-name descname"><span class="pre">primitives</span></span><a class="headerlink" href="#raysect.core.scenegraph.world.World.primitives" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of primitives maintained in this scene-graph.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -633,8 +640,8 @@ is rebuilt to represent the new scene-graph state.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.core.scenegraph.world.World.to">
-<code class="sig-name descname">to</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.world.World.to" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.world.World.to">
+<span class="sig-name descname"><span class="pre">to</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.world.World.to" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an affine transform that, when applied to a vector or point,
 transforms the vector or point from the co-ordinate space of the calling
 node to the co-ordinate space of the target node.</p>
@@ -658,8 +665,8 @@ point (-100,0,0) in B as B is translated +100 in x compared to A.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt id="raysect.core.scenegraph.utility.print_scenegraph">
-<code class="sig-prename descclassname">raysect.core.scenegraph.utility.</code><code class="sig-name descname">print_scenegraph</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.utility.print_scenegraph" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.core.scenegraph.utility.print_scenegraph">
+<span class="sig-prename descclassname"><span class="pre">raysect.core.scenegraph.utility.</span></span><span class="sig-name descname"><span class="pre">print_scenegraph</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.core.scenegraph.utility.print_scenegraph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pretty-prints a scene-graph.</p>
 <p>This function will print the scene-graph that contains the specified node.
 The specified node will be highlighted in the tree by post-fixing the node
@@ -698,29 +705,29 @@ with the string: “[referring node]”.</p>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="spatial_acceleration.html" class="btn btn-neutral float-right" title="1.4. Spatial Acceleration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="units.html" class="btn btn-neutral float-left" title="1.2.6. Unit Conversions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="spatial_acceleration.html" class="btn btn-neutral float-right" title="1.4. Spatial Acceleration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="units.html" class="btn btn-neutral float-left" title="1.2.6. Unit Conversions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2018, Dr Alex Meakins
+        &#169; Copyright 2014-2021, Dr Alex Meakins.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -728,7 +735,6 @@ with the string: “[referring node]”.</p>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

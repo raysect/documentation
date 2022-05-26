@@ -1,42 +1,46 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>3.2. Observers &mdash; Raysect Documentation</title>
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../../_static/RaysectLogo_web.ico"/>
   
+
   
   
 
   
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="3.3. Frame Samples and Pipelines" href="pipelines.html" />
@@ -67,7 +71,7 @@
             
             
               <div class="version">
-                0.7.1
+                0.8.0
               </div>
             
           
@@ -84,6 +88,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -91,7 +96,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../introduction.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../license.html">2. License</a></li>
@@ -105,14 +110,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../../references.html">10. References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../glossary.html">11. Glossary</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Demonstrations</span></p>
+<p class="caption" role="heading"><span class="caption-text">Demonstrations</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html">1. Core Functionality</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#materials">2. Materials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#observers">3. Observers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../demonstrations/demonstrations.html#optics">4. Optics</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../core/core.html">1. Raysect Core</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../primitives/primitives.html">2. Primitives Module</a></li>
@@ -135,6 +140,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -169,11 +175,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="optical.html"><span class="section-number">3. </span>Optical Module</a> &raquo;</li>
         
@@ -182,7 +190,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/api_reference/optical/observers.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -206,8 +214,8 @@ samples to obtain per pixel) and the wavelength range of the camera response.</p
 <p>All observers are derrived from a common base class which describes the common
 properties of all observers and the overall observing workflow.</p>
 <dl class="py class">
-<dt id="raysect.optical.observer.base.observer._ObserverBase">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.base.observer.</code><code class="sig-name descname">_ObserverBase</code><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer._ObserverBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.base.observer.</span></span><span class="sig-name descname"><span class="pre">_ObserverBase</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Observer base class.</p>
 <p>This is an abstract class and cannot be used for observing.</p>
 <dl class="field-list simple">
@@ -239,8 +247,8 @@ ray extinction (default=3).</p></li>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer._ObserverBase.max_wavelength">
-<code class="sig-name descname">max_wavelength</code><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.max_wavelength" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer._ObserverBase.max_wavelength">
+<span class="sig-name descname"><span class="pre">max_wavelength</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.max_wavelength" title="Permalink to this definition">¶</a></dt>
 <dd><p>Upper wavelength bound for sampled spectral range.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -250,8 +258,8 @@ ray extinction (default=3).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer._ObserverBase.min_wavelength">
-<code class="sig-name descname">min_wavelength</code><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.min_wavelength" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer._ObserverBase.min_wavelength">
+<span class="sig-name descname"><span class="pre">min_wavelength</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.min_wavelength" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower wavelength bound for sampled spectral range.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -261,14 +269,14 @@ ray extinction (default=3).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.optical.observer.base.observer._ObserverBase.observe">
-<code class="sig-name descname">observe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.observe" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer._ObserverBase.observe">
+<span class="sig-name descname"><span class="pre">observe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.observe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ask this Camera to Observe its world.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer._ObserverBase.ray_extinction_min_depth">
-<code class="sig-name descname">ray_extinction_min_depth</code><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.ray_extinction_min_depth" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer._ObserverBase.ray_extinction_min_depth">
+<span class="sig-name descname"><span class="pre">ray_extinction_min_depth</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.ray_extinction_min_depth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Minimum number of paths before russian roulette style ray extinction.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -278,8 +286,8 @@ ray extinction (default=3).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer._ObserverBase.ray_extinction_prob">
-<code class="sig-name descname">ray_extinction_prob</code><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.ray_extinction_prob" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer._ObserverBase.ray_extinction_prob">
+<span class="sig-name descname"><span class="pre">ray_extinction_prob</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.ray_extinction_prob" title="Permalink to this definition">¶</a></dt>
 <dd><p>Probability of ray extinction after every material intersection.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -289,8 +297,8 @@ ray extinction (default=3).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer._ObserverBase.ray_important_path_weight">
-<code class="sig-name descname">ray_important_path_weight</code><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.ray_important_path_weight" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer._ObserverBase.ray_important_path_weight">
+<span class="sig-name descname"><span class="pre">ray_important_path_weight</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.ray_important_path_weight" title="Permalink to this definition">¶</a></dt>
 <dd><p>Relative weight of important path sampling.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -300,8 +308,8 @@ ray extinction (default=3).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer._ObserverBase.ray_max_depth">
-<code class="sig-name descname">ray_max_depth</code><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.ray_max_depth" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer._ObserverBase.ray_max_depth">
+<span class="sig-name descname"><span class="pre">ray_max_depth</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.ray_max_depth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum number of Ray paths before terminating Ray.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -311,8 +319,8 @@ ray extinction (default=3).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer._ObserverBase.spectral_bins">
-<code class="sig-name descname">spectral_bins</code><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.spectral_bins" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer._ObserverBase.spectral_bins">
+<span class="sig-name descname"><span class="pre">spectral_bins</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.spectral_bins" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of spectral samples over the wavelength range.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -322,8 +330,8 @@ ray extinction (default=3).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer._ObserverBase.spectral_rays">
-<code class="sig-name descname">spectral_rays</code><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.spectral_rays" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer._ObserverBase.spectral_rays">
+<span class="sig-name descname"><span class="pre">spectral_rays</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer._ObserverBase.spectral_rays" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of smaller sub-spectrum rays the full spectrum will be divided into.</p>
 <p>This setting is important for scenes with dispersive elements such as glass prisms. This
 setting allows the parent spectrum to be divided into N smaller sub-regions that will be
@@ -343,8 +351,8 @@ bins.</p>
 <div class="section" id="d-observers">
 <h2><span class="section-number">3.2.1. </span>0D Observers<a class="headerlink" href="#d-observers" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="raysect.optical.observer.base.observer.Observer0D">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.base.observer.</code><code class="sig-name descname">Observer0D</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer0D" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer0D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.base.observer.</span></span><span class="sig-name descname"><span class="pre">Observer0D</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer0D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer._ObserverBase" title="raysect.optical.observer.base.observer._ObserverBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.observer._ObserverBase</span></code></a></p>
 <p>0D observer base class.</p>
 <p>This is an abstract class and cannot be used for observing.</p>
@@ -361,8 +369,8 @@ observe() (default=1000).</p></li>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="raysect.optical.observer.base.observer.Observer0D._generate_rays">
-<code class="sig-name descname">_generate_rays</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer0D._generate_rays" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer0D._generate_rays">
+<span class="sig-name descname"><span class="pre">_generate_rays</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer0D._generate_rays" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate a list of Rays that sample over the sensitivity of the pixel.</p>
 <p>This is a virtual method to be implemented by derived classes.</p>
 <p>Runs during the observe() loop to generate the rays. Allows observers
@@ -391,8 +399,8 @@ ray_count otherwise pipeline statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer.Observer0D.pipelines">
-<code class="sig-name descname">pipelines</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer0D.pipelines" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer0D.pipelines">
+<span class="sig-name descname"><span class="pre">pipelines</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer0D.pipelines" title="Permalink to this definition">¶</a></dt>
 <dd><p>A list of pipelines to process the output spectra of these observations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -402,8 +410,8 @@ ray_count otherwise pipeline statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer.Observer0D.pixel_samples">
-<code class="sig-name descname">pixel_samples</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer0D.pixel_samples" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer0D.pixel_samples">
+<span class="sig-name descname"><span class="pre">pixel_samples</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer0D.pixel_samples" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of samples to take per pixel.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -413,8 +421,8 @@ ray_count otherwise pipeline statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer.Observer0D.samples_per_task">
-<code class="sig-name descname">samples_per_task</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer0D.samples_per_task" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer0D.samples_per_task">
+<span class="sig-name descname"><span class="pre">samples_per_task</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer0D.samples_per_task" title="Permalink to this definition">¶</a></dt>
 <dd><p>Minimum number of samples to request per task.</p>
 <p>For efficiency reasons this should not be set below 100 samples.</p>
 <dl class="field-list simple">
@@ -427,8 +435,8 @@ ray_count otherwise pipeline statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.observer.nonimaging.sightline.SightLine">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.nonimaging.sightline.</code><code class="sig-name descname">SightLine</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.sightline.SightLine" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.sightline.SightLine">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.nonimaging.sightline.</span></span><span class="sig-name descname"><span class="pre">SightLine</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.sightline.SightLine" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer.Observer0D" title="raysect.optical.observer.base.observer.Observer0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.observer.Observer0D</span></code></a></p>
 <p>A simple line of sight observer.</p>
 <p>Fires a single ray oriented along the observer’s z axis in world space.</p>
@@ -454,8 +462,8 @@ by this line of sight (default=SpectralPipeline0D()).</p></li>
 </pre></div>
 </div>
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.sightline.SightLine.sensitivity">
-<code class="sig-name descname">sensitivity</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.sightline.SightLine.sensitivity" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.sightline.SightLine.sensitivity">
+<span class="sig-name descname"><span class="pre">sensitivity</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.sightline.SightLine.sensitivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>User specified sensitivity (str^-1/m^-2)</p>
 <p>If sensitivity=1.0 the spectral units will always be in radiance (W/m^2/str/nm)</p>
 <dl class="field-list simple">
@@ -468,8 +476,8 @@ by this line of sight (default=SpectralPipeline0D()).</p></li>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.nonimaging.fibreoptic.</code><code class="sig-name descname">FibreOptic</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.nonimaging.fibreoptic.</span></span><span class="sig-name descname"><span class="pre">FibreOptic</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer.Observer0D" title="raysect.optical.observer.base.observer.Observer0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.observer.Observer0D</span></code></a></p>
 <p>An optical fibre observer that samples rays from an acceptance cone and circular area at the fibre tip.</p>
 <p>Rays are sampled over a circular area at the fibre tip and a conical solid angle
@@ -498,8 +506,8 @@ which will be sampled over.</p></li>
 </pre></div>
 </div>
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.acceptance_angle">
-<code class="sig-name descname">acceptance_angle</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.acceptance_angle" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.acceptance_angle">
+<span class="sig-name descname"><span class="pre">acceptance_angle</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.acceptance_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>The angle in degrees between the z axis and the cone surface which defines the fibres
 solid angle sampling area.</p>
 <dl class="field-list simple">
@@ -510,8 +518,8 @@ solid angle sampling area.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.collection_area">
-<code class="sig-name descname">collection_area</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.collection_area" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.collection_area">
+<span class="sig-name descname"><span class="pre">collection_area</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.collection_area" title="Permalink to this definition">¶</a></dt>
 <dd><p>The fibre’s collection area in m^2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -521,8 +529,8 @@ solid angle sampling area.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.radius">
-<code class="sig-name descname">radius</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.radius" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.radius">
+<span class="sig-name descname"><span class="pre">radius</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.radius" title="Permalink to this definition">¶</a></dt>
 <dd><p>The radius of the fibre tip in metres. This radius defines a circular area at the fibre tip
 which will be sampled over.</p>
 <dl class="field-list simple">
@@ -533,8 +541,8 @@ which will be sampled over.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.sensitivity">
-<code class="sig-name descname">sensitivity</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.sensitivity" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.sensitivity">
+<span class="sig-name descname"><span class="pre">sensitivity</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.sensitivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The fibre’s sensitivity measured in units of per area per solid angle (m^-2 str^-1).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -544,8 +552,8 @@ which will be sampled over.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.solid_angle">
-<code class="sig-name descname">solid_angle</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.solid_angle" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.solid_angle">
+<span class="sig-name descname"><span class="pre">solid_angle</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.fibreoptic.FibreOptic.solid_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>The fibre’s solid angle in steradians str.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -557,8 +565,8 @@ which will be sampled over.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.observer.nonimaging.pixel.Pixel">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.nonimaging.pixel.</code><code class="sig-name descname">Pixel</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.pixel.Pixel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.nonimaging.pixel.</span></span><span class="sig-name descname"><span class="pre">Pixel</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer.Observer0D" title="raysect.optical.observer.base.observer.Observer0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.observer.Observer0D</span></code></a></p>
 <p>A pixel observer that samples rays from a hemisphere and rectangular area.</p>
 <dl class="field-list simple">
@@ -587,8 +595,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </pre></div>
 </div>
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.pixel.Pixel.collection_area">
-<code class="sig-name descname">collection_area</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.collection_area" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.pixel.Pixel.collection_area">
+<span class="sig-name descname"><span class="pre">collection_area</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.collection_area" title="Permalink to this definition">¶</a></dt>
 <dd><p>The pixel’s collection area in m^2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -598,8 +606,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.pixel.Pixel.sensitivity">
-<code class="sig-name descname">sensitivity</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.sensitivity" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.pixel.Pixel.sensitivity">
+<span class="sig-name descname"><span class="pre">sensitivity</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.sensitivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The pixel’s sensitivity measured in units of per area per solid angle (m^-2 str^-1).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -609,8 +617,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.pixel.Pixel.solid_angle">
-<code class="sig-name descname">solid_angle</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.solid_angle" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.pixel.Pixel.solid_angle">
+<span class="sig-name descname"><span class="pre">solid_angle</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.solid_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>The pixel’s solid angle in steradians str.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -620,8 +628,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.pixel.Pixel.x_width">
-<code class="sig-name descname">x_width</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.x_width" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.pixel.Pixel.x_width">
+<span class="sig-name descname"><span class="pre">x_width</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.x_width" title="Permalink to this definition">¶</a></dt>
 <dd><p>The rectangular collection area’s width along the x-axis in local coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -631,8 +639,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.pixel.Pixel.y_width">
-<code class="sig-name descname">y_width</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.y_width" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.pixel.Pixel.y_width">
+<span class="sig-name descname"><span class="pre">y_width</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.pixel.Pixel.y_width" title="Permalink to this definition">¶</a></dt>
 <dd><p>The rectangular collection area’s width along the y-axis in local coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -644,8 +652,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.nonimaging.targetted_pixel.</code><code class="sig-name descname">TargettedPixel</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.nonimaging.targetted_pixel.</span></span><span class="sig-name descname"><span class="pre">TargettedPixel</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer.Observer0D" title="raysect.optical.observer.base.observer.Observer0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.observer.Observer0D</span></code></a></p>
 <p>A pixel observer that preferentially targets rays towards a given list of primitives.</p>
 <p>The targetted pixel takes a list of target primitives. The observer targets the
@@ -686,8 +694,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </pre></div>
 </div>
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.collection_area">
-<code class="sig-name descname">collection_area</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.collection_area" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.collection_area">
+<span class="sig-name descname"><span class="pre">collection_area</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.collection_area" title="Permalink to this definition">¶</a></dt>
 <dd><p>The pixel’s collection area in m^2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -697,8 +705,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.sensitivity">
-<code class="sig-name descname">sensitivity</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.sensitivity" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.sensitivity">
+<span class="sig-name descname"><span class="pre">sensitivity</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.sensitivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The pixel’s sensitivity measured in units of per area per solid angle (m^-2 str^-1).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -708,8 +716,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.solid_angle">
-<code class="sig-name descname">solid_angle</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.solid_angle" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.solid_angle">
+<span class="sig-name descname"><span class="pre">solid_angle</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.solid_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>The pixel’s solid angle in steradians str.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -719,8 +727,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.targets">
-<code class="sig-name descname">targets</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.targets" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.targets">
+<span class="sig-name descname"><span class="pre">targets</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.targets" title="Permalink to this definition">¶</a></dt>
 <dd><p>The list of primitives this pixel will target for sampling.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -730,8 +738,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.targetted_path_prob">
-<code class="sig-name descname">targetted_path_prob</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.targetted_path_prob" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.targetted_path_prob">
+<span class="sig-name descname"><span class="pre">targetted_path_prob</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.targetted_path_prob" title="Permalink to this definition">¶</a></dt>
 <dd><p>The probability that an individual sample will be fired at a target instead of a sample from the whole hemisphere.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -741,8 +749,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.x_width">
-<code class="sig-name descname">x_width</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.x_width" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.x_width">
+<span class="sig-name descname"><span class="pre">x_width</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.x_width" title="Permalink to this definition">¶</a></dt>
 <dd><p>The rectangular collection area’s width along the x-axis in local coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -752,8 +760,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.y_width">
-<code class="sig-name descname">y_width</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.y_width" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.y_width">
+<span class="sig-name descname"><span class="pre">y_width</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.targetted_pixel.TargettedPixel.y_width" title="Permalink to this definition">¶</a></dt>
 <dd><p>The rectangular collection area’s width along the y-axis in local coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -765,8 +773,8 @@ y-axis in local coordinates (default=1cm).</p></li>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.nonimaging.mesh_pixel.</code><code class="sig-name descname">MeshPixel</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.nonimaging.mesh_pixel.</span></span><span class="sig-name descname"><span class="pre">MeshPixel</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer.Observer0D" title="raysect.optical.observer.base.observer.Observer0D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.observer.Observer0D</span></code></a></p>
 <p>Uses a supplied mesh surface as a pixel.</p>
 <div class="admonition warning">
@@ -807,8 +815,8 @@ by this pixel (default=SpectralPowerPipeline0D()).</p></li>
 </pre></div>
 </div>
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.collection_area">
-<code class="sig-name descname">collection_area</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.collection_area" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.collection_area">
+<span class="sig-name descname"><span class="pre">collection_area</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.collection_area" title="Permalink to this definition">¶</a></dt>
 <dd><p>The pixel’s collection area in m^2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -818,8 +826,8 @@ by this pixel (default=SpectralPowerPipeline0D()).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.sensitivity">
-<code class="sig-name descname">sensitivity</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.sensitivity" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.sensitivity">
+<span class="sig-name descname"><span class="pre">sensitivity</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.sensitivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The pixel’s sensitivity measured in units of per area per solid angle (m^-2 str^-1).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -829,8 +837,8 @@ by this pixel (default=SpectralPowerPipeline0D()).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.solid_angle">
-<code class="sig-name descname">solid_angle</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.solid_angle" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.solid_angle">
+<span class="sig-name descname"><span class="pre">solid_angle</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_pixel.MeshPixel.solid_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>The pixel’s solid angle in steradians str.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -845,8 +853,8 @@ by this pixel (default=SpectralPowerPipeline0D()).</p></li>
 <div class="section" id="id13">
 <h2><span class="section-number">3.2.2. </span>1D Observers<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="raysect.optical.observer.base.observer.Observer1D">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.base.observer.</code><code class="sig-name descname">Observer1D</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer1D" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer1D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.base.observer.</span></span><span class="sig-name descname"><span class="pre">Observer1D</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer._ObserverBase" title="raysect.optical.observer.base.observer._ObserverBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.observer._ObserverBase</span></code></a></p>
 <p>1D observer base class.</p>
 <p>This is an abstract class and cannot be used for observing.</p>
@@ -864,8 +872,8 @@ observe() (default=1000).</p></li>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="raysect.optical.observer.base.observer.Observer1D._generate_rays">
-<code class="sig-name descname">_generate_rays</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer1D._generate_rays" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer1D._generate_rays">
+<span class="sig-name descname"><span class="pre">_generate_rays</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer1D._generate_rays" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate a list of Rays that sample over the sensitivity of the pixel.</p>
 <p>This is a virtual method to be implemented by derived classes.</p>
 <p>Runs during the observe() loop to generate the rays. Allows observers
@@ -895,8 +903,8 @@ statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer.Observer1D.frame_sampler">
-<code class="sig-name descname">frame_sampler</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer1D.frame_sampler" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer1D.frame_sampler">
+<span class="sig-name descname"><span class="pre">frame_sampler</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer1D.frame_sampler" title="Permalink to this definition">¶</a></dt>
 <dd><p>The FrameSampler1D class for this observer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -906,8 +914,8 @@ statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer.Observer1D.pipelines">
-<code class="sig-name descname">pipelines</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer1D.pipelines" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer1D.pipelines">
+<span class="sig-name descname"><span class="pre">pipelines</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer1D.pipelines" title="Permalink to this definition">¶</a></dt>
 <dd><p>A list of pipelines to process the output spectra of these observations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -917,8 +925,8 @@ statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer.Observer1D.pixel_samples">
-<code class="sig-name descname">pixel_samples</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer1D.pixel_samples" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer1D.pixel_samples">
+<span class="sig-name descname"><span class="pre">pixel_samples</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer1D.pixel_samples" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of samples to take per pixel.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -928,8 +936,8 @@ statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer.Observer1D.pixels">
-<code class="sig-name descname">pixels</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer1D.pixels" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer1D.pixels">
+<span class="sig-name descname"><span class="pre">pixels</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer1D.pixels" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of pixels for this observer, i.e. 512.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -941,8 +949,8 @@ statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.observer.nonimaging.mesh_camera.MeshCamera">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.nonimaging.mesh_camera.</code><code class="sig-name descname">MeshCamera</code><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_camera.MeshCamera" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.mesh_camera.MeshCamera">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.nonimaging.mesh_camera.</span></span><span class="sig-name descname"><span class="pre">MeshCamera</span></span><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_camera.MeshCamera" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer.Observer1D" title="raysect.optical.observer.base.observer.Observer1D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.observer.Observer1D</span></code></a></p>
 <p>Uses a supplied mesh surface as a linear camera.</p>
 <div class="admonition warning">
@@ -992,8 +1000,8 @@ by this observer (default=PowerPipeline1D()).</p></li>
 </pre></div>
 </div>
 <dl class="py method">
-<dt id="raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.collection_area">
-<code class="sig-name descname">collection_area</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.collection_area" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.collection_area">
+<span class="sig-name descname"><span class="pre">collection_area</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.collection_area" title="Permalink to this definition">¶</a></dt>
 <dd><p>The mesh camera’s collection area in m^2.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1003,8 +1011,8 @@ by this observer (default=PowerPipeline1D()).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.sensitivity">
-<code class="sig-name descname">sensitivity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.sensitivity" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.sensitivity">
+<span class="sig-name descname"><span class="pre">sensitivity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.sensitivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The mesh camera’s sensitivity measured in units of per area per solid angle (m^-2 str^-1).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1014,8 +1022,8 @@ by this observer (default=PowerPipeline1D()).</p></li>
 </dd></dl>
 
 <dl class="py method">
-<dt id="raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.solid_angle">
-<code class="sig-name descname">solid_angle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.solid_angle" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.solid_angle">
+<span class="sig-name descname"><span class="pre">solid_angle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.nonimaging.mesh_camera.MeshCamera.solid_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>The solid angle observed at each mesh triangle in steradians str.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1030,8 +1038,8 @@ by this observer (default=PowerPipeline1D()).</p></li>
 <div class="section" id="id18">
 <h2><span class="section-number">3.2.3. </span>2D Observers<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="raysect.optical.observer.base.observer.Observer2D">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.base.observer.</code><code class="sig-name descname">Observer2D</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer2D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.base.observer.</span></span><span class="sig-name descname"><span class="pre">Observer2D</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer._ObserverBase" title="raysect.optical.observer.base.observer._ObserverBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.observer._ObserverBase</span></code></a></p>
 <p>2D observer base class.</p>
 <p>This is an abstract class and cannot be used for observing.</p>
@@ -1049,8 +1057,8 @@ observe() (default=1000).</p></li>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="raysect.optical.observer.base.observer.Observer2D._generate_rays">
-<code class="sig-name descname">_generate_rays</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D._generate_rays" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer2D._generate_rays">
+<span class="sig-name descname"><span class="pre">_generate_rays</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D._generate_rays" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate a list of Rays that sample over the sensitivity of the pixel.</p>
 <p>This is a virtual method to be implemented by derived classes.</p>
 <p>Runs during the observe() loop to generate the rays. Allows observers
@@ -1081,8 +1089,8 @@ statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer.Observer2D.frame_sampler">
-<code class="sig-name descname">frame_sampler</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D.frame_sampler" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer2D.frame_sampler">
+<span class="sig-name descname"><span class="pre">frame_sampler</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D.frame_sampler" title="Permalink to this definition">¶</a></dt>
 <dd><p>The FrameSampler2D class for this observer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1092,8 +1100,8 @@ statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer.Observer2D.pipelines">
-<code class="sig-name descname">pipelines</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D.pipelines" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer2D.pipelines">
+<span class="sig-name descname"><span class="pre">pipelines</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D.pipelines" title="Permalink to this definition">¶</a></dt>
 <dd><p>A list of pipelines to process the output spectra of these observations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1103,8 +1111,8 @@ statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer.Observer2D.pixel_samples">
-<code class="sig-name descname">pixel_samples</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D.pixel_samples" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer2D.pixel_samples">
+<span class="sig-name descname"><span class="pre">pixel_samples</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D.pixel_samples" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of samples to take per pixel.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1114,8 +1122,8 @@ statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.base.observer.Observer2D.pixels">
-<code class="sig-name descname">pixels</code><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D.pixels" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.base.observer.Observer2D.pixels">
+<span class="sig-name descname"><span class="pre">pixels</span></span><a class="headerlink" href="#raysect.optical.observer.base.observer.Observer2D.pixels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tuple describing the pixel dimensions for this observer (nx, ny), i.e. (512, 512).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1127,8 +1135,8 @@ statistics will be incorrectly calculated.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.observer.imaging.pinhole.PinholeCamera">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.imaging.pinhole.</code><code class="sig-name descname">PinholeCamera</code><a class="headerlink" href="#raysect.optical.observer.imaging.pinhole.PinholeCamera" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.imaging.pinhole.PinholeCamera">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.imaging.pinhole.</span></span><span class="sig-name descname"><span class="pre">PinholeCamera</span></span><a class="headerlink" href="#raysect.optical.observer.imaging.pinhole.PinholeCamera" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer.Observer2D" title="raysect.optical.observer.base.observer.Observer2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.observer.Observer2D</span></code></a></p>
 <p>An observer that models an idealised pinhole camera.</p>
 <p>A simple camera that launches rays from the observer’s origin point over a
@@ -1162,8 +1170,8 @@ at each pixel by the camera (default=RGBPipeline2D()).</p></li>
 </pre></div>
 </div>
 <dl class="py attribute">
-<dt id="raysect.optical.observer.imaging.pinhole.PinholeCamera.fov">
-<code class="sig-name descname">fov</code><a class="headerlink" href="#raysect.optical.observer.imaging.pinhole.PinholeCamera.fov" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.imaging.pinhole.PinholeCamera.fov">
+<span class="sig-name descname"><span class="pre">fov</span></span><a class="headerlink" href="#raysect.optical.observer.imaging.pinhole.PinholeCamera.fov" title="Permalink to this definition">¶</a></dt>
 <dd><p>The field of view of the camera in degrees.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1173,8 +1181,8 @@ at each pixel by the camera (default=RGBPipeline2D()).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.imaging.pinhole.PinholeCamera.pixels">
-<code class="sig-name descname">pixels</code><a class="headerlink" href="#raysect.optical.observer.imaging.pinhole.PinholeCamera.pixels" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.imaging.pinhole.PinholeCamera.pixels">
+<span class="sig-name descname"><span class="pre">pixels</span></span><a class="headerlink" href="#raysect.optical.observer.imaging.pinhole.PinholeCamera.pixels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tuple describing the pixel dimensions for this observer (nx, ny), i.e. (512, 512).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1184,8 +1192,8 @@ at each pixel by the camera (default=RGBPipeline2D()).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.imaging.pinhole.PinholeCamera.sensitivity">
-<code class="sig-name descname">sensitivity</code><a class="headerlink" href="#raysect.optical.observer.imaging.pinhole.PinholeCamera.sensitivity" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.imaging.pinhole.PinholeCamera.sensitivity">
+<span class="sig-name descname"><span class="pre">sensitivity</span></span><a class="headerlink" href="#raysect.optical.observer.imaging.pinhole.PinholeCamera.sensitivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The sensitivity applied to each pixel.</p>
 <p>If sensitivity=1.0 all spectral units are in radiance.</p>
 <dl class="field-list simple">
@@ -1198,8 +1206,8 @@ at each pixel by the camera (default=RGBPipeline2D()).</p></li>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.observer.imaging.orthographic.OrthographicCamera">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.imaging.orthographic.</code><code class="sig-name descname">OrthographicCamera</code><a class="headerlink" href="#raysect.optical.observer.imaging.orthographic.OrthographicCamera" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.imaging.orthographic.OrthographicCamera">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.imaging.orthographic.</span></span><span class="sig-name descname"><span class="pre">OrthographicCamera</span></span><a class="headerlink" href="#raysect.optical.observer.imaging.orthographic.OrthographicCamera" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer.Observer2D" title="raysect.optical.observer.base.observer.Observer2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.observer.Observer2D</span></code></a></p>
 <p>A camera observing an orthogonal (orthographic) projection of the scene,
 avoiding perspective effects.</p>
@@ -1219,8 +1227,8 @@ at each pixel by the camera (default=RGBPipeline2D()).</p></li>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt id="raysect.optical.observer.imaging.orthographic.OrthographicCamera.pixels">
-<code class="sig-name descname">pixels</code><a class="headerlink" href="#raysect.optical.observer.imaging.orthographic.OrthographicCamera.pixels" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.imaging.orthographic.OrthographicCamera.pixels">
+<span class="sig-name descname"><span class="pre">pixels</span></span><a class="headerlink" href="#raysect.optical.observer.imaging.orthographic.OrthographicCamera.pixels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tuple describing the pixel dimensions for this observer (nx, ny), i.e. (512, 512).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1230,8 +1238,8 @@ at each pixel by the camera (default=RGBPipeline2D()).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.imaging.orthographic.OrthographicCamera.sensitivity">
-<code class="sig-name descname">sensitivity</code><a class="headerlink" href="#raysect.optical.observer.imaging.orthographic.OrthographicCamera.sensitivity" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.imaging.orthographic.OrthographicCamera.sensitivity">
+<span class="sig-name descname"><span class="pre">sensitivity</span></span><a class="headerlink" href="#raysect.optical.observer.imaging.orthographic.OrthographicCamera.sensitivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The sensitivity applied to each pixel.</p>
 <p>If sensitivity=1.0 all spectral units are in radiance.</p>
 <dl class="field-list simple">
@@ -1242,8 +1250,8 @@ at each pixel by the camera (default=RGBPipeline2D()).</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.imaging.orthographic.OrthographicCamera.width">
-<code class="sig-name descname">width</code><a class="headerlink" href="#raysect.optical.observer.imaging.orthographic.OrthographicCamera.width" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.imaging.orthographic.OrthographicCamera.width">
+<span class="sig-name descname"><span class="pre">width</span></span><a class="headerlink" href="#raysect.optical.observer.imaging.orthographic.OrthographicCamera.width" title="Permalink to this definition">¶</a></dt>
 <dd><p>The width of the orthographic area to observe in meters, the height is
 deduced from the ‘pixels’ attribute.</p>
 <dl class="field-list simple">
@@ -1256,8 +1264,8 @@ deduced from the ‘pixels’ attribute.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.observer.imaging.ccd.CCDArray">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.imaging.ccd.</code><code class="sig-name descname">CCDArray</code><a class="headerlink" href="#raysect.optical.observer.imaging.ccd.CCDArray" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.imaging.ccd.CCDArray">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.imaging.ccd.</span></span><span class="sig-name descname"><span class="pre">CCDArray</span></span><a class="headerlink" href="#raysect.optical.observer.imaging.ccd.CCDArray" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer.Observer2D" title="raysect.optical.observer.base.observer.Observer2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.observer.Observer2D</span></code></a></p>
 <p>An observer that models an idealised CCD-like imaging sensor.</p>
 <p>The CCD is a regular array of square pixels. Each pixel samples red, green
@@ -1277,13 +1285,13 @@ at each pixel by the camera (default=RGBPipeline2D()).</p></li>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt id="raysect.optical.observer.imaging.ccd.CCDArray.pixels">
-<code class="sig-name descname">pixels</code><a class="headerlink" href="#raysect.optical.observer.imaging.ccd.CCDArray.pixels" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.imaging.ccd.CCDArray.pixels">
+<span class="sig-name descname"><span class="pre">pixels</span></span><a class="headerlink" href="#raysect.optical.observer.imaging.ccd.CCDArray.pixels" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="raysect.optical.observer.imaging.ccd.CCDArray.width">
-<code class="sig-name descname">width</code><a class="headerlink" href="#raysect.optical.observer.imaging.ccd.CCDArray.width" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.imaging.ccd.CCDArray.width">
+<span class="sig-name descname"><span class="pre">width</span></span><a class="headerlink" href="#raysect.optical.observer.imaging.ccd.CCDArray.width" title="Permalink to this definition">¶</a></dt>
 <dd><p>The CCD sensor x-width in metres.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1295,8 +1303,8 @@ at each pixel by the camera (default=RGBPipeline2D()).</p></li>
 </dd></dl>
 
 <dl class="py class">
-<dt id="raysect.optical.observer.imaging.vector.VectorCamera">
-<em class="property">class </em><code class="sig-prename descclassname">raysect.optical.observer.imaging.vector.</code><code class="sig-name descname">VectorCamera</code><a class="headerlink" href="#raysect.optical.observer.imaging.vector.VectorCamera" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.imaging.vector.VectorCamera">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">raysect.optical.observer.imaging.vector.</span></span><span class="sig-name descname"><span class="pre">VectorCamera</span></span><a class="headerlink" href="#raysect.optical.observer.imaging.vector.VectorCamera" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#raysect.optical.observer.base.observer.Observer2D" title="raysect.optical.observer.base.observer.Observer2D"><code class="xref py py-class docutils literal notranslate"><span class="pre">raysect.optical.observer.base.observer.Observer2D</span></code></a></p>
 <p>An observer that uses a specified set of pixel vectors.</p>
 <p>A simple camera that uses calibrated vectors for each pixel to sample the scene.
@@ -1317,8 +1325,8 @@ at each pixel by the camera (default=RGBPipeline2D()).</p></li>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt id="raysect.optical.observer.imaging.vector.VectorCamera.sensitivity">
-<code class="sig-name descname">sensitivity</code><a class="headerlink" href="#raysect.optical.observer.imaging.vector.VectorCamera.sensitivity" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="raysect.optical.observer.imaging.vector.VectorCamera.sensitivity">
+<span class="sig-name descname"><span class="pre">sensitivity</span></span><a class="headerlink" href="#raysect.optical.observer.imaging.vector.VectorCamera.sensitivity" title="Permalink to this definition">¶</a></dt>
 <dd><p>The sensitivity applied to each pixel.</p>
 <p>If sensitivity=1.0 all spectral units are in radiance.</p>
 <dl class="field-list simple">
@@ -1338,29 +1346,29 @@ at each pixel by the camera (default=RGBPipeline2D()).</p></li>
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="pipelines.html" class="btn btn-neutral float-right" title="3.3. Frame Samples and Pipelines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="main_optical_classes.html" class="btn btn-neutral float-left" title="3.1. Main Optical Classes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="pipelines.html" class="btn btn-neutral float-right" title="3.3. Frame Samples and Pipelines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="main_optical_classes.html" class="btn btn-neutral float-left" title="3.1. Main Optical Classes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2014-2018, Dr Alex Meakins
+        &#169; Copyright 2014-2021, Dr Alex Meakins.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -1368,7 +1376,6 @@ at each pixel by the camera (default=RGBPipeline2D()).</p></li>
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
